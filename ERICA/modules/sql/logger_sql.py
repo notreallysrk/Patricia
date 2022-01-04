@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, String, Boolean
 
-from tg_bot.modules.sql import BASE, SESSION
+from ERICA.modules.sql import BASE, SESSION
 
 class LoggerSettings(BASE):
     __tablename__ = "chat_log_settings"
