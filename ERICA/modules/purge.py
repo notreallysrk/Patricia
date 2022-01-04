@@ -1,8 +1,8 @@
 import time
 from telethon import events
 
-from tg_bot import telethn
-from tg_bot.modules.helper_funcs.telethn.chatstatus import (
+from ERICA import telethn
+from ERICA.modules.helper_funcs.telethn.chatstatus import (
     can_delete_messages, user_is_admin)
 
 
