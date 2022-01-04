@@ -9,7 +9,7 @@ from telegram.ext import Filters, CallbackContext
 from telegram.utils.helpers import mention_html, escape_markdown
 from subprocess import Popen, PIPE
 
-from tg_bot import (
+from ERICA import (
     dispatcher,
     OWNER_ID,
     SUDO_USERS,
@@ -22,18 +22,18 @@ from tg_bot import (
     StartTime,
     KInit
 )
-from tg_bot.__main__ import STATS, USER_INFO, TOKEN
-from tg_bot.modules.sql import SESSION
-from tg_bot.modules.helper_funcs.chat_status import user_admin, sudo_plus
-from tg_bot.modules.helper_funcs.extraction import extract_user
-import tg_bot.modules.sql.users_sql as sql
-from tg_bot.modules.language import gs
+from ERICA.__main__ import STATS, USER_INFO, TOKEN
+from ERICA.modules.sql import SESSION
+from ERICA.modules.helper_funcs.chat_status import user_admin, sudo_plus
+from ERICA.modules.helper_funcs.extraction import extract_user
+import ERICA.modules.sql.users_sql as sql
+from ERICA.modules.language import gs
 from telegram import __version__ as ptbver, InlineKeyboardMarkup, InlineKeyboardButton
 from psutil import cpu_percent, virtual_memory, disk_usage, boot_time
 import datetime
 import platform
 from platform import python_version
-from tg_bot.modules.helper_funcs.decorators import kigcmd, kigcallback
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigcallback
 
 MARKDOWN_HELP = f"""
 Markdown is a very powerful formatting tool supported by telegram. {dispatcher.bot.first_name} has some enhancements, to make sure that \
