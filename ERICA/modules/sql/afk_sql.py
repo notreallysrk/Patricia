@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy import Column, UnicodeText, Boolean, BigInteger
 
-from tg_bot.modules.sql import BASE, SESSION
+from ERICA.modules.sql import BASE, SESSION
 
 
 class AFK(BASE):
