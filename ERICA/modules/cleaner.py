@@ -1,13 +1,13 @@
 import html
 
-from tg_bot import ALLOW_EXCL, CustomCommandHandler, dispatcher
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.chat_status import (
+from ERICA import ALLOW_EXCL, CustomCommandHandler, dispatcher
+from ERICA.modules.disable import DisableAbleCommandHandler
+from ERICA.modules.helper_funcs.chat_status import (
     bot_can_delete,
     connection_status,
     dev_plus,
 )
-from tg_bot.modules.sql import cleaner_sql as sql
+from ERICA.modules.sql import cleaner_sql as sql
 from telegram import ParseMode, Update
 from telegram.ext import (
     CallbackContext,
