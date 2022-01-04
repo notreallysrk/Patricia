@@ -5,12 +5,12 @@ from telegram import ParseMode, Update, Chat
 from telegram.ext import CommandHandler, MessageHandler
 from telegram.utils.helpers import escape_markdown
 
-from tg_bot import dispatcher
-from tg_bot.modules.helper_funcs.handlers import CMD_STARTERS
-from tg_bot.modules.helper_funcs.misc import is_module_loaded
-from tg_bot.modules.helper_funcs.alternate import send_message, typing_action
-from tg_bot.modules.connection import connected
-from tg_bot.modules.language import gs
+from ERICA import dispatcher
+from ERICA.modules.helper_funcs.handlers import CMD_STARTERS
+from ERICA.modules.helper_funcs.misc import is_module_loaded
+from ERICA.modules.helper_funcs.alternate import send_message, typing_action
+from ERICA.modules.connection import connected
+from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "disable_help")
