@@ -29,16 +29,16 @@ def get_user_list(key):
 fileConfig('logging.ini')
 
 #print(flag)
-log = logging.getLogger('[Enterprise]')
+log = logging.getLogger('[ZAID]')
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
-log.info("[KIGYO] Kigyo is starting. | An Eagle Union Project. | Licensed under GPLv3.")
-log.info("[KIGYO] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
-log.info("[KIGYO] Project maintained by: github.com/Dank-del (t.me/dank_as_fuck)")
+log.info("[ERICA] Erica is starting. | An Eagle Union Project. | Licensed under GPLv3.")
+log.info("[ERICA] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
+log.info("[ERICA] Project maintained by: github.com/ITZ-ZAID (t.me/TIMESISNOTWAITING)")
 
 # if version < 3.6, stop bot.
 if sys.version_info[0] < 3 or sys.version_info[1] < 7:
     log.error(
-        "[KIGYO] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
+        "[ZAID] You MUST have a python version of at least 3.7! Multiple features depend on this. Bot quitting."
     )
     quit(1)
 
@@ -79,8 +79,8 @@ class KigyoINIT:
         self.LASTFM_API_KEY: str = self.parser.get('LASTFM_API_KEY', None)
         self.CF_API_KEY: str =  self.parser.get("CF_API_KEY", None)
         self.bot_id = 0 #placeholder
-        self.bot_name = "Kigyo" #placeholder
-        self.bot_username = "KigyoRobot" #placeholder
+        self.bot_name = "Erica" #placeholder
+        self.bot_username = "Mrs_Erica_Bot" #placeholder
         self.DEBUG: bool = self.parser.getboolean("IS_DEBUG", False)
         self.DROP_UPDATES: bool = self.parser.getboolean("DROP_UPDATES", True)
         self.BOT_API_URL: str = self.parser.get('BOT_API_URL', "https://api.telegram.org/bot")
@@ -139,7 +139,7 @@ CF_API_KEY = KInit.CF_API_KEY
 # SpamWatch
 sw = KInit.init_sw()
 
-from tg_bot.modules.sql import SESSION
+from ERICA.modules.sql import SESSION
 
 if not KInit.DROP_UPDATES:
     updater = tg.Updater(token=TOKEN, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(session=SESSION))
@@ -153,7 +153,7 @@ dispatcher = updater.dispatcher
 
 
 # Load at end to ensure all prev variables have been set
-from tg_bot.modules.helper_funcs.handlers import CustomCommandHandler
+from ERICA.modules.helper_funcs.handlers import CustomCommandHandler
 
 if CUSTOM_CMD and len(CUSTOM_CMD) >= 1:
     tg.CommandHandler = CustomCommandHandler
