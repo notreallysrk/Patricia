@@ -4,8 +4,8 @@ import re
 import time
 from functools import partial
 from io import BytesIO
-import tg_bot.modules.sql.welcome_sql as sql
-from tg_bot import (
+import ERICA.modules.sql.welcome_sql as sql
+from ERICA import (
     DEV_USERS,
     log,
     OWNER_ID,
@@ -16,18 +16,18 @@ from tg_bot import (
     sw,
     dispatcher,
 )
-from tg_bot.modules.helper_funcs.chat_status import (
+from ERICA.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
     user_admin as u_admin,
 )
-from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from tg_bot.modules.helper_funcs.msg_types import get_welcome_type
-from tg_bot.modules.helper_funcs.string_handling import (
+from ERICA.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from ERICA.modules.helper_funcs.msg_types import get_welcome_type
+from ERICA.modules.helper_funcs.string_handling import (
     escape_invalid_curly_brackets,
     markdown_parser,
 )
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.sql.antispam_sql import is_user_gbanned
+from ERICA.modules.log_channel import loggable
+from ERICA.modules.sql.antispam_sql import is_user_gbanned
 from telegram import (
     ChatPermissions,
     InlineKeyboardButton,
@@ -44,7 +44,7 @@ from telegram.ext import (
     MessageHandler,
 )
 from telegram.utils.helpers import escape_markdown, mention_html, mention_markdown
-import tg_bot.modules.sql.log_channel_sql as logsql
+import ERICA.modules.sql.log_channel_sql as logsql
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 VALID_WELCOME_FORMATTERS = [
