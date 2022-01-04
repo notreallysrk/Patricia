@@ -7,7 +7,7 @@ from telegram.ext import CallbackContext
 
 from ERICA import LASTFM_API_KEY
 from ERICA.modules.helper_funcs.decorators import kigcmd
-import tg_bot.modules.sql.last_fm_sql as sql
+import ERICA.modules.sql.last_fm_sql as sql
 
 @kigcmd(command='setuser')
 def set_user(update: Update, context: CallbackContext):
