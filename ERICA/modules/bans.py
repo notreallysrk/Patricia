@@ -6,7 +6,7 @@ from telegram.error import BadRequest
 from telegram.ext import Filters, CallbackContext
 from telegram.utils.helpers import mention_html
 
-from tg_bot import (
+from ERICA import (
     DEV_USERS,
     SUDO_USERS,
     SARDEGNA_USERS,
@@ -14,7 +14,7 @@ from tg_bot import (
     OWNER_ID,
     WHITELIST_USERS,
 )
-from tg_bot.modules.helper_funcs.chat_status import (
+from ERICA.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     connection_status,
@@ -22,10 +22,10 @@ from tg_bot.modules.helper_funcs.chat_status import (
     is_user_ban_protected,
     is_user_in_chat,
 )
-from tg_bot.modules.helper_funcs.extraction import extract_user_and_text
-from tg_bot.modules.helper_funcs.string_handling import extract_time
-from tg_bot.modules.log_channel import loggable, gloggable
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.extraction import extract_user_and_text
+from ERICA.modules.helper_funcs.string_handling import extract_time
+from ERICA.modules.log_channel import loggable, gloggable
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
@@ -418,7 +418,7 @@ def selfunban(context: CallbackContext, update: Update) -> Optional[str]:
     return log
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 
 def get_help(chat):
