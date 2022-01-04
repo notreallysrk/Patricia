@@ -9,10 +9,10 @@ import telegram
 from telegram import ParseMode, Update, ChatPermissions
 from telegram.ext import CallbackContext
 
-import tg_bot.modules.fun_strings as fun_strings
-from tg_bot.modules.helper_funcs.chat_status import is_user_admin
-from tg_bot.modules.helper_funcs.extraction import extract_user
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+import ERICA.modules.fun_strings as fun_strings
+from ERICA.modules.helper_funcs.chat_status import is_user_admin
+from ERICA.modules.helper_funcs.extraction import extract_user
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 
 @kigcmd(command='runs')
@@ -170,7 +170,7 @@ def table(update: Update, context: CallbackContext):
     reply_text(random.choice(fun_strings.TABLE))
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 
 def get_help(chat):
