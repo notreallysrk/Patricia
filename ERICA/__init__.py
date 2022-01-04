@@ -20,7 +20,7 @@ flag = """
 
 def get_user_list(key):
     # Import here to evade a circular import
-    from tg_bot.modules.sql import nation_sql
+    from ERICA.modules.sql import nation_sql
     royals = nation_sql.get_royals(key)
     return [a.user_id for a in royals]
 
