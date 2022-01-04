@@ -2,9 +2,9 @@ import html
 import time
 from datetime import datetime
 from io import BytesIO
-from tg_bot.modules.sql.users_sql import get_user_com_chats
-import tg_bot.modules.sql.antispam_sql as sql
-from tg_bot import (
+from ERICA.modules.sql.users_sql import get_user_com_chats
+import ERICA.modules.sql.antispam_sql as sql
+from ERICA import (
     DEV_USERS,
     GBAN_LOGS,
     OWNER_ID,
@@ -16,18 +16,18 @@ from tg_bot import (
     dispatcher,
     log,
 )
-from tg_bot.modules.helper_funcs.chat_status import (
+from ERICA.modules.helper_funcs.chat_status import (
     is_user_admin,
     support_plus,
 )
-from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from tg_bot.modules.helper_funcs.misc import send_to_list
+from ERICA.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from ERICA.modules.helper_funcs.misc import send_to_list
 from telegram import ParseMode, Update
 from telegram.error import BadRequest, TelegramError
 from telegram.ext import CallbackContext, Filters
 from telegram.utils.helpers import mention_html
 from spamwatch.errors import SpamWatchError, Error, UnauthorizedError, NotFoundError, Forbidden, TooManyRequests
-from tg_bot.modules.helper_funcs.decorators import kigcmd, kigmsg
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
@@ -105,7 +105,7 @@ def gban(update: Update, context: CallbackContext):  # sourcery no-metrics
         message.reply_text("That's a Neptunia! They cannot be banned!")
         return
 
-    if int(user_id) in (777000, 1087968824):
+    if int(user_id) in (936481432, 1669178360):
         message.reply_text("Huh, why would I gban Telegram bots?")
         return
 
@@ -491,12 +491,12 @@ def __stats__():
 
 
 def __user_info__(user_id):
-    if user_id in (777000, 1087968824):
+    if user_id in (936481432, 1669178360):
         return ""
 
     is_gbanned = sql.is_user_gbanned(user_id)
     text = "Gbanned: <b>{}</b>"
-    if user_id in [777000, 1087968824]:
+    if user_id in [936481432, 1669178360]:
         return ""
     if user_id == dispatcher.bot.id:
         return ""
@@ -521,7 +521,7 @@ def __chat_settings__(chat_id, user_id):
     return f"This chat is enforcing *gbans*: `{sql.does_chat_gban(chat_id)}`."
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 
 def get_help(chat):
