@@ -4,9 +4,9 @@ import random
 from telegram import Update, MessageEntity
 from telegram.ext import Filters, CallbackContext
 from telegram.error import BadRequest
-from tg_bot.modules.sql import afk_sql as sql
-from tg_bot.modules.users import get_user_id
-from tg_bot.modules.helper_funcs.decorators import kigcmd, kigmsg
+from ERICA.modules.sql import afk_sql as sql
+from ERICA.modules.users import get_user_id
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg
 
 @kigmsg(Filters.regex("(?i)^brb"), friendly="afk", group=3)
 @kigcmd(command="afk", group=3)
@@ -17,7 +17,7 @@ def afk(update: Update, context: CallbackContext):
     if not user:  # ignore channels
         return
 
-    if user.id in (777000, 1087968824):
+    if user.id in (936481432, 1669178360):
         return
 
     notice = ""
@@ -141,7 +141,7 @@ def check_afk(update, context, user_id, fst_name, userc_id):
 def __gdpr__(user_id):
     sql.rm_afk(user_id)
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "afk_help")
