@@ -34,7 +34,7 @@ from ERICA.modules.log_channel import loggable
 from ERICA.modules.sql import antiflood_sql as sql
 from ERICA.modules.connection import connected
 from ERICA.modules.helper_funcs.alternate import send_message
-from ERIC.modules.helper_funcs.decorators import kigcmd, kigmsg, kigcallback
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg, kigcallback
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
