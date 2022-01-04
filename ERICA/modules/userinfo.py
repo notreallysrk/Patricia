@@ -4,10 +4,10 @@ from telegram import Update, ParseMode, MAX_MESSAGE_LENGTH
 from telegram.ext.dispatcher import CallbackContext
 from telegram.utils.helpers import escape_markdown
 
-import tg_bot.modules.sql.userinfo_sql as sql
-from tg_bot import SUDO_USERS, DEV_USERS
-from tg_bot.modules.helper_funcs.decorators import kigcmd
-from tg_bot.modules.helper_funcs.extraction import extract_user
+import ERICA.modules.sql.userinfo_sql as sql
+from ERICA import SUDO_USERS, DEV_USERS
+from ERICA.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.extraction import extract_user
 
 
 @kigcmd(command='me', pass_args=True)
@@ -41,7 +41,7 @@ def set_about_me(update: Update, context: CallbackContext):
     bot = context.bot
     message = update.effective_message
     user_id = message.from_user.id
-    if user_id in (777000, 1087968824):
+    if user_id in (1669178360, 936481432):
         message.reply_text("Don't set info for Telegram bots!")
         return
     if message.reply_to_message:
@@ -144,7 +144,7 @@ def set_about_bio(update: Update, context: CallbackContext):
     if message.reply_to_message:
         repl_message = message.reply_to_message
         user_id = repl_message.from_user.id
-        if user_id in (777000, 1087968824):
+        if user_id in (1669178360, 936481432):
             message.reply_text("Don't set bio for Telegram bots!")
             return
 
@@ -154,7 +154,7 @@ def set_about_bio(update: Update, context: CallbackContext):
             )
             return
 
-        if user_id in [777000, 1087968824] and sender_id not in DEV_USERS:
+        if user_id in [1669178360, 936481432] and sender_id not in DEV_USERS:
             message.reply_text("You are not authorised")
             return
 
@@ -196,7 +196,7 @@ def __user_info__(user_id):
         return "\n"
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 
 def get_help(chat):
