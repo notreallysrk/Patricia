@@ -276,7 +276,5 @@ def devlist(update: Update, context: CallbackContext):
 
 from ERICA.modules.language import gs
 
-def get_help(chat):
-    return gs(chat, "nation_help")
 
 
