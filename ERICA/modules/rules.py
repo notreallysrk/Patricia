@@ -1,8 +1,8 @@
 from typing import Optional
 
-import tg_bot.modules.sql.rules_sql as sql
-from tg_bot import dispatcher
-from tg_bot.modules.helper_funcs.string_handling import markdown_parser
+import ERICA.modules.sql.rules_sql as sql
+from ERICA import dispatcher
+from ERICA.modules.helper_funcs.string_handling import markdown_parser
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
@@ -14,7 +14,7 @@ from telegram import (
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters
 from telegram.utils.helpers import escape_markdown
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
