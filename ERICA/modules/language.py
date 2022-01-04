@@ -4,10 +4,10 @@ from collections.abc import Iterable
 from telegram.ext import CommandHandler, CallbackQueryHandler
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
 
-from tg_bot import dispatcher
-import tg_bot.modules.sql.language_sql as sql
-from tg_bot.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from tg_bot.langs import get_string, get_languages, get_language
+from ERICA import dispatcher
+import ERICA.modules.sql.language_sql as sql
+from ERICA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from ERICA.langs import get_string, get_languages, get_language
 
 
 
@@ -47,8 +47,8 @@ def set_lang(update: Update, _) -> None:
     keyb.append(
         [
             InlineKeyboardButton(
-                text="Help us in translations",
-                url="https://poeditor.com/join/project?hash=oJISpjNcEx",
+                text="🆘 Help us in translations",
+                url="https://Github.com/ITZ-ZAID/MRSERICA",
             )
         ]
     )
@@ -69,7 +69,7 @@ def lang_button(update: Update, _) -> None:
     )
 
 
-SETLANG_HANDLER = CommandHandler("language", set_lang)
+SETLANG_HANDLER = CommandHandler("lang", set_lang)
 SETLANG_BUTTON_HANDLER = CallbackQueryHandler(lang_button, pattern=r"setLang_")
 
 dispatcher.add_handler(SETLANG_HANDLER)
