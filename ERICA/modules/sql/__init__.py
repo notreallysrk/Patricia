@@ -4,7 +4,7 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 from ERICA import KInit, log
 
-DB_URI = ""
+DB_URI = postgres://dnldonok:TJjru0b0Vm86ApLkQsprkb0ETKFRjdXI@tyke.db.elephantsql.com/dnldonok
 
 
 def start() -> scoped_session:
