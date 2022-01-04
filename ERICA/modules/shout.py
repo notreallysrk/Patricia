@@ -1,7 +1,7 @@
 from tg_bot import dispatcher
 from telegram import Update
 from telegram.ext import CallbackContext
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 @kigcmd(command='shout')
 def shout(update: Update, context: CallbackContext):
