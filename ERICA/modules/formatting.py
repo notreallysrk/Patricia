@@ -1,4 +1,4 @@
-from tg_bot.modules.helper_funcs.decorators import kigcallback
+from ERICA.modules.helper_funcs.decorators import kigcallback
 from telegram import (
     ParseMode,
     Update,
@@ -6,7 +6,7 @@ from telegram import (
     InlineKeyboardButton,
 )
 from telegram.ext import CallbackContext
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 def fmt_md_help(update: Update, context: CallbackContext):
     update.effective_message.reply_text(
@@ -37,7 +37,7 @@ def fmt_help(update: Update, context: CallbackContext):
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(
             [[InlineKeyboardButton(text="Back", callback_data=f"help_module({__mod_name__.lower()})"),
-            InlineKeyboardButton(text='Report Error', url='https://t.me/YorkTownEagleUnion')]]
+            InlineKeyboardButton(text='Report Error', url='https://t.me/Erica_support')]]
         ),
     )
     bot.answer_callback_query(query.id)
