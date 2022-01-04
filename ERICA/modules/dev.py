@@ -6,8 +6,8 @@ import sys
 from time import sleep
 
 from telegram.ext.callbackqueryhandler import CallbackQueryHandler
-from tg_bot import DEV_USERS, dispatcher, telethn, OWNER_ID
-from tg_bot.modules.helper_funcs.chat_status import dev_plus
+from ERICA import DEV_USERS, dispatcher, telethn, OWNER_ID
+from ERICA.modules.helper_funcs.chat_status import dev_plus
 from telegram import TelegramError, Update, ParseMode, InlineKeyboardButton, InlineKeyboardMarkup
 from telegram.ext import CallbackContext, CommandHandler
 import asyncio
