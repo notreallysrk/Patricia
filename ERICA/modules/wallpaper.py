@@ -1,10 +1,10 @@
 from random import randint
 
 import requests as r
-from tg_bot import WALL_API
+from ERICA import WALL_API
 from telegram import Update
 from telegram.ext import CallbackContext
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 # Wallpapers module by @TheRealPhoenix using wall.alphacoders.com
 
