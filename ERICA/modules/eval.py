@@ -75,7 +75,7 @@ def do(func, bot, update):
 
     os.chdir(os.getcwd())
     with open(
-        os.path.join(os.getcwd(), "tg_bot/modules/helper_funcs/temp.txt"), "w",
+        os.path.join(os.getcwd(), "ERICA/modules/helper_funcs/temp.txt"), "w",
     ) as temp:
         temp.write(body)
 
