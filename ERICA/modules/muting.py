@@ -1,22 +1,22 @@
 import html
 from typing import Optional
 
-from tg_bot import SARDEGNA_USERS
-from tg_bot.modules.helper_funcs.chat_status import (
+from ERICA import SARDEGNA_USERS
+from ERICA.modules.helper_funcs.chat_status import (
     bot_admin,
     can_restrict,
     connection_status,
     is_user_admin,
 )
-from tg_bot.modules.helper_funcs.extraction import extract_user_and_text
-from tg_bot.modules.helper_funcs.string_handling import extract_time
-from tg_bot.modules.log_channel import loggable
+from ERICA.modules.helper_funcs.extraction import extract_user_and_text
+from ERICA.modules.helper_funcs.string_handling import extract_time
+from ERICA.modules.log_channel import loggable
 from telegram import Bot, Chat, ChatPermissions, ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
-from tg_bot.modules.language import gs
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.language import gs
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
