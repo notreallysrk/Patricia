@@ -8,19 +8,19 @@ from telegram.error import BadRequest
 from telegram.ext import Filters, CallbackContext
 from telegram.utils.helpers import mention_html
 from typing import Optional
-import tg_bot.modules.sql.locks_sql as sql
-from tg_bot import dispatcher, log
-from tg_bot.modules.connection import connected
-from tg_bot.modules.helper_funcs.alternate import send_message, typing_action
-from tg_bot.modules.helper_funcs.chat_status import (
+import ERICA.modules.sql.locks_sql as sql
+from ERICA import dispatcher, log
+from ERICA.modules.connection import connected
+from ERICA.modules.helper_funcs.alternate import send_message, typing_action
+from ERICA.modules.helper_funcs.chat_status import (
     can_delete,
     user_not_admin,
     is_bot_admin,
     user_admin as u_admin,
 )
-from tg_bot.modules.helper_funcs.decorators import kigcmd, kigmsg
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.sql.approve_sql import is_approved
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg
+from ERICA.modules.log_channel import loggable
+from ERICA.modules.sql.approve_sql import is_approved
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 ad = AlphabetDetector()
@@ -541,7 +541,7 @@ def __chat_settings__(chat_id, user_id):
     return build_lock_message(chat_id)
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 
 def get_help(chat):
