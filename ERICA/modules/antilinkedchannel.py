@@ -3,11 +3,11 @@ import html
 from telegram import Update, TelegramError
 from telegram.ext import CallbackContext
 from telegram.ext.filters import Filters
-from tg_bot.modules.helper_funcs.chat_status import bot_admin, bot_can_delete
+from ERICA.modules.helper_funcs.chat_status import bot_admin, bot_can_delete
 
-from tg_bot.modules.helper_funcs.decorators import kigcmd, kigmsg
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
-import tg_bot.modules.sql.antilinkedchannel_sql as sql
+import ERICA.modules.sql.antilinkedchannel_sql as sql
 
 
 @kigcmd(command="antilinkedchan", group=112)
