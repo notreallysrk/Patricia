@@ -3,7 +3,7 @@ import threading
 from sqlalchemy import Column, UnicodeText
 from sqlalchemy.sql.sqltypes import BigInteger
 
-from tg_bot.modules.sql import SESSION, BASE
+from ERICA.modules.sql import SESSION, BASE
 
 
 class UserInfo(BASE):
