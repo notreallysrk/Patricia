@@ -1,5 +1,5 @@
 from telegram.ext.filters import Filters
-from tg_bot.modules.helper_funcs.decorators import kigcmd, kigmsg
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg
 from telegram import Update, message
 from telegram.ext import CallbackContext
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
