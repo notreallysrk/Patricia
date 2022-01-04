@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy.sql.sqltypes import BigInteger
 
-from tg_bot.modules.sql import BASE, SESSION
+from ERICA.modules.sql import BASE, SESSION
 from sqlalchemy import Boolean, Column, Integer, String, UnicodeText, distinct, func
 from sqlalchemy.dialects import postgresql
 
