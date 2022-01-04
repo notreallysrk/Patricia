@@ -9,7 +9,7 @@ from telegram import (
 import requests
 import math
 import time
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 def shorten(description, info="anilist.co"):
     msg = ""
@@ -353,7 +353,7 @@ def manga(update: Update, context: CallbackContext):
             )
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "anilist_help")
