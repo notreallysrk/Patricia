@@ -29,7 +29,7 @@ def get_user_list(key):
 fileConfig('logging.ini')
 
 #print(flag)
-log = logging.getLogger('[ZAID]')
+log = logging.getLogger('[ERICA]')
 logging.getLogger('ptbcontrib.postgres_persistence.postgrespersistence').setLevel(logging.WARNING)
 log.info("[ERICA] Erica is starting. | An Eagle Union Project. | Licensed under GPLv3.")
 log.info("[ERICA] Not affiliated to Azur Lane or Yostar in any way whatsoever.")
