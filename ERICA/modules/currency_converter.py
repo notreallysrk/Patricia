@@ -1,8 +1,8 @@
 import requests
-from tg_bot import CASH_API_KEY
+from ERICA import CASH_API_KEY
 from telegram import Update, ParseMode
 from telegram.ext import CallbackContext
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 @kigcmd(command='cash')
 def convert(update: Update, context: CallbackContext):
