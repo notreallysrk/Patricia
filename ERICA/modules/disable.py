@@ -28,7 +28,7 @@ if is_module_loaded(FILENAME):
         is_user_admin,
     )
 
-    from tg_bot.modules.sql import disable_sql as sql
+    from ERICA.modules.sql import disable_sql as sql
 
     DISABLE_CMDS = []
     DISABLE_OTHER = []
