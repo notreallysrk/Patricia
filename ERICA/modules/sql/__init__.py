@@ -2,7 +2,9 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import sessionmaker, scoped_session
 
-from ERICA import DB_URI, KInit, log
+from ERICA import KInit, log
+
+DB_URI = ""
 
 
 def start() -> scoped_session:
