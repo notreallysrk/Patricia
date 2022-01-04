@@ -29,7 +29,7 @@ from ERICA import (
     URL,
     log,
     telethn,
-    EricaINIT
+    KigyoINIT
 )
 
 # needed to dynamically load modules
