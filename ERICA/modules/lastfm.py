@@ -5,8 +5,8 @@ import requests
 from telegram import Update, ParseMode
 from telegram.ext import CallbackContext
 
-from tg_bot import LASTFM_API_KEY
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA import LASTFM_API_KEY
+from ERICA.modules.helper_funcs.decorators import kigcmd
 import tg_bot.modules.sql.last_fm_sql as sql
 
 @kigcmd(command='setuser')
@@ -90,4 +90,4 @@ def last_fm(update: Update, _):
     msg.reply_text(rep, parse_mode=ParseMode.HTML)
 
 
-__mod_name__ = "Last.FM"
+
