@@ -10,7 +10,7 @@ trans = SyncTranslator()
 
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 @kigcmd(command=["tr", "tl"])
 def translate(update: Update, context: CallbackContext) -> None:
