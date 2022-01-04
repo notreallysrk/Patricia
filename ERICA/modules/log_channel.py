@@ -20,9 +20,9 @@ if is_module_loaded(FILENAME):
     from telegram.error import BadRequest, Unauthorized
     from telegram.utils.helpers import escape_markdown
 
-    from tg_bot import GBAN_LOGS, log, dispatcher
-    from tg_bot.modules.helper_funcs.chat_status import user_admin as u_admin, is_user_admin
-    from tg_bot.modules.sql import log_channel_sql as sql
+    from ERICA import GBAN_LOGS, log, dispatcher
+    from ERICA.modules.helper_funcs.chat_status import user_admin as u_admin, is_user_admin
+    from ERICA.modules.sql import log_channel_sql as sql
 
 
     def loggable(func):
