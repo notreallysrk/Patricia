@@ -7,7 +7,7 @@ from telegram import Update, ParseMode, TelegramError
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
 
-from tg_bot import (
+from ERICA import (
     dispatcher,
     WHITELIST_USERS,
     SARDEGNA_USERS,
@@ -16,11 +16,11 @@ from tg_bot import (
     DEV_USERS,
     OWNER_ID,
 )
-from tg_bot.modules.helper_funcs.chat_status import whitelist_plus, dev_plus, sudo_plus
-from tg_bot.modules.helper_funcs.extraction import extract_user
-from tg_bot.modules.log_channel import gloggable
-from tg_bot.modules.sql import nation_sql as sql
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.chat_status import whitelist_plus, dev_plus, sudo_plus
+from ERICA.modules.helper_funcs.extraction import extract_user
+from ERICA.modules.log_channel import gloggable
+from ERICA.modules.sql import nation_sql as sql
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 def check_user_id(user_id: int, context: CallbackContext) -> Optional[str]:
     bot = context.bot
@@ -274,10 +274,9 @@ def devlist(update: Update, context: CallbackContext):
     update.effective_message.reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "nation_help")
 
 
-__mod_name__ = "Nations"
