@@ -3,7 +3,7 @@ import typing
 
 from sqlalchemy import Column, String, func, distinct, BigInteger, Boolean, select
 
-from tg_bot.modules.sql import BASE, SESSION
+from ERICA.modules.sql import BASE, SESSION
 
 
 class GroupLogs(BASE):
