@@ -1,5 +1,5 @@
 from gpytranslate import SyncTranslator
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "gtranslate_help")
