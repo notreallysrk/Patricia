@@ -159,7 +159,7 @@ def listmodules(update: Update, context: CallbackContext):
     for helpable_module in HELPABLE:
         helpable_module_info = IMPORTED[helpable_module]
         file_info = IMPORTED[helpable_module_info.__mod_name__.lower()]
-        file_name = file_info.__name__.rsplit("tg_bot.modules.", 1)[1]
+        file_name = file_info.__name__.rsplit("ERICA.modules.", 1)[1]
         mod_name = file_info.__mod_name__
         module_list.append(f"- <code>{mod_name} ({file_name})</code>\n")
     module_list = "Following modules are loaded : \n\n" + "".join(module_list)
