@@ -2,22 +2,22 @@ import json, time, os
 from io import BytesIO
 from telegram import ParseMode, Message
 from telegram.error import BadRequest
-import tg_bot.modules.sql.notes_sql as sql
-from tg_bot import dispatcher, log as LOGGER, OWNER_ID
-from tg_bot.__main__ import DATA_IMPORT
-from tg_bot.modules.helper_funcs.alternate import typing_action
-from tg_bot.modules.helper_funcs.decorators import kigcmd
-# from tg_bot.modules.rules import get_rules
-import tg_bot.modules.sql.rules_sql as rulessql
-from tg_bot.modules.language import gs
-# from tg_bot.modules.sql import warns_sql as warnssql
-import tg_bot.modules.sql.blacklist_sql as blacklistsql
-from tg_bot.modules.sql import disable_sql as disabledsql
+import ERICA.modules.sql.notes_sql as sql
+from ERICA import dispatcher, log as LOGGER, OWNER_ID
+from ERICA.__main__ import DATA_IMPORT
+from ERICA.modules.helper_funcs.alternate import typing_action
+from ERICA.modules.helper_funcs.decorators import kigcmd
+# from ERICA.modules.rules import get_rules
+import ERICA.modules.sql.rules_sql as rulessql
+from ERICA.modules.language import gs
+# from ERICA.modules.sql import warns_sql as warnssql
+import ERICA.modules.sql.blacklist_sql as blacklistsql
+from ERICA.modules.sql import disable_sql as disabledsql
 
-# from tg_bot.modules.sql import cust_filters_sql as filtersql
-# import tg_bot.modules.sql.welcome_sql as welcsql
-import tg_bot.modules.sql.locks_sql as locksql
-from tg_bot.modules.connection import connected
+# from ERICA.modules.sql import cust_filters_sql as filtersql
+# import ERICA.modules.sql.welcome_sql as welcsql
+import ERICA.modules.sql.locks_sql as locksql
+from ERICA.modules.connection import connected
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
