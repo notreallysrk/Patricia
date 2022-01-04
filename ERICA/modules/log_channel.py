@@ -2,9 +2,9 @@ from datetime import datetime
 from functools import wraps
 
 from telegram.ext import CallbackContext
-from tg_bot.modules.helper_funcs.decorators import kigcmd, kigcallback
-from tg_bot.modules.helper_funcs.misc import is_module_loaded
-from tg_bot.modules.language import gs
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigcallback
+from ERICA.modules.helper_funcs.misc import is_module_loaded
+from ERICA.modules.language import gs
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
@@ -253,7 +253,7 @@ def log_settings(update: Update, _: CallbackContext):
     msg.reply_text("Toggle channel log settings", reply_markup=btn)
 
 
-from tg_bot.modules.sql import log_channel_sql as sql
+from ERICA.modules.sql import log_channel_sql as sql
 
 
 @kigcallback(pattern=r"log_tog_.*")
