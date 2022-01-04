@@ -46,7 +46,7 @@ parser = ConfigParser()
 parser.read("config.ini")
 kigconfig = parser["kigconfig"]
 
-class EricaINIT:
+class KigyoINIT:
     def __init__(self, parser: ConfigParser):
         self.parser = parser
         self.SYS_ADMIN: int = self.parser.getint('SYS_ADMIN', 0)
