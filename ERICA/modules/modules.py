@@ -1,7 +1,7 @@
 import importlib
 
-from tg_bot import dispatcher
-from tg_bot.__main__ import (
+from ERICA import dispatcher
+from ERICA.__main__ import (
     CHAT_SETTINGS,
     DATA_EXPORT,
     DATA_IMPORT,
@@ -12,10 +12,10 @@ from tg_bot.__main__ import (
     USER_INFO,
     USER_SETTINGS,
 )
-from tg_bot.modules.helper_funcs.chat_status import dev_plus, sudo_plus
+from ERICA.modules.helper_funcs.chat_status import dev_plus, sudo_plus
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 
 @kigcmd(command='load')
@@ -28,7 +28,7 @@ def load(update: Update, context: CallbackContext):
     )
 
     try:
-        imported_module = importlib.import_module("tg_bot.modules." + text)
+        imported_module = importlib.import_module("ERICA.modules." + text)
     except:
         load_messasge.edit_text("Does that module even exist?")
         return
