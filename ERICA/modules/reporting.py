@@ -289,7 +289,7 @@ def buttons(update: Update, context: CallbackContext):
             query.answer("🛑 Failed to delete message!")
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 
 def get_help(chat):
