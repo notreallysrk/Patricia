@@ -1,4 +1,4 @@
-from tg_bot import dispatcher
+from ERICA import dispatcher
 from telegram import Update
 from telegram.ext import CallbackContext
 from ERICA.modules.helper_funcs.decorators import kigcmd
