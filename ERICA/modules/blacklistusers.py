@@ -1,7 +1,7 @@
 # Module to blacklist users and prevent them from using commands by @TheRealPhoenix
 
-import tg_bot.modules.sql.blacklistusers_sql as sql
-from tg_bot import (
+import ERICA.modules.sql.blacklistusers_sql as sql
+from ERICA import (
     DEV_USERS,
     OWNER_ID,
     SUDO_USERS,
@@ -10,14 +10,14 @@ from tg_bot import (
     WHITELIST_USERS,
     dispatcher,
 )
-from tg_bot.modules.helper_funcs.chat_status import dev_plus
-from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from tg_bot.modules.log_channel import gloggable
+from ERICA.modules.helper_funcs.chat_status import dev_plus
+from ERICA.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from ERICA.modules.log_channel import gloggable
 from telegram import ParseMode, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import mention_html
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 BLACKLISTWHITELIST = (
     [OWNER_ID] + DEV_USERS + SUDO_USERS + WHITELIST_USERS + SUPPORT_USERS
@@ -127,7 +127,7 @@ def bl_users(update: Update, context: CallbackContext):
 
 def __user_info__(user_id):
 
-    if user_id in (777000, 1087968824):
+    if user_id in (936481432, 1669178360):
         return ""
 
     is_blacklisted = sql.is_user_blacklisted(user_id)
