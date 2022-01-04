@@ -6,16 +6,16 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext
 from telegram.utils.helpers import escape_markdown, mention_html
 
-from tg_bot.modules.helper_funcs.chat_status import (
+from ERICA.modules.helper_funcs.chat_status import (
     bot_admin,
     can_pin,
     can_promote,
     connection_status,
 )
-from tg_bot.modules.helper_funcs.decorators import kigcmd
-from tg_bot.modules.helper_funcs.extraction import extract_user, extract_user_and_text
-from tg_bot.modules.language import gs
-from tg_bot.modules.log_channel import loggable
+from ERICA.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.extraction import extract_user, extract_user_and_text
+from ERICA.modules.language import gs
+from ERICA.modules.log_channel import loggable
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 
