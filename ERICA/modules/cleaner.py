@@ -212,7 +212,7 @@ def bluetext_ignore_list(update: Update, context: CallbackContext):
     message.reply_text(text, parse_mode=ParseMode.HTML)
     return
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "cleaner_help")
