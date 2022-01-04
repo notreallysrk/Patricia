@@ -2,13 +2,13 @@ import re, ast, random
 from io import BytesIO
 from typing import Optional
 
-import tg_bot.modules.sql.notes_sql as sql
-from tg_bot import log, dispatcher, SUDO_USERS
-from tg_bot.modules.helper_funcs.chat_status import connection_status
-from tg_bot.modules.helper_funcs.misc import build_keyboard, revert_buttons
-from tg_bot.modules.helper_funcs.msg_types import get_note_type
-from tg_bot.modules.helper_funcs.handlers import MessageHandlerChecker
-from tg_bot.modules.helper_funcs.string_handling import escape_invalid_curly_brackets
+import ERICA.modules.sql.notes_sql as sql
+from ERICA import log, dispatcher, SUDO_USERS
+from ERICA.modules.helper_funcs.chat_status import connection_status
+from ERICA.modules.helper_funcs.misc import build_keyboard, revert_buttons
+from ERICA.modules.helper_funcs.msg_types import get_note_type
+from ERICA.modules.helper_funcs.handlers import MessageHandlerChecker
+from ERICA.modules.helper_funcs.string_handling import escape_invalid_curly_brackets
 from telegram import (
     MAX_MESSAGE_LENGTH,
     InlineKeyboardMarkup,
@@ -24,7 +24,7 @@ from telegram.ext import (
     Filters,
 )
 
-from tg_bot.modules.helper_funcs.decorators import kigcmd, kigmsg, kigcallback
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg, kigcallback
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
