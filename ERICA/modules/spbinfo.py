@@ -1,5 +1,5 @@
-from tg_bot.modules.helper_funcs.extraction import extract_user
-from tg_bot.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.extraction import extract_user
+from ERICA.modules.helper_funcs.decorators import kigcmd
 import requests, telegram, datetime, time
 
 
