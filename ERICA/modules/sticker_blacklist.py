@@ -6,20 +6,20 @@ from telegram.error import BadRequest
 from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
 from telegram.utils.helpers import mention_html, mention_markdown
 
-import tg_bot.modules.sql.blsticker_sql as sql
-from tg_bot import log as LOGGER, dispatcher
-from tg_bot.modules.connection import connected
-from tg_bot.modules.disable import DisableAbleCommandHandler
-from tg_bot.modules.helper_funcs.alternate import send_message
-from tg_bot.modules.helper_funcs.anonymous import AdminPerms
-from tg_bot.modules.helper_funcs.anonymous import user_admin
-from tg_bot.modules.helper_funcs.chat_status import user_not_admin
-from tg_bot.modules.helper_funcs.misc import split_message
-from tg_bot.modules.helper_funcs.string_handling import extract_time
-from tg_bot.modules.language import gs
-from tg_bot.modules.log_channel import loggable
-from tg_bot.modules.sql.approve_sql import is_approved
-from tg_bot.modules.warns import warn
+import ERICA.modules.sql.blsticker_sql as sql
+from ERICA import log as LOGGER, dispatcher
+from ERICA.modules.connection import connected
+from ERICA.modules.disable import DisableAbleCommandHandler
+from ERICA.modules.helper_funcs.alternate import send_message
+from ERICA.modules.helper_funcs.anonymous import AdminPerms
+from ERICA.modules.helper_funcs.anonymous import user_admin
+from ERICA.modules.helper_funcs.chat_status import user_not_admin
+from ERICA.modules.helper_funcs.misc import split_message
+from ERICA.modules.helper_funcs.string_handling import extract_time
+from ERICA.modules.language import gs
+from ERICA.modules.log_channel import loggable
+from ERICA.modules.sql.approve_sql import is_approved
+from ERICA.modules.warns import warn
 
 
 @user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
