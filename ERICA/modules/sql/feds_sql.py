@@ -4,8 +4,8 @@ from sqlalchemy import Column, String, UnicodeText, Integer, Boolean
 from sqlalchemy.sql.sqltypes import BigInteger
 from telegram.error import BadRequest, Unauthorized
 
-from tg_bot import dispatcher
-from tg_bot.modules.sql import SESSION, BASE
+from ERICA import dispatcher
+from ERICA.modules.sql import SESSION, BASE
 
 
 class Federations(BASE):
