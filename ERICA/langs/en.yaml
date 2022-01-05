@@ -28,17 +28,7 @@ pm_start_text: |
 grp_start_text: "Hi, I'm Erica."
 
 pm_help_text: |
-Hello there! My name is *Kigyo*. A part of *Eagle Union*.
-   I'm a modular group management bot with a few fun extras! Have a look at the following for an idea of some of
-   the things I can help you with.
-   *Main* commands available:
-    • /start: Starts me, can be used to check I'm alive or not.
-    • /help: PM's you this message.
-    • /lang: Change bot language.
-    • /settings:
-      - in PM: will send you your settings for all supported modules.
-      - in a group: will redirect you to pm, with all that chat's settings.
-    Click on the buttons below to get documentation about specific modules!
+   Here Is The all Modules Click On Buttons To Read Commands Details ✅
 
 add_bot_to_group_btn: "Add Me To Ur Chat"
 support_chat_link_btn: "Support"
