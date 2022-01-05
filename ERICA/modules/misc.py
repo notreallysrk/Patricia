@@ -335,8 +335,8 @@ def stats(update, context):
         update.effective_message.reply_text(status +
             "\n*Bot statistics*:\n"
             + "\n".join([mod.__stats__() for mod in STATS]) +
-            "\n\n[⍙ GitHub](https://github.com/Dank-del/EnterpriseALRobot) | [⍚ GitLab](https://gitlab.com/Dank-del/EnterpriseALRobot)\n\n" +
-            "╘══「 by [Dank-del](github.com/Dank-del) 」\n",
+            "\n\n[⍙ GitHub](https://github.com/ITZ-ZAID) | [⍚ GitLab](https://gitlab.com/ITZ-ZAID)\n\n" +
+            "╘══「 by [ZAID](t.me/Timesisnotwaiting) 」\n",
         parse_mode=ParseMode.MARKDOWN, reply_markup=InlineKeyboardMarkup(kb), disable_web_page_preview=True)
     except BaseException:
         update.effective_message.reply_text(
@@ -346,9 +346,9 @@ def stats(update, context):
                         "\n*Bot statistics*:\n"
                         + "\n".join(mod.__stats__() for mod in STATS)
                     )
-                    + "\n\n⍙ [GitHub](https://github.com/Dank-del/EnterpriseALRobot) | ⍚ [GitLab](https://gitlab.com/Dank-del/EnterpriseALRobot)\n\n"
+                    + "\n\n⍙ [GitHub](https://github.com/ITZ-ZAID) | ⍚ [GitLab](https://gitlab.com/ITZ-ZAID)\n\n"
                 )
-                + "╘══「 by [Dank-del](github.com/Dank-del) 」\n"
+                + "╘══「 by [ZAID](t.me/TIMESISNOTWAITING) 」\n"
             ),
             parse_mode=ParseMode.MARKDOWN,
             reply_markup=InlineKeyboardMarkup(kb),
