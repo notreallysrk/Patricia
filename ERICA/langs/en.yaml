@@ -22,6 +22,7 @@ pm_start_text: |
    Theres even more! this is just the tip of the iceberg. Do note I need
    to be promoted with proper admin permissions to function properly. 
    Else I won't be able to function as said.
+   Type /lang To Change The Bot Language
    
    *Click on help to learn more!*
    
@@ -452,7 +453,7 @@ nation_help: |
       - /sardegnas - Lists all Sardegnas Nations.
       - /neptunians - Lists all Neptunia Nations.
       Note: These commands list users with special bot priveleges and can only be used by them.
-      You can visit @YorktownEagleUnion to query more about these.
+      You can visit @Erica_Support to query more about these.
 
 nlp_help: |
 
