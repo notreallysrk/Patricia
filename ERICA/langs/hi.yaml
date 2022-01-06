@@ -310,168 +310,165 @@ log_help: |
        • समूह को `/setlog` अग्रेषित करना
 
 markdown_help_text: |
-      Markdown is a very powerful formatting tool supported by telegram. Erica has some enhancements, to make sure that
-      saved messages are correctly parsed, and to allow you to create buttons.
+      मार्कडाउन टेलीग्राम द्वारा समर्थित एक बहुत शक्तिशाली स्वरूपण उपकरण है। यह सुनिश्चित करने के लिए एरिका में कुछ सुधार हैं
+      सहेजे गए संदेशों को सही ढंग से पार्स किया गया है, और आपको बटन बनाने की अनुमति देने के लिए।
 
-      - <code>_italic_</code>: wrapping text with '_' will produce italic text
-      - <code>*bold*</code>: wrapping text with '*' will produce bold text
-      - <code>`code`</code>: wrapping text with '`' will produce monospaced text, also known as 'code'
-      - <code>[sometext](someURL)</code>: this will create a link - the message will just show <code>sometext</code>,
-      and tapping on it will open the page at <code>someURL</code>.
-      EG: <code>[test](example.com)</code>
+      - <code>_italic_</code>: टेक्स्ट को '_' से लपेटने से इटैलिक टेक्स्ट बन जाएगा
+      - <code>*bold*</code>: टेक्स्ट को '*' से लपेटने से बोल्ड टेक्स्ट बन जाएगा
+      - <code>`code`</code>: टेक्स्ट को '`' से लपेटने से मोनोस्पेस्ड टेक्स्ट बन जाएगा, जिसे 'कोड' भी कहा जाता है।
+      - <code>[sometext](someURL)</code>: यह एक लिंक बनाएगा - संदेश सिर्फ <code>sometext</code> दिखाएगा,
+      और उस पर टैप करने पर <code>someURL</code> पर पेज खुल जाएगा।
+      उदाहरण: <कोड>[परीक्षण](example.com)</code>
 
-      - <code>[buttontext](buttonurl:someURL)</code>: this is a special enhancement to allow users to have telegram
-      buttons in their markdown. <code>buttontext</code> will be what is displayed on the button, and <code>someurl</code>
-      will be the url which is opened.
-      EG: <code>[This is a button](buttonurl:example.com)</code>
+      - <code>[buttontext](buttonurl:someURL)</code>: यह एक विशेष एन्हांसमेंट है जिससे उपयोगकर्ता टेलीग्राम कर सकते हैं
+      उनके मार्कडाउन में बटन। <code>buttontext</code> वही होगा जो बटन पर प्रदर्शित होगा, और <code>someurl</code>
+      यूआरएल होगा जो खोला गया है।
+      ईजी: <कोड>[यह एक बटन है](buttonurl:example.com)</code>
 
-      If you want multiple buttons on the same line, use :same, as such:
-      <code>[one](buttonurl://example.com)
-      [two](buttonurl://google.com:same)</code>
-      This will create two buttons on a single line, instead of one button per line.
+      यदि आप एक ही पंक्ति पर एकाधिक बटन चाहते हैं, तो इसका उपयोग करें: वही, जैसे:
+      <कोड> [एक] (buttonurl://example.com)
+      [दो](buttonurl://google.com:same)</code>
+      यह प्रति पंक्ति एक बटन के बजाय एक पंक्ति पर दो बटन बनाएगा।
 
-      Keep in mind that your message <b>MUST</b> contain some text other than just a button!
+      ध्यान रखें कि आपके संदेश <b>जरूरी</b> में केवल एक बटन के अलावा कोई अन्य पाठ शामिल है!
 
 misc_help: |
-      • /id: get the current group id. If used by replying to a message, gets that user's id.
-      • /gifid: reply to a gif to me to tell you its file ID.
-      • /info: get information about a user.
-      • /markdownhelp: quick summary of how markdown works in telegram - can only be called in private chats.
-      • /ud <word>: Type the word or expression you want to search use.
-      • /urban <word>: Same as /ud
-      • /paste - Do a paste at `nekobin.com`
-      • /react: Reacts with a random reaction
-      • /weebify <text>: returns a weebified text
-      • /tr (language code) as reply to a long message.
-      • /time <query> : Gives information about a timezone.
-      • /cash : currency converter
-        example syntax: /cash 1 USD INR
-      • /getid : get IDs of chat, user and chat message.
-      • /spbinfo : get info about a user from @Intellivoid's SpamProtection API
+      • /id: वर्तमान समूह आईडी प्राप्त करें। यदि किसी संदेश का उत्तर देकर उपयोग किया जाता है, तो उस उपयोगकर्ता की आईडी प्राप्त करता है।
+      • /gifid: मुझे एक gif का जवाब देकर आपको उसकी फ़ाइल आईडी बताने के लिए।
+      • /info: एक उपयोगकर्ता के बारे में जानकारी प्राप्त करें।
+      • /markdownhelp: टेलीग्राम में मार्कडाउन कैसे काम करता है, इसका त्वरित सारांश - केवल निजी चैट में ही कॉल किया जा सकता है।
+      • /ud <word>: वह शब्द या अभिव्यक्ति टाइप करें जिसका उपयोग आप खोजना चाहते हैं।
+      • /urban <शब्द>: /ud . के समान
+      • /पेस्ट - `nekobin.com` . पर पेस्ट करें
+      • / प्रतिक्रिया: एक यादृच्छिक प्रतिक्रिया के साथ प्रतिक्रिया करता है
+      • /weebify <text>: एक वेबीफाइड टेक्स्ट लौटाता है
+      • /tr (भाषा कोड) एक लंबे संदेश के उत्तर के रूप में।
+      • /time <क्वेरी> : एक समय क्षेत्र के बारे में जानकारी देता है।
+      • /cash : मुद्रा परिवर्तक
+        उदाहरण वाक्य रचना: /cash 1 अमरीकी डालर INR
+      • /getid : चैट, उपयोगकर्ता और चैट संदेश की आईडी प्राप्त करें।
+      • /spbinfo : @Intellivoid's SpamProtection API से किसी उपयोगकर्ता के बारे में जानकारी प्राप्त करें
       ~~~~~~
-      *Last.FM*
-      Share what you're what listening to with the help of this module!
-      *Available commands:*
-      • /setuser <username>: sets your last.fm username.
-      • /clearuser: removes your last.fm username from the bot's database.
-      • /lastfm: returns what you're scrobbling on last.fm.
+      *आखरीएफएम*
+      इस मॉड्यूल की सहायता से जो आप सुन रहे हैं उसे साझा करें!
+      *उपलब्ध आदेश:*
+      • /setuser <उपयोगकर्ता नाम>: आपका last.fm उपयोगकर्ता नाम सेट करता है।
+      • /clearuser: बॉट के डेटाबेस से आपका last.fm उपयोगकर्ता नाम हटा देता है।
+      • /lastfm: last.fm पर जो आप स्क्रॉल कर रहे हैं उसे लौटाता है।
       ~~~~~~
-      *Anti channel*
-      Tired of telegram's stupidity? well here you go
-      *Available commands:*
-      • /antichannel <on/off>: Bans and deletes anyone who tries to talk as channel and forces em to talk as themselves
-      • /antilinkedchan <on/off>: Makes Kigyo automatically delete linked channel posts from chatroom
-      • /antichannelpin <on/off>: Makes Kigyo automatically unpin linked channel posts from chatroom
-
+      *एंटी चैनल*
+      टेलीग्राम की मूर्खता से थक गए? अच्छा, तुम यहाँ जाओ
+      *उपलब्ध आदेश:*
+      • /antichannel <on/off>: चैनल के रूप में बात करने की कोशिश करने वाले किसी भी व्यक्ति को प्रतिबंधित और हटा देता है और उन्हें खुद के रूप में बात करने के लिए मजबूर करता है
+      • /antilinkedchan <on/off>: किग्यो को चैटरूम से लिंक किए गए चैनल पोस्ट को स्वचालित रूप से हटा देता है
+      • /antichannelpin <on/off>: किग्यो को चैटरूम से लिंक किए गए चैनल पोस्ट को स्वचालित रूप से अनपिन कर देता है
 muting_help: |
-      *Admins only:*
-       • `/mute <userhandle>`*:* silences a user. Can also be used as a reply, muting the replied to user.
-       • `/tmute <userhandle> x(m/h/d)`*:* mutes a user for x time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
-       • `/unmute <userhandle>`*:* unmutes a user. Can also be used as a reply, muting the replied to user.
+      *केवल व्यवस्थापक:*
+        • `/mute <userhandle>`*:* उपयोगकर्ता को चुप करा देता है। उत्तर के रूप में भी इस्तेमाल किया जा सकता है, उपयोगकर्ता को उत्तर दिया गया म्यूट कर सकता है।
+        • `/tmute <userhandle> x(m/h/d)`*:* उपयोगकर्ता को x समय के लिए म्यूट करता है। (हैंडल, या उत्तर के माध्यम से)। `एम` = `मिनट`, `एच` = `घंटे`, `डी` = `दिन'।
+        • `/unmute <userhandle>`*:* उपयोगकर्ता को अनम्यूट करता है। उत्तर के रूप में भी इस्तेमाल किया जा सकता है, उपयोगकर्ता को उत्तर दिया गया म्यूट कर सकता है।
 
 notes_help: |
-       • `/get <notename>`*:* get the note with this notename
-       • `#<notename>`*:* same as /get
-       • `/notes` or `/saved`*:* list all saved notes in this chat
-       • `/number` *:* Will pull the note of that number in the list.
-        If you would like to retrieve the contents of a note without any formatting, use `/get <notename> noformat`. This can
-        be useful when updating a current note.
+       • `/get <नोटनाम>`*:* इस नोटनाम के साथ नोट प्राप्त करें
+       • `#<नोटनाम>`*:* /get . के समान
+       • `/note` या `/ सहेजा गया`*:* इस चैट में सभी सहेजे गए नोटों की सूची बनाएं
+       • `/number` *:* उस नंबर के नोट को सूची में खींच लेगा।
+        यदि आप किसी नोट की सामग्री को बिना किसी स्वरूपण के पुनर्प्राप्त करना चाहते हैं, तो `/get <notename> noformat` का उपयोग करें। यह हो सकता है
+        वर्तमान नोट को अपडेट करते समय उपयोगी हो।
 
-        *Admins only:*
-       • `/save <notename> <notedata>`*:* saves notedata as a note with name notename
-        A button can be added to a note by using standard markdown link syntax - the link should just be prepended with a
-         `buttonurl:` section, as such: `[somelink](buttonurl:example.com)`. Check `/markdownhelp` for more info.
-       • `/save <notename>`*:* save the replied message as a note with name notename
-       • `/clear <notename>`*:* clear note with this name
-       • `/removeallnotes`*:* removes all notes from the group
-       *Note:* Note names are case-insensitive, and they are automatically converted to lowercase before getting saved.
+        *केवल व्यवस्थापक:*
+       • `/save <notename> <notedata>`*:* नोटडेटा को नोट नाम के साथ नोट के रूप में सहेजता है
+        मानक मार्कडाउन लिंक सिंटैक्स का उपयोग करके एक नोट में एक बटन जोड़ा जा सकता है - लिंक को केवल a . के साथ जोड़ा जाना चाहिए
+         `buttonurl:` अनुभाग, जैसे: `[somelink](buttonurl:example.com)`। अधिक जानकारी के लिए `/markdownhelp` चेक करें।
+       • `/save <notename>`*:* उत्तर दिए गए संदेश को नोट नाम के साथ नोट के रूप में सहेजें
+       • `/clear <नोटनाम>`*:* इस नाम के साथ स्पष्ट नोट
+       • `/removeallnotes`*:* समूह से सभी नोट हटा देता है
+       *नोट:* नोट नाम केस-असंवेदनशील होते हैं, और सहेजे जाने से पहले वे स्वचालित रूप से लोअरकेस में परिवर्तित हो जाते हैं।
 
 purge_help: |
-       *Admin only:*
-        • /del: deletes the message you replied to
-        • /purge: deletes all messages between this and the replied to message.
-        • /purge <integer X>: deletes the replied message, and X messages following it if replied to a message.
+       *केवल व्यवस्थापक:*
+         • /del: आपके द्वारा उत्तर दिए गए संदेश को हटा देता है
+         • /purge: इस और उत्तर दिए गए संदेश के बीच के सभी संदेशों को हटा देता है।
+         • /purge <पूर्णांक X>: उत्तर दिए गए संदेश को हटा देता है, और यदि किसी संदेश का उत्तर दिया जाता है तो उसके बाद आने वाले X संदेशों को हटा देता है।
 
 reports_help: |
-        • `/report <reason>`*:* reply to a message to report it to admins.
-        • `@admin`*:* reply to a message to report it to admins.
-         *NOTE:* Neither of these will get triggered if used by admins.
+        • `/report <कारण>`*:* किसी संदेश का जवाब देकर उसे व्यवस्थापकों को रिपोर्ट करें।
+         • `@admin`*:* किसी मैसेज का जवाब एडमिन को रिपोर्ट करने के लिए दें।
+          *नोट:* यदि व्यवस्थापक द्वारा उपयोग किया जाता है तो इनमें से कोई भी ट्रिगर नहीं होगा।
 
-         *Admins only:*
-          • `/reports <on/off>`*:* change report setting, or view current status.
-          • If done in pm, toggles your status.
-          • If in group, toggles that groups's status.
+          *केवल व्यवस्थापक:*
+           • `/reports <चालू/बंद>`*:* रिपोर्ट सेटिंग बदलें, या वर्तमान स्थिति देखें।
+           • यदि दोपहर में किया जाता है, तो आपकी स्थिति को टॉगल करता है।
+           • यदि समूह में है, तो उस समूह की स्थिति को टॉगल करता है.
 
 rules_help: |
-      • `/rules`*:* get the rules for this chat.
-       *Admins only:*
-      • `/setrules <your rules here>`*:* set the rules for this chat.
-      • `/clearrules`*:* clear the rules for this chat.
+      `/rules`*:* इस चैट के नियम प्राप्त करें।
+        *केवल व्यवस्थापक:*
+       • `/setrules <आपके नियम यहां>`*:* इस चैट के लिए नियम निर्धारित करें।
+       • `/clearrules`*:* इस चैट के नियम साफ़ करें।
 
 userinfo_help: |
-      - /setbio <text>: while replying, will save another user's bio
-      - /bio: will get your or another user's bio. This cannot be set by yourself.
-      - /setme <text>: will set your info
-      - /me: will get your or another user's info
+      /setbio <text>: रिप्लाई करते समय, दूसरे यूजर का बायो सेव करेगा
+       - /bio: आपके या किसी अन्य उपयोगकर्ता का बायो प्राप्त करेगा। यह अपने आप से निर्धारित नहीं किया जा सकता है।
+       - /setme <text>: आपकी जानकारी सेट करेगा
+       - /me: आपकी या किसी अन्य उपयोगकर्ता की जानकारी मिल जाएगी
 
 warns_help: |
-      • `/warns <userhandle>`*:* get a user's number, and reason, of warns.
-      • `/warnlist`*:* list of all current warning filters
+      • `/warn <userhandle>`*:* चेतावनियों के लिए उपयोगकर्ता का नंबर और कारण प्राप्त करें।
+       • `/warnlist`*:* सभी मौजूदा चेतावनी फिल्टर की सूची
 
-      *Admins only:*
-      • `/warn <userhandle>`*:* warn a user. After 3 warns, the user will be banned from the group. Can also be used as a reply.
-      • `/resetwarn <userhandle>`*:* reset the warns for a user. Can also be used as a reply.
-      • `/addwarn <keyword> <reply message>`*:* set a warning filter on a certain keyword. If you want your keyword to
-      be a sentence, encompass it with quotes, as such: `/addwarn "very angry" This is an angry user`.
-      • `/nowarn <keyword>`*:* stop a warning filter
-      • `/warnlimit <num>`*:* set the warning limit
-      • `/strongwarn <on/yes/off/no>`*:* If set to on, exceeding the warn limit will result in a ban. Else, will just kick.
+      *केवल व्यवस्थापक:*
+       • `/warn <userhandle>`*:* उपयोगकर्ता को चेतावनी दें। 3 चेतावनियों के बाद, उपयोगकर्ता को समूह से प्रतिबंधित कर दिया जाएगा। उत्तर के रूप में भी इस्तेमाल किया जा सकता है।
+       • `/resetwarn <userhandle>`*:* उपयोगकर्ता के लिए चेतावनियां रीसेट करें। उत्तर के रूप में भी इस्तेमाल किया जा सकता है।
+       • `/addwarn <कीवर्ड> <उत्तर संदेश>`*:* एक निश्चित कीवर्ड पर एक चेतावनी फ़िल्टर सेट करें। यदि आप चाहते हैं कि आपका कीवर्ड
+       एक वाक्य हो, इसे उद्धरणों के साथ शामिल करें, जैसे: `/जोड़ें "बहुत गुस्सा" यह एक नाराज उपयोगकर्ता है।
+       • `/nowarn <कीवर्ड>`*:* एक चेतावनी फ़िल्टर बंद करें
+       • `/warnlimit <num>`*:* चेतावनी सीमा निर्धारित करें
+       • `/strongwarn <on/yes/off/no>`*:* अगर इसे चालू किया जाता है, तो चेतावनी की सीमा पार करने पर प्रतिबंध लग जाएगा। नहीं तो लात मार देंगे।
 
 greetings_help: |
-      *Admins only:*
-       • `/welcome <on/off>`*:* enable/disable welcome messages.
-       • `/welcome`*:* shows current welcome settings.
-       • `/welcome noformat`*:* shows current welcome settings, without the formatting - useful to recycle your welcome messages!
-       • `/goodbye`*:* same usage and args as `/welcome`.
-       • `/setwelcome <sometext>`*:* set a custom welcome message. If used replying to media, uses that media.
-       • `/setgoodbye <sometext>`*:* set a custom goodbye message. If used replying to media, uses that media.
-       • `/resetwelcome`*:* reset to the default welcome message.
-       • `/resetgoodbye`*:* reset to the default goodbye message.
-       • `/cleanwelcome <on/off>`*:* On new member, try to delete the previous welcome message to avoid spamming the chat.
-       • `/welcomemutehelp`*:* gives information about welcome mutes.
-       • `/cleanservice <on/off`*:* deletes telegrams welcome/left service messages.
-       *Example:*
-      user joined chat, user left chat.
+      *केवल व्यवस्थापक:*
+       • `/welcome <on/of>`*:* स्वागत संदेशों को सक्षम/अक्षम करें।
+       • `/welcome`*:* वर्तमान स्वागत सेटिंग दिखाता है।
+       • `/welcome noformat`*:* फ़ॉर्मेटिंग के बिना वर्तमान स्वागत सेटिंग्स दिखाता है - आपके स्वागत संदेशों को रीसायकल करने के लिए उपयोगी!
+       • `/goodbye`*:* वही उपयोग और तर्क `/स्वागत` के रूप में।
+       • `/setwelcome <sometext>`*:* एक कस्टम स्वागत संदेश सेट करें। अगर मीडिया को रिप्लाई करते हैं तो उस मीडिया का इस्तेमाल करते हैं।
+       • `/setgoodbye <sometext>`*:* एक कस्टम अलविदा संदेश सेट करें। अगर मीडिया को रिप्लाई करते हैं तो उस मीडिया का इस्तेमाल करते हैं।
+       • `/resetwelcome`*:* डिफ़ॉल्ट स्वागत संदेश पर रीसेट करें।
+       • `/resetgoodbye`*:* डिफ़ॉल्ट अलविदा संदेश पर रीसेट करें।
+       • `/cleanwelcome <on/off>`*:* नए सदस्य पर, चैट को स्पैम करने से बचने के लिए पिछले स्वागत संदेश को हटाने का प्रयास करें।
+       • `/welcomemuthelp`*:* वेलकम म्यूट के बारे में जानकारी देता है।
+       • `/cleanservice <on/off`*:* टेलीग्राम स्वागत/बाएं सेवा संदेशों को हटा देता है।
+       *उदाहरण:*
+      उपयोगकर्ता चैट में शामिल हुआ, उपयोगकर्ता ने चैट छोड़ दी।
 
-      *Welcome markdown:*
-       • `/welcomehelp`*:* view more formatting information for custom welcome/goodbye messages.
+      *स्वागत मार्कडाउन:*
+       • `/welcomehelp`*:* कस्टम स्वागत/अलविदा संदेशों के लिए अधिक स्वरूपण जानकारी देखें।
 
 nation_help: |
-      - /eagle - Lists all Eagle Union members.
-      - /royals - Lists all Royal Nations.
-      - /sakuras - Lists all Sakura Nations.
-      - /sardegnas - Lists all Sardegnas Nations.
-      - /neptunians - Lists all Neptunia Nations.
-      Note: These commands list users with special bot priveleges and can only be used by them.
-      You can visit @Erica_Support to query more about these.
+      - /eagle - ईगल यूनियन के सभी सदस्यों को सूचीबद्ध करता है।
+       - /royals - सभी शाही राष्ट्रों को सूचीबद्ध करता है।
+       - /sakuras - सभी सकुरा राष्ट्रों को सूचीबद्ध करता है।
+       - /sardegnas - सभी Sardegnas राष्ट्रों को सूचीबद्ध करता है।
+       - /neptunians - सभी नेप्च्यूनिया राष्ट्रों की सूची।
+       नोट: ये आदेश विशेष बॉट विशेषाधिकार वाले उपयोगकर्ताओं को सूचीबद्ध करते हैं और केवल उनके द्वारा उपयोग किए जा सकते हैं।
+       इनके बारे में अधिक जानने के लिए आप @Erica_Support पर जा सकते हैं।
 
 nlp_help: |
-
-      *Chatroom Spam Prediction*
-       This feature uses @Intellivoid's Coffeehouse AI to
-       process chat messages and detect spam.
-       This comes under Coffehouse' NLP. Learn more about
-       it [here](https://docs.intellivoid.net/coffeehouse/v1/nlp/spam_prediction/chatroom)
-       *Command:*
-        • `/nlpstat <on/off/yes/no>`*:* toggle NLP in your chat.
+      *चैटरूम स्पैम भविष्यवाणी*
+        यह सुविधा @Intellivoid's Coffeehouse AI का उपयोग करती है
+        चैट संदेशों को संसाधित करें और स्पैम का पता लगाएं।
+        यह कॉफ़ीहाउस एनएलपी के अंतर्गत आता है। के बारे में अधिक जानने
+        यह [here](https://docs.intellivoid.net/coffeehouse/v1/nlp/spam_prediction/chatroom)
+        *आदेश:*
+         • `/nlpstat <चालू/बंद/हां/नहीं>`*:* अपनी चैट में NLP को टॉगल करें।
 
 
 sticker_blacklist_help: |
-       **Only admin:**
-         • `/addblsticker <sticker link>**`:** Add the sticker trigger to the black list. Can be added via reply sticker
-         • `/unblsticker <sticker link>**`:** Remove triggers from blacklist. The same newline logic applies here, so you can delete multiple triggers at once
-         • `/rmblsticker <sticker link>**`:** Same as above
-         • `/blstickermode <delete/ban/tban/mute/tmute>**`:** sets up a default action on what to do if users use blacklisted stickers
-       Note:
-         • `<sticker link>` can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message
-
+       **केवल व्यवस्थापक:**
+          • `/addblsticker <स्टिकर लिंक>**`:** स्टिकर ट्रिगर को काली सूची में जोड़ें। उत्तर स्टिकर के माध्यम से जोड़ा जा सकता है
+          • `/unblsticker <स्टिकर लिंक>**`:** ट्रिगर्स को ब्लैकलिस्ट से हटा दें। वही न्यूलाइन लॉजिक यहां लागू होता है, इसलिए आप एक साथ कई ट्रिगर्स को हटा सकते हैं
+          • `/rmblsticker <स्टिकर लिंक>**`:** ऊपर के समान
+          • `/blstickermode <delete/ban/tban/mute/tmute>**`:** अगर उपयोगकर्ता काली सूची में डाले गए स्टिकर का उपयोग करते हैं तो क्या करना है, इस पर एक डिफ़ॉल्ट कार्रवाई सेट करता है
+        ध्यान दें:
+          • `<Sticker link>` हो सकता है `https://t.me/addstickers/<sticker>` या सिर्फ `<sticker>` या स्टिकर संदेश का जवाब
