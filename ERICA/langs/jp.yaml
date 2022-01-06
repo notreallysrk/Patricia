@@ -25,9 +25,9 @@ pm_help_text: |
       - PM：サポートされているすべてのモジュールの設定が送信されます。 -グループ内：チャットのすべての設定を使用して、午後にリダイレクトします。 下のボタンをクリックして、特定のモジュールに関するドキュメントを入手してください!
 
 add_bot_to_group_btn:  "私を追加してください"
-support_chat_link_btn:  ""
+support_chat_link_btn:  "Support"
 updates_channel_link_btn: "更新"
-src_btn:  "ソース"
+src_btn:  "Devlopers ✅"
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
