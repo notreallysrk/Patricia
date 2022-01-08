@@ -34,7 +34,9 @@ pm_help_text: |
 add_bot_to_group_btn: "Add Me To Ur Chat"
 support_chat_link_btn: "Support"
 updates_channel_link_btn: "Updates"
-src_btn: "Devlopers"
+devs_btn: "Devlopers ✅"
+src_btn: "Donate 💰"
+helper_btn: "Help And Commands"
 
 admin_help: |
     • `/admins`*:* चैट में व्यवस्थापकों की सूची
