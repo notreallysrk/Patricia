@@ -170,10 +170,14 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                                 text=gs(chat.id, "src_btn"),
                                 url="t.me/TGN_DONATION_BOT",
                             ),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "devs_btn")",
+                                url="https://t.me/ERICA_DEV",
+                            ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="Help And Commands",
+                                text=gs(chat.id, "helper_btn"),
                                 callback_data="help_back",
                             ),
                         ],
