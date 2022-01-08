@@ -167,6 +167,12 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         ],
                         [
                             InlineKeyboardButton(
+                                text=gs(chat.id, "src_btn"),
+                                url="t.me/TGN_DONATION_BOT",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
                                 text="Help And Commands",
                                 callback_data="help_back",
                             ),
