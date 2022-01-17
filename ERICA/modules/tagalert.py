@@ -9,8 +9,8 @@ from pymongo import MongoClient
 from datetime import datetime, timedelta
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ChatPermissions
 
-from Yuriko import pbot
-from Yuriko import BOT_ID, MONGO_DB_URI
+from Erica import pbot
+from Erica import BOT_ID, MONGO_DB_URI
 
 
 #from DaisyX.services.mongo2 import db
