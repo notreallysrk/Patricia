@@ -4,7 +4,7 @@ import html
 import ERICA.modules.sql.mod_sql as sql
 
 from ERICA.modules.disable import DisableAbleCommandHandler
-from ERICA import dispatcher, DRAGONS
+from ERICA import dispatcher
 from ERICA.modules.helper_funcs.extraction import extract_user
 from telegram.ext import CallbackContext, run_async, CallbackQueryHandler
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update
