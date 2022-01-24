@@ -29,7 +29,7 @@ def get_info(id):
     return nightmod.find_one({"id": id})
 
 
-@pbot.on_message(filters.command(["tagalert"]) & filters.private)
+@kigcmd(command=["tagalert"])
 async def locks_dfunc(_, message):
    lol = await message.reply("Processing..")
    if len(message.command) != 2:
