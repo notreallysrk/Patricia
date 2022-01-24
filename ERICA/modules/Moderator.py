@@ -10,8 +10,8 @@ from telegram.ext import CallbackContext, run_async, CallbackQueryHandler
 from telegram import ParseMode, InlineKeyboardMarkup, InlineKeyboardButton, Update
 from telegram.utils.helpers import mention_html
 from telegram.error import BadRequest
-from SkyzuRobot.modules.helper_funcs.chat_status import user_admin
-from SkyzuRobot.modules.log_channel import loggable
+from ERICA.modules.helper_funcs.chat_status import user_admin
+from ERICA.modules.log_channel import loggable
 
 
 
