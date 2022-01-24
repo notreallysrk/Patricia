@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ChatPermissions
 
 from ERICA import telethn as pbot
+from ERICA.modules.helper_funcs.decorators import kigcmd
 BOT_ID = 5047622280
 MONGO_DB_URI = "mongodb+srv://ERICA:ERICA@cluster0.wuky0.mongodb.net/Cluster0?retryWrites=true&w=majority"
 #from DaisyX.services.mongo2 import db
@@ -71,7 +72,7 @@ async def locks_dfunc(_, message):
 
 
      
-@pbot.on_message(filters.incoming & ~filters.edited)
+@kigcmd(filters.incoming & ~filters.edited)
 async def mentioned_alert(client, message):
     try:
         if not message:
