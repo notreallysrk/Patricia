@@ -135,11 +135,11 @@ def modr(update, context):
         )
 
 __help__ = """
- :
+*Commands*:
   /addmod`*:* moderator of a user. 
   /rmmod*:* Unmoderator of a user.
-  /modcheck`*:* moderation cheak of a user.
-  /modlist`*:* moderation user list.
+  /modcheck*:* moderation cheak of a user.
+  /modlist*:* moderation user list.
 """
 
 
