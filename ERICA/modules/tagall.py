@@ -6,7 +6,7 @@ from telethon.tl.types import ChannelParticipantAdmin
 from telethon.tl.types import ChannelParticipantCreator
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.errors import UserNotParticipantError
-from ERICA import telethn as client
+from ERICA.modules.helper_funcs.decorators import kigcmd as client
 
 
 spam_chats = []
