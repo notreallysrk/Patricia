@@ -108,14 +108,3 @@ async def cancel_spam(event):
       pass
     return await event.respond("__Stopped Mention.__")
 
-
-__mod_name__ = "Tagall"
-__help__ = """
-「 Mention all Commands 」
-
-Only admins can tag all.  here is a list of commands
-
-✅ /tagall or @all (reply to message or add another message) To mention all members in your group, without exception.
-
-✅ /cancel - to cancel tagall
-"""
