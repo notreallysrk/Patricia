@@ -6,13 +6,12 @@ from telethon.tl.types import ChannelParticipantAdmin
 from telethon.tl.types import ChannelParticipantCreator
 from telethon.tl.functions.channels import GetParticipantRequest
 from telethon.errors import UserNotParticipantError
-from ERICA.modules.helper_funcs.decorators import kigcmd as client
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 
 spam_chats = []
 
-@client.on(events.NewMessage(pattern="^/tagall ?(.*)"))
-@client.on(events.NewMessage(pattern="^@all ?(.*)"))
+@kigcmd(command=["tagall", "mentionall"])
 async def mentionall(event):
   chat_id = event.chat_id
   if event.is_private:
