@@ -5,7 +5,7 @@ import asyncio
 import pytz
 
 from pyrogram import filters
-from pyrogram import Client
+from pyrogram import Client as pbot
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ChatPermissions
@@ -31,7 +31,7 @@ def get_info(id):
     return nightmod.find_one({"id": id})
 
 
-@kigcmd(command=["tagalert"])
+@pbot.on_message(filters.command(["tagalert"]) & filters.private)
 async def locks_dfunc(_, message):
    lol = await message.reply("Processing..")
    if len(message.command) != 2:
@@ -73,7 +73,7 @@ async def locks_dfunc(_, message):
 
 
      
-@Client.on_message(filters.incoming & ~filters.edited)
+@pbot.on_message(filters.incoming & ~filters.edited)
 async def mentioned_alert(client, message):
     try:
         if not message:
