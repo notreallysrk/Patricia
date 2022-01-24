@@ -5,6 +5,7 @@ import asyncio
 import pytz
 
 from pyrogram import filters
+from pyrogram import Client
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ChatPermissions
@@ -72,7 +73,7 @@ async def locks_dfunc(_, message):
 
 
      
-@pbot.on_message(filters.incoming & ~filters.edited)
+@Client.on_message(filters.incoming & ~filters.edited)
 async def mentioned_alert(client, message):
     try:
         if not message:
