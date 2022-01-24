@@ -10,7 +10,7 @@ from datetime import datetime, timedelta
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ChatPermissions
 
 from ERICA import telethn as pbot
-BOT_ID = 
+BOT_ID = 5047622280
 MONGO_DB_URI = "mongodb+srv://ERICA:ERICA@cluster0.wuky0.mongodb.net/Cluster0?retryWrites=true&w=majority"
 #from DaisyX.services.mongo2 import db
 #client = MongoClient()
