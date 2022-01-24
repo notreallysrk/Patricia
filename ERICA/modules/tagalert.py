@@ -72,7 +72,7 @@ async def locks_dfunc(_, message):
 
 
      
-@kigcmd(filters.incoming & ~filters.edited)
+@pbot.on_message(filters.incoming & ~filters.edited)
 async def mentioned_alert(client, message):
     try:
         if not message:
