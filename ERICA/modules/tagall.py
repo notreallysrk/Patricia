@@ -109,15 +109,13 @@ async def cancel_spam(event):
     return await event.respond("__Stopped Mention.__")
 
 
-__mod_name__ = "Tag all"
+__mod_name__ = "Tagall"
 __help__ = """
-──「 Mention all func 」──
-
-Yuriko Can Be a Mention Bot for your group.
+「 Mention all Commands 」
 
 Only admins can tag all.  here is a list of commands
 
-∆ /tagall or @all (reply to message or add another message) To mention all members in your group, without exception.
+✅ /tagall or @all (reply to message or add another message) To mention all members in your group, without exception.
 
-∆ /cancel - to cancel tagall
+✅ /cancel - to cancel tagall
 """
