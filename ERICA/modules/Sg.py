@@ -2,7 +2,7 @@ from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
 
 from ERICA import telethn as tbot
-from ERICA import ubot2
+from ERICA import ubot2 as ubot
 from ERICA.modules.helper_funcs.decorators import kigcmd
 
 async def is_register_admin(chat, user):
