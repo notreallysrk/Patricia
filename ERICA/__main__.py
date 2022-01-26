@@ -217,26 +217,38 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                     [
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "add_bot_to_group_btn"),
+                                text="ᴀᴅᴅ ᴍᴇ",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
                             ),
-                        ],
-                        [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "support_chat_link_btn"),
-                                url='https://t.me/Erica_support',
+                                text="ꜱᴜᴘᴘᴏʀᴛ",
+                                url='https://t.me/Erica_Support',
                             ),
                             InlineKeyboardButton(
-                                text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/ERICA_UPDATES",
+                                text="ᴏᴡɴᴇʀ",
+                                url="https://t.me/",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="Help And Commands",
+                                text="ᴄʜᴀᴛᴛɪɴɢ ɢʀᴏᴜᴘ/ꜰᴜɴ",
+                                url="t.me/",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text="ꜱᴡɪᴛᴄʜ ɪɴʟɪɴᴇ",
+                                switch_inline_query_current_chat="",
+                            ),
+                            InlineKeyboardButton(
+                                text="ᴄᴏᴍᴍᴀɴᴅꜱ",
                                 callback_data="help_back",
+                            ),
+                            InlineKeyboardButton(
+                                text="ᴄʜᴀɴɴᴇʟ",
+                                url='https://t.me/Erica_Updates',
                             ),
                         ],
                     ]
@@ -336,7 +348,7 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             kb = paginate_modules(next_page + 1, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='Back', callback_data='start_back'),
+            kb.append([InlineKeyboardButton(text='Back', callback_data='start_back')
                        InlineKeyboardButton(text="Try inline", switch_inline_query_current_chat="")])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
