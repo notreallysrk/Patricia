@@ -99,9 +99,7 @@ def send_help(chat_id, text, keyboard=None):
 
     if not keyboard:
         kb = paginate_modules(0, HELPABLE, "help")
-        kb.append([InlineKeyboardButton(text='Support', url='https://t.me/Erica_support'),
-                   InlineKeyboardButton(text='Back', callback_data='start_back'),
-                   InlineKeyboardButton(text="Try inline", switch_inline_query_current_chat="")])
+        kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='start_back')])
         keyboard = InlineKeyboardMarkup(kb)
     dispatcher.bot.send_message(
         chat_id=chat_id, text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
@@ -364,8 +362,7 @@ def help_button(update, context):
 
         elif back_match:
             kb = paginate_modules(0, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='Back', callback_data='start_back'),
-                       InlineKeyboardButton(text="Try inline", switch_inline_query_current_chat="")])
+            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='start_back')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -509,7 +506,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Back",
+                                text="ɢᴏ ʙᴀᴄᴋ",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
