@@ -146,35 +146,41 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-                    [
+[
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "add_bot_to_group_btn"),
+                                text="ᴀᴅᴅ ᴍᴇ",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
                             ),
-                        ],
-                        [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "support_chat_link_btn"),
-                                url='https://t.me/Erica_support',
+                                text="ꜱᴜᴘᴘᴏʀᴛ",
+                                url='https://t.me/Erica_Support',
                             ),
                             InlineKeyboardButton(
-                                text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/ERICA_UPDATES",
+                                text="ᴏᴡɴᴇʀ",
+                                url="https://t.me/",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "src_btn"),
-                                url="t.me/TGN_DONATION_BOT",
+                                text="ᴄʜᴀᴛᴛɪɴɢ ɢʀᴏᴜᴘ/ꜰᴜɴ",
+                                url="t.me/",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "helper_btn"),
+                                text="ꜱᴡɪᴛᴄʜ ɪɴʟɪɴᴇ",
+                                switch_inline_query_current_chat="",
+                            ),
+                            InlineKeyboardButton(
+                                text="ᴄᴏᴍᴍᴀɴᴅꜱ",
                                 callback_data="help_back",
+                            ),
+                            InlineKeyboardButton(
+                                text="ᴄʜᴀɴɴᴇʟ",
+                                url='https://t.me/Erica_Updates',
                             ),
                         ],
                     ]
