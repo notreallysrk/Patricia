@@ -474,7 +474,7 @@ def devlist(update: Update, context: CallbackContext):
     update.effective_message.reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-from tg_bot.modules.language import gs
+from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "nation_help")
