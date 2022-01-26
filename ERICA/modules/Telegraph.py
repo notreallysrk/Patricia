@@ -1,7 +1,8 @@
 # This file is part of YuiGBot (Telegram Bot)
 # I give credit for this module to YuiGBot.
 
-from Zaid.events import register
+
+from ERICA.modules.helper_funcs.decorators import kigcmd as register
 from ERICA import telethn
 
 TMP_DOWNLOAD_DIRECTORY = "./"
@@ -17,7 +18,8 @@ r = telegraph.create_account(short_name=wibu)
 auth_url = r["auth_url"]
 
 
-@register(pattern="^/t(gm|gt) ?(.*)")
+
+@kigcmd(command=["^t(gm|gt) ?(.*)"])
 async def _(event):
     if event.fwd_from:
         return
