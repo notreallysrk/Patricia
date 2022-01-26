@@ -1,10 +1,9 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
 
-from ShasaBot import telethn as tbot
-from ShasaBot import ubot2
-from ShasaBot.events import register as shasa
-
+from ERICA import telethn as tbot
+from ERICA import ubot2
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 async def is_register_admin(chat, user):
 
@@ -36,7 +35,7 @@ async def silently_send_message(conv, text):
     return response
 
 
-@shasa(pattern="^/sg ?(.*)")
+@kigcmd(command=["sg", "history"])
 async def _(event):
 
     if event.fwd_from:
