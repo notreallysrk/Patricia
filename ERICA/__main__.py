@@ -324,7 +324,7 @@ def help_button(update, context):
                 help_text = help_list
                 help_buttons = []
             text = (
-                    "Here is the help for the *{}* module:\n".format(
+                    "ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ɪɴꜰᴏ ᴀʙᴏᴜᴛ *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
                         HELPABLE[module].__mod_name__
                     )
                     + help_text
