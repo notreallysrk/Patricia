@@ -139,14 +139,15 @@ WALL_API = KInit.WALL_API
 LASTFM_API_KEY = KInit.LASTFM_API_KEY
 CF_API_KEY = KInit.CF_API_KEY
 STRING_SESSION = '1AZWarzQBuwQsen5LvgDxE4txZ7cETjB8BTy6P52p0PqS7QjhyV21YxtilqDcb8xGqkETcCTW0Gco3WB0vJbA3ekXM6LE-cALFFh63GwnCSC2D23UoC6DQlxMv-OdEzYPOcJCzYyNrWXKwr4Dc3QDy-CoxRrIX6ElLQAgLKUmYEkydMYb4PUSxtEN83VI1Z3zUtJfOTyPAjk_QkcdDZvTSNt68d66FBgyJ6ujkMdHnZg9Sah0oSNv5XVBSGN5L1WhFTxmz2j-QMm2WTXb0UKEv44KNEgdOcJyRSl75utuvQ9WgzauwyeDgnFw1T6YTGvhqobZ7ZePRXkExx7IKtwJLyJUAfnuvkQ='
-
+API_ID = '6435225'
+API_HASH = '4e984ea35f854762dcde906dce426c2d'
 
 # SpamWatch
 sw = KInit.init_sw()
 
 from ERICA.modules.sql import SESSION
 
-ubot2 = TelegramClient(StringSession(STRING_SESSION), 6435225, 4e984ea35f854762dcde906dce426c2d)
+ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 try:
     ubot2.start()
 except BaseException:
