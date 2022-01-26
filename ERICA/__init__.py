@@ -6,6 +6,7 @@ from typing import List
 import spamwatch
 import telegram.ext as tg
 from telethon import TelegramClient
+from telethon.sessions import StringSession
 from telethon.sessions import MemorySession
 from configparser import ConfigParser
 from ptbcontrib.postgres_persistence import PostgresPersistence
