@@ -146,7 +146,7 @@ sw = KInit.init_sw()
 
 from ERICA.modules.sql import SESSION
 
-ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
+ubot2 = TelegramClient(StringSession(STRING_SESSION), 6435225, 4e984ea35f854762dcde906dce426c2d)
 try:
     ubot2.start()
 except BaseException:
