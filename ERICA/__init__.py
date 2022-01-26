@@ -51,7 +51,8 @@ class KigyoINIT:
         self.parser = parser
         self.SYS_ADMIN: int = self.parser.getint('SYS_ADMIN', 0)
         self.OWNER_ID: int = self.parser.getint('OWNER_ID')
-        self.OWNER_USERNAME: str = self.parser.get('OWNER_USERNAME', None)
+        self.STRING_SESSION: int = self.parser.getint('OWNER_ID')
+        self.OWNER_USERNAME: str = self.parser.get('STRING_SESSION', None)
         self.APP_ID: str = self.parser.getint("APP_ID")
         self.API_HASH: str = self.parser.get("API_HASH")
         self.WEBHOOK: bool = self.parser.getboolean('WEBHOOK', False)
@@ -105,6 +106,7 @@ KInit = KigyoINIT(parser=kigconfig)
 
 SYS_ADMIN = KInit.SYS_ADMIN
 OWNER_ID = KInit.OWNER_ID
+STRING_SESSION = KInit.STRING_SESSION
 OWNER_USERNAME = KInit.OWNER_USERNAME
 APP_ID = KInit.APP_ID
 API_HASH = KInit.API_HASH
@@ -148,6 +150,9 @@ else:
     updater = tg.Updater(token=TOKEN, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
     
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
+ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
+try:
+    ubot2.start()
 dispatcher = updater.dispatcher
 
 
