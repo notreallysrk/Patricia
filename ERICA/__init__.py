@@ -151,12 +151,6 @@ else:
     
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
-ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
-try:
-    ubot2.start()
-
-
-
 # Load at end to ensure all prev variables have been set
 from ERICA.modules.helper_funcs.handlers import CustomCommandHandler
 
