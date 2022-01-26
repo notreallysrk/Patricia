@@ -158,13 +158,13 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                             ),
                             InlineKeyboardButton(
                                 text="ᴏᴡɴᴇʀ",
-                                url="https://t.me/",
+                                url="t.me/zeref_cursed_wizard",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
                                 text="ᴄʜᴀᴛᴛɪɴɢ ɢʀᴏᴜᴘ/ꜰᴜɴ",
-                                url="t.me/",
+                                url="https://t.me/friends_chat_international_group",
                             ),
                         ],
                         [
