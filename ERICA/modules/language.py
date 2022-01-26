@@ -69,7 +69,7 @@ def lang_button(update: Update, _) -> None:
     )
 
 
-SETLANG_HANDLER = CommandHandler("lang", set_lang)
+SETLANG_HANDLER = CommandHandler("langg", set_lang)
 SETLANG_BUTTON_HANDLER = CallbackQueryHandler(lang_button, pattern=r"setLang_")
 
 dispatcher.add_handler(SETLANG_HANDLER)
