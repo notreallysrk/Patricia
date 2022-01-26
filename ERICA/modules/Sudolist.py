@@ -33,7 +33,207 @@ def check_user_id(user_id: int, context: CallbackContext) -> Optional[str]:
     else:
         return None
 
+@kigcmd(command='addsudo')
+@dev_plus
+@gloggable
+def addsudo(update: Update, context: CallbackContext) -> str:
+    message = update.effective_message
+    user = update.effective_user
+    chat = update.effective_chat
+    bot, args = context.bot, context.args
+    user_id = extract_user(message, args)
+    user_member = bot.getChat(user_id)
+    rt = ""
 
+    reply = check_user_id(user_id, bot)
+    if reply:
+        message.reply_text(reply)
+        return ""
+
+    if user_id in SUDO_USERS:
+        message.reply_text("This member is already a Sudo user")
+        return ""
+
+    if user_id in SUPPORT_USERS:
+        rt += "Requested Eagle Union to promote a Support user to Sudo."
+        SUPPORT_USERS.remove(user_id)
+
+    if user_id in WHITELIST_USERS:
+        rt += "Requested Eagle Union to promote a Whitelist user to Sudo."
+        WHITELIST_USERS.remove(user_id)
+
+    # will add or update their role
+    sql.set_royal_role(user_id, "sudos")
+    SUDO_USERS.append(user_id)
+
+    update.effective_message.reply_text(
+        rt
+        + "\nSuccessfully promoted {} to Sudo!".format(
+            user_member.first_name
+        )
+    )
+
+    log_message = (
+        f"#SUDO\n"
+        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+        f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
+    )
+
+    if chat.type != "private":
+        log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
+
+    return log_message
+
+
+@kigcmd(command='addsupport')
+@sudo_plus
+@gloggable
+def addsupport(
+    update: Update,
+    context: CallbackContext,
+) -> str:
+    message = update.effective_message
+    user = update.effective_user
+    chat = update.effective_chat
+    bot, args = context.bot, context.args
+    user_id = extract_user(message, args)
+    user_member = bot.getChat(user_id)
+    rt = ""
+
+    reply = check_user_id(user_id, bot)
+    if reply:
+        message.reply_text(reply)
+        return ""
+
+    if user_id in SUDO_USERS:
+        rt += "Requested Eagle Union to demote this Sudo to Support"
+        SUDO_USERS.remove(user_id)
+
+    if user_id in SUPPORT_USERS:
+        message.reply_text("This user is already a Support user.")
+        return ""
+
+    if user_id in WHITELIST_USERS:
+        rt += "Requested Eagle Union to promote this Whitelist user to Support"
+        WHITELIST_USERS.remove(user_id)
+
+    sql.set_royal_role(user_id, "supports")
+    SUPPORT_USERS.append(user_id)
+
+    update.effective_message.reply_text(
+        rt + f"\n{user_member.first_name} was added as a Support user!"
+    )
+
+    log_message = (
+        f"#SUPPORT\n"
+        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+        f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
+    )
+
+    if chat.type != "private":
+        log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
+
+    return log_message
+
+
+@kigcmd(command='addwhitelist')
+@sudo_plus
+@gloggable
+def addwhitelist(update: Update, context: CallbackContext) -> str:
+    message = update.effective_message
+    user = update.effective_user
+    chat = update.effective_chat
+    bot, args = context.bot, context.args
+    user_id = extract_user(message, args)
+    user_member = bot.getChat(user_id)
+    rt = ""
+
+    reply = check_user_id(user_id, bot)
+    if reply:
+        message.reply_text(reply)
+        return ""
+
+    if user_id in SUDO_USERS:
+        rt += "This member is a Sudo user, Demoting to Whitelisted user."
+        SUDO_USERS.remove(user_id)
+
+    if user_id in SUPPORT_USERS:
+        rt += "This user is already a Support user, Demoting to Whitelisted user."
+        SUPPORT_USERS.remove(user_id)
+
+    if user_id in WHITELIST_USERS:
+        message.reply_text("This user is already a Whitelist user.")
+        return ""
+
+    sql.set_royal_role(user_id, "whitelists")
+    WHITELIST_USERS.append(user_id)
+
+    update.effective_message.reply_text(
+        rt + f"\nSuccessfully promoted {user_member.first_name} to a Whitelist user!"
+    )
+
+    log_message = (
+        f"#WHITELIST\n"
+        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))} \n"
+        f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
+    )
+
+    if chat.type != "private":
+        log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
+
+    return log_message
+
+
+@kigcmd(command='addsardegna')
+@sudo_plus
+@gloggable
+def addsardegna(update: Update, context: CallbackContext) -> str:
+    message = update.effective_message
+    user = update.effective_user
+    chat = update.effective_chat
+    bot, args = context.bot, context.args
+    user_id = extract_user(message, args)
+    user_member = bot.getChat(user_id)
+    rt = ""
+
+    reply = check_user_id(user_id, bot)
+    if reply:
+        message.reply_text(reply)
+        return ""
+
+    if user_id in SUDO_USERS:
+        rt += "This member is a Sudo user, Demoting to Sardegna."
+        SUDO_USERS.remove(user_id)
+
+    if user_id in SUPPORT_USERS:
+        rt += "This user is already a Support user, Demoting to Sardegna."
+        SUPPORT_USERS.remove(user_id)
+
+    if user_id in WHITELIST_USERS:
+        rt += "This user is already a Whitelist user, Demoting to Sardegna."
+        WHITELIST_USERS.remove(user_id)
+
+    if user_id in SARDEGNA_USERS:
+        message.reply_text("This user is already a Sardegna.")
+        return ""
+
+    sql.set_royal_role(user_id, "sardegnas")
+    SARDEGNA_USERS.append(user_id)
+
+    update.effective_message.reply_text(
+        rt + f"\nSuccessfully promoted {user_member.first_name} to a Sardegna Nation!"
+    )
+
+    log_message = (
+        f"#SARDEGNA\n"
+        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))} \n"
+        f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
+    )
+
+    if chat.type != "private":
+        log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
+
+    return log_message
 
 
 @kigcmd(command='removesudo')
@@ -274,7 +474,10 @@ def devlist(update: Update, context: CallbackContext):
     update.effective_message.reply_text(reply, parse_mode=ParseMode.HTML)
 
 
-from ERICA.modules.language import gs
+from tg_bot.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "nation_help")
 
 
-
+__mod_name__ = "Nations"
