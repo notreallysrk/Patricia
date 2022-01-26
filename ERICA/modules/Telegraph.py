@@ -2,7 +2,7 @@
 # I give credit for this module to YuiGBot.
 
 
-from ERICA.modules.helper_funcs.decorators import kigcmd as register
+from ERICA.modules.helper_funcs.decorators import kigcmd 
 from ERICA import telethn
 
 TMP_DOWNLOAD_DIRECTORY = "./"
