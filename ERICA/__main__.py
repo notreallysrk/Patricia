@@ -330,8 +330,8 @@ def help_button(update, context):
                     + help_text
             )
             help_buttons.append(
-                [[InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="help_back"), InlineKeyboardButton(text="ʜᴏᴍᴇ", callback_data="start_back")]]
-                ),
+                [InlineKeyboardButton(text="Back", callback_data="help_back"),]
+            )
             query.message.edit_text(
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
