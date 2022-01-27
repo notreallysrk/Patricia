@@ -147,38 +147,25 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
 [
                         [
                             InlineKeyboardButton(
-                                text="ᴀᴅᴅ ᴍᴇ",
-                                url="t.me/{}?startgroup=true".format(
-                                    context.bot.username
-                                ),
-                            ),
-                            InlineKeyboardButton(
-                                text="ꜱᴜᴘᴘᴏʀᴛ",
-                                url='https://t.me/Erica_Support',
-                            ),
-                            InlineKeyboardButton(
-                                text="ᴏᴡɴᴇʀ",
-                                url="t.me/zeref_cursed_wizard",
-                            ),
+                                text="Add me To Your Chats 🔥", url="t.me/Zaid2_Robot?startgroup=true"),
+                        ],
+                        [
+                            InlineKeyboardButton(text="Basic Infos ℹ️ ", callback_data="emiko_"),
+                        ],
+                        [
+                            InlineKeyboardButton(text=" Website ✅", url="https://zaidrobot.website2.me/"),
+                        ],
+                        [  
+                            InlineKeyboardButton(text="Support ⚒️", url="https://t.me/Superior_Support"),
+                            InlineKeyboardButton(text="Updates 📢", url="https://t.me/Superior_Bots"),
+                        ], 
+                        [
+                            InlineKeyboardButton(text="ʜᴇʟᴘ ᴀɴᴅ ᴄᴍᴅꜱ🔥", callback_data="help_back"),
                         ],
                         [
                             InlineKeyboardButton(
                                 text="ᴄʜᴀᴛᴛɪɴɢ ɢʀᴏᴜᴘ/ꜰᴜɴ",
                                 url="https://t.me/friends_chat_international_group",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="ꜱᴡɪᴛᴄʜ ɪɴʟɪɴᴇ",
-                                switch_inline_query_current_chat="",
-                            ),
-                            InlineKeyboardButton(
-                                text="ᴄᴏᴍᴍᴀɴᴅꜱ",
-                                callback_data="help_back",
-                            ),
-                            InlineKeyboardButton(
-                                text="ᴄʜᴀɴɴᴇʟ",
-                                url='https://t.me/Erica_Updates',
                             ),
                         ],
                     ]
@@ -221,38 +208,25 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                     [
                         [
                             InlineKeyboardButton(
-                                text="ᴀᴅᴅ ᴍᴇ",
-                                url="t.me/{}?startgroup=true".format(
-                                    context.bot.username
-                                ),
-                            ),
-                            InlineKeyboardButton(
-                                text="ꜱᴜᴘᴘᴏʀᴛ",
-                                url='https://t.me/Erica_Support',
-                            ),
-                            InlineKeyboardButton(
-                                text="ᴏᴡɴᴇʀ",
-                                url="t.me/zeref_cursed_wizard",
-                            ),
+                                text="Add me To Your Chats 🔥", url="t.me/Zaid2_Robot?startgroup=true"),
+                        ],
+                        [
+                            InlineKeyboardButton(text="Basic Infos ℹ️ ", callback_data="emiko_"),
+                        ],
+                        [
+                            InlineKeyboardButton(text=" Website ✅", url="https://zaidrobot.website2.me/"),
+                        ],
+                        [  
+                            InlineKeyboardButton(text="Support ⚒️", url="https://t.me/Superior_Support"),
+                            InlineKeyboardButton(text="Updates 📢", url="https://t.me/Superior_Bots"),
+                        ], 
+                        [
+                            InlineKeyboardButton(text="ʜᴇʟᴘ ᴀɴᴅ ᴄᴍᴅꜱ🔥", callback_data="help_back"),
                         ],
                         [
                             InlineKeyboardButton(
                                 text="ᴄʜᴀᴛᴛɪɴɢ ɢʀᴏᴜᴘ/ꜰᴜɴ",
                                 url="https://t.me/friends_chat_international_group",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="ꜱᴡɪᴛᴄʜ ɪɴʟɪɴᴇ",
-                                switch_inline_query_current_chat="",
-                            ),
-                            InlineKeyboardButton(
-                                text="ᴄᴏᴍᴍᴀɴᴅꜱ",
-                                callback_data="help_back",
-                            ),
-                            InlineKeyboardButton(
-                                text="ᴄʜᴀɴɴᴇʟ",
-                                url='https://t.me/Erica_Updates',
                             ),
                         ],
                     ]
