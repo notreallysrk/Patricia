@@ -10,7 +10,7 @@ set_chat_lang: "Great, {} it is from now on!"
 
 pm_start_text: |
    *Hello {} !*
-  ──────────────────────:
+  ──────────────────────
   I am an Anime themed group management bot with some fun extras
   I can do a variety of things, most common of em are
   - Restrict users with ban permissions.
