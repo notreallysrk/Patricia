@@ -3,7 +3,7 @@ from telethon.tl import functions, types
 
 from ERICA import telethn as tbot
 from ERICA import ubot2 as ubot
-from ShasaBot.events import register as shasa
+from ERICA.events import register as shasa
 
 
 async def is_register_admin(chat, user):
