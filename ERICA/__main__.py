@@ -292,7 +292,8 @@ def help_button(update, context):
                     + help_text
             )
             help_buttons.append(
-                [InlineKeyboardButton(text="Back", callback_data="help_back"),]
+                [InlineKeyboardButton(text="Back", callback_data="help_back"),
+                 InlineKeyboardButton(text='Support', url='https://t.me/YorkTownEagleUnion')]
             )
             query.message.edit_text(
                 text=text,
