@@ -162,12 +162,6 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(text="ʜᴇʟᴘ ᴀɴᴅ ᴄᴍᴅꜱ🔥", callback_data="help_back"),
                         ],
-                        [
-                            InlineKeyboardButton(
-                                text="ᴄʜᴀᴛᴛɪɴɢ ɢʀᴏᴜᴘ/ꜰᴜɴ",
-                                url="https://t.me/friends_chat_international_group",
-                            ),
-                        ],
                     ]
                 ),
             )
@@ -222,12 +216,6 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         ], 
                         [
                             InlineKeyboardButton(text="ʜᴇʟᴘ ᴀɴᴅ ᴄᴍᴅꜱ🔥", callback_data="help_back"),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="ᴄʜᴀᴛᴛɪɴɢ ɢʀᴏᴜᴘ/ꜰᴜɴ",
-                                url="https://t.me/friends_chat_international_group",
-                            ),
                         ],
                     ]
                 ),
