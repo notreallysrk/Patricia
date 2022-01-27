@@ -9,21 +9,23 @@ set_chat_lang: "Great, {} it is from now on!"
 
 
 pm_start_text: |
-   ʜɪ {}
-   ɪ ᴀᴍ ᴀɴ ꜱɪᴍᴘʟᴇ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ ꜱᴏᴍᴇ ꜰᴜɴ ᴇxᴛʀᴀ ꜰᴇᴀᴛᴜʀᴇꜱ
+   *Hello {} !*
+───────────────────────
+I am an Anime themed group management bot with some fun extras ;)
+I can do a variety of things, most common of em are:
+- Restrict users with ban permissions.
+- Greet users with media + text and buttons, with proper formatting.
+- Restrict users who flood your chat using my anti-flood module.
+- Warn users according to the options set and restrict em accordingly.
+- Save notes and filters with proper formatting and reply markup.
+- I can Play Music Too In Ur Groups
+Theres even more! this is just the tip of the iceberg. Do note I need
+to be promoted with proper admin permissions to function properly. 
+Else I won't be able to function as said.
+Click on help to learn more!
+───────────────────────
    
-   ɪ ᴄᴀɴ ᴅᴏ ᴀ ᴠᴀʀɪᴇᴛʏ ᴏꜰ ᴛʜɪɴɢꜱ, ᴍᴏꜱᴛ ᴄᴏᴍᴍᴏɴ ᴏꜰ ᴇᴍ ᴀʀᴇ:
-   - ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ ᴡɪᴛʜ *ʙᴀɴ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ*.
-   - ɢʀᴇᴇᴛ ᴜꜱᴇʀꜱ ᴡɪᴛʜ ᴍᴇᴅɪᴀ + ᴛᴇxᴛ ᴀɴᴅ ʙᴜᴛᴛᴏɴꜱ, ᴡɪᴛʜ ᴘʀᴏᴘᴇʀ ꜰᴏʀᴍᴀᴛᴛɪɴɢ.
-   - ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ ᴡʜᴏ ꜰʟᴏᴏᴅ ʏᴏᴜʀ ᴄʜᴀᴛ ᴜꜱɪɴɢ ᴍʏ *ᴀɴᴛɪ-ꜰʟᴏᴏᴅ* ᴍᴏᴅᴜʟᴇ.
-   - *ᴡᴀʀɴ* ᴜꜱᴇʀꜱ ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴛʜᴇ ᴏᴘᴛɪᴏɴꜱ ꜱᴇᴛ ᴀɴᴅ ʀᴇꜱᴛʀɪᴄᴛ ᴇᴍ ᴀᴄᴄᴏʀᴅɪɴɢʟʏ.
-   - ꜱᴀᴠᴇ ɴᴏᴛᴇꜱ ᴀɴᴅ ꜰɪʟᴛᴇʀꜱ ᴡɪᴛʜ ᴘʀᴏᴘᴇʀ ꜰᴏʀᴍᴀᴛᴛɪɴɢ ᴀɴᴅ ʀᴇᴘʟʏ ᴍᴀʀᴋᴜᴘ ᴇᴛᴄ..
-   
-   ᴛʜᴇʀᴇ ᴀʀᴇ ʟᴏᴛꜱ ᴏꜰ ꜰᴇᴀᴛᴜʀᴇꜱ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ᴀɴᴅ ᴇɴᴊᴏʏ.
-   
-   *ᴄʟɪᴄᴋ ᴏɴ ᴄᴏᴍᴍᴀɴᴅꜱ ᴛᴏ ʟᴇᴀʀɴ ᴍᴏʀᴇ!*
-   
-grp_start_text: "Hello, I'M Alive"
+grp_start_text: "Hello, Zaid Is Alive"
 
 pm_help_text: |
    ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ᴛᴏ ᴄʜᴇᴄᴋ ᴅᴀᴛᴀɪʟꜱ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ ᴏꜰ ᴛʜᴇ ᴍᴏᴅᴜʟᴇꜱ.
