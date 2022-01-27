@@ -36,8 +36,7 @@ def fmt_help(update: Update, context: CallbackContext):
         text=help_text,
         parse_mode=ParseMode.HTML,
         reply_markup=InlineKeyboardMarkup(
-            [[InlineKeyboardButton(text="Back", callback_data=f"help_module({__mod_name__.lower()})"),
-            InlineKeyboardButton(text='Report Error', url='https://t.me/Erica_support')]]
+            [[InlineKeyboardButton(text="Back", callback_data=f"help_module({__mod_name__.lower()})")]]
         ),
     )
     bot.answer_callback_query(query.id)
