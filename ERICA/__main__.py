@@ -150,9 +150,6 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                                 text="Add me To Your Chats 🔥", url="t.me/Zaid2_Robot?startgroup=true"),
                         ],
                         [
-                            InlineKeyboardButton(text="Basic Infos ℹ️ ", callback_data="emiko_"),
-                        ],
-                        [
                             InlineKeyboardButton(text=" Website ✅", url="https://zaidrobot.website2.me/"),
                         ],
                         [  
@@ -203,9 +200,6 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text="Add me To Your Chats 🔥", url="t.me/Zaid2_Robot?startgroup=true"),
-                        ],
-                        [
-                            InlineKeyboardButton(text="Basic Infos ℹ️ ", callback_data="emiko_"),
                         ],
                         [
                             InlineKeyboardButton(text=" Website ✅", url="https://zaidrobot.website2.me/"),
@@ -292,8 +286,8 @@ def help_button(update, context):
                     + help_text
             )
             help_buttons.append(
-                [InlineKeyboardButton(text="Back", callback_data="help_back"),
-                 InlineKeyboardButton(text='Support', url='https://t.me/YorkTownEagleUnion')]
+                [InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="help_back"),
+                 InlineKeyboardButton(text='ʜᴏᴍᴇ', callback_data='start_back')]
             )
             query.message.edit_text(
                 text=text,
