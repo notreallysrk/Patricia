@@ -481,4 +481,7 @@ sticker_blacklist_help: |
        Note:
          • `<sticker link>` can be `https://t.me/addstickers/<sticker>` or just `<sticker>` or reply to the sticker message
 
-
+logo_help: |
+       This is help menu for logomaker
+         ❂ /logo <text/name> - Create a logo with random view.
+         ❂ /wlogo <text/name> - Create a logo with wide view only.
