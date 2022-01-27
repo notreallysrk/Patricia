@@ -18,12 +18,32 @@ pm_start_text: |
   - Restrict users who flood your chat using my anti-flood module.
   - Warn users according to the options set and restrict em accordingly.
   - Save notes and filters with proper formatting and reply markup.
-  - I can Play Music Too In Ur Groups
+
   Theres even more! this is just the tip of the iceberg. Do note I need
   to be promoted with proper admin permissions to function properly. 
   Else I won't be able to function as said.
   Click on help to learn more!
   ───────────────────────
+
+pm_start_text: |
+   Hi {}, I'm Zaid,
+   ───────────────────────
+   I am an Anime themed group management bot with some fun extras ;)
+   
+   I can do a variety of things, most common of em are:
+   - Restrict users with *ban permissions*.
+   - Greet users with media + text and buttons, with proper formatting.
+   - Restrict users who flood your chat using my *anti-flood* module.
+   - *Warn* users according to the options set and restrict em accordingly.
+   - Save notes and filters with proper formatting and reply markup.
+   - I can Play Music Too In Ur Groups
+   
+   Theres even more! this is just the tip of the iceberg. Do note I need
+   to be promoted with proper admin permissions to function properly. 
+   Else I won't be able to function as said.
+   ───────────────────────
+   Click on help to learn more!
+
    
 grp_start_text: "Hello, Zaid Is Alive"
 
