@@ -208,14 +208,11 @@ async def logo_(event):
             os.remove(font_)
 
 
-__mod_name__ = "Logomaker"
 
-__help__ = """ This is help menu for logomaker
+from ERICA.modules.language import gs
 
-❂ /logo <text/name> - Create a logo with random view.
-❂ /wlogo <text/name> - Create a logo with wide view only.
+def get_help(chat):
+    return gs(chat, "approve_help")
 
- Image Editor :
 
-❂  /edit <reply photo> - to edit image.
-"""
+__mod_name__ = "Logos"
