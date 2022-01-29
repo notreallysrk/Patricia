@@ -195,37 +195,6 @@ def __user_info__(user_id):
     else:
         return "\n"
 
-@kigcmd(command='info')
-def _user_info(self, ctx: command.Context, user: User) -> Optional[str]:
-        """User Info"""
-        text = f"**{'Bot' if user.is_bot else 'User'} Info**\n\n"
-        text += f"**ID:** `{user.id}`\n"
-        text += f"**DC ID: **`{user.dc_id if user.dc_id else 'N/A'}`\n"
-        text += f"**First Name: **{user.first_name}\n"
-        if user.last_name:
-            text += f"**Last Name: **`{user.last_name}`\n"
-
-        if user.username:
-            text += f"**Username: **@{user.username}\n"
-
-        text += f"**Permanent user link: **{util.tg.mention(user)}\n"
-        text += (
-            "**Number of profile pics: **"
-            f"`{await self.bot.client.get_profile_photos_count(user.id)}`\n"
-        )
-        if user.status:
-            text += f"**Last seen: ** `{user.status}`\n"
-
-        if user.photo:
-            async with ctx.action("upload_photo"):
-                file = AsyncPath(await self.bot.client.download_media(user.photo.big_file_id))
-                await self.bot.client.send_photo(
-                    ctx.chat.id, str(file), text, reply_to_message_id=ctx.message.message_id
-                )
-                await file.unlink()
-            return None
-
-        return text
 
 
 from ERICA.modules.language import gs
