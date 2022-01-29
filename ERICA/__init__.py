@@ -9,10 +9,15 @@ from telethon import TelegramClient
 from telethon.sessions import StringSession
 from telethon.sessions import MemorySession
 from configparser import ConfigParser
+from motor import motor_asyncio
+from odmantic import AIOEngine
+from pymongo import MongoClient
+
 from ptbcontrib.postgres_persistence import PostgresPersistence
 from logging.config import fileConfig
 
 StartTime = time.time()
+CMD_HELP = {}
 
 
 flag = """
@@ -162,6 +167,12 @@ try:
 except BaseException:
     print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
     sys.exit(1)
+
+MONGO_DB = "ZaidRobot"
+mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
+motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
+db = motor[MONGO_DB]
+engine = AIOEngine(motor, MONGO_DB)
 
 # Load at end to ensure all prev variables have been set
 from ERICA.modules.helper_funcs.handlers import CustomCommandHandler
