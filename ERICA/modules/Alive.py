@@ -10,7 +10,7 @@ from datetime import datetime
 import random
 from telethon import events, Button, custom, version
 from ERICA.events import register
-from ERIXA import telethn as aasf
+from ERICA import telethn as aasf
 from ERICA import StartTime, dispatcher
 from telethon.tl.types import ChannelParticipantsAdmins
 
