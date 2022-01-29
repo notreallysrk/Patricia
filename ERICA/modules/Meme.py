@@ -3,10 +3,8 @@ from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeybo
 from pyrogram import filters, Client
 from pyrogram.types import Message
 import requests
-from ERICA.plugins.helpers import call_back_in_filter
 
-
-@Client.on_callback_query(call_back_in_filter('meme'))
+@Client.on_callback_query(filters.regex(pattern=r"meme"))
 def callback_meme(_, query):
     if query.data.split(":")[1] == "next":
         query.message.delete()
