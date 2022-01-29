@@ -1,6 +1,6 @@
 
 from pyrogram import filters, Client
-from ERICA import sudos
+
 
 OWNER = 1669178360
 
