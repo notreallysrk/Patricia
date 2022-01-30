@@ -8,7 +8,7 @@ from pyrogram import Client, filters
 OWNER = 1669178360
 
 
-@Client.on_message(filters.command("info"))
+@Client.on_message(command(["info", f"whois", "status"]) & other_filters)
 def info(_, message):
     if message.text == "/info":
         user = message.from_user.id
