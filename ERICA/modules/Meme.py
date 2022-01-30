@@ -1,10 +1,11 @@
 from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeyboardButton
 from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup
-from pyrogram import filters, Client
+from pyrogram import filters
+from ERICA import pgram as bot
 from pyrogram.types import Message
 import requests
 
-@Client.on_callback_query(filters.regex(pattern=r"meme"))
+@bot.on_callback_query(filters.regex(pattern=r"meme"))
 def callback_meme(_, query):
     if query.data.split(":")[1] == "next":
         query.message.delete()
@@ -20,7 +21,7 @@ def callback_meme(_, query):
             ]))
 
 
-@Client.on_message(filters.command('rmeme'))
+@bot.on_message(filters.command('rmeme'))
 def rmeme(_, message):
     res = requests.get('https://nksamamemeapi.pythonanywhere.com').json()
     img = res['image']
@@ -33,7 +34,7 @@ def rmeme(_, message):
                    ]]))
 
 
-@Client.on_message(filters.command('webss'))
+@bot.on_message(filters.command('webss'))
 async def webss(client, message):
     user = message.command[1]
     fuck = f'https://webshot.deam.io/{url}/?delay=2000'
