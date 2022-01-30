@@ -7,7 +7,7 @@ from ERICA.function.dbfun import (
     int_to_alpha,
     alpha_to_int,
 )
-from mrjoker.utils.filter_groups import karma_positive_group, karma_negative_group
+from ERICA.utils.filter_groups import karma_positive_group, karma_negative_group
 from pyrogram import filters
 
 
