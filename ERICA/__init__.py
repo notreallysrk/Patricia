@@ -12,6 +12,7 @@ from configparser import ConfigParser
 from motor import motor_asyncio
 from odmantic import AIOEngine
 from pymongo import MongoClient
+from pyrogram import Client, filters
 
 from ptbcontrib.postgres_persistence import PostgresPersistence
 from logging.config import fileConfig
@@ -146,6 +147,7 @@ CF_API_KEY = KInit.CF_API_KEY
 STRING_SESSION = '1AZWarzoBu1UTbrldjbuCEY0WpSHa8J9Lk48Of-8qB_7CDcT4JtzyW-Mg1eRhtWhOlzzA9s6K3ZrxhbHqCcgAoMRJVhEQT9YJ_buacByEy3KNR2NdrDl-hi9e-MSmBFQEM_alrlDh0pay_87TxEkfczQCnCf1fe19HbAKK7gkBp5qf_aIQEnPgCVh30mfUnUaoPUjNEv44fGKhOBy7bK5C-C2d3ekuS2NJNI4wtthHwKCnWeZ4VGwZNMk4chsCi9IWuqmsKUwlPxQJzx4IMTsl1q4rQA0T1dLA03VqT1DZOlM8f69CowV2XElcfQ-9HhoYU-_8WrIE8cWmEMK4P9VXYPHQWyKLew='
 API_ID = '6435225'
 API_HASH = '4e984ea35f854762dcde906dce426c2d'
+TOKEN = 
 
 # SpamWatch
 sw = KInit.init_sw()
@@ -167,6 +169,13 @@ try:
 except BaseException:
     print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
     sys.exit(1)
+
+pbot = Client(
+    ":memory:",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=TOKEN,
+)
 
 MONGO_DB = "ZaidRobot"
 MONGO_DB_URL = "mongodb+srv://ZAID2:ZAID2@cluster0.plap4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
