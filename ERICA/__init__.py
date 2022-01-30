@@ -12,7 +12,7 @@ from configparser import ConfigParser
 from motor import motor_asyncio
 from odmantic import AIOEngine
 from pymongo import MongoClient
-from pyrogram import Client, filters
+from pyrogram import Client, filters, errors
 
 from ptbcontrib.postgres_persistence import PostgresPersistence
 from logging.config import fileConfig
@@ -170,12 +170,7 @@ except BaseException:
     print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
     sys.exit(1)
 
-pbot = Client(
-    ":memory:",
-    api_id=API_ID,
-    api_hash=API_HASH,
-    bot_token=TOKEN,
-)
+pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 
 MONGO_DB = "ZaidRobot"
 MONGO_DB_URL = "mongodb+srv://ZAID2:ZAID2@cluster0.plap4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
