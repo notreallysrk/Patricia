@@ -34,6 +34,7 @@ import datetime
 import platform
 from platform import python_version
 from ERICA.modules.helper_funcs.decorators import kigcmd, kigcallback
+INFOPIC = True
 
 MARKDOWN_HELP = f"""
 Markdown is a very powerful formatting tool supported by telegram. {dispatcher.bot.first_name} has some enhancements, to make sure that \
