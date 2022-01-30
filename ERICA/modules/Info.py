@@ -9,8 +9,7 @@ OWNER = 1669178360
 
 
 @Client.on_message(filters.command("info"))
-def info(update: Update, context: CallbackContext):
-    message = update.effective_message
+def info(_, message):
     if message.text == "/info":
         user = message.from_user.id
     if message.reply_to_message:
