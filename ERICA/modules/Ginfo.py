@@ -3,8 +3,8 @@ from pyrogram import Client, filters
 from ERICA.modules.helper_funcs.decorators import kigcmd
 
 
-@kigcmd(command=["ginfo", "chatinfo"])
-def ginfo(client, message):
+@register(pattern=("/ginfo"))
+def ginfo(_, message):
     id = message.from_user.id
     txt=message.text
     text = txt.split(" ", 1)
