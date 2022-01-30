@@ -1,14 +1,10 @@
-import requests
-from telegram import ParseMode, Update
-from telegram.ext import CallbackContext, run_async
-from ERICA.modules.helper_funcs.decorators import kigcmd
-from pyrogram import Client, filters
-from Process.filters import command, other_filters
+from ERICA import pbot as bot
+from pyrogram import filters
 
 OWNER = 1669178360
 
 
-@Client.on_message(command(["info", f"whois", "status"]) & other_filters)
+@bot.on_message(filters.command("info"))
 def info(_, message):
     if message.text == "/info":
         user = message.from_user.id
@@ -38,7 +34,7 @@ def info(_, message):
     foo = bot.get_users(user)
     data = f"""**First Name** : {foo.first_name}
 **Last Name**: {foo.last_name}
-**Telegram Id**: {foo.id}
+**Telegram Id**: `{foo.id}`
 **PermaLink**: {foo.mention(foo.first_name)}
 **is_bot**: {foo.is_bot}
 **Status**: {status}
