@@ -6,8 +6,9 @@ from ERICA.events import register
 OWNER = 1669178360
 
 
-@register(pattern=("/info"))
-def info(_, message):
+@kigcmd(command=["info", "whois"])
+def info(update: Update, context: CallbackContext):
+    message = update.effective_message
     if message.text == "/info":
         user = message.from_user.id
     if message.reply_to_message:
