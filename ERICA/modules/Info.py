@@ -1,5 +1,6 @@
 
 from pyrogram import filters, Client
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 
 OWNER = 1669178360
