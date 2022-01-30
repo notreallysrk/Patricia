@@ -193,3 +193,16 @@ def spamfilters(text, user_id, chat_id):
 
     print("This user is a spammer!")
     return True
+
+
+print("Starting Pyrogram Client")
+pgram.start()
+
+print("Aquiring BOT Client Info")
+
+bottie = pgram.get_me()
+
+BOT_ID = bottie.id
+BOT_USERNAME = bottie.username
+BOT_NAME = bottie.first_name
+BOT_MENTION = bottie.mention
