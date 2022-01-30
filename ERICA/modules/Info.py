@@ -2,12 +2,13 @@ import requests
 from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 from ERICA.modules.helper_funcs.decorators import kigcmd
+from pyrogram import Client, filters
 
 
 OWNER = 1669178360
 
 
-@kigcmd(command=["info", "whois"])
+@Client.on_message(filters.command("info"))
 def info(update: Update, context: CallbackContext):
     message = update.effective_message
     if message.text == "/info":
