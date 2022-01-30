@@ -3,7 +3,7 @@ from telegram import ParseMode, Update
 from telegram.ext import CallbackContext, run_async
 from ERICA.modules.helper_funcs.decorators import kigcmd
 from pyrogram import Client, filters
-
+from Process.filters import command, other_filters
 
 OWNER = 1669178360
 
