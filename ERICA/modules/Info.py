@@ -1,12 +1,12 @@
 
 from pyrogram import filters, Client
-from ERICA.modules.helper_funcs.decorators import kigcmd
+from ERICA.events import register
 
 
 OWNER = 1669178360
 
 
-@kigcmd(command=["info", "whois"])
+@register(pattern=("/info"))
 def info(_, message):
     if message.text == "/info":
         user = message.from_user.id
