@@ -1,6 +1,6 @@
 
 from pyrogram import Client, filters
-from ERICA.modules.helper_funcs.decorators import kigcmd
+from ERICA.events import register
 
 
 @register(pattern=("/ginfo"))
