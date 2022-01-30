@@ -1,4 +1,4 @@
-from ERICA import pgram as ERICA
+from ERICA import pgram as mrjoker
 from ERICA.utils.errors import capture_err
 from ERICA.function.dbfun import (
     update_karma,
