@@ -5,7 +5,7 @@ from pyrogram import filters, Client
 OWNER = 1669178360
 
 
-@Client.on_message(filters.command("info"))
+@kigcmd(command=["info", "whois"])
 def info(_, message):
     if message.text == "/info":
         user = message.from_user.id
