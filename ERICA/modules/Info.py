@@ -1,4 +1,4 @@
-from ERICA import pbot as bot
+from ERICA import pgram as bot
 from pyrogram import filters
 
 OWNER = 1669178360
