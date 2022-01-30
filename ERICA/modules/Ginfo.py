@@ -1,8 +1,9 @@
 
 from pyrogram import Client, filters
+from ERICA.modules.helper_funcs.decorators import kigcmd
 
 
-@Client.on_message(filters.command("ginfo"))
+@kigcmd(command=["ginfo", "chatinfo"])
 def ginfo(client, message):
     id = message.from_user.id
     txt=message.text
