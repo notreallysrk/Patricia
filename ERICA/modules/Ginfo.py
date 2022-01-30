@@ -1,9 +1,8 @@
+from ERICA import pgram as bot
+from pyrogram import filters
 
-from pyrogram import Client, filters
-from ERICA.events import register
 
-
-@register(pattern=("/ginfo"))
+@bot.on_message(filters.command("info"))
 def ginfo(_, message):
     id = message.from_user.id
     txt=message.text
