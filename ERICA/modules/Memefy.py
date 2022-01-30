@@ -2,7 +2,9 @@ import textwrap
 import os
 from PIL import Image, ImageFont, ImageDraw
 from ERICA.events import register
-from Zaid import LOGGER, telethn as bot
+from ERICA import telethn as bot
+TMP_DOWNLOAD_DIRECTORY = "./"
+LOGGER = True
 
 
 @register(pattern="^/mmf ?(.*)")
