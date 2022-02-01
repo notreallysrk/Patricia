@@ -139,3 +139,11 @@ async def drawText(image_path, text):
     webp_file = os.path.join(image_name)
     img.save(webp_file, "webp")
     return webp_file
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "memefy_help")
+
+
+__mod_name__ = "Memefy"
