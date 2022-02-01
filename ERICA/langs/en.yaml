@@ -51,11 +51,6 @@ admin_help: |
    • `/promote`*:* promotes the user replied to
    • `/demote`*:* demotes the user replied to
    • `/title <title here>`*:* sets a custom title for an admin that the bot promoted
-   *Moderators Commands*:
-   • `/addmod`*:* moderator of a user. 
-   • `/rmmod*:* Unmoderator of a user.
-   • `/modcheck*:* moderation cheak of a user.
-   • `/modlist*:* moderation user list.
 
 afk_help: |
    - /afk <reason>: mark yourself as AFK(away from keyboard).
