@@ -88,3 +88,11 @@ async def _(event):
             return
         await lol.edit(f"```{responses.text}```")
         # await lol.edit(f"{response.message.message}")
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "sg_help")
+
+
+__mod_name__ = "Sangamata"
