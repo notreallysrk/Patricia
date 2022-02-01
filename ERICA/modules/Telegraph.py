@@ -87,4 +87,13 @@ file_help = os.path.basename(__file__)
 file_help = file_help.replace(".py", "")
 file_helpo = file_help.replace("_", " ")
 
+
+
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "tele_help")
+
+
 __mod_name__ = "Telegraph"
