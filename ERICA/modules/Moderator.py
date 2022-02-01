@@ -134,13 +134,7 @@ def modr(update, context):
             f"{member.user['first_name']} is not an moderator user."
         )
 
-__help__ = """
-*Commands*:
-  /addmod`*:* moderator of a user. 
-  /rmmod*:* Unmoderator of a user.
-  /modcheck*:* moderation cheak of a user.
-  /modlist*:* moderation user list.
-"""
+
 
 
 ADDMOD = DisableAbleCommandHandler("addmod", mod, run_async=True)
@@ -153,6 +147,11 @@ dispatcher.add_handler(MODLIST)
 dispatcher.add_handler(MODCHECK)
 
 __mod_name__ = "Moderators"
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "mod_help")
 
 
 __command_list__ = ["addmod", "rmmod", "modlist", "modcheck"]
