@@ -487,8 +487,12 @@ logo_help: |
 
 mod_help: | 
        *Commands*:
-         ❂ `/mod`*:* moderator of a user. 
-         ❂ `/rmmod`*:* Unmoderator of a user.
-         ❂ `/modcheck`*:* moderation cheak of a user.
-         ❂ `/modlist`*:* moderation user list.
+         ❂ `/mod`: moderator of a user. 
+         ❂ `/rmmod`: Unmoderator of a user.
+         ❂ `/modcheck`: moderation cheak of a user.
+         ❂ `/modlist`: moderation user list.
+
+sg_help: | 
+       This Commands Can Find Anyone Name History
+         ❂ `/sg`: To Search Name/Username History
 
