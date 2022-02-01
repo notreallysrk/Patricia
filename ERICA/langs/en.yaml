@@ -485,9 +485,9 @@ logo_help: |
          ❂ /logo <text/name> - Create a logo with random view.
          ❂ /wlogo <text/name> - Create a logo with wide view only.
 
-logo_help: | 
+mod_help: | 
        *Commands*:
-         ❂ `/addmod`*:* moderator of a user. 
+         ❂ `/mod`*:* moderator of a user. 
          ❂ `/rmmod`*:* Unmoderator of a user.
          ❂ `/modcheck`*:* moderation cheak of a user.
          ❂ `/modlist`*:* moderation user list.
