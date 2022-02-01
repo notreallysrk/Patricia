@@ -484,3 +484,11 @@ logo_help: |
        This is help menu for logomaker
          ❂ /logo <text/name> - Create a logo with random view.
          ❂ /wlogo <text/name> - Create a logo with wide view only.
+
+logo_help: | 
+       *Commands*:
+         ❂ `/addmod`*:* moderator of a user. 
+         ❂ `/rmmod`*:* Unmoderator of a user.
+         ❂ `/modcheck`*:* moderation cheak of a user.
+         ❂ `/modlist`*:* moderation user list.
+
