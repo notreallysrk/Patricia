@@ -62,7 +62,7 @@ UNGBAN_ERRORS = {
 }
 
 
-@kigcmd(command="gban")
+@kigcmd(command="gbann")
 @support_plus
 def gban(update: Update, context: CallbackContext):  # sourcery no-metrics
     bot, args = context.bot, context.args
@@ -260,7 +260,7 @@ def gban(update: Update, context: CallbackContext):  # sourcery no-metrics
         pass  # bot probably blocked by user
 
 
-@kigcmd(command="ungban")
+@kigcmd(command="ungbann")
 @support_plus
 def ungban(update: Update, context: CallbackContext):  # sourcery no-metrics
     bot, args = context.bot, context.args
@@ -422,7 +422,7 @@ def check_and_ban(update, user_id, should_message=True):
             text = (
                 f"<b>Alert</b>: this user is globally banned.\n"
                 f"<code>*bans them from here*</code>.\n"
-                f"<b>Appeal chat</b>: @YorkTownEagleUnion\n"
+                f"<b>Appeal chat</b>: @Superior_bots\n"
                 f"<b>User ID</b>: <code>{user_id}</code>"
             )
             user = sql.get_gbanned_user(user_id)
