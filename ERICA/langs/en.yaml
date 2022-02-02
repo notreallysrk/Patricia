@@ -505,3 +505,8 @@ tele_help: |
        These Commands for make Url/Upload on Telegraph
          ❂ `/tgm`: Reply With Media
          ❂ `/tgt`: Reply With Text Message 
+
+
+meme_help: |
+       This Modules for fun /memes 
+         ❂ `/rmeme`: it will send random Memes 
