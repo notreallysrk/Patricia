@@ -40,3 +40,12 @@ async def webss(client, message):
     fuck = f'https://webshot.deam.io/{url}/?delay=2000'
     await client.send_document(message.chat.id, fuck, caption=f'{url}')
 
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "meme_help")
+
+
+__mod_name__ = "Memes"
+
