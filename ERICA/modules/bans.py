@@ -138,6 +138,119 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
     return ""
 
 
+
+@kigcmd(command='dban', pass_args=True)
+@connection_status
+@bot_admin
+@can_restrict
+@user_admin
+@loggable
+def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery no-metrics
+    chat = update.effective_chat  # type: Optional[Chat]
+    user = update.effective_user  # type: Optional[User]
+    message = update.effective_message  # type: Optional[Message]
+    args = context.args
+    bot = context.bot
+    log_message = ""
+    reason = ""
+    if message.reply_to_message and message.reply_to_message.sender_chat:
+        r = bot.ban_chat_sender_chat(chat_id=chat.id, sender_chat_id=message.reply_to_message.sender_chat.id)
+    try:
+      prev = await bot.get_reply_message()
+      await prev.delete()
+    except Exception:
+      pass
+        if r:
+            message.reply_text("Channel {} was banned successfully from {}".format(
+                html.escape(message.reply_to_message.sender_chat.title),
+                html.escape(chat.title)
+            ),
+                parse_mode="html"
+            )
+            return (
+                f"<b>{html.escape(chat.title)}:</b>\n"
+                f"#BANNED\n"
+                f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+                f"<b>Channel:</b> {html.escape(message.reply_to_message.sender_chat.title)} ({message.reply_to_message.sender_chat.id})"
+            )
+        else:
+            message.reply_text("Failed to ban channel")
+        return
+
+    user_id, reason = extract_user_and_text(message, args)
+
+    if not user_id:
+        message.reply_text("I doubt that's a user.")
+        return log_message
+
+    try:
+        member = chat.get_member(user_id)
+    except BadRequest as excp:
+        if excp.message != "User not found":
+            raise
+
+        message.reply_text("Can't seem to find this person.")
+        return log_message
+    if user_id == context.bot.id:
+        message.reply_text("Oh yeah, ban myself, noob!")
+        return log_message
+
+    if is_user_ban_protected(update, user_id, member) and user not in DEV_USERS:
+        if user_id == OWNER_ID:
+            message.reply_text("I'd never ban my owner.")
+        elif user_id in DEV_USERS:
+            message.reply_text("I can't act against our own.")
+        elif user_id in SUDO_USERS:
+            message.reply_text("My sudos are ban immune")
+        elif user_id in SUPPORT_USERS:
+            message.reply_text("My support users are ban immune")
+        elif user_id in SARDEGNA_USERS:
+            message.reply_text("Bring an order from Eagle Union to fight a Sardegna.")
+        elif user_id in WHITELIST_USERS:
+            message.reply_text("Neptunians are ban immune!")
+        else:
+            message.reply_text("This user has immunity and cannot be banned.")
+        return log_message
+    log = (
+        f"<b>{html.escape(chat.title)}:</b>\n"
+        f"#BANNED\n"
+        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
+        f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}"
+    )
+    if reason:
+        log += "\n<b>Reason:</b> {}".format(reason)
+
+    try:
+        chat.ban_member(user_id)
+        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        context.bot.sendMessage(
+            chat.id,
+            "{} was banned by {} in <b>{}</b>\n<b>Reason</b>: <code>{}</code>".format(
+                mention_html(member.user.id, member.user.first_name), mention_html(user.id, user.first_name),
+                message.chat.title, reason
+            ),
+            parse_mode=ParseMode.HTML,
+        )
+        return log
+
+    except BadRequest as excp:
+        if excp.message == "Reply message not found":
+            # Do not reply
+            message.reply_text("Banned!", quote=False)
+            return log
+        else:
+            log.warning(update)
+            log.exception(
+                "ERROR banning user %s in chat %s (%s) due to %s",
+                user_id,
+                chat.title,
+                chat.id,
+                excp.message,
+            )
+            message.reply_text("Well damn, I can't ban that user.")
+
+    return ""
+
 @kigcmd(command='tban', pass_args=True)
 @connection_status
 @bot_admin
