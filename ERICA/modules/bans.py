@@ -1,5 +1,6 @@
 import html
 from typing import Optional
+import async
 
 from telegram import Update, ParseMode
 from telegram.error import BadRequest
@@ -145,7 +146,7 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
 @can_restrict
 @user_admin
 @loggable
-def dban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery no-metrics
+async def dban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery no-metrics
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     message = update.effective_message  # type: Optional[Message]
