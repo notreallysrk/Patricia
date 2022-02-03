@@ -351,47 +351,6 @@ async def demote(dmod):
         return
 
 
-@register(pattern="^/ban ?(.*)")
-async def ban(bon):
-    if not bon.is_group:
-        return
-    if bon.is_group:
-      if not bon.sender_id == OWNER_ID:
-       if not await is_register_admin(bon.input_chat, bon.sender_id):
-           await bon.reply("Only admins can execute this command!")
-           return
-       if not await can_ban_users(message=bon):
-            await bon.reply("You are missing the following rights to use this command:CanRestrictMembers")
-            return
-    user, reason = await rep(bon)
-    if user.id == BOT_ID:
-      await bon.reply("You know what I'm not going to do? Ban myself.")
-      return
-    elif sudo(user.id):
-      await bon.reply("I'm not banning one of my sudo users.")
-      return
-    if user:
-        pass
-    else:
-        return
-
-    if bon.is_group:
-        if await is_register_admin(bon.input_chat, user.id):
-            await bon.reply("Why would I ban an admin? That sounds like a pretty dumb idea.")
-            return
-        pass
-    else:
-        return
-
-    try:
-        await tbot(EditBannedRequest(bon.chat_id, user.id, BANNED_RIGHTS))
-        if not reason:
-          await bon.reply(f"Another one bites the dust...!Banned [User](tg://user?id={user.id}).")
-        else:
-          await bon.reply(f"Another one bites the dust...!Banned [User](tg://user?id={user.id}).\nReason: {reason}")
-    except Exception:
-        await bon.reply("I haven't got the rights to do this.")
-        return
 
 @register(pattern="^/dban ?(.*)")
 async def ban(bon):
@@ -438,80 +397,8 @@ async def ban(bon):
         await bon.reply("I haven't got the rights to do this.")
         return
 
-@register(pattern="^/unban ?(.*)")
-async def unban(bon):
-    
-    if not bon.is_group:
-        return
-    if bon.is_group:
-      if not bon.sender_id == OWNER_ID:
-       if not await is_register_admin(bon.input_chat, bon.sender_id):
-           await bon.reply("Only admins can execute this command!")
-           return
-       if not await can_ban_users(message=bon):
-            await bon.reply("You are missing the following rights to use this command:CanRestrictMembers")
-            return
 
-    user = await get_user_from_event(bon)
-    if user:
-        pass
-    else:
-        await bon.reply("I don't know who you're talking about, you're going to need to specify a user...!")
-        return
 
-    if bon.is_group:
-        if await is_register_admin(bon.input_chat, user.id):
-            await bon.reply("Yeah, Thats an admin.")
-            return
-        pass
-    else:
-        return
-
-    try:
-        await tbot(EditBannedRequest(bon.chat_id, user.id, UNBAN_RIGHTS))
-        await bon.reply("Fine, they can join again.")
-
-    except BaseException:
-        await bon.reply("This person hasn't been banned... how am I meant to unban them?")
-        return
-
-@register(pattern="^/kick(?: |$)(.*)")
-async def kick(bon):
-    if not bon.is_group:
-        return
-    if bon.is_group:
-      if not bon.sender_id == OWNER_ID:
-       if not await is_register_admin(bon.input_chat, bon.sender_id):
-           await bon.reply("Only admins can execute this command!")
-           return
-       if not await can_ban_users(message=bon):
-            await bon.reply("You are missing the following rights to use this command:CanRestrictMembers")
-            return
-    user = await get_user_from_event(bon)
-    if user.id == BOT_ID:
-         await bon.reply("Yeahhh, I'm not going to kick myself.")
-         return
-
-    if user:
-        pass
-    else:
-        return
-
-    if bon.is_group:
-        if await is_register_admin(bon.input_chat, user.id):
-            await bon.reply("I'm not gonna kick an admin... Though I reckon it'd be pretty funny.")
-            return
-        pass
-    else:
-        return
-
-    try:
-        await tbot.kick_participant(bon.chat_id, user.id)
-        await bon.reply("I've kicked [User](tg://user?id={user.id}).")
-
-    except BaseException:
-        await bon.reply("Failed to kickA.")
-        return
 
 @register(pattern="^/dkick(?: |$)(.*)")
 async def kick(bon):
@@ -556,48 +443,6 @@ async def kick(bon):
         return
 
 
-@register(pattern="^/mute(?: |$)(.*)")
-async def spider(spdr):
-    """
-    This function is basically muting peeps
-    """
-    if not spdr.is_group:
-        return
-    bon = spdr
-    if bon.is_group:
-      if not bon.sender_id == OWNER_ID:
-       if not await is_register_admin(bon.input_chat, bon.sender_id):
-           await bon.reply("Only admins can execute this command!")
-           return
-       if not await can_ban_users(message=bon):
-            await bon.reply("You are missing the following rights to use this command:CanRestrictMembers")
-            return
-
-    user = await get_user_from_event(spdr)
-    if user.id == BOT_ID:
-      await spdr.reply("You know what I'm not going to do? Mute myself.")
-      return
-    if user:
-        pass
-    else:
-        return
-
-    if spdr.is_group:
-        if await is_register_admin(spdr.input_chat, user.id):
-            await spdr.reply("Ehhh, I'd rather not get involved in muting an admin. I'll stick to muting normal users, thanks.")
-            return
-        pass
-    else:
-        return
-
-    try:
-        await tbot(EditBannedRequest(spdr.chat_id, user.id, MUTE_RIGHTS))
-
-        await spdr.reply("Shhh... quiet now.\nMuted [User](tg://user?id={user.id}).")
-    except Exception as e:
-        print(e)
-        await spdr.reply("Failed to mute.")
-        return
 
 @register(pattern="^/dmute(?: |$)(.*)")
 async def spider(spdr):
@@ -648,46 +493,6 @@ async def spider(spdr):
         await spdr.reply("Failed to mute.")
         return
 
-@register(pattern="^/unmute(?: |$)(.*)")
-async def spiderr(spdr):
-    """
-    This function is basically unmuting peeps
-    """
-    bon = spdr
-    if bon.is_group:
-      if not bon.sender_id == OWNER_ID:
-       if not await is_register_admin(bon.input_chat, bon.sender_id):
-           await bon.reply("Only admins can execute this command!")
-           return
-       if not await can_ban_users(message=bon):
-            await bon.reply("You are missing the following rights to use this command:CanRestrictMembers")
-            return
-
-    user = await get_user_from_event(spdr)
-    if user.id == BOT_ID:
-      await spdr.reply("Ya I'm not gonna Unmute Me!")
-      return
-    if user:
-        pass
-    else:
-        return
-
-    if spdr.is_group:
-        if await is_register_admin(spdr.input_chat, user.id):
-            await spdr.reply("Why will i unmute an admin ?")
-            return
-        pass
-    else:
-        return
-
-    try:
-        await tbot(EditBannedRequest(spdr.chat_id, user.id, UNMUTE_RIGHTS))
-
-        await spdr.reply("Fine, they can speak again.")
-
-    except BaseException:
-        await spdr.reply("Failed to unmute.")
-        return
 
 
 @register(pattern="^/unbanall$")
