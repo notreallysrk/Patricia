@@ -41,7 +41,7 @@ def check_user(user_id: int, bot: Bot, update: Update) -> Optional[str]:
     return None
 
 
-@kigcmd(command='mute')
+@kigcmd(command=["mute", "dmute", "smute"])
 @connection_status
 @bot_admin
 @can_restrict
@@ -93,62 +93,6 @@ def mute(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-
-@kigcmd(command='dmute')
-@connection_status
-@bot_admin
-@can_restrict
-@user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
-@loggable
-def dmute(update: Update, context: CallbackContext) -> str:
-    bot = context.bot
-    args = context.args
-
-    chat = update.effective_chat
-    user = update.effective_user
-    message = update.effective_message
-
-    user_id, reason = extract_user_and_text(message, args)
-    reply = check_user(user_id, bot, update)
-    prev = bot.get_reply_message()
-    try:
-      prev.delete()
-    except Exception:
-      pass
-
-    if reply:
-        message.reply_text(reply)
-        return ""
-
-    member = chat.get_member(user_id)
-
-    log = (
-        f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#MUTE\n"
-        f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-        f"<b>User:</b> {mention_html(member.user.id, member.user.first_name)}"
-    )
-
-    if reason:
-        log += f"\n<b>Reason:</b> {reason}"
-
-    if member.can_send_messages is None or member.can_send_messages:
-        chat_permissions = ChatPermissions(can_send_messages=False)
-        bot.restrict_chat_member(chat.id, user_id, chat_permissions)
-        bot.sendMessage(
-            chat.id,
-            "{} was muted by {} in <b>{}</b>\n<b>Reason</b>: <code>{}</code>".format(
-                mention_html(member.user.id, member.user.first_name), mention_html(user.id, user.first_name),
-                message.chat.title, reason
-            ),
-            parse_mode=ParseMode.HTML,
-        )
-        return log
-
-    else:
-        message.reply_text("This user is already muted!")
-
-    return ""
 
 
 @kigcmd(command='unmute')
