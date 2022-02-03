@@ -229,7 +229,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@kigcmd(command='kick', pass_args=True)
+@kigcmd(command=["kick", "dkick", "skick", "punch"], pass_args=True)
 @connection_status
 @bot_admin
 @can_restrict
@@ -242,6 +242,8 @@ def kick(update: Update, context: CallbackContext) -> str:
     log_message = ""
     bot, args = context.bot, context.args
     user_id, reason = extract_user_and_text(message, args)
+    if message.text.startswith("/d") and message.reply_to_message:
+        message.reply_to_message.delete()
 
     if not user_id:
         message.reply_text("I doubt that's a user.")
@@ -287,7 +289,7 @@ def kick(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@kigcmd(command='kickme', pass_args=True, filters=Filters.chat_type.groups)
+@kigcmd(command=['kickme', 'punchme'] pass_args=True, filters=Filters.chat_type.groups)
 @bot_admin
 @can_restrict
 def kickme(update: Update, context: CallbackContext):
