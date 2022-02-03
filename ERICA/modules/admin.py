@@ -461,52 +461,6 @@ async def demote(dmod):
 
 
 
-
-@register(pattern="^/dkick(?: |$)(.*)")
-async def kick(bon):
-    if not bon.is_group:
-        return
-    if bon.is_group:
-      if not bon.sender_id == OWNER_ID:
-       if not await is_register_admin(bon.input_chat, bon.sender_id):
-           await bon.reply("Only admins can execute this command!")
-           return
-       if not await can_ban_users(message=bon):
-            await bon.reply("You are missing the following rights to use this command:CanRestrictMembers")
-            return
-    user = await get_user_from_event(bon)
-    try:
-      prev = await bon.get_reply_message()
-      await prev.delete()
-    except Exception:
-        pass
-    if user.id == BOT_ID:
-         await bon.reply("Yeahhh, I'm not going to kick myself.")
-         return
-    if user:
-        pass
-    else:
-        return
-
-    if bon.is_group:
-        if await is_register_admin(bon.input_chat, user.id):
-            await bon.reply("I'm not gonna kick an admin... Though I reckon it'd be pretty funny.")
-            return
-        pass
-    else:
-        return
-
-    try:
-        await tbot.kick_participant(bon.chat_id, user.id)
-        await bon.reply("I've kicked [User](tg://user?id={user.id}).")
-
-    except BaseException:
-        await bon.reply("Failed to kick.")
-        return
-
-
-
-
 @register(pattern="^/unbanall$")
 async def _(event):
     if not event.is_group:
@@ -593,31 +547,6 @@ async def _(event):
     await event.reply(required_string.format(p))
 
 
-@register(pattern="^/pin(?: |$)(.*)")
-async def pin(msg):
-    promt = msg
-    if promt.is_group:
-      if not promt.sender_id == OWNER_ID:
-        if not await is_register_admin(promt.input_chat, promt.sender_id):
-           await promt.reply("Only admins can execute this command!")
-           return
-        
-    else:
-        return
-    if not await can_pin_msg(message=promt):
-            await promt.reply("You are missing the following rights to use this command:CanPinMessages")
-            return
-    to_pin = msg.reply_to_msg_id
-    if not to_pin:
-        await msg.reply("Reply to a message which you want to pin.")
-        return
-    is_silent = True
-    try:
-        await tbot(UpdatePinnedMessageRequest(msg.to_id, to_pin, is_silent))
-        await msg.reply("Pinned Successfully!")
-    except Exception:
-        await msg.reply("Failed to pin.")
-        return
 
 @register(pattern="^/permapin(?: |$)(.*)")
 async def pin(msg):
@@ -647,18 +576,6 @@ async def pin(msg):
     except Exception:
         await msg.reply("Failed to pin.")
         return
-
-@register(pattern="^/unpin$")
-async def pin(msg):
-    if msg.is_group:
-      if not msg.sender_id == OWNER_ID:
-        if not await can_pin_msg(message=msg):
-            return
-    try:
-        c = await msg.get_reply_message()
-        await tbot.unpin_message(msg.chat_id, c)
-    except Exception:
-        await msg.reply("Failed to unpin.")
 
 
 @register(pattern="^/adminlist$")
@@ -824,68 +741,6 @@ async def get_users(show):
     os.remove("userslist.txt")
 
 
-@register(pattern="^/zombies(?: |$)(.*)")
-async def rm_deletedacc(show):
-    """ For .delusers command, list all the ghost/deleted accounts in a chat. """
-    con = show.pattern_match.group(1).lower()
-    del_u = 0
-    del_status = "`No deleted accounts found, Group is cleaned as Hell`"
-
-    if not show.is_group:
-        return
-
-    if show.is_group:
-        if not await can_ban_users(message=show):
-            return
-
-    # Here laying the sanity check
-    chat = await show.get_chat()
-    admin = chat.admin_rights.ban_users
-    creator = chat.creator
-
-    # Well
-    if not admin and not creator:
-        await show.reply("`I don't have enough permissions!`")
-        return
-
-    if con != "clean":
-        await show.reply("`Searching for zombie accounts...`")
-        async for user in tbot.iter_participants(show.chat_id):
-            if user.deleted:
-                del_u += 1
-
-        if del_u > 0:
-            del_status = f"Found **{del_u}** deleted account(s) in this group,\
-            \nclean them by using `/zombies clean`"
-
-        await show.reply(del_status)
-        return
-
-    await show.reply("`Kicking deleted accounts...`")
-    del_u = 0
-    del_a = 0
-
-    async for user in tbot.iter_participants(show.chat_id):
-        if user.deleted:
-            try:
-                await tbot(EditBannedRequest(show.chat_id, user.id, BANNED_RIGHTS))
-            except ChatAdminRequiredError:
-                await show.reply("`I don't have ban rights in this group`")
-                return
-            except UserAdminInvalidError:
-                del_u -= 1
-                del_a += 1
-            await tbot(EditBannedRequest(show.chat_id, user.id, UNBAN_RIGHTS))
-            del_u += 1
-
-    if del_u > 0:
-        del_status = f"Cleaned **{del_u}** deleted account(s)"
-
-    if del_a > 0:
-        del_status = f"Cleaned **{del_u}** deleted account(s) \
-        \n**{del_a}** deleted admin accounts are not removed"
-
-    await show.reply(del_status)
 
 
 
