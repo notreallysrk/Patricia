@@ -153,13 +153,13 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
     bot = context.bot
     log_message = ""
     reason = ""
-    if message.reply_to_message and message.reply_to_message.sender_chat:
-        r = bot.ban_chat_sender_chat(chat_id=chat.id, sender_chat_id=message.reply_to_message.sender_chat.id)
     try:
-      prev = await bot.get_reply_message()
+      prev = await bon.get_reply_message()
       await prev.delete()
     except Exception:
       pass
+    if message.reply_to_message and message.reply_to_message.sender_chat:
+        r = bot.ban_chat_sender_chat(chat_id=chat.id, sender_chat_id=message.reply_to_message.sender_chat.id)
         if r:
             message.reply_text("Channel {} was banned successfully from {}".format(
                 html.escape(message.reply_to_message.sender_chat.title),
