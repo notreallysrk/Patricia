@@ -1,7 +1,7 @@
 #By Eviral (github.com/TeamEviral ; t.me/Eviral)
 #By RoseLoverx Telegram
 
-from ERICA import tbot, BOT_ID
+from ERICA import telethn as tbot
 from ERICA.function import sudo
 from telethon.errors import (
     ChatAdminRequiredError,
@@ -41,6 +41,7 @@ from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
 
 from telethon.errors.rpcerrorlist import MessageDeleteForbiddenError
 
+BOT_ID = 1901951380
 CMD_HELP = '/'
 
 # =================== CONSTANT ===================
