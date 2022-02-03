@@ -44,6 +44,8 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
     bot = context.bot
     log_message = ""
     reason = ""
+    if message.text.startswith("/d") and message.reply_to_message:
+        message.reply_to_message.delete()
     if message.reply_to_message and message.reply_to_message.sender_chat:
         r = bot.ban_chat_sender_chat(chat_id=chat.id, sender_chat_id=message.reply_to_message.sender_chat.id)
         if r:
