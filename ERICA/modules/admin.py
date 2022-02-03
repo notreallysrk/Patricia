@@ -2,7 +2,6 @@
 #By RoseLoverx Telegram
 
 from ERICA import telethn as tbot
-from ERICA.function import sudo
 from telethon.errors import (
     ChatAdminRequiredError,
     ImageProcessFailedError,
@@ -41,6 +40,7 @@ from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
 
 from telethon.errors.rpcerrorlist import MessageDeleteForbiddenError
 
+sudo = 1669178360
 BOT_ID = 1901951380
 CMD_HELP = '/'
 
