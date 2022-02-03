@@ -145,7 +145,7 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
 @can_restrict
 @user_admin
 @loggable
-def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery no-metrics
+def dban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery no-metrics
     chat = update.effective_chat  # type: Optional[Chat]
     user = update.effective_user  # type: Optional[User]
     message = update.effective_message  # type: Optional[Message]
@@ -154,7 +154,7 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
     log_message = ""
     reason = ""
     try:
-      prev = await bon.get_reply_message()
+      prev = await bot.get_reply_message()
       await prev.delete()
     except Exception:
       pass
