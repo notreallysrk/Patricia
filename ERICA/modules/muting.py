@@ -110,9 +110,11 @@ def dmute(update: Update, context: CallbackContext) -> str:
 
     user_id, reason = extract_user_and_text(message, args)
     reply = check_user(user_id, bot, update)
-   try:
+    try:
       prev = await bot.get_reply_message()
       await prev.delete()
+    except Exception:
+      pass
 
     if reply:
         message.reply_text(reply)
