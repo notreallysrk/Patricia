@@ -289,7 +289,7 @@ def kick(update: Update, context: CallbackContext) -> str:
     return log_message
 
 
-@kigcmd(command=['kickme', 'punchme'] pass_args=True, filters=Filters.chat_type.groups)
+@kigcmd(command=['kickme', 'punchme'], pass_args=True, filters=Filters.chat_type.groups)
 @bot_admin
 @can_restrict
 def kickme(update: Update, context: CallbackContext):
