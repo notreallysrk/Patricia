@@ -524,8 +524,5 @@ def __chat_settings__(chat_id, user_id):
 from ERICA.modules.language import gs
 
 
-def get_help(chat):
-    return gs(chat, "antispam_help")
-
 
 __mod_name__ = 'AntiSpam'
