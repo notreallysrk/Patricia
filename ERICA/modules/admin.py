@@ -299,7 +299,7 @@ async def promote(promt):
         return
 
 @register(pattern="^/lowpromote ?(.*)")
-async def promote(promt):
+async def lowpromote(promt):
     text = promt.pattern_match.group(1)
     if text == None:
       title = 'α∂мιи'
@@ -353,7 +353,7 @@ async def promote(promt):
 
 
 @register(pattern="^/fullpromote ?(.*)")
-async def promote(promt):
+async def fullpromote(promt):
     text = promt.pattern_match.group(1)
     if text == None:
       title = 'Aԃɱιɳ'
