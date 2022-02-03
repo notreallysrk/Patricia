@@ -138,7 +138,9 @@ def modr(update, context):
 
 
 ADDMOD = DisableAbleCommandHandler("mod", mod, run_async=True)
+ADDMOD = DisableAbleCommandHandler("addmod", mod, run_async=True)
 RMMOD = DisableAbleCommandHandler("rmmod", dismod, run_async=True)
+RMMOD = DisableAbleCommandHandler("unmod", dismod, run_async=True)
 MODLIST = DisableAbleCommandHandler("modlist", modd, run_async=True)
 MODCHECK = DisableAbleCommandHandler("modcheck", modr, run_async=True)
 dispatcher.add_handler(ADDMOD)
