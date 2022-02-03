@@ -178,13 +178,13 @@ def demote(update: Update, context: CallbackContext) -> Optional[str]:
         return
 
 
-
+"""
 @kigcmd(command="admincache", can_disable=False)
 @u_admin
 def refresh_admin(update, _):
     ADMIN_CACHE.pop(update.effective_chat.id)
     update.effective_message.reply_text("Admins cache refreshed!")
-
+"""
 
 
 @kigcmd(command="title", can_disable=False)
