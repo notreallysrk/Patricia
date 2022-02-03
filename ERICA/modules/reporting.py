@@ -66,6 +66,7 @@ def report_setting(update: Update, context: CallbackContext):
 
 @kigcmd(command='report', filters=Filters.chat_type.groups, group=REPORT_GROUP)
 @kigmsg((Filters.regex(r"(?i)@admin(s)?")), group=REPORT_GROUP)
+@kigmsg((Filters.regex(r"(?i)@admins(s)?")), group=REPORT_GROUP)
 @user_not_admin
 @loggable
 def report(update: Update, context: CallbackContext) -> str:
