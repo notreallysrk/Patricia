@@ -248,7 +248,115 @@ def find_instance(items, class_or_tuple):
 async def promote(promt):
     text = promt.pattern_match.group(1)
     if text == None:
-      title = 'Admin'
+      title = 'Aԃɱιɳ'
+    else:
+      title = text
+    if promt.is_group:
+      if not promt.sender_id == OWNER_ID:
+        if not await is_register_admin(promt.input_chat, promt.sender_id):
+           await promt.reply("Only admins can execute this command!")
+           return
+        
+    else:
+        return
+    if not await can_promote_users(message=promt):
+            await promt.reply("You are missing the following rights to use this command:CanPromoteMembers")
+            return
+    user = await get_user_from_event(promt)
+    if user.id == BOT_ID:
+       await promt.reply("I can't promote myself! Get an admin to do it for me.")
+       return
+    if promt.is_group:
+        if await is_register_admin(promt.input_chat, user.id):
+            await promt.reply("Why will i promote an admin ?")
+            return
+        pass
+    else:
+        return
+
+    new_rights = ChatAdminRights(
+        invite_users=True,
+        change_info=True,
+        ban_users=True,
+        delete_messages=True,
+        pin_messages=True,
+    )
+
+    if user:
+        pass
+    else:
+        return
+
+    # Try to promote if current user is admin or creator
+    try:
+        await tbot(EditAdminRequest(promt.chat_id, user.id, new_rights, title))
+        await promt.reply("Promoted!")
+
+    # If Telethon spit BadRequestError, assume
+    # we don't have Promote permission
+    except Exception:
+        await promt.reply("Failed to promote.")
+        return
+
+@register(pattern="^/lowpromote ?(.*)")
+async def promote(promt):
+    text = promt.pattern_match.group(1)
+    if text == None:
+      title = 'α∂мιи'
+    else:
+      title = text
+    if promt.is_group:
+      if not promt.sender_id == OWNER_ID:
+        if not await is_register_admin(promt.input_chat, promt.sender_id):
+           await promt.reply("Only admins can execute this command!")
+           return
+        
+    else:
+        return
+    if not await can_promote_users(message=promt):
+            await promt.reply("You are missing the following rights to use this command:CanPromoteMembers")
+            return
+    user = await get_user_from_event(promt)
+    if user.id == BOT_ID:
+       await promt.reply("I can't promote myself! Get an admin to do it for me.")
+       return
+    if promt.is_group:
+        if await is_register_admin(promt.input_chat, user.id):
+            await promt.reply("Why will i promote an admin ?")
+            return
+        pass
+    else:
+        return
+
+    new_rights = ChatAdminRights(
+        invite_users=True,
+        change_info=True,
+        delete_messages=True,
+        pin_messages=True,
+    )
+
+    if user:
+        pass
+    else:
+        return
+
+    # Try to promote if current user is admin or creator
+    try:
+        await tbot(EditAdminRequest(promt.chat_id, user.id, new_rights, title))
+        await promt.reply("Promoted!")
+
+    # If Telethon spit BadRequestError, assume
+    # we don't have Promote permission
+    except Exception:
+        await promt.reply("Failed to promote.")
+        return
+
+
+@register(pattern="^/fullpromote ?(.*)")
+async def promote(promt):
+    text = promt.pattern_match.group(1)
+    if text == None:
+      title = 'Aԃɱιɳ'
     else:
       title = text
     if promt.is_group:
