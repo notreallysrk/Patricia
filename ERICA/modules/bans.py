@@ -1,6 +1,6 @@
 import html
 from typing import Optional
-import async
+
 
 from telegram import Update, ParseMode
 from telegram.error import BadRequest
