@@ -154,9 +154,9 @@ def dban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery
     bot = context.bot
     log_message = ""
     reason = ""
+    prev = bot.get_reply_message()
     try:
-      prev = bot.get_reply_message()
-      await prev.delete()
+      prev.delete()
     except Exception:
       pass
     if message.reply_to_message and message.reply_to_message.sender_chat:
