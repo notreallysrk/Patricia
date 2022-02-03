@@ -34,7 +34,7 @@ from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 @connection_status
 @bot_admin
 @can_restrict
-@user_admin
+@user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
 @loggable
 def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery no-metrics
     chat = update.effective_chat  # type: Optional[Chat]
@@ -144,7 +144,7 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
 @connection_status
 @bot_admin
 @can_restrict
-@user_admin
+@user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
 @loggable
 def temp_ban(update: Update, context: CallbackContext) -> str:
     chat = update.effective_chat
@@ -233,7 +233,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
 @connection_status
 @bot_admin
 @can_restrict
-@user_admin
+@user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
 @loggable
 def kick(update: Update, context: CallbackContext) -> str:
     chat = update.effective_chat
