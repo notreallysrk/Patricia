@@ -870,6 +870,32 @@ async def get_admin(show):
         mentions += " " + str(err) + "\n"
     await show.reply(mentions, parse_mode="html")
 
+@register(pattern="^/admins$")
+async def get_admin(show):
+    if show.is_group:
+      if not show.sender_id == OWNER_ID:
+        if not await is_register_admin(show.input_chat, show.sender_id):
+            return
+    else:
+        return
+    info = await tbot.get_entity(show.chat_id)
+    title = info.title if info.title else "this chat"
+    mentions = f"<b>Admins in {title}:</b> \n"
+    try:
+        async for user in tbot.iter_participants(
+            show.chat_id, filter=ChannelParticipantsAdmins
+        ):
+            if not user.deleted:
+                link_unf = '•<a href="tg://user?id={}">{}</a>'
+                link = link_unf.format(user.id, user.first_name)
+                userid = f"<code>{user.id}</code>"
+                mentions += f"\n{link}"
+            else:
+                mentions += f"\nDeleted Account <code>{user.id}</code>"
+    except ChatAdminRequiredError as err:
+        mentions += " " + str(err) + "\n"
+    await show.reply(mentions, parse_mode="html")
+
 
 @register(pattern="^/setgrouppic$")
 async def set_group_photo(gpic):
