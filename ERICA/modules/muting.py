@@ -41,7 +41,7 @@ def check_user(user_id: int, bot: Bot, update: Update) -> Optional[str]:
     return None
 
 
-@kigcmd(command='mute')
+@kigcmd(command='mutee')
 @connection_status
 @bot_admin
 @can_restrict
@@ -93,7 +93,7 @@ def mute(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-@kigcmd(command='unmute')
+@kigcmd(command='unmutee')
 @connection_status
 @bot_admin
 @can_restrict
@@ -159,7 +159,7 @@ def unmute(update: Update, context: CallbackContext) -> str:
     return ""
 
 
-@kigcmd(command=['tmute', 'tempmute'])
+@kigcmd(command=['tmutee', 'tempmutee'])
 @connection_status
 @bot_admin
 @can_restrict
