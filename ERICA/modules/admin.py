@@ -784,7 +784,7 @@ file_helpo = file_help.replace("_", " ")
 
 
 
-__mod_name__ = "Group"
+__mod_name__ = "advance"
 
 from ERICA.modules.language import gs
 
