@@ -88,3 +88,12 @@ async def hmm(yes):
     
     await asyncio.sleep(edit_time)
     ok9 = await aasf.edit_message(yes.chat_id, ok8, file=file5, buttons=BUTTON)
+
+
+
+__mod_name__ = "Alive"
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "alive_help")
