@@ -515,3 +515,9 @@ night_help: |
        Note: Night Mode chats get Automatically closed at 12pm(IST)
          and Automatically openned at 6am(INDIAN STANDARD TIME ZONE) To Prevent Night Spams.
          ❂ `/nightmode`: on/off
+
+
+alive_help: |
+       Send Random Images Of Zaid
+         ❂ `/alive`: Check Zaid alive Or not
+
