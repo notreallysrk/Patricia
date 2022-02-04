@@ -532,9 +532,9 @@ group_help: |
          ❂ /fullpromote: promotes a user
          ❂ /dban: deletes and bans a user
          ❂ /sban: ban a user silently
-         ❂ /dban: deletes and bans a user
          ❂ /dkick: deletes and kicks a user
-         ❂ /punch: kicks yourself (non-admins)
+         ❂ /skick: ban a User Silently
+         ❂ /punch: kick a User
          ❂ /banme: bans yourself (non-admins)
          ❂ /settitle <entity> <title>: sets a custom title for an admin. If no <title> provided defaults to "Admin"
          ❂ /setdescription <text>: set group description
