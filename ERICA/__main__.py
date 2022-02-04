@@ -571,7 +571,7 @@ def donate(update: Update, context: CallbackContext):
         context: CallbackContext -
     '''
 
-    update.effective_message.reply_text("I'm free for everyone! >_<")
+    update.effective_message.reply_text("u can Donate Via UPI id 👉 itsunknown@kotak and for more Contact in @TGN_DONATION_BOT! >_<")
 
 
 @kigmsg((Filters.status_update.migrate))
