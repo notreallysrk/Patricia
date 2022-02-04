@@ -521,3 +521,26 @@ alive_help: |
        Send Random Images Of Zaid
          ❂ `/alive`: Check Zaid alive Or not
 
+
+group_help: |
+       Advanced admin Commands/Tools (Special In Zaid) 
+         ❂ /adminlist : list of admins in the chat
+         ❂ /pin <loud(optional)> | /unpin: pins/unpins the message in the chat
+         ❂ /permapin: permapin
+         ❂ /fullpromote: promotes a user
+         ❂ /dban: deletes and bans a user
+         ❂ /dmute: deletes and mute a user
+         ❂ /dkick: deletes and kicks a user
+         ❂ /punch: kicks yourself (non-admins)
+         ❂ /banme: bans yourself (non-admins)
+         ❂ /settitle <entity> <title>: sets a custom title for an admin. If no <title> provided defaults to "Admin"
+         ❂ /setdescription <text>: set group description
+         ❂ /setgrouptitle <text>: set group title
+         ❂ /setgpic: reply to an image to set as group photo
+         ❂ /setsticker: reply to a sticker pack to set as group stickers
+         ❂ /delgpic: deletes the current group pic
+         ❂ /unbanall: Unbans all in the chat
+         ❂ /unmuteall: Unmutes all in the chat
+         ❂ /users: list all the users in the chat
+         ❂ /zombies: counts the number of deleted account in your group
+         ❂ /kickthefools: kicks all members inactive from 1 week
