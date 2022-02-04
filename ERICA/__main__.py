@@ -353,10 +353,13 @@ def get_help(update, context):
                 [
                     [
                         InlineKeyboardButton(
-                            text="Contact Me Here ✨",
+                            text="ɢᴏ ᴛᴏ ᴘᴍ 👉",
                             url="t.me/{}?start=help".format(context.bot.username),
                         )
-                    ]
+                    ],
+                    [
+                        InlineKeyboardButton(text="ᴏᴘᴇɴ ʜᴇʀᴇ ⬆️", callback_data="help_back"),
+                    ],
                 ]
             ),
         )
@@ -374,7 +377,7 @@ def get_help(update, context):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back")]]
             ),
         )
 
