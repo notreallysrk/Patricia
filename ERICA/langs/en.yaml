@@ -370,6 +370,8 @@ misc_help: |
 muting_help: |
       *Admins only:*
        • `/mute <userhandle>`*:* silences a user. Can also be used as a reply, muting the replied to user.
+       • `/dmute <userhandle>`*:* silences a user. Can also be used as a reply, muting the replied to user or delete it's message.
+       • `/smute <userhandle>`*:* mute a user silently
        • `/tmute <userhandle> x(m/h/d)`*:* mutes a user for x time. (via handle, or reply). `m` = `minutes`, `h` = `hours`, `d` = `days`.
        • `/unmute <userhandle>`*:* unmutes a user. Can also be used as a reply, muting the replied to user.
 
@@ -529,7 +531,8 @@ group_help: |
          ❂ /permapin: permapin
          ❂ /fullpromote: promotes a user
          ❂ /dban: deletes and bans a user
-         ❂ /dmute: deletes and mute a user
+         ❂ /sban: ban a user silently
+         ❂ /dban: deletes and bans a user
          ❂ /dkick: deletes and kicks a user
          ❂ /punch: kicks yourself (non-admins)
          ❂ /banme: bans yourself (non-admins)
