@@ -84,6 +84,8 @@ def warn(
 
     limit, soft_warn = sql.get_warn_setting(chat.id)
     num_warns, reasons = sql.warn_user(user.id, chat.id, reason)
+    if message.text.startswith("/d") and message.reply_to_message:
+        message.reply_to_message.delete()
     if num_warns >= limit:
         sql.reset_warns(user.id, chat.id)
         if soft_warn:  # kick
