@@ -96,4 +96,4 @@ def get_help(chat):
     return gs(chat, "tele_help")
 
 
-__mod_name__ = "Telegraph"
+__mod_name__ = "gs(chat, "tele_name")"
