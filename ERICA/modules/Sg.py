@@ -95,4 +95,4 @@ def get_help(chat):
     return gs(chat, "sg_help")
 
 
-__mod_name__ = "text=gs(chat.id, "support_chat_link_btn")"
+__mod_name__ = "Sangamata"
