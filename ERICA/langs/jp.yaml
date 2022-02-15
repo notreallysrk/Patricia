@@ -35,12 +35,13 @@ grp_start_text: "こんにちは、Zaidは目覚めています"
 pm_help_text: |
    ボタンをクリックして、特定のモジュールに関する詳細を取得します.
 
-add_bot_to_group_btn: "Add Me To Your Chat"
-support_chat_link_btn: "Support"
-updates_channel_link_btn: "Updates"
-devs_btn: "Devlopers ✅"
+add_bot_to_group_btn: "チャットに私を追加してください ➕"
+support_chat_link_btn: "ヘルプ 🎉"
+updates_channel_link_btn: "アップデート 📢"
+devs_btn: "Devlopers "
+web_btn: "Webサイト ✅"
 chat_btn: "Donate 💰"
-helper_btn: "Help And Commands"
+helper_btn: "指示と注文 🧰"
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
