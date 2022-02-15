@@ -35,12 +35,13 @@ grp_start_text: "हैलो, ज़ैद जाग रहा है"
 pm_help_text: |
    इन मॉड्यूल के विवरण और कमांड की जांच करने के लिए बटन पर क्लिक करें.
 
-add_bot_to_group_btn: "Add Me To Your Chat"
-support_chat_link_btn: "Support"
-updates_channel_link_btn: "Updates"
-devs_btn: "Devlopers ✅"
+add_bot_to_group_btn: "मुझे अपनी चैट में जोड़ें ➕"
+support_chat_link_btn: "सहायता 🎉"
+updates_channel_link_btn: "अद्यतन 📢"
+devs_btn: "Devlopers "
+web_btn: "वेबसाइट ✅"
 chat_btn: "Donate 💰"
-helper_btn: "Help And Commands"
+helper_btn: "निर्देश और आदेश 🧰"
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
