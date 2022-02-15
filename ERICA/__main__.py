@@ -144,20 +144,36 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                 ),
                 parse_mode=ParseMode.MARKDOWN,
                 reply_markup=InlineKeyboardMarkup(
-[
+                    [
                         [
                             InlineKeyboardButton(
-                                text="Add me To Your Chats 🔥", url="t.me/Zaid2_Robot?startgroup=true"),
+                                text=gs(chat.id, "add_bot_to_group_btn"),
+                                url="t.me/{}?startgroup=true".format(
+                                    context.bot.username
+                                ),
+                            ),
                         ],
                         [
-                            InlineKeyboardButton(text=" Website ✅", url="https://zaidrobot.website2.me/"),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "web_btn"),
+                                url="https://zaidrobot.website2.me/",
+                            ),
                         ],
-                        [  
-                            InlineKeyboardButton(text="Support ⚒️", url="https://t.me/Superior_Support"),
-                            InlineKeyboardButton(text="Updates 📢", url="https://t.me/Superior_Bots"),
-                        ], 
                         [
-                            InlineKeyboardButton(text="ʜᴇʟᴘ ᴀɴᴅ ᴄᴍᴅꜱ🔥", callback_data="help_back"),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "support_chat_link_btn"),
+                                url='https://t.me/Superior_Support',
+                            ),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "updates_channel_link_btn"),
+                                url="https://t.me/Superior_Bots",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "helper_btn"),
+                                callback_data="help_back",
+                            ),
                         ],
                     ]
                 ),
@@ -199,17 +215,33 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                     [
                         [
                             InlineKeyboardButton(
-                                text="Add me To Your Chats 🔥", url="t.me/Zaid2_Robot?startgroup=true"),
+                                text=gs(chat.id, "add_bot_to_group_btn"),
+                                url="t.me/{}?startgroup=true".format(
+                                    context.bot.username
+                                ),
+                            ),
                         ],
                         [
-                            InlineKeyboardButton(text=" Website ✅", url="https://zaidrobot.website2.me/"),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "web_btn"),
+                                url="https://zaidrobot.website2.me/",
+                            ),
                         ],
-                        [  
-                            InlineKeyboardButton(text="Support ⚒️", url="https://t.me/Superior_Support"),
-                            InlineKeyboardButton(text="Updates 📢", url="https://t.me/Superior_Bots"),
-                        ], 
                         [
-                            InlineKeyboardButton(text="ʜᴇʟᴘ ᴀɴᴅ ᴄᴍᴅꜱ🔥", callback_data="help_back"),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "support_chat_link_btn"),
+                                url='https://t.me/Superior_Support',
+                            ),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "updates_channel_link_btn"),
+                                url="https://t.me/Superior_Bots",
+                            ),
+                        ],
+                        [
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "helper_btn"),
+                                callback_data="help_back",
+                            ),
                         ],
                     ]
                 ),
