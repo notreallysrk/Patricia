@@ -34,12 +34,14 @@ grp_start_text: "Hola, Zaid está despierto"
 
 pm_help_text: |
    Haga clic en el botón a continuación para obtener detalles sobre módulos específicos.
-add_bot_to_group_btn: "Add Me To Your Chat"
-support_chat_link_btn: "Support"
-updates_channel_link_btn: "Updates"
-devs_btn: "Devlopers ✅"
+
+add_bot_to_group_btn: "Agrégame a tu conversación ➕"
+support_chat_link_btn: "Ayudar 🎉"
+updates_channel_link_btn: "Actualizaciones 📢"
+devs_btn: "Devlopers "
+web_btn: "sitio web ✅"
 chat_btn: "Donate 💰"
-helper_btn: "Help And Commands"
+helper_btn: "Instrucciones y pedidos 🧰"
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
