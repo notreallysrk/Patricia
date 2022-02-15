@@ -35,12 +35,13 @@ grp_start_text: "හලෝ, Zaid ජීවතුන් අතර"
 pm_help_text: |
    විශේෂිත මොඩියුල පිළිබඳ විස්තර ලබා ගැනීමට බොත්තම මත ක්ලික් කරන්න.
 
-add_bot_to_group_btn: "Add Me To Your Chat"
-support_chat_link_btn: "Support"
-updates_channel_link_btn: "Updates"
-devs_btn: "Devlopers ✅"
+add_bot_to_group_btn: "මාව ඔයාගේ කතා බහට එකතු කරගන්න ➕"
+support_chat_link_btn: "උදව් 🎉"
+updates_channel_link_btn: "යාවත්කාලීන කිරීම් 📢"
+devs_btn: "Devlopers "
+web_btn: "වෙබ් අඩවිය ✅"
 chat_btn: "Donate 💰"
-helper_btn: "Help And Commands"
+helper_btn: "උපදෙස් සහ නියෝග 🧰"
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
