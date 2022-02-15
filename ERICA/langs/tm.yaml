@@ -22,12 +22,13 @@ grp_start_text: "வணக்கம், ஜைத் விழித்திர
 pm_help_text: |
    சிறப்பு பற்றிய விவரங்களைப் பெற பட்டன்களைக் கிளிக் செய்யவும்.
 
-add_bot_to_group_btn: "Add Me To Your Chat"
-support_chat_link_btn: "Support"
-updates_channel_link_btn: "Updates"
-devs_btn: "Devlopers ✅"
+add_bot_to_group_btn: "என்னை சேர் ➕"
+support_chat_link_btn: "உதவி 🎉"
+updates_channel_link_btn: "புதுப்பிப்புகள் 📢"
+devs_btn: "Devlopers "
+web_btn: "இணையதளம் ✅"
 chat_btn: "Donate 💰"
-helper_btn: "Help And Commands"
+helper_btn: "அறிவுறுத்தல்கள் மற்றும் உத்தரவுகள் 🧰"
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
