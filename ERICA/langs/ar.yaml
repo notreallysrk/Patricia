@@ -35,12 +35,13 @@ grp_start_text: "مرحبا زيد يستيقظ"
 pm_help_text: |
    انقر فوق الزر للتحقق من تفاصيل وأوامر هذه الوحدات.
 
-add_bot_to_group_btn: "Add Me To Your Chat"
-support_chat_link_btn: "Support"
-updates_channel_link_btn: "Updates"
-devs_btn: "Devlopers ✅"
+add_bot_to_group_btn: "أضفني إلى الدردشات الخاصة بك ➕"
+support_chat_link_btn: "يدعم 🎉"
+updates_channel_link_btn: "التحديثات 📢"
+devs_btn: "Devlopers "
+web_btn: "موقع إلكتروني ✅"
 chat_btn: "Donate 💰"
-helper_btn: "Help And Commands"
+helper_btn: "تعليمات وأوامر 🧰"
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
