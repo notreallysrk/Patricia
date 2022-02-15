@@ -9,38 +9,39 @@ set_chat_lang: "Great, {} it is from now on!"
 
 
 pm_start_text: |
-   Hi {},
+   ʜɪɪ {},
    ───────────────────────
-   I am an group management bot with some fun extras ;)
+   ɪ ᴀᴍ ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ ꜱᴏᴍᴇ ꜰᴜɴ ᴇxᴛʀᴀꜱ ;)
    
-   I can do a variety of things, most common of em are:
-   - Restrict users with *ban permissions*.
-   - Greet users with media + text and buttons, with proper formatting.
-   - Restrict users who flood your chat using my *anti-flood* module.
-   - *Warn* users according to the options set and restrict em accordingly.
-   - Save notes and filters with proper formatting and reply markup.
-   - I can Play Music Too In Ur Groups
-   - I have many features Which u Like thats
-   - Try /setlang to Change The Bot language (Note Currently is English Supported)
+   ɪ ᴄᴀɴ ᴅᴏ ᴀ ᴠᴀʀɪᴇᴛʏ ᴏꜰ ᴛʜɪɴɢꜱ, ᴍᴏꜱᴛ ᴄᴏᴍᴍᴏɴ ᴏꜰ ᴇᴍ ᴀʀᴇ:
+   - ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ ᴡɪᴛʜ *ʙᴀɴ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ*.
+   - ɢʀᴇᴇᴛ ᴜꜱᴇʀꜱ ᴡɪᴛʜ ᴍᴇᴅɪᴀ + ᴛᴇxᴛ ᴀɴᴅ ʙᴜᴛᴛᴏɴꜱ, ᴡɪᴛʜ ᴘʀᴏᴘᴇʀ ꜰᴏʀᴍᴀᴛᴛɪɴɢ.
+   - ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ ᴡʜᴏ ꜰʟᴏᴏᴅ ʏᴏᴜʀ ᴄʜᴀᴛ ᴜꜱɪɴɢ ᴍʏ *ᴀɴᴛɪ-ꜰʟᴏᴏᴅ* ᴍᴏᴅᴜʟᴇ.
+   - *ᴡᴀʀɴ* ᴜꜱᴇʀꜱ ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴛʜᴇ ᴏᴘᴛɪᴏɴꜱ ꜱᴇᴛ ᴀɴᴅ ʀᴇꜱᴛʀɪᴄᴛ ᴇᴍ ᴀᴄᴄᴏʀᴅɪɴɢʟʏ.
+   - ꜱᴀᴠᴇ ɴᴏᴛᴇꜱ ᴀɴᴅ ꜰɪʟᴛᴇʀꜱ ᴡɪᴛʜ ᴘʀᴏᴘᴇʀ ꜰᴏʀᴍᴀᴛᴛɪɴɢ ᴀɴᴅ ʀᴇᴘʟʏ ᴍᴀʀᴋᴜᴘ.
+   - ɪ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜꜱɪᴄ ᴛᴏᴏ ɪɴ ᴜʀ ɢʀᴏᴜᴘꜱ
+   - ɪ ʜᴀᴠᴇ ᴍᴀɴʏ ꜰᴇᴀᴛᴜʀᴇꜱ ᴡʜɪᴄʜ ᴜ ʟɪᴋᴇ ᴛʜᴀᴛꜱ
+   - ᴛʀʏ /ꜱᴇᴛʟᴀɴɢ ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ ʙᴏᴛ ʟᴀɴɢᴜᴀɢᴇ (ɴᴏᴛᴇ ᴄᴜʀʀᴇɴᴛʟʏ ɪꜱ ᴇɴɢʟɪꜱʜ ꜱᴜᴘᴘᴏʀᴛᴇᴅ)
    
-   Theres even more! this is just the tip of the iceberg. Do note I need
-   to be promoted with proper admin permissions to function properly. 
-   Else I won't be able to function as said.
+   ᴛʜᴇʀᴇꜱ ᴇᴠᴇɴ ᴍᴏʀᴇ! ᴛʜɪꜱ ɪꜱ ᴊᴜꜱᴛ ᴛʜᴇ ᴛɪᴘ ᴏꜰ ᴛʜᴇ ɪᴄᴇʙᴇʀɢ. ᴅᴏ ɴᴏᴛᴇ ɪ ɴᴇᴇᴅ
+   ᴛᴏ ʙᴇ ᴘʀᴏᴍᴏᴛᴇᴅ ᴡɪᴛʜ ᴘʀᴏᴘᴇʀ ᴀᴅᴍɪɴ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ ᴛᴏ ꜰᴜɴᴄᴛɪᴏɴ ᴘʀᴏᴘᴇʀʟʏ. 
+   ᴇʟꜱᴇ ɪ ᴡᴏɴ'ᴛ ʙᴇ ᴀʙʟᴇ ᴛᴏ ꜰᴜɴᴄᴛɪᴏɴ ᴀꜱ ꜱᴀɪᴅ.
    ───────────────────────
-   Click on help to learn more!
+   ᴄʟɪᴄᴋ ᴏɴ ʜᴇʟᴘ ᴛᴏ ʟᴇᴀʀɴ ᴍᴏʀᴇ!
 
    
-grp_start_text: "Hello, Zaid Is Alive"
+grp_start_text: "ʜᴇʟʟᴏ, ᴢᴀɪᴅ ɪꜱ ᴀʟɪᴠᴇ"
 
 pm_help_text: |
    ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ᴛᴏ ᴄʜᴇᴄᴋ ᴅᴀᴛᴀɪʟꜱ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ ᴏꜰ ᴛʜᴇ ᴍᴏᴅᴜʟᴇꜱ.
 
-add_bot_to_group_btn: "Add Me To Your Chat"
-support_chat_link_btn: "Support"
-updates_channel_link_btn: "Updates"
-devs_btn: "Devlopers ✅"
+add_bot_to_group_btn: "ᴀᴅᴅ ᴍᴇ ᴛᴏ ᴜʀ ᴄʜᴀᴛꜱ ➕"
+support_chat_link_btn: "ꜱᴜᴘᴘᴏʀᴛ 🎉"
+updates_channel_link_btn: "ᴜᴘᴅᴀᴛᴇꜱ 📢"
+devs_btn: "Devlopers "
+web_btn: "ᴡᴇʙꜱɪᴛᴇ ✅"
 chat_btn: "Donate 💰"
-helper_btn: "Help And Commands"
+helper_btn: "ʜᴇʟᴘ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ 🧰"
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
