@@ -4,6 +4,7 @@ from telethon.tl import functions, types
 from ERICA import telethn as tbot
 from ERICA import ubot2 as ubot
 from ERICA.events import register as shasa
+from ERICA.modules.language import gs
 
 
 async def is_register_admin(chat, user):
@@ -45,7 +46,7 @@ async def _(event):
 
     if not event.reply_to_msg_id:
 
-        await event.reply(gs(chat.id, "sg_find_text"))
+        await event.reply(gs(chat.id, "sg_search_text"))
 
         return
 
@@ -53,7 +54,7 @@ async def _(event):
 
     if not reply_message.text:
 
-        await event.reply("```reply to text message```")
+        await event.reply(gs(chat.id, "sg_give_text"))
 
         return
 
@@ -63,11 +64,11 @@ async def _(event):
 
     if reply_message.sender.bot:
 
-        await event.edit("```Reply to actual users message.```")
+        await event.edit(gs(chat.id, "sg_replyusers_text"))
 
         return
 
-    lol = await event.reply("```Getting history```")
+    lol = await event.reply(gs(chat.id, "sg_getting_text"))
 
     async with ubot.conversation(chat) as conv:
 
@@ -89,7 +90,7 @@ async def _(event):
         await lol.edit(f"```{responses.text}```")
         # await lol.edit(f"{response.message.message}")
 
-from ERICA.modules.language import gs
+
 
 def get_help(chat):
     return gs(chat, "sg_help")
