@@ -45,7 +45,7 @@ async def _(event):
 
     if not event.reply_to_msg_id:
 
-        await event.reply("```Reply to any user message.```")
+        await event.reply(gs(chat.id, "sg_find_text"))
 
         return
 
