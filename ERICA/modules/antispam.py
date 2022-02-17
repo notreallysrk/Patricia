@@ -62,7 +62,7 @@ UNGBAN_ERRORS = {
 }
 
 
-@kigcmd(command="gbann")
+@kigcmd(command="globalban")
 @support_plus
 def gban(update: Update, context: CallbackContext):  # sourcery no-metrics
     bot, args = context.bot, context.args
