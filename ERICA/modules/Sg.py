@@ -36,6 +36,10 @@ async def silently_send_message(conv, text):
     await conv.mark_read(message=response)
     return response
 
+def gs(chat_id: Union[int, str], string: str) -> str:
+    lang = sql.get_chat_lang(chat_id)
+    return get_string(lang, string)
+
 
 @shasa(pattern="^/sg ?(.*)")
 async def _(event):
