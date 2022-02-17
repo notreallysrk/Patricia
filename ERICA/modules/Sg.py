@@ -1,5 +1,6 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
+from typing import Union, List, Dict, Callable, Generator, Any
 
 from ERICA import telethn as tbot
 from ERICA import ubot2 as ubot
