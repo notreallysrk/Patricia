@@ -6,7 +6,10 @@ from ERICA import telethn as tbot
 from ERICA import ubot2 as ubot
 from ERICA.events import register as shasa
 from ERICA.modules.language import gs
-
+from ERICA import dispatcher
+import ERICA.modules.sql.language_sql as sql
+from ERICA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from ERICA.langs import get_string, get_languages, get_language
 
 async def is_register_admin(chat, user):
 
