@@ -549,3 +549,10 @@ group_help: |
          ❂ /users: list all the users in the chat
          ❂ /zombies: counts the number of deleted account in your group
          ❂ /kickthefools: kicks all members inactive from 1 week
+
+
+sg_search_text: "Finding users history"
+sg_give_text: "getting history"
+sg_replyusers_text: "Reply to a user"
+sg_getting_text: "Finding Name History"
+
