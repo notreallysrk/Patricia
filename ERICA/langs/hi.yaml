@@ -551,7 +551,7 @@ group_help: |
          ❂ /kickthefools: kicks all members inactive from 1 week
 
 
-sg_search_text: "Finding users history"
-sg_give_text: "getting history"
-sg_replyusers_text: "Reply to a user"
-sg_getting_text: "Finding Name History"
+sg_search_text: "उपयोगकर्ता इतिहास ढूँढना"
+sg_give_text: "इतिहास प्राप्त करना"
+sg_replyusers_text: "एक उपयोगकर्ता को उत्तर दें"
+sg_getting_text: "नाम इतिहास ढूँढना"
