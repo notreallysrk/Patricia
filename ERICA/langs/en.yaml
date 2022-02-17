@@ -552,3 +552,7 @@ group_help: |
 
 
 sg_search_text: "Finding users history"
+sg_give_text: "getting history"
+sg_replyusers_text: "Reply to a user"
+sg_getting_text: "Finding Name History"
+
