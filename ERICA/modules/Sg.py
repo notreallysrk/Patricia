@@ -51,6 +51,8 @@ async def _(event):
     if event.fwd_from:
 
         return
+    chat = update.effective_chat
+    msg = update.effective_message
 
     if not event.reply_to_msg_id:
 
