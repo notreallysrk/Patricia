@@ -148,8 +148,7 @@ def pip_install(update: Update, context: CallbackContext):
 
         message.reply_text(text=reply, parse_mode=ParseMode.MARKDOWN)
         
-
-@dev_plus      
+      
 def get_chat_by_id(update: Update, context: CallbackContext):
     msg = update.effective_message
     args = context.args
@@ -182,7 +181,7 @@ PIP_INSTALL_HANDLER = CommandHandler("install", pip_install, run_async=True)
 LEAVE_HANDLER = CommandHandler("leave", leave, run_async=True)
 GITPULL_HANDLER = CommandHandler("gitpull", gitpull, run_async=True)
 RESTART_HANDLER = CommandHandler("reboot", restart, run_async=True)
-GET_CHAT_HANDLER = CommandHandler("getchat", get_chat_by_id, run_async=True)
+GET_CHAT_HANDLER = CommandHandler(["getchat", "chatinfo"], get_chat_by_id, run_async=True)
 LEAVE_CALLBACK = CallbackQueryHandler(
     leave_cb, pattern=r"leavechat_cb_", run_async=True
 )
