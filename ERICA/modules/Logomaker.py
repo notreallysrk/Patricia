@@ -4,7 +4,7 @@ import requests
 from pyrogram import filters
 
 from ERICA.function.pluginhelpers import get_text
-from ERICA import pbot
+from ERICA import pgram as pbot
 
 API1 = "https://api.single-developers.software/logo?name="
 API2 = "https://api.single-developers.software/logohq?name="
@@ -79,7 +79,7 @@ async def logo_maker(client, message):
         try:
             await message.reply_photo(
                 url,
-                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @YurikoRobot**",
+                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @Zaid2_Robot**",
             )
         except:
             return
