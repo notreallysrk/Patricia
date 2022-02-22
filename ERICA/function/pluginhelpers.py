@@ -14,7 +14,7 @@ from pyrogram.errors import FloodWait, MessageNotModified
 from pyrogram.types import Chat, Message, User
 
 from ERICA import OWNER_ID, SUPPORT_CHAT
-from ERICA import pbot
+from ERICA import pgram as pbot
 
 
 def get_user(message: Message, text: str) -> [int, str, None]:
