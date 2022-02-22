@@ -1,15 +1,10 @@
 from telethon.errors.rpcerrorlist import YouBlockedUserError
 from telethon.tl import functions, types
-from typing import Union, List, Dict, Callable, Generator, Any
 
 from ERICA import telethn as tbot
 from ERICA import ubot2 as ubot
 from ERICA.events import register as shasa
-from ERICA.modules.language import gs
-from ERICA import dispatcher
-import ERICA.modules.sql.language_sql as sql
-from ERICA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from ERICA.langs import get_string, get_languages, get_language
+
 
 async def is_register_admin(chat, user):
 
@@ -40,10 +35,6 @@ async def silently_send_message(conv, text):
     await conv.mark_read(message=response)
     return response
 
-def gs(chat_id: Union[int, str], string: str) -> str:
-    lang = sql.get_chat_lang(chat_id)
-    return get_string(lang, string)
-
 
 @shasa(pattern="^/sg ?(.*)")
 async def _(event):
@@ -51,12 +42,10 @@ async def _(event):
     if event.fwd_from:
 
         return
-    chat = update.effective_chat
-    msg = update.effective_message
 
     if not event.reply_to_msg_id:
 
-        await event.reply(gs(chat.id, "sg_search_text"))
+        await event.reply("```Reply to any user message.```")
 
         return
 
@@ -64,7 +53,7 @@ async def _(event):
 
     if not reply_message.text:
 
-        await event.reply(gs(chat.id, "sg_give_text"))
+        await event.reply("```reply to text message```")
 
         return
 
@@ -74,11 +63,11 @@ async def _(event):
 
     if reply_message.sender.bot:
 
-        await event.edit(gs(chat.id, "sg_replyusers_text"))
+        await event.edit("```Reply to actual users message.```")
 
         return
 
-    lol = await event.reply(gs(chat.id, "sg_getting_text"))
+    lol = await event.reply("```Getting history```")
 
     async with ubot.conversation(chat) as conv:
 
@@ -100,7 +89,7 @@ async def _(event):
         await lol.edit(f"```{responses.text}```")
         # await lol.edit(f"{response.message.message}")
 
-
+from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "sg_help")
