@@ -49,6 +49,76 @@ async def feedback(e):
     )
     await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
 
+@register(pattern="/report ?(.*)")
+async def feedback(e):
+    quew = e.pattern_match.group(1)
+    user_id = e.sender.id
+    user_name = e.sender.first_name
+    mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+    BUTTON = [[Button.url("Go To Support Group", f"https://t.me/{SUPPORT_CHAT}")]]
+    TEXT = "Thanks For Your Reports, I will Work Soon in this Report 🔜"
+    GIVE = "Provide Me Some Text issues with (Your Group username) ✨"
+    logger_text = f"""
+**New Report In Zaid**
+
+**From User:** {mention}
+**Username:** @{e.sender.username}
+**User ID:** `{e.sender.id}`
+**Feedback:** `{e.text}`
+"""
+    if e.sender_id != OWNER_ID and not quew:
+        await e.reply(
+            GIVE,
+            parse_mode=ParseMode.MARKDOWN,
+            buttons=BUTTON,
+            file=SHU2,
+        ),
+        return
+
+    await tbot.send_message(
+        SUPPORT_CHAT,
+        f"{logger_text}",
+        file=random.choice(SHU1),
+        link_preview=False,
+    )
+    await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
+
+
+@register(pattern="/report ?(.*)")
+async def feedback(e):
+    quew = e.pattern_match.group(1)
+    user_id = e.sender.id
+    user_name = e.sender.first_name
+    mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+    BUTTON = [[Button.url("Go To Support Group", f"https://t.me/{SUPPORT_CHAT}")]]
+    TEXT = "Thanks For Your Reports, I will Work Soon in this Report 🔜"
+    GIVE = "Provide Me Some Text issues with (Your Group username) ✨"
+    logger_text = f"""
+**New Report In Zaid**
+
+**From User:** {mention}
+**Username:** @{e.sender.username}
+**User ID:** `{e.sender.id}`
+**Feedback:** `{e.text}`
+"""
+    if e.sender_id != OWNER_ID and not quew:
+        await e.reply(
+            GIVE,
+            parse_mode=ParseMode.MARKDOWN,
+            buttons=BUTTON,
+            file=SHU2,
+        ),
+        return
+
+    await tbot.send_message(
+        SUPPORT_CHAT,
+        f"{logger_text}",
+        file=random.choice(SHU1),
+        link_preview=False,
+    )
+    await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
+
+
 from ERICA.modules.language import gs
 
 def get_help(chat):
