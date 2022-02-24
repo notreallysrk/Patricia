@@ -550,8 +550,8 @@ group_help: |
          ❂ /zombies: counts the number of deleted account in your group
          ❂ /kickthefools: kicks all members inactive from 1 week
 
-
-sg_search_text: "Finding users history"
-sg_give_text: "getting history"
-sg_replyusers_text: "Reply to a user"
-sg_getting_text: "Finding Name History"
+alive_help: |
+       Send Ur Feedback with Us ☺️
+         ❂ /report: (message) send ur issues which u r facing in Zaid
+         ❂ /feedback: (message) Send ur feedback
+         ❂ /hammer: (message) This will Send to my owner (Privately Issues/Feedback Only).
