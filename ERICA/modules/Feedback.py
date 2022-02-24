@@ -3,9 +3,10 @@ import random
 from telegram import ParseMode
 from telethon import Button
 
-from ERICA import OWNER_ID, SUPPORT_CHAT
+from ERICA import OWNER_ID
 from ERICA import telethn as tbot
 from ERICA.events import register
+SUPPORT_CHAT = 'Superior_Support'
 
 SHU1 = ( "https://telegra.ph/file/74c20b72b87b09549e257.jpg", 
       "https://telegra.ph/file/a4d1ff1616655428d657f.jpg", 
