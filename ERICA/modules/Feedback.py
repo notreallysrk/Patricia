@@ -4,17 +4,12 @@ from telegram import ParseMode
 from telethon import Button
 
 from ERICA import OWNER_ID
-from ERICA import telethn as tbot
-from ERICA.events import register
+from Hottie_Robot import telethn as tbot
 SUPPORT_CHAT = 'Superior_Support'
 OWNER = "Timesisnotwaiting"
 
-SHU1 = ( "https://telegra.ph/file/74c20b72b87b09549e257.jpg", 
-      "https://telegra.ph/file/a4d1ff1616655428d657f.jpg", 
-      "https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg",  
-      "https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",   
-      ) 
-SHU2 = "https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg"
+from ..events import register
+
 
 @register(pattern="/feedback ?(.*)")
 async def feedback(e):
@@ -22,34 +17,50 @@ async def feedback(e):
     user_id = e.sender.id
     user_name = e.sender.first_name
     mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+    HOTTIE = (
+        "https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg",
+        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",
+        "https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",
+        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",
+    )
+    FEED = ("https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",)
     BUTTON = [[Button.url("Go To Support Group", f"https://t.me/{SUPPORT_CHAT}")]]
     TEXT = "Thanks For Your Feedback, I Hope You Happy With Our Support"
-    GIVE = "Give Some Text For Feedback ✨"
+    GIVE = "Give Some Text For Feedback âœ¨"
     logger_text = f"""
-**New Feedback In Zaid**
+**New Feedback**
 
 **From User:** {mention}
 **Username:** @{e.sender.username}
 **User ID:** `{e.sender.id}`
 **Feedback:** `{e.text}`
 """
+    if user_id == 1926801217:
+        await e.reply("**Sry I Can't Identify ur Info**", parse_mode=ParseMode.MARKDOWN)
+        return
+
+    if user_id == 1087968824:
+        await e.reply(
+            "**Turn Off Ur Anonymous Mode And Try**", parse_mode=ParseMode.MARKDOWN
+        )
+        return
+
     if e.sender_id != OWNER_ID and not quew:
         await e.reply(
             GIVE,
             parse_mode=ParseMode.MARKDOWN,
             buttons=BUTTON,
-            file=SHU2,
+            file=random.choice(FEED),
         ),
         return
 
     await tbot.send_message(
         SUPPORT_CHAT,
         f"{logger_text}",
-        file=random.choice(SHU1),
+        file=random.choice(HOTTIE),
         link_preview=False,
     )
-    await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
-
+    await e.reply(TEXT, file=random.choice(HOTTIE), buttons=BUTTON)
 
 @register(pattern="/hammer ?(.*)")
 async def feedback(e):
@@ -57,33 +68,50 @@ async def feedback(e):
     user_id = e.sender.id
     user_name = e.sender.first_name
     mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
+    HOTTIE = (
+        "https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg",
+        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",
+        "https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",
+        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",
+    )
+    FEED = ("https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",)
     BUTTON = [[Button.url("Go To Owner Pm", f"https://t.me/{OWNER}")]]
-    TEXT = "Thanks For Your Reports, I will Work Soon in this Report 🔜"
-    GIVE = "Provide Me Text message✨"
+    TEXT = "Thanks For Your Feedback, I Hope Your Issue will Fix Soon"
+    GIVE = "Give Some Text For Send message âœ¨"
     logger_text = f"""
-**New Report In Zaid**
+**New Feedback**
 
 **From User:** {mention}
 **Username:** @{e.sender.username}
 **User ID:** `{e.sender.id}`
 **Feedback:** `{e.text}`
 """
+    if user_id == 1926801217:
+        await e.reply("**Sry I Can't Identify ur Info**", parse_mode=ParseMode.MARKDOWN)
+        return
+
+    if user_id == 1087968824:
+        await e.reply(
+            "**Turn Off Ur Anonymous Mode And Try**", parse_mode=ParseMode.MARKDOWN
+        )
+        return
+
     if e.sender_id != OWNER_ID and not quew:
         await e.reply(
             GIVE,
             parse_mode=ParseMode.MARKDOWN,
             buttons=BUTTON,
-            file=SHU2,
+            file=random.choice(FEED),
         ),
         return
 
     await tbot.send_message(
         OWNER,
         f"{logger_text}",
-        file=random.choice(SHU1),
+        file=random.choice(HOTTIE),
         link_preview=False,
     )
-    await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
+    await e.reply(TEXT, file=random.choice(HOTTIE), buttons=BUTTON)
 
 
 
