@@ -550,7 +550,7 @@ group_help: |
          ❂ /zombies: counts the number of deleted account in your group
          ❂ /kickthefools: kicks all members inactive from 1 week
 
-alive_help: |
+feed_help: |
        Send Ur Feedback with Us ☺️
          ❂ /report: (message) send ur issues which u r facing in Zaid
          ❂ /feedback: (message) Send ur feedback
