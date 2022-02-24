@@ -3,7 +3,7 @@ import random
 from telegram import ParseMode
 from telethon import Button
  
-from Hottie_Robot import telethn as tbot
+from ERICA import telethn as tbot
 OWNER_ID = 1669178360
 SUPPORT_CHAT = 'Superior_Support'
 OWNER = "Timesisnotwaiting"
