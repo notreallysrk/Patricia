@@ -7,12 +7,10 @@ from ShuKurenaiXRoBot import OWNER_ID, SUPPORT_CHAT
 from ShuKurenaiXRoBot import telethn as tbot
 from ShuKurenaiXRoBot.events import register
 
-SHU1 = ( "https://telegra.ph/file/0a2abd13876ac59489c8a.jpg", 
-      "https://telegra.ph/file/77eef7b0a5e354f257ff7.jpg", 
-      "https://telegra.ph/file/898b10cf0ee3086c82def.jpg", 
-      "https://telegra.ph/file/8fd1b2351135e778700a0.jpg", 
-      "https://telegra.ph/file/d15dd2e8dbf15bd6b616c.jpg",
-      "https://telegra.ph/file/ac980e9c880bc5d703b01.jpg",   
+SHU1 = ( "https://telegra.ph/file/74c20b72b87b09549e257.jpg", 
+      "https://telegra.ph/file/a4d1ff1616655428d657f.jpg", 
+      "https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg",  
+      "https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",   
       ) 
 SHU2 = "https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg"
 
@@ -23,10 +21,10 @@ async def feedback(e):
     user_name = e.sender.first_name
     mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     BUTTON = [[Button.url("Go To Support Group", f"https://t.me/{SUPPORT_CHAT}")]]
-    TEXT = "Thanks For Your Feedback, I Hope You Happy With Our Service"
+    TEXT = "Thanks For Your Feedback, I Hope You Happy With Our Support"
     GIVE = "Give Some Text For Feedback ✨"
     logger_text = f"""
-**New Feedback**
+**New Feedback In Zaid**
 
 **From User:** {mention}
 **Username:** @{e.sender.username}
