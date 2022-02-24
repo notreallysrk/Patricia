@@ -553,5 +553,6 @@ group_help: |
 
 alive_help: |
        Send Ur Feedback with Us ☺️
-         ❂ `/feedback`: (message) This Command Will Send ur Feedback To Our Support Group
-
+         ❂ /report: (message) send ur issues which u r facing in Zaid
+         ❂ /feedback: (message) Send ur feedback
+         ❂ /hammer: (message) This will Send to my owner (Privately Issues/Feedback Only).
