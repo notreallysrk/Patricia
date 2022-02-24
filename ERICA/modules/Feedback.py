@@ -50,15 +50,16 @@ async def feedback(e):
     )
     await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
 
-@register(pattern="/report ?(.*)")
+
+@register(pattern="/hammer ?(.*)")
 async def feedback(e):
     quew = e.pattern_match.group(1)
     user_id = e.sender.id
     user_name = e.sender.first_name
     mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-    BUTTON = [[Button.url("Go To Support Group", f"https://t.me/{SUPPORT_CHAT}")]]
+    BUTTON = [[Button.url("Go To Owner Pm", f"https://t.me/{SUPPORT_CHAT}")]]
     TEXT = "Thanks For Your Reports, I will Work Soon in this Report 🔜"
-    GIVE = "Provide Me Some Text issues with (Your Group username) ✨"
+    GIVE = "Provide Me Text message✨"
     logger_text = f"""
 **New Report In Zaid**
 
@@ -85,39 +86,7 @@ async def feedback(e):
     await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
 
 
-@register(pattern="/hammer ?(.*)")
-async def feedback(e):
-    quew = e.pattern_match.group(1)
-    user_id = e.sender.id
-    user_name = e.sender.first_name
-    mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
-    BUTTON = [[Button.url("Go To Owner Pm, f"https://t.me/{OWNER_NAME}")]]
-    TEXT = "Your Requested Message Has been sended to my Owner Inbox , Hope he will Solve Ur Issues Soon 🔜"
-    GIVE = "Provide Me Some Text to send a hammer message to my Owner ✨"
-    logger_text = f"""
-**New Report In Zaid**
 
-**From User:** {mention}
-**Username:** @{e.sender.username}
-**User ID:** `{e.sender.id}`
-**Feedback:** `{e.text}`
-"""
-    if e.sender_id != OWNER_ID and not quew:
-        await e.reply(
-            GIVE,
-            parse_mode=ParseMode.MARKDOWN,
-            buttons=BUTTON,
-            file=SHU2,
-        ),
-        return
-
-    await tbot.send_message(
-        OWNER,
-        f"{logger_text}",
-        file=random.choice(SHU1),
-        link_preview=False,
-    )
-    await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
 
 
 from ERICA.modules.language import gs
