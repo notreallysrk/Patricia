@@ -78,7 +78,7 @@ async def feedback(e):
         return
 
     await tbot.send_message(
-        SUPPORT_CHAT,
+        OWNER,
         f"{logger_text}",
         file=random.choice(SHU1),
         link_preview=False,
