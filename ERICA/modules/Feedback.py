@@ -3,9 +3,9 @@ import random
 from telegram import ParseMode
 from telethon import Button
 
-from ShuKurenaiXRoBot import OWNER_ID, SUPPORT_CHAT
-from ShuKurenaiXRoBot import telethn as tbot
-from ShuKurenaiXRoBot.events import register
+from ERICA import OWNER_ID, SUPPORT_CHAT
+from ERICA import telethn as tbot
+from ERICA.events import register
 
 SHU1 = ( "https://telegra.ph/file/74c20b72b87b09549e257.jpg", 
       "https://telegra.ph/file/a4d1ff1616655428d657f.jpg", 
@@ -48,5 +48,9 @@ async def feedback(e):
     )
     await e.reply(TEXT, file=random.choice(SHU1), buttons=BUTTON)
 
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "feed_help")
 
 __mod_name__ = "Feedback"
