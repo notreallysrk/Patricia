@@ -7,6 +7,7 @@ from ERICA import OWNER_ID
 from ERICA import telethn as tbot
 from ERICA.events import register
 SUPPORT_CHAT = 'Superior_Support'
+OWNER = "Timesisnotwaiting"
 
 SHU1 = ( "https://telegra.ph/file/74c20b72b87b09549e257.jpg", 
       "https://telegra.ph/file/a4d1ff1616655428d657f.jpg", 
@@ -111,7 +112,7 @@ async def feedback(e):
         return
 
     await tbot.send_message(
-        SUPPORT_CHAT,
+        OWNER,
         f"{logger_text}",
         file=random.choice(SHU1),
         link_preview=False,
