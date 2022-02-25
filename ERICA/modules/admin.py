@@ -35,6 +35,13 @@ from telethon.tl.types import *
 
 from ERICA import *
 from ERICA.events import register
+from ERICA.modules.helper_funcs.decorators import kigcmd
+from ERICA.modules.helper_funcs.chat_status import (
+    bot_admin,
+    can_pin,
+    can_promote,
+    connection_status,
+)
 
 from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
 
@@ -671,7 +678,6 @@ __help__ = """
  - /setgpic: reply to an image to set as group photo
  - /setsticker: reply to a sticker pack to set as group stickers
  - /delgpic: deletes the current group pic
- - /lock <item)>: lock the usage of "item" for non-admins
  - /unlock <item(s)>: unlock "item". Everyone can use them again
  - /chatlocks: gives the lock status of the chat
  - /chatlocktypes: gets a list of all things that can be locked
