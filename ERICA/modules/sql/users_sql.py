@@ -2,8 +2,8 @@ import threading
 
 from sqlalchemy.sql.sqltypes import BigInteger
 
-from ERICA import BOT_ID as dispatcher.bot.id
-from ERICA import BOT_ID as dispatcher.bot.username
+ 
+from ERICA import dispatcher
 from ERICA.modules.sql import BASE, SESSION
 from sqlalchemy import (
     Column,
