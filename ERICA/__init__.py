@@ -203,6 +203,6 @@ print("Aquiring BOT Client Info")
 bottie = pgram.get_me()
 
 BOT_ID = 1901951380
-BOT_USERNAME = Zaid2_Robot
+BOT_USERNAME = bottie.username
 BOT_NAME = bottie.first_name
 BOT_MENTION = bottie.mention
