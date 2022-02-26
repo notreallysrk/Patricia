@@ -2,7 +2,7 @@ import threading
 
 from sqlalchemy.sql.sqltypes import BigInteger
 
-from ERICA import dispatcher
+from ERICA import dispatcher, bottie
 from ERICA.modules.sql import BASE, SESSION
 from sqlalchemy import (
     Column,
@@ -78,7 +78,7 @@ INSERTION_LOCK = threading.RLock()
 
 def ensure_bot_in_db():
     with INSERTION_LOCK:
-        bot = Users(dispatcher.bot.id, dispatcher.bot.username)
+        bot = Users(bottie.id, bottie.username)
         SESSION.merge(bot)
         SESSION.commit()
 
