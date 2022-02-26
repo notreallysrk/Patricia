@@ -35,13 +35,6 @@ from telethon.tl.types import *
 
 from ERICA import *
 from ERICA.events import register
-from ERICA.modules.helper_funcs.decorators import kigcmd
-from ERICA.modules.helper_funcs.chat_status import (
-    bot_admin,
-    can_pin,
-    can_promote,
-    connection_status,
-)
 
 from telethon.tl.functions.messages import EditChatDefaultBannedRightsRequest
 
@@ -254,13 +247,8 @@ def find_instance(items, class_or_tuple):
 
 
 
-@kigcmd(command=["unbanall", "unbanalll"], can_disable=False)
-@connection_status
-@bot_admin
-@can_promote
-@user_admin
-@loggable
-def _(event):
+@register(pattern="^/unbanall$")
+async def _(event):
     if not event.is_group:
         return
 
@@ -301,13 +289,8 @@ def _(event):
     await event.reply(required_string.format(p))
 
 
-@kigcmd(command=["unmuteall", "unmuteall"], can_disable=False)
-@connection_status
-@bot_admin
-@can_promote
-@user_admin
-@loggable
-def _(event):
+@register(pattern="^/unmuteall$")
+async def _(event):
     if not event.is_group:
         return
     if event.is_group:
@@ -678,6 +661,7 @@ __help__ = """
  - /setgpic: reply to an image to set as group photo
  - /setsticker: reply to a sticker pack to set as group stickers
  - /delgpic: deletes the current group pic
+ - /lock <item)>: lock the usage of "item" for non-admins
  - /unlock <item(s)>: unlock "item". Everyone can use them again
  - /chatlocks: gives the lock status of the chat
  - /chatlocktypes: gets a list of all things that can be locked
@@ -700,4 +684,3 @@ from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "group_help")
-
