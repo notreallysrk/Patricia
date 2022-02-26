@@ -149,6 +149,8 @@ STRING_SESSION = '1AZWarzoBu1UTbrldjbuCEY0WpSHa8J9Lk48Of-8qB_7CDcT4JtzyW-Mg1eRht
 API_ID = '6435225'
 API_HASH = '4e984ea35f854762dcde906dce426c2d'
 TOKEN = '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk'
+
+BOT_TOKEN = '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk'
 WORKERS = 8
 
 # SpamWatch
@@ -158,10 +160,10 @@ DROP_UPDATES = True
 from ERICA.modules.sql import SESSION
 
 if not KInit.DROP_UPDATES:
-    updater = tg.Updater(token=TOKEN, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(session=SESSION))
+    updater = tg.Updater(token=BOT_TOKEN, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(session=SESSION))
     
 else:
-    updater = tg.Updater(token=TOKEN, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
+    updater = tg.Updater(token=BOT_TOKEN, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
     
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
