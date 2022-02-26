@@ -4,6 +4,7 @@ import sys
 import time
 from typing import List
 import spamwatch
+from telethon.sessions import StringSession
 import telegram.ext as tg
 from telethon import TelegramClient
 from motor import motor_asyncio
