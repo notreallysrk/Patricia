@@ -3,7 +3,7 @@ import threading
 from sqlalchemy.sql.sqltypes import BigInteger
 
  
-from ERICA import dispatcher
+from ERICA import updaters as dispatcher
 from ERICA.modules.sql import BASE, SESSION
 from sqlalchemy import (
     Column,
