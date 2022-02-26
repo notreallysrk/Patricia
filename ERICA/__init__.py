@@ -153,6 +153,7 @@ WORKERS = 8
 sw = KInit.init_sw()
 
 from ERICA.modules.sql import SESSION
+updaters = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
     
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
