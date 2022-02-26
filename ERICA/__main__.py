@@ -20,7 +20,7 @@ from telegram.utils.helpers import escape_markdown
 from ERICA import (
     KInit,
     updaters as dispatcher,
-    updater,
+    updaters as updater,
     TOKEN,
     WEBHOOK,
     OWNER_ID,
