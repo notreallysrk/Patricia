@@ -82,6 +82,7 @@ class KigyoINIT:
         self.NO_LOAD: List[str] = list(map(str, self.NO_LOAD))
         self.spamwatch_api: str = self.parser.get('spamwatch_api', None)
         self.CASH_API_KEY: str = self.parser.get('CASH_API_KEY', None)
+        self.TOKEN: str = self.parser.get('TOKEN', '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk')
         self.TIME_API_KEY: str = self.parser.get('TIME_API_KEY', None)
         self.WALL_API: str = self.parser.get('WALL_API', None)
         self.LASTFM_API_KEY: str = self.parser.get('LASTFM_API_KEY', None)
