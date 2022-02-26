@@ -6,19 +6,12 @@ from typing import List
 import spamwatch
 import telegram.ext as tg
 from telethon import TelegramClient
-from telethon.sessions import StringSession
 from telethon.sessions import MemorySession
 from configparser import ConfigParser
-from motor import motor_asyncio
-from odmantic import AIOEngine
-from pymongo import MongoClient
-from pyrogram import Client, filters, errors
-
 from ptbcontrib.postgres_persistence import PostgresPersistence
 from logging.config import fileConfig
 
 StartTime = time.time()
-CMD_HELP = {}
 
 
 flag = """
@@ -58,8 +51,7 @@ class KigyoINIT:
         self.parser = parser
         self.SYS_ADMIN: int = self.parser.getint('SYS_ADMIN', 0)
         self.OWNER_ID: int = self.parser.getint('OWNER_ID')
-        self.STRING_SESSION: int = self.parser.getint('OWNER_ID')
-        self.OWNER_USERNAME: str = self.parser.get('STRING_SESSION', None)
+        self.OWNER_USERNAME: str = self.parser.get('OWNER_USERNAME', None)
         self.APP_ID: str = self.parser.getint("APP_ID")
         self.API_HASH: str = self.parser.get("API_HASH")
         self.WEBHOOK: bool = self.parser.getboolean('WEBHOOK', False)
@@ -73,7 +65,6 @@ class KigyoINIT:
         self.CUSTOM_CMD: List[str] = ['/', '!']
         self.BAN_STICKER: str = self.parser.get("BAN_STICKER", None)
         self.TOKEN: str = self.parser.get("TOKEN")
-        self.BOT_TOKEN: str = self.parser.get("BOT_TOKEN")
         self.DB_URI: str = self.parser.get("SQLALCHEMY_DATABASE_URI")
         self.LOAD = self.parser.get("LOAD").split()
         self.LOAD: List[str] = list(map(str, self.LOAD))
@@ -83,7 +74,6 @@ class KigyoINIT:
         self.NO_LOAD: List[str] = list(map(str, self.NO_LOAD))
         self.spamwatch_api: str = self.parser.get('spamwatch_api', None)
         self.CASH_API_KEY: str = self.parser.get('CASH_API_KEY', None)
-        self.TOKEN: str = self.parser.get('TOKEN', '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk')
         self.TIME_API_KEY: str = self.parser.get('TIME_API_KEY', None)
         self.WALL_API: str = self.parser.get('WALL_API', None)
         self.LASTFM_API_KEY: str = self.parser.get('LASTFM_API_KEY', None)
@@ -115,7 +105,6 @@ KInit = KigyoINIT(parser=kigconfig)
 
 SYS_ADMIN = KInit.SYS_ADMIN
 OWNER_ID = KInit.OWNER_ID
-STRING_SESSION = KInit.STRING_SESSION
 OWNER_USERNAME = KInit.OWNER_USERNAME
 APP_ID = KInit.APP_ID
 API_HASH = KInit.API_HASH
@@ -129,7 +118,6 @@ ALLOW_EXCL = KInit.ALLOW_EXCL
 CUSTOM_CMD = KInit.CUSTOM_CMD
 BAN_STICKER = KInit.BAN_STICKER
 TOKEN = KInit.TOKEN
-BOT_TOKEN = KInit.BOT_TOKEN
 DB_URI = KInit.DB_URI
 LOAD = KInit.LOAD
 MESSAGE_DUMP = KInit.MESSAGE_DUMP
@@ -147,39 +135,22 @@ TIME_API_KEY = KInit.TIME_API_KEY
 WALL_API = KInit.WALL_API
 LASTFM_API_KEY = KInit.LASTFM_API_KEY
 CF_API_KEY = KInit.CF_API_KEY
-STRING_SESSION = '1AZWarzoBu1UTbrldjbuCEY0WpSHa8J9Lk48Of-8qB_7CDcT4JtzyW-Mg1eRhtWhOlzzA9s6K3ZrxhbHqCcgAoMRJVhEQT9YJ_buacByEy3KNR2NdrDl-hi9e-MSmBFQEM_alrlDh0pay_87TxEkfczQCnCf1fe19HbAKK7gkBp5qf_aIQEnPgCVh30mfUnUaoPUjNEv44fGKhOBy7bK5C-C2d3ekuS2NJNI4wtthHwKCnWeZ4VGwZNMk4chsCi9IWuqmsKUwlPxQJzx4IMTsl1q4rQA0T1dLA03VqT1DZOlM8f69CowV2XElcfQ-9HhoYU-_8WrIE8cWmEMK4P9VXYPHQWyKLew='
-API_ID = '6435225'
-API_HASH = '4e984ea35f854762dcde906dce426c2d'
-TOKEN = '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk'
-
-BOT_TOKEM = '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk'
-WORKERS = 8
 
 # SpamWatch
 sw = KInit.init_sw()
-DROP_UPDATES = True
 
 from ERICA.modules.sql import SESSION
 
-updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
+if not KInit.DROP_UPDATES:
+    updater = tg.Updater(token=TOKEN, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(session=SESSION))
+    
+else:
+    updater = tg.Updater(token=TOKEN, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
+    
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
 
-ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
-try:
-    ubot2.start()
-except BaseException:
-    print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
-    sys.exit(1)
 
-pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
-
-MONGO_DB = "ZaidRobot"
-MONGO_DB_URL = "mongodb+srv://ZAID2:ZAID2@cluster0.plap4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
-motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
-db = motor[MONGO_DB]
-engine = AIOEngine(motor, MONGO_DB)
 
 # Load at end to ensure all prev variables have been set
 from ERICA.modules.helper_funcs.handlers import CustomCommandHandler
@@ -195,16 +166,3 @@ def spamfilters(text, user_id, chat_id):
 
     print("This user is a spammer!")
     return True
-
-
-print("Starting Pyrogram Client")
-pgram.start()
-
-print("Aquiring BOT Client Info")
-
-bottie = pgram.get_me()
-
-BOT_ID = 1901951380
-BOT_USERNAME = 'Zaid2_Robot'
-BOT_NAME = 'Zaid Robot'
-BOT_MENTION = bottie.mention
