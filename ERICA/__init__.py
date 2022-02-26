@@ -73,6 +73,7 @@ class KigyoINIT:
         self.CUSTOM_CMD: List[str] = ['/', '!']
         self.BAN_STICKER: str = self.parser.get("BAN_STICKER", None)
         self.TOKEN: str = self.parser.get("TOKEN")
+        self.BOT_TOKEN: str = self.parser.get("BOT_TOKEN")
         self.DB_URI: str = self.parser.get("SQLALCHEMY_DATABASE_URI")
         self.LOAD = self.parser.get("LOAD").split()
         self.LOAD: List[str] = list(map(str, self.LOAD))
@@ -128,6 +129,7 @@ ALLOW_EXCL = KInit.ALLOW_EXCL
 CUSTOM_CMD = KInit.CUSTOM_CMD
 BAN_STICKER = KInit.BAN_STICKER
 TOKEN = KInit.TOKEN
+BOT_TOKEN = KInit.BOT_TOKEN
 DB_URI = KInit.DB_URI
 LOAD = KInit.LOAD
 MESSAGE_DUMP = KInit.MESSAGE_DUMP
