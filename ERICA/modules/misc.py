@@ -10,7 +10,7 @@ from telegram.utils.helpers import mention_html, escape_markdown
 from subprocess import Popen, PIPE
 
 from ERICA import (
-    dispatcher,
+    updaters as dispatcher,
     OWNER_ID,
     SUDO_USERS,
     SUPPORT_USERS,
