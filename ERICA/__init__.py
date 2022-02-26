@@ -153,6 +153,7 @@ WORKERS = 8
 
 # SpamWatch
 sw = KInit.init_sw()
+DROP_UPDATES = True
 
 from ERICA.modules.sql import SESSION
 
