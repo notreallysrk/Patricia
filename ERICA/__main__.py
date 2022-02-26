@@ -19,7 +19,7 @@ from telegram.ext.dispatcher import DispatcherHandlerStop
 from telegram.utils.helpers import escape_markdown
 from ERICA import (
     KInit,
-    dispatcher,
+    updaters as dispatcher,
     updater,
     TOKEN,
     WEBHOOK,
