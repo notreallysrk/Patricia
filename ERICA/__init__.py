@@ -152,7 +152,7 @@ API_ID = '6435225'
 API_HASH = '4e984ea35f854762dcde906dce426c2d'
 TOKEN = '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk'
 
-BOT_TOKEN = '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk'
+BOT_TOKEM = '1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk'
 WORKERS = 8
 
 # SpamWatch
@@ -161,7 +161,7 @@ DROP_UPDATES = True
 
 from ERICA.modules.sql import SESSION
 
-updater = tg.Updater(token='1901951380:AAFcskpr3-6721euRTH4lXPeqTTa45fK7Vk', base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
+updater = tg.Updater(token=BOT_TOKEM, base_url=KInit.BOT_API_URL, base_file_url=KInit.BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
 
