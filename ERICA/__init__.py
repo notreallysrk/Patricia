@@ -6,12 +6,17 @@ from typing import List
 import spamwatch
 import telegram.ext as tg
 from telethon import TelegramClient
+from motor import motor_asyncio
+from odmantic import AIOEngine
+from pymongo import MongoClient
+from pyrogram import Client, filters, errors
 from telethon.sessions import MemorySession
 from configparser import ConfigParser
 from ptbcontrib.postgres_persistence import PostgresPersistence
 from logging.config import fileConfig
 
 StartTime = time.time()
+CMD_HELP = {}
 
 
 flag = """
@@ -56,6 +61,7 @@ class KigyoINIT:
         self.API_HASH: str = self.parser.get("API_HASH")
         self.WEBHOOK: bool = self.parser.getboolean('WEBHOOK', False)
         self.URL: str = self.parser.get('URL', None)
+        self.STRING_SESSION: str = self.parser.get('STRING_SESSION', None)
         self.CERT_PATH: str = self.parser.get('CERT_PATH', None)
         self.PORT: int = self.parser.getint('PORT', None)
         self.INFOPIC: bool = self.parser.getboolean('INFOPIC', False)
@@ -119,6 +125,7 @@ CUSTOM_CMD = KInit.CUSTOM_CMD
 BAN_STICKER = KInit.BAN_STICKER
 TOKEN = KInit.TOKEN
 DB_URI = KInit.DB_URI
+STRING_SESSION = KInit.STRING_SESSION
 LOAD = KInit.LOAD
 MESSAGE_DUMP = KInit.MESSAGE_DUMP
 GBAN_LOGS = KInit.GBAN_LOGS
@@ -149,6 +156,22 @@ else:
     
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
+
+ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
+try:
+    ubot2.start()
+except BaseException:
+    print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
+    sys.exit(1)
+
+pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
+
+MONGO_DB = "ZaidRobot"
+MONGO_DB_URL = "mongodb+srv://ZAID2:ZAID2@cluster0.plap4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
+motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
+db = motor[MONGO_DB]
+engine = AIOEngine(motor, MONGO_DB)
 
 
 
