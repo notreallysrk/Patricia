@@ -556,7 +556,7 @@ feed_help: |
          ❂ /feedback: (message) Send ur feedback
          ❂ /hammer: (message) This will Send to my owner (Privately Issues/Feedback Only).
 
-feed_help: |
+alert_help: |
        Too many mentions.. Cant you manage them all alone..
          Here is the solution
          If you are tagged/mentioned in a group where Zaid is present
