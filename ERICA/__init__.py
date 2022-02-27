@@ -10,6 +10,7 @@ from telethon import TelegramClient
 from motor import motor_asyncio
 from odmantic import AIOEngine
 from pymongo import MongoClient
+from pyrogram.types import Message
 from pyrogram import Client, filters, errors
 from telethon.sessions import MemorySession
 from configparser import ConfigParser
@@ -204,3 +205,14 @@ BOT_ID = 1901951380
 BOT_USERNAME = 'Zaid2_Robot'
 BOT_NAME = 'Zaid Robot'
 BOT_MENTION = bottie.mention
+
+
+# eor help sessions
+async def eor(msg: Message, **kwargs):
+    func = (
+        (msg.edit_text if msg.from_user.is_self else msg.reply)
+        if msg.from_user
+        else msg.reply
+    )
+    spec = getfullargspec(func.__wrapped__).args
+    return await func(**{k: v for k, v in kwargs.items() if k in spec})
