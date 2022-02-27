@@ -6,9 +6,9 @@ from pyrogram import filters
 from pymongo import MongoClient
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from ERICA import pgram as app, MONGO_DB_URI
+from ERICA import pgram as app, MONGO_DB_URL
 
-client = MongoClient(MONGO_DB_URI)
+client = MongoClient(MONGO_DB_URL)
 dbd = client["new1"]
 approved_users = dbd.approve
 db = dbd
