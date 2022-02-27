@@ -554,3 +554,15 @@ feed_help: |
        Send Ur Feedback with Us ☺️
          ❂ /feedback: (message) Send ur feedback
          ❂ /hammer: (message) This will Send to my owner (Privately Issues/Feedback Only).
+
+alert_help: |
+       Too many mentions.. Cant you manage them all alone..
+         Here is the solution
+         If you are tagged/mentioned in a group where Zaid is present
+         Rose will notify it to you via private message after enabling tag alerts
+       **Commands**
+         - /tagalert `on` : Turn tag alerts on
+         - /tagalert `off` : Turn tag alert off
+       **Example:**
+       If you are mentioned in a group Zaid will tell you who mentioned you, 
+       message that you are tagged in and which group is that.
