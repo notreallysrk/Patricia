@@ -1,5 +1,5 @@
 from ERICA import pgram as app
-from ERICA.utils.dbfunc import get_couple, save_couple
+from ERICA.utils.dbfun import get_couple, save_couple
 from pyrogram import filters
 import random
 from datetime import datetime
