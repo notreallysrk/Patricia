@@ -6,7 +6,7 @@ from pyrogram import filters
 from pymongo import MongoClient
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from pyrogram.types import InlineKeyboardMarkup, InlineKeyboardButton
-from Rose import pgram as app, MONGO_DB_URI
+from ERICA import pgram as app, MONGO_DB_URI
 
 client = MongoClient(MONGO_DB_URI)
 dbd = client["new1"]
@@ -120,7 +120,7 @@ Rose will notify it to you via private message after enabling tag alerts
 - /tagalert `off` : Turn tag alert off
 
 **Example:**
-If you are mentioned in a group Rose will tell you who mentioned you, 
+If you are mentioned in a group Zaid will tell you who mentioned you, 
 message that you are tagged in and which group is that.
 """
     
