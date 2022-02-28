@@ -107,20 +107,10 @@ async def mentioned_alert(client, message):
     except:
         return message.continue_propagation()
     
-__MODULE__ = "Tagalert"
-__HELP__ = """
-Too many mentions.. Cant you manage them all alone..
-Here is the solution
+from ERICA.modules.language import gs
 
-If you are tagged/mentioned in a group where Rose is present
-Rose will notify it to you via private message after enabling tag alerts
+def get_help(chat):
+    return gs(chat, "alert_help")
 
-**Commands**
-- /tagalert `on` : Turn tag alerts on
-- /tagalert `off` : Turn tag alert off
 
-**Example:**
-If you are mentioned in a group Zaid will tell you who mentioned you, 
-message that you are tagged in and which group is that.
-"""
-    
+__mod_name__ = "Tagalert"
