@@ -532,10 +532,6 @@ WARN_STRENGTH_HANDLER = CommandHandler(
     "strongwarn", set_warn_strength, filters=Filters.chat_type.groups
 )
 
-dispatcher.add_handler(WARN_HANDLER)
-dispatcher.add_handler(CALLBACK_QUERY_HANDLER)
-dispatcher.add_handler(RESET_WARN_HANDLER)
-dispatcher.add_handler(MYWARNS_HANDLER)
 dispatcher.add_handler(ADD_WARN_HANDLER)
 dispatcher.add_handler(RM_WARN_HANDLER)
 dispatcher.add_handler(LIST_WARN_HANDLER)
