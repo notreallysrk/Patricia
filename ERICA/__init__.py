@@ -176,6 +176,10 @@ motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
 db = motor[MONGO_DB]
 engine = AIOEngine(motor, MONGO_DB)
 
+aiohttpsession = ClientSession()
+
+arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
+
 
 
 # Load at end to ensure all prev variables have been set
