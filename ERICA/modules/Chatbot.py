@@ -131,10 +131,10 @@ Chatbot utilizes the Brainshop's API and allows {dispatcher.bot.first_name} to t
 
 CHATBOT_TOGGLE_COMMAND_HANDLER = CommandHandler(
     "chatbot",
-    chatbot_toggle,
+    chatbot_toggle, run_async=True
 )
 CHATBOT_TOGGLE_CALLBACK_HANDLER = CallbackQueryHandler(
-    chatbot_handle_callq, pattern=r"chatbot_",
+    chatbot_handle_callq, pattern=r"chatbot_", run_async=True
 )
 CHATBOT_HANDLER = MessageHandler(
     Filters.text
@@ -143,12 +143,12 @@ CHATBOT_HANDLER = MessageHandler(
         & ~Filters.regex(r"^!")
         & ~Filters.regex(r"^\/")
     ),
-    chatbot,
+    chatbot, run_async=True
 )
 LIST_CB_CHATS_HANDLER = CommandHandler(
     "listaichats",
     list_chatbot_chats,
-    filters=CustomFilters.dev_filter,
+    filters=CustomFilters.dev_filter, run_async=True
 )
 # Filters for ignoring #note messages, !commands and sed.
 
