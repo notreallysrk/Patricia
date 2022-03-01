@@ -337,9 +337,9 @@ then press Done to continue the tutorial..
 
 BUTTON_1 = InlineKeyboardMarkup(
         [[        
-        InlineKeyboardButton('Add Rose to Chat ! 🎉', url='http://t.me/Zaid2_Robot?startgroup=new')
+        InlineKeyboardButton('Add Zaid to Chat ! 🎉', url='http://t.me/Zaid2_Robot?startgroup=new')
         ],
-        [InlineKeyboardButton('Done ✅', callback_data="next_1")
+        [InlineKeyboardButton('Done ✅', callback_data="cls")
         ]]
   
 )
