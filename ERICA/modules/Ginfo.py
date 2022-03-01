@@ -2,8 +2,8 @@ from ERICA import pgram as bot
 from pyrogram import filters
 
 
-@bot.on_message(filters.command("info"))
-def ginfo(_, message):
+@bot.on_message(filters.command("myinfo"))
+def myinfo(_, message):
     id = message.from_user.id
     txt=message.text
     text = txt.split(" ", 1)
