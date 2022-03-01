@@ -135,6 +135,8 @@ def warn(
         )
         if reason:
             reply += f"\n<code> </code><b>•  Reason:</b> {html.escape(reason)}"
+        if message.text.startswith("/d") and message.reply_to_message:
+            message.reply_to_message.delete()
 
         log_reason = (
             f"<b>{html.escape(chat.title)}:</b>\n"
@@ -145,8 +147,6 @@ def warn(
             f"<b>Reason:</b> {reason}\n"
             f"<b>Counts:</b> <code>{num_warns}/{limit}</code>"
         )
-    if message.text.startswith("/d") and message.reply_to_message:
-        message.reply_to_message.delete()
 
     try:
         message.reply_text(reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
