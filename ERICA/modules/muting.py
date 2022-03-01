@@ -73,6 +73,8 @@ def mute(update: Update, context: CallbackContext) -> str:
 
     if reason:
         log += f"\n<b>Reason:</b> {reason}"
+    if message.text.startswith("/d") and message.reply_to_message:
+        message.reply_to_message.delete()
 
     if member.can_send_messages is None or member.can_send_messages:
         chat_permissions = ChatPermissions(can_send_messages=False)
@@ -86,8 +88,6 @@ def mute(update: Update, context: CallbackContext) -> str:
             parse_mode=ParseMode.HTML,
         )
         return log
-    if message.text.startswith("/d") and message.reply_to_message:
-        message.reply_to_message.delete()
 
     else:
         message.reply_text("This user is already muted!")
