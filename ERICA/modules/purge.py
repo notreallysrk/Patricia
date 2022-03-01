@@ -78,12 +78,12 @@ def get_help(chat):
 
 
 
-PURGE_HANDLER = purge_messages, events.NewMessage(pattern="^[!/]purge$")
-DEL_HANDLER = delete_messages, events.NewMessage(pattern="^[!/]del$")
+PURGE_HANDLER = purge_messages, events.NewMessage(pattern="^[!/]purgeme$")
+DEL_HANDLER = delete_messages, events.NewMessage(pattern="^[!/]delme$")
 
 telethn.add_event_handler(*PURGE_HANDLER)
 telethn.add_event_handler(*DEL_HANDLER)
 
 __mod_name__ = "Purges"
-__command_list__ = ["del", "purge"]
+__command_list__ = ["delme", "purgeme"]
 __handlers__ = [PURGE_HANDLER, DEL_HANDLER]
