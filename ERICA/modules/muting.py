@@ -57,8 +57,6 @@ def mute(update: Update, context: CallbackContext) -> str:
 
     user_id, reason = extract_user_and_text(message, args)
     reply = check_user(user_id, bot, update)
-    if message.text.startswith("/d") and message.reply_to_message:
-        message.reply_to_message.delete()
 
     if reply:
         message.reply_text(reply)
@@ -88,6 +86,8 @@ def mute(update: Update, context: CallbackContext) -> str:
             parse_mode=ParseMode.HTML,
         )
         return log
+    if message.text.startswith("/d") and message.reply_to_message:
+        message.reply_to_message.delete()
 
     else:
         message.reply_text("This user is already muted!")
