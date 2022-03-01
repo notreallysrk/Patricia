@@ -1,4 +1,4 @@
-from ERICA import OWNER_ID as DEV_USERS, OWNER_ID as DRAGONS, OWNER as DEMONS
+from ERICA import DEV_USERS, SUPPORT_USERS as DRAGONS, SUDO_USERS as DEMONS
 from telegram import Message
 from telegram.ext import MessageFilter
 
