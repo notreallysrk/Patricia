@@ -6,6 +6,7 @@ from typing import List
 import spamwatch
 from telethon.sessions import StringSession
 import telegram.ext as tg
+from aiohttp import ClientSession
 from telethon import TelegramClient
 from motor import motor_asyncio
 from odmantic import AIOEngine
