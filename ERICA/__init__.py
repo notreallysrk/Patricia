@@ -178,7 +178,7 @@ engine = AIOEngine(motor, MONGO_DB)
 
 aiohttpsession = ClientSession()
 
-arq = ARQ(ARQ_API_URL, ARQ_API_KEY, aiohttpsession)
+arq = ARQ("https://thearq.tech", "UIUXOY-NTKWDC-QHFFMD-DHHKVV-ARQ", aiohttpsession)
 
 
 
