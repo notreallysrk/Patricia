@@ -510,6 +510,14 @@ def get_help(chat):
 
 __mod_name__ = "Warnings"
 
+WARN_HANDLER = CommandHandler(["warn", "dwarn", "smute"], warn_user, filters=Filters.chat_type.groups)
+RESET_WARN_HANDLER = CommandHandler(
+    ["resetwarn", "resetwarns"], reset_warns, filters=Filters.chat_type.groups
+)
+CALLBACK_QUERY_HANDLER = CallbackQueryHandler(button, pattern=r"rm_warn")
+MYWARNS_HANDLER = DisableAbleCommandHandler(
+    "warns", warns, filters=Filters.chat_type.groups
+)
 ADD_WARN_HANDLER = CommandHandler(
     "addwarn", add_warn_filter, filters=Filters.chat_type.groups
 )
@@ -532,6 +540,10 @@ WARN_STRENGTH_HANDLER = CommandHandler(
     "strongwarn", set_warn_strength, filters=Filters.chat_type.groups
 )
 
+dispatcher.add_handler(WARN_HANDLER)
+dispatcher.add_handler(CALLBACK_QUERY_HANDLER)
+dispatcher.add_handler(RESET_WARN_HANDLER)
+dispatcher.add_handler(MYWARNS_HANDLER)
 dispatcher.add_handler(ADD_WARN_HANDLER)
 dispatcher.add_handler(RM_WARN_HANDLER)
 dispatcher.add_handler(LIST_WARN_HANDLER)
