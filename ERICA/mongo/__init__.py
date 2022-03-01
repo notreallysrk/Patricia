@@ -7,7 +7,7 @@ from motor import motor_asyncio
 import asyncio
 import sys
 from pymongo.errors import ServerSelectionTimeoutError
-from ERICA import DB_URI
+from ERICA import MONGO_DB_URL as DB_URI
 
 
 
