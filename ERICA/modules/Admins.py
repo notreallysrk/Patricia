@@ -19,7 +19,7 @@ from ERICA.modules.log_channel import loggable
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 
-@kigcmd(command=["fullpromote", "highpromote"], can_disable=False)
+@kigcmd(command=["propromote", "highpromote"], can_disable=False)
 @connection_status
 @bot_admin
 @can_promote
@@ -102,7 +102,7 @@ def fullpromote(update: Update, context: CallbackContext) -> Optional[str]:
 
     return log_message
 
-@kigcmd(command=["lowpromote", "promote"], can_disable=False)
+@kigcmd(command=["noobpromote", "lolpromote"], can_disable=False)
 @connection_status
 @bot_admin
 @can_promote
@@ -184,81 +184,6 @@ def fullpromote(update: Update, context: CallbackContext) -> Optional[str]:
     return log_message
 
 
-@kigcmd(command="demote", can_disable=False)
-@connection_status
-@bot_admin
-@can_promote
-@user_admin(AdminPerms.CAN_PROMOTE_MEMBERS)
-@loggable
-def demote(update: Update, context: CallbackContext) -> Optional[str]:
-    bot = context.bot
-    args = context.args
-
-    chat = update.effective_chat
-    message = update.effective_message
-    user = update.effective_user
-
-    user_id = extract_user(message, args)
-    if not user_id:
-        message.reply_text(
-            "You don't seem to be referring to a user or the ID specified is incorrect.."
-        )
-        return
-
-    try:
-        user_member = chat.get_member(user_id)
-    except:
-        return
-
-    if user_member.status == "creator":
-        message.reply_text("This person CREATED the chat, how would I demote them?")
-        return
-
-    if user_member.status != "administrator":
-        message.reply_text("Can't demote what wasn't promoted!")
-        return
-
-    if user_id == bot.id:
-        message.reply_text("I can't demote myself! Get an admin to do it for me.")
-        return
-
-    try:
-        bot.promoteChatMember(
-            chat.id,
-            user_id,
-            can_change_info=False,
-            can_post_messages=False,
-            can_edit_messages=False,
-            can_delete_messages=False,
-            can_invite_users=False,
-            can_restrict_members=False,
-            can_pin_messages=False,
-            can_promote_members=False,
-            can_manage_voice_chats=False,
-        )
-
-        bot.sendMessage(
-            chat.id,
-            f"<b>{user_member.user.first_name or user_id or None}</b> was demoted by <b>{message.from_user.first_name or None}</b> in <b>{chat.title or None}</b>",
-            parse_mode=ParseMode.HTML,
-        )
-
-        log_message = (
-            f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#DEMOTED\n"
-            f"<b>Admin:</b> {mention_html(user.id, user.first_name)}\n"
-            f"<b>User:</b> {mention_html(user_member.user.id, user_member.user.first_name)}"
-        )
-
-        return log_message
-    except BadRequest:
-        message.reply_text(
-            "Could not demote. I might not be admin, or the admin status was appointed by another"
-            " user, so I can't act upon them!"
-        )
-        return
-
-
 
 @kigcmd(command="admincache", can_disable=False)
 def refresh_admin(update, _):
@@ -332,73 +257,6 @@ def set_title(update: Update, context: CallbackContext):
     )
 
 
-@kigcmd(command="pin", can_disable=False)
-@bot_admin
-@can_pin
-@user_admin(AdminPerms.CAN_PIN_MESSAGES)
-@loggable
-def pin(update: Update, context: CallbackContext) -> str:
-    bot = context.bot
-    args = context.args
-
-    user = update.effective_user
-    chat = update.effective_chat
-
-    is_group = chat.type != "private" and chat.type != "channel"
-    prev_message = update.effective_message.reply_to_message
-
-    is_silent = True
-    if len(args) >= 1:
-        is_silent = (
-                args[0].lower() != "notify"
-                or args[0].lower() == "loud"
-                or args[0].lower() == "violent"
-        )
-
-    if prev_message and is_group:
-        try:
-            bot.pinChatMessage(
-                chat.id, prev_message.message_id, disable_notification=is_silent
-            )
-        except BadRequest as excp:
-            if excp.message == "Chat_not_modified":
-                pass
-            else:
-                raise
-        log_message = (
-            f"<b>{html.escape(chat.title)}:</b>\n"
-            f"#PINNED\n"
-            f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}"
-        )
-
-        return log_message
-
-
-@kigcmd(command="unpin", can_disable=False)
-@bot_admin
-@can_pin
-@user_admin(AdminPerms.CAN_PIN_MESSAGES)
-@loggable
-def unpin(update: Update, context: CallbackContext) -> str:
-    bot = context.bot
-    chat = update.effective_chat
-    user = update.effective_user
-
-    try:
-        bot.unpinChatMessage(chat.id)
-    except BadRequest as excp:
-        if excp.message == "Chat_not_modified":
-            pass
-        else:
-            raise
-
-    log_message = (
-        f"<b>{html.escape(chat.title)}:</b>\n"
-        f"#UNPINNED\n"
-        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}"
-    )
-
-    return log_message
 
 
 @kigcmd(command="invitelink", can_disable=False)
