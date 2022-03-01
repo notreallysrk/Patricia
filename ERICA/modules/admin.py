@@ -368,90 +368,6 @@ async def pin(msg):
 
 
 
-
-@register(pattern="^/setgrouppic$")
-async def set_group_photo(gpic):
-    replymsg = await gpic.get_reply_message()
-    chat = await gpic.get_chat()
-    photo = None
-
-    if gpic.is_group:
-        if not await can_change_info(message=gpic):
-            return
-    else:
-        return
-
-    if replymsg and replymsg.media:
-        if isinstance(replymsg.media, MessageMediaPhoto):
-            photo = await tbot.download_media(message=replymsg.photo)
-        elif "image" in replymsg.media.document.mime_type.split("/"):
-            photo = await tbot.download_file(replymsg.media.document)
-        else:
-            await gpic.reply(INVALID_MEDIA)
-
-    if photo:
-        try:
-            await tbot(EditPhotoRequest(gpic.chat_id, await tbot.upload_file(photo)))
-            await gpic.reply(CHAT_PP_CHANGED)
-
-        except PhotoCropSizeSmallError:
-            await gpic.reply(PP_TOO_SMOL)
-        except ImageProcessFailedError:
-            await gpic.reply(PP_ERROR)
-        except:
-            await gpic.reply("Failed to set group pic.")
-
-
-@register(pattern="^/settitle ?(.*)")
-async def settitle(promt):
-    textt = promt.pattern_match.group(1)
-    thatuser = textt.split(" ")[0]
-    title_admin = textt.split(" ")[1]
-    # print(thatuser)
-    # print(title_admin)
-    if thatuser:
-        user = await tbot.get_entity(thatuser)
-    else:
-        await promt.reply("Pass the user's username or id or followed by title !")
-        return
-
-    if promt.is_group:
-        if not await can_promote_users(message=promt):
-            return
-    else:
-        return
-
-    if promt.is_group:
-        if not await is_register_admin(promt.input_chat, user.id):
-            await promt.reply("How can i set title of a non-admin ?")
-            return
-        pass
-
-    try:
-        result = await tbot(
-            functions.channels.GetParticipantRequest(
-                channel=promt.chat_id,
-                user_id=user.id,
-            )
-        )
-        p = result.participant
-
-        await tbot(
-            EditAdminRequest(
-                promt.chat_id,
-                user_id=user.id,
-                admin_rights=p.admin_rights,
-                rank=title_admin,
-            )
-        )
-
-        await promt.reply("Chat Title set successfully!")
-
-    except Exception:
-        await promt.reply("Failed to set title.")
-        return
-
-
 @register(pattern="^/users$")
 async def get_users(show):
     if not show.is_group:
@@ -530,31 +446,6 @@ async def _(event):
 
 
 
-@register(pattern="^/setgrouptitle (.*)")
-async def set_group_title(gpic):
-    input_str = gpic.pattern_match.group(1)
-
-    if gpic.is_group:
-        if not await can_change_info(message=gpic):
-            return
-    else:
-        return
-
-    try:
-        await tbot(
-            functions.messages.EditChatTitleRequest(
-                chat_id=gpic.chat_id, title=input_str
-            )
-        )
-    except BaseException:
-        await tbot(
-            functions.channels.EditTitleRequest(channel=gpic.chat_id, title=input_str)
-        )
-
-    if gpic.chat.title == input_str:
-        await gpic.reply("Successfully set new group title.")
-    else:
-        await gpic.reply("Failed to set group title.")
 
 
 @register(pattern=r"^/setdescription ([\s\S]*)")
