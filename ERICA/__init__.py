@@ -4,6 +4,7 @@ import sys
 import time
 from typing import List
 import spamwatch
+from Python_ARQ import ARQ
 from telethon.sessions import StringSession
 import telegram.ext as tg
 from aiohttp import ClientSession
