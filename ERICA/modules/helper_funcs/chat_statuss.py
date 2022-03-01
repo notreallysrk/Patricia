@@ -3,11 +3,11 @@ from functools import wraps
 from cachetools import TTLCache
 from threading import RLock
 from ERICA import (
-    OWNER_ID as DEV_USERS,
-    OWNER_ID as DRAGONS,
-    OWNER_ID as DEMONS,
-    OWNER_ID as TIGERS,
-    OWNER_ID as WOLVES,
+    DEV_USERS,
+    SUPPORT_USERS as DRAGONS,
+    SUDO_USERS as DEMONS,
+    SARDEGNA_USERS as TIGERS,
+    WHITELIST_USERS as WOLVES,
     dispatcher,
 )
 DEL_CMDS = True
