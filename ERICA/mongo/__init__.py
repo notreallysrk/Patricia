@@ -20,7 +20,7 @@ filtersdb = rdb.filters
 notesdb = rdb.notes
 
 
-from Rose import  DB_URI
+from ERICA import MONGO_DB_URL as DB_URI
 
 try:
     client = MongoClient(DB_URI)
