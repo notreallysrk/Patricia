@@ -122,7 +122,7 @@ async def logo_maker(client, message):
             return
 
 
-@pbot.on_message(filters.command("logohq") & ~filters.edited & ~filters.bot)
+@pbot.on_message(filters.command(["logohq", "wlogo"]) & ~filters.edited & ~filters.bot)
 @is_admin
 async def logohq(client, message):
     if message.reply_to_message:
@@ -210,6 +210,12 @@ async def logohq(client, message):
             )
         except:
             return
+
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "logo_help")
 
 
 __mod_name__ = "Logos"
