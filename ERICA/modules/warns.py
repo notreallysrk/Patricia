@@ -510,7 +510,7 @@ def get_help(chat):
 
 __mod_name__ = "Warnings"
 
-WARN_HANDLER = CommandHandler(["warn", "dwarn", "smute"], warn_user, filters=Filters.chat_type.groups)
+WARN_HANDLER = CommandHandler(["warn", "tdwarn", "sttmute"], warn_user, filters=Filters.chat_type.groups)
 RESET_WARN_HANDLER = CommandHandler(
     ["resetwarn", "resetwarns"], reset_warns, filters=Filters.chat_type.groups
 )
