@@ -3,7 +3,7 @@ from time import sleep
 
 import requests
 from ERICA import TOKEN, dispatcher
-from ERICA.modules.helper_funcs.chat_statuss import (
+from ERICA.modules.helper_funcs.chat_status import (
     is_user_admin,
     user_admin,
 )
