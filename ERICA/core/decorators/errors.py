@@ -4,7 +4,7 @@ from functools import wraps
 
 from pyrogram.errors.exceptions.forbidden_403 import ChatWriteForbidden
 
-from Rose import OWNER_ID as LOG_GROUP_ID, pgram as app
+from ERICA import OWNER_ID as LOG_GROUP_ID, pgram as app
 
 
 def split_limits(text):
