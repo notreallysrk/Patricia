@@ -5,11 +5,11 @@ from pyrogram import filters
 from pyrogram.types import CallbackQuery, ChatPermissions, Message
 
 from ERICA import BOT_ID, OWNER_ID as SUDOERS, pgram as app
-from Rose.core.decorators.errors import capture_err
-from Rose.core.keyboard import ikb
-from Rose.utils.dbfunctions import (add_warn, get_warn, int_to_alpha,
+from ERICA.core.decorators.errors import capture_err
+from ERICA.core.keyboard import ikb
+from ERICA.utils.dbfunctions import (add_warn, get_warn, int_to_alpha,
                                    remove_warns, save_filter)
-from Rose.utils.functions import (extract_user, extract_user_and_reason,
+from ERICA.utils.functions import (extract_user, extract_user_and_reason,
                                  time_converter)
 
 
@@ -70,7 +70,7 @@ async def member_permissions(chat_id: int, user_id: int):
     return perms
 
 
-from Rose.core.decorators.permissions import adminsOnly
+from ERICA.core.decorators.permissions import adminsOnly
 
 admins_in_chat = {}
 
