@@ -1275,7 +1275,7 @@ CLEAN_SERVICE_HANDLER = CommandHandler(
     "sqlcleanservice", cleanservice, filters=Filters.chat_type.groups, run_async=True
 )
 CLEAN_WELCOME = CommandHandler(
-    "cleanwelcome", clean_welcome, filters=Filters.chat_type.groups, run_async=True
+    "sqlcleanwelcome", clean_welcome, filters=Filters.chat_type.groups, run_async=True
 )
 WELCOME_HELP = CommandHandler("welcomehelp", welcome_help, run_async=True)
 WELCOME_MUTE_HELP = CommandHandler("welcomemutehelp", welcome_mute_help, run_async=True)
