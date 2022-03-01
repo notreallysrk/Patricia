@@ -301,7 +301,6 @@ def get_readable_time(seconds: int) -> str:
 stats_str = '''
 '''
 @kigcmd(command='stats', can_disable=False)
-@sudo_plus
 def stats(update, context):
     db_size = SESSION.execute("SELECT pg_size_pretty(pg_database_size(current_database()))").scalar_one_or_none()
     uptime = datetime.datetime.fromtimestamp(boot_time()).strftime("%Y-%m-%d %H:%M:%S")
