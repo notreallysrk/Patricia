@@ -87,7 +87,7 @@ def check_message(context: CallbackContext, message):
         return False
 
 
-@run_async
+
 def chatbot(update: Update, context: CallbackContext):
     msg = update.effective_message
     chat_id = update.effective_chat.id
