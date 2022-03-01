@@ -131,7 +131,7 @@ Chatbot utilizes the Brainshop's API and allows {dispatcher.bot.first_name} to t
 
 CHATBOT_HANDLER = MessageHandler(Filters.text & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!")
                                   & ~Filters.regex(r"^s\/")), chatbot)
-LIST_CB_CHATS_HANDLER = CommandHandler("listaichats", list_chatbot_chats, filters=CustomFilters.dev_filter),
+LIST_CB_CHATS_HANDLER = CommandHandler("listaichats", list_chatbot_chats, filters=CustomFilters.dev_filter)
 
 # Filters for ignoring #note messages, !commands and sed.
 
