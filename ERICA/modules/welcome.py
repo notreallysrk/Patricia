@@ -1251,31 +1251,31 @@ LEFT_MEM_HANDLER = MessageHandler(
     Filters.status_update.left_chat_member, left_member, run_async=True
 )
 WELC_PREF_HANDLER = CommandHandler(
-    "sqlwelcome", welcome, filters=Filters.chat_type.groups, run_async=True
+    "welcome", welcome, filters=Filters.chat_type.groups, run_async=True
 )
 GOODBYE_PREF_HANDLER = CommandHandler(
-    "sqlgoodbye", goodbye, filters=Filters.chat_type.groups, run_async=True
+    "goodbye", goodbye, filters=Filters.chat_type.groups, run_async=True
 )
 SET_WELCOME = CommandHandler(
-    "sqlsetwelcome", set_welcome, filters=Filters.chat_type.groups, run_async=True
+    "setwelcome", set_welcome, filters=Filters.chat_type.groups, run_async=True
 )
 SET_GOODBYE = CommandHandler(
-    "sqlsetgoodbye", set_goodbye, filters=Filters.chat_type.groups, run_async=True
+    "setgoodbye", set_goodbye, filters=Filters.chat_type.groups, run_async=True
 )
 RESET_WELCOME = CommandHandler(
-    "sqlresetwelcome", reset_welcome, filters=Filters.chat_type.groups, run_async=True
+    "resetwelcome", reset_welcome, filters=Filters.chat_type.groups, run_async=True
 )
 RESET_GOODBYE = CommandHandler(
-    "sqlresetgoodbye", reset_goodbye, filters=Filters.chat_type.groups, run_async=True
+    "resetgoodbye", reset_goodbye, filters=Filters.chat_type.groups, run_async=True
 )
 WELCOMEMUTE_HANDLER = CommandHandler(
     "welcomemute", welcomemute, filters=Filters.chat_type.groups, run_async=True
 )
 CLEAN_SERVICE_HANDLER = CommandHandler(
-    "sqlcleanservice", cleanservice, filters=Filters.chat_type.groups, run_async=True
+    "cleanservice", cleanservice, filters=Filters.chat_type.groups, run_async=True
 )
 CLEAN_WELCOME = CommandHandler(
-    "sqlcleanwelcome", clean_welcome, filters=Filters.chat_type.groups, run_async=True
+    "cleanwelcome", clean_welcome, filters=Filters.chat_type.groups, run_async=True
 )
 WELCOME_HELP = CommandHandler("welcomehelp", welcome_help, run_async=True)
 WELCOME_MUTE_HELP = CommandHandler("welcomemutehelp", welcome_mute_help, run_async=True)
