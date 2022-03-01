@@ -112,7 +112,7 @@ def chatbot(update: Update, context: CallbackContext):
         msg.reply_text(response, timeout=60)
 
 
-@run_async
+
 def list_chatbot_chats(update: Update, context: CallbackContext):
     text = "<b>AI-Enabled Chats</b>\n"
     for chat in CHATBOT_ENABLED_CHATS:
@@ -129,39 +129,18 @@ Chatbot utilizes the Brainshop's API and allows {dispatcher.bot.first_name} to t
  • `/chatbot`*:* Shows chatbot control panel
 """
 
-CHATBOT_TOGGLE_COMMAND_HANDLER = CommandHandler(
-    "chatbot",
-    chatbot_toggle,
-)
-CHATBOT_TOGGLE_CALLBACK_HANDLER = CallbackQueryHandler(
-    chatbot_handle_callq, pattern=r"chatbot_",
-)
-CHATBOT_HANDLER = MessageHandler(
-    Filters.text
-    & (
-        ~Filters.regex(r"^#[^\s]+")
-        & ~Filters.regex(r"^!")
-        & ~Filters.regex(r"^\/")
-    ),
-    chatbot,
-)
-LIST_CB_CHATS_HANDLER = CommandHandler(
-    "listaichats",
-    list_chatbot_chats,
-    filters=CustomFilters.dev_filter,
-)
+CHATBOT_HANDLER = MessageHandler(Filters.text & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!")
+                                  & ~Filters.regex(r"^s\/")), chatbot)
+LIST_CB_CHATS_HANDLER = CommandHandler("listaichats", list_chatbot_chats, filters=CustomFilters.dev_filter),
+
 # Filters for ignoring #note messages, !commands and sed.
 
-dispatcher.add_handler(CHATBOT_TOGGLE_COMMAND_HANDLER)
-dispatcher.add_handler(CHATBOT_TOGGLE_CALLBACK_HANDLER)
 dispatcher.add_handler(CHATBOT_HANDLER)
 dispatcher.add_handler(LIST_CB_CHATS_HANDLER)
 
 __mod_name__ = "Chatbot"
 __command_list__ = ["chatbot", "listaichats"]
 __handlers__ = [
-    CHATBOT_TOGGLE_CALLBACK_HANDLER,
-    CHATBOT_TOGGLE_COMMAND_HANDLER,
     CHATBOT_HANDLER,
     LIST_CB_CHATS_HANDLER,
 ]
