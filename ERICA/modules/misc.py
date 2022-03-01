@@ -8,8 +8,6 @@ from telegram.error import BadRequest
 from telegram.ext import Filters, CallbackContext
 from telegram.utils.helpers import mention_html, escape_markdown
 from subprocess import Popen, PIPE
-from pyrogram import filters
-from ERICA import pgram as app, arq, eor
 
 from ERICA import (
     updaters as dispatcher,
@@ -62,45 +60,47 @@ This will create two buttons on a single line, instead of one button per line.
 Keep in mind that your message <b>MUST</b> contain some text other than just a button!
 """
 
+@kigcmd(command='id', pass_args=True)
+def get_id(update: Update, context: CallbackContext):
+    bot, args = context.bot, context.args
+    message = update.effective_message
+    chat = update.effective_chat
+    msg = update.effective_message
+    user_id = extract_user(msg, args)
 
+    if user_id:
 
-# id
-@app.on_message(filters.command("id"))
-async def getid(client, message):
-    chat = message.chat
-    your_id = message.from_user.id
-    message_id = message.message_id
-    reply = message.reply_to_message
+        if msg.reply_to_message and msg.reply_to_message.forward_from:
 
-    text = f"**[Message ID:]({message.link})** `{message_id}`\n"
-    text += f"**[Your ID:](tg://user?id={your_id})** `{your_id}`\n"
+            user1 = message.reply_to_message.from_user
+            user2 = message.reply_to_message.forward_from
 
-    if not message.command:
-        message.command = message.text.split()
+            msg.reply_text(
+                f"<b>Telegram ID:</b>,"
+                f"• {html.escape(user2.first_name)} - <code>{user2.id}</code>.\n"
+                f"• {html.escape(user1.first_name)} - <code>{user1.id}</code>.",
+                parse_mode=ParseMode.HTML,
+            )
 
-    if len(message.command) == 2:
-        try:
-            split = message.text.split(None, 1)[1].strip()
-            user_id = (await client.get_users(split)).id
-            text += f"**[User ID:](tg://user?id={user_id})** `{user_id}`\n"
-        except Exception:
-            return await eor(message, text="This user doesn't exist.")
+        else:
 
-    text += f"**[Chat ID:](https://t.me/{chat.username})** `{chat.id}`\n\n"
-    if not getattr(reply, "empty", True):
-        id_ = reply.from_user.id if reply.from_user else reply.sender_chat.id
-        text += (
-            f"**[Replied Message ID:]({reply.link})** `{reply.message_id}`\n"
-        )
-        text += f"**[Replied User ID:](tg://user?id={id_})** `{id_}`"
+            user = bot.get_chat(user_id)
+            msg.reply_text(
+                f"{html.escape(user.first_name)}'s id is <code>{user.id}</code>.",
+                parse_mode=ParseMode.HTML,
+            )
 
-    await eor(
-        message,
-        text=text,
-        disable_web_page_preview=True,
-        parse_mode="md",
-    )
+    else:
 
+        if chat.type == "private":
+            msg.reply_text(
+                f"Your id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
+            )
+
+        else:
+            msg.reply_text(
+                f"This group's id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
+            )
 
 @kigcmd(command='gifid')
 def gifid(update: Update, _):
