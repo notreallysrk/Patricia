@@ -19,7 +19,7 @@ from ERICA.modules.log_channel import loggable
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 
-@kigcmd(command=["propromote", "highpromote"], can_disable=False)
+@kigcmd(command=["fullpromote", "highpromote"], can_disable=False)
 @connection_status
 @bot_admin
 @can_promote
@@ -102,7 +102,7 @@ def fullpromote(update: Update, context: CallbackContext) -> Optional[str]:
 
     return log_message
 
-@kigcmd(command=["noobpromote", "lolpromote"], can_disable=False)
+@kigcmd(command=["promote", "lowpromote"], can_disable=False)
 @connection_status
 @bot_admin
 @can_promote
