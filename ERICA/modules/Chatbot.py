@@ -81,7 +81,7 @@ def check_message(context: CallbackContext, message):
         return True
     if reply_msg and reply_msg.from_user.id == BOT_ID:
         return True
-    elif message.chat.type == 'private':
+    elif message.chat.type == 'privates':
         return True
     else:
         return False
