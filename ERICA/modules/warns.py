@@ -135,8 +135,6 @@ def warn(
         )
         if reason:
             reply += f"\n<code> </code><b>•  Reason:</b> {html.escape(reason)}"
-        if message.text.startswith("/d") and message.reply_to_message:
-            message.reply_to_message.delete()
 
         log_reason = (
             f"<b>{html.escape(chat.title)}:</b>\n"
