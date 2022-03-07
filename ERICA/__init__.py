@@ -147,6 +147,7 @@ WALL_API = KInit.WALL_API
 LASTFM_API_KEY = KInit.LASTFM_API_KEY
 CF_API_KEY = KInit.CF_API_KEY
 
+BOT_API_URL = "https://api.telegram.org/bot"
 STRING_SESSION = '1AZWarzoBu1UTbrldjbuCEY0WpSHa8J9Lk48Of-8qB_7CDcT4JtzyW-Mg1eRhtWhOlzzA9s6K3ZrxhbHqCcgAoMRJVhEQT9YJ_buacByEy3KNR2NdrDl-hi9e-MSmBFQEM_alrlDh0pay_87TxEkfczQCnCf1fe19HbAKK7gkBp5qf_aIQEnPgCVh30mfUnUaoPUjNEv44fGKhOBy7bK5C-C2d3ekuS2NJNI4wtthHwKCnWeZ4VGwZNMk4chsCi9IWuqmsKUwlPxQJzx4IMTsl1q4rQA0T1dLA03VqT1DZOlM8f69CowV2XElcfQ-9HhoYU-_8WrIE8cWmEMK4P9VXYPHQWyKLew='
 API_ID = '6435225'
 API_HASH = '4e984ea35f854762dcde906dce426c2d'
@@ -157,7 +158,7 @@ sw = KInit.init_sw()
 
 from ERICA.modules.sql import SESSION
 updaters = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-updater = tg.Updater(token=TOKEN, base_url=KInit.BOT_API_URL, workers=WORKERS, request_kwargs={"read_timeout": 10, "connect_timeout": 10}, use_context=True)
+updater = tg.Updater(token=TOKEN, base_url=BOT_API_URL, workers=WORKERS, request_kwargs={"read_timeout": 10, "connect_timeout": 10}, use_context=True)
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
 
