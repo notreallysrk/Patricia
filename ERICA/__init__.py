@@ -4,23 +4,14 @@ import sys
 import time
 from typing import List
 import spamwatch
-from Python_ARQ import ARQ
-from telethon.sessions import StringSession
 import telegram.ext as tg
-from aiohttp import ClientSession
 from telethon import TelegramClient
-from motor import motor_asyncio
-from odmantic import AIOEngine
-from pymongo import MongoClient
-from pyrogram.types import Message
-from pyrogram import Client, filters, errors
 from telethon.sessions import MemorySession
 from configparser import ConfigParser
 from ptbcontrib.postgres_persistence import PostgresPersistence
 from logging.config import fileConfig
 
 StartTime = time.time()
-CMD_HELP = {}
 
 
 flag = """
@@ -65,7 +56,6 @@ class KigyoINIT:
         self.API_HASH: str = self.parser.get("API_HASH")
         self.WEBHOOK: bool = self.parser.getboolean('WEBHOOK', False)
         self.URL: str = self.parser.get('URL', None)
-        self.STRING_SESSION: str = self.parser.get('STRING_SESSION', None)
         self.CERT_PATH: str = self.parser.get('CERT_PATH', None)
         self.PORT: int = self.parser.getint('PORT', None)
         self.INFOPIC: bool = self.parser.getboolean('INFOPIC', False)
@@ -129,7 +119,6 @@ CUSTOM_CMD = KInit.CUSTOM_CMD
 BAN_STICKER = KInit.BAN_STICKER
 TOKEN = KInit.TOKEN
 DB_URI = KInit.DB_URI
-STRING_SESSION = KInit.STRING_SESSION
 LOAD = KInit.LOAD
 MESSAGE_DUMP = KInit.MESSAGE_DUMP
 GBAN_LOGS = KInit.GBAN_LOGS
@@ -149,16 +138,11 @@ CF_API_KEY = KInit.CF_API_KEY
 
 BOT_API_FILE_URL = "https://api.telegram.org/file/bot"
 BOT_API_URL = "https://api.telegram.org/bot"
-STRING_SESSION = '1AZWarzoBu1UTbrldjbuCEY0WpSHa8J9Lk48Of-8qB_7CDcT4JtzyW-Mg1eRhtWhOlzzA9s6K3ZrxhbHqCcgAoMRJVhEQT9YJ_buacByEy3KNR2NdrDl-hi9e-MSmBFQEM_alrlDh0pay_87TxEkfczQCnCf1fe19HbAKK7gkBp5qf_aIQEnPgCVh30mfUnUaoPUjNEv44fGKhOBy7bK5C-C2d3ekuS2NJNI4wtthHwKCnWeZ4VGwZNMk4chsCi9IWuqmsKUwlPxQJzx4IMTsl1q4rQA0T1dLA03VqT1DZOlM8f69CowV2XElcfQ-9HhoYU-_8WrIE8cWmEMK4P9VXYPHQWyKLew='
-API_ID = '6435225'
-API_HASH = '4e984ea35f854762dcde906dce426c2d'
-TOKEN = '1901951380:AAF3u3uHfxaomSr0e6o7F1St1D4uWDIMxuY'
-WORKERS = 32
+TOKEN = '5047622280:AAGyOl0ko4IlV9Q_IkhUdES4gqDSSU2e6HM'
 # SpamWatch
 sw = KInit.init_sw()
 
 from ERICA.modules.sql import SESSION
-updaters = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 
 if not KInit.DROP_UPDATES:
     updater = tg.Updater(token=TOKEN, base_url=BOT_API_URL, base_file_url=BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(session=SESSION))
@@ -168,25 +152,6 @@ else:
 
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
-
-ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
-try:
-    ubot2.start()
-except BaseException:
-    print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
-    sys.exit(1)
-
-pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
-MONGO_DB = "ZaidRobot"
-MONGO_DB_URL = "mongodb+srv://ZAID2:ZAID2@cluster0.plap4.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
-mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
-motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
-db = motor[MONGO_DB]
-engine = AIOEngine(motor, MONGO_DB)
-
-aiohttpsession = ClientSession()
-
-arq = ARQ("https://thearq.tech", "UIUXOY-NTKWDC-QHFFMD-DHHKVV-ARQ", aiohttpsession)
 
 
 
@@ -204,27 +169,3 @@ def spamfilters(text, user_id, chat_id):
 
     print("This user is a spammer!")
     return True
-
-
-print("Starting Pyrogram Client")
-pgram.start()
-
-print("Aquiring BOT Client Info")
-
-bottie = pgram.get_me()
-
-BOT_ID = 1901951380
-BOT_USERNAME = 'Zaid2_Robot'
-BOT_NAME = 'Zaid Robot'
-BOT_MENTION = bottie.mention
-
-
-# eor help sessions
-async def eor(msg: Message, **kwargs):
-    func = (
-        (msg.edit_text if msg.from_user.is_self else msg.reply)
-        if msg.from_user
-        else msg.reply
-    )
-    spec = getfullargspec(func.__wrapped__).args
-    return await func(**{k: v for k, v in kwargs.items() if k in spec})
