@@ -33,3 +33,5 @@ Tgcrypto
 pyrogram
 telethon 
 motor
+odmantic
+telegraph
