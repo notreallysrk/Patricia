@@ -32,3 +32,4 @@ pytimeparse
 Tgcrypto
 pyrogram
 telethon 
+motor
