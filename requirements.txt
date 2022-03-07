@@ -28,3 +28,7 @@ ujson
 pycryptodome
 base58
 pytimeparse
+Tgcrypto
+pyrogram
+telegram
+telethon 
