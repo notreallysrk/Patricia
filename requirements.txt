@@ -35,3 +35,4 @@ telethon
 motor
 odmantic
 telegraph
+pymongo[srv]
