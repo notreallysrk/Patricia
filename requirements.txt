@@ -36,4 +36,4 @@ motor
 odmantic
 telegraph
 pymongo[srv]
-opencv-python
+opencv-python-headless
