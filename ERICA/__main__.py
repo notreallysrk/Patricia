@@ -31,6 +31,16 @@ from ERICA import (
     telethn,
     KigyoINIT
 )
+from typing import Union, List, Dict, Callable, Generator, Any
+import itertools
+from collections.abc import Iterable
+from telegram.ext import CommandHandler, CallbackQueryHandler
+from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
+
+from ERICA import dispatcher
+import ERICA.modules.sql.language_sql as sql
+from ERICA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from ERICA.langs import get_string, get_languages, get_language
 
 # needed to dynamically load modules
 # NOTE: Module order is not guaranteed, specify that in the config file!
@@ -99,7 +109,7 @@ def send_help(chat_id, text, keyboard=None):
 
     if not keyboard:
         kb = paginate_modules(0, HELPABLE, "help")
-        kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='start_back')])
+        kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='zaidhelp_')])
         keyboard = InlineKeyboardMarkup(kb)
     dispatcher.bot.send_message(
         chat_id=chat_id, text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
@@ -155,12 +165,6 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "web_btn"),
-                                url="https://zaidrobot.website2.me/",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
                                 url='https://t.me/Superior_Support',
                             ),
@@ -172,7 +176,11 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "helper_btn"),
-                                callback_data="help_back",
+                                callback_data="zaidhelp_",
+                            ),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "chlang_btn"),
+                                callback_data="callbacklang_",
                             ),
                         ],
                     ]
@@ -223,12 +231,6 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "web_btn"),
-                                url="https://zaidrobot.website2.me/",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
                                 url='https://t.me/Superior_Support',
                             ),
@@ -240,7 +242,11 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "helper_btn"),
-                                callback_data="help_back",
+                                callback_data="zaidhelp_",
+                            ),
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "chlang_btn"),
+                                callback_data="callbacklang_",
                             ),
                         ],
                     ]
@@ -330,7 +336,7 @@ def help_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             kb = paginate_modules(curr_page - 1, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='start_back')])
+            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='zaidhelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -340,7 +346,7 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             kb = paginate_modules(next_page + 1, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='start_back')])
+            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='zaidhelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -349,7 +355,7 @@ def help_button(update, context):
 
         elif back_match:
             kb = paginate_modules(0, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='start_back')])
+            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='zaidhelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -380,18 +386,26 @@ def get_help(update, context):
     if chat.type != chat.PRIVATE:
 
         update.effective_message.reply_text(
-            "Contact me in PM to get the list of possible commands.",
+            "Welcome to the help menu!",
             reply_markup=InlineKeyboardMarkup(
                 [
-                    [
-                        InlineKeyboardButton(
-                            text="ɢᴏ ᴛᴏ ᴘᴍ 👉",
-                            url="t.me/{}?start=help".format(context.bot.username),
-                        )
-                    ],
-                    [
-                        InlineKeyboardButton(text="ᴏᴘᴇɴ ʜᴇʀᴇ ⬆️", callback_data="help_back"),
-                    ],
+                 [
+                    InlineKeyboardButton(text="👩‍🔧ᴍᴜꜱɪᴄ ᴄᴏᴍᴍᴀɴᴅꜱ 🎵", url="https://t.me/SUPERIOR_BOTS/323"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="💁ʙᴀꜱɪᴄ", callback_data="basic_"),
+                    InlineKeyboardButton(text="ᴀᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="👩‍🎓 ᴇxᴘᴇʀᴛꜱ", callback_data="expert_"),
+                    InlineKeyboardButton(text="ᴅᴏɴᴀᴛɪᴏɴ 🎉", url="https://pages.razorpay.com/GODFATHERDONATIONS"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="ꜰᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="ᴄʟᴏꜱᴇ", callback_data="start_back"),
+                 ]
                 ]
             ),
         )
@@ -594,6 +608,156 @@ def get_settings(update: Update, context: CallbackContext):
         text = "Click here to check your settings."
 
 
+
+def zaid_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "zaidhelp_":
+        query.message.edit_text(
+            text="Welcome to the help menu!",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="👩‍🔧ᴍᴜꜱɪᴄ ᴄᴏᴍᴍᴀɴᴅꜱ 🎵", url="https://t.me/SUPERIOR_BOTS/323"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="💁 ʙᴀꜱɪᴄ", callback_data="basic_"),
+                    InlineKeyboardButton(text="ᴀᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="👩‍🎓 ᴇxᴘᴇʀᴛꜱ", callback_data="expert_"),
+                    InlineKeyboardButton(text="ᴅᴏɴᴀᴛɪᴏɴ 🎉", url="https://pages.razorpay.com/GODFATHERDONATIONS"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="ꜰᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
+                 ],
+                 [
+                    InlineKeyboardButton(text="ɢᴏ ʜᴏᴍᴇ", callback_data="start_back"),
+                 ]
+                ]
+            ),
+        )
+
+
+def basic_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "basic_":
+        query.message.edit_text(
+            text="Base Commands."
+                 "\n👮🏻Available to Admins&Moderators."
+                 "\n🕵🏻Available to Admins."
+                 "\n\n👮🏻/reload updates the Admins list and their privileges."
+                 "\n🕵🏻/settings lets you manage all the Bot settings in a group."
+                 "\n👮🏻/ban lets you ban a user from the group without giving him the possibility to join again using the link of the group."
+                 "\n👮🏻/mute puts a user in read-only mode. He can read but he can't send any messages."
+                 "\n👮🏻 /kick bans a user from the group, giving him the possibility to join again with the link of the group."
+                 "\n👮🏻/unban lets you remove a user from group's blacklist, giving them the possibility to join again with the link of the group."
+                 "\n👮🏻/info gives information about a user."
+                 "\n\n◽️/staff gives the complete List of group Staff!.",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
+                 ]
+                ]
+            ),
+        )
+
+def expert_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "expert_":
+        query.message.edit_text(
+            text="*Expert commands*"
+                 "\n\n👥 Available to all users"
+                 "\n👮🏻 Available to Admins&Moderators."
+                 "\n🕵🏻 Available to Admins"
+                 "\n\n🕵🏻 /unbanall Unbanalll members from your groups"
+                 "\n👮🏻 /unmuteall unmuteall all from Your Group"
+                 "\n\n*Pinned Messages*"
+                 "\n🕵🏻`/pin [message]` sends the message through the Bot and pins it."
+                 "\n🕵🏻 /pin pins the message in reply"
+                 "\n🕵🏻 /unpin removes the pinned message."
+                 "\n🕵🏻 /adminlist list of all the special roles assigned to users."
+                 "\n\n◽️/feedback: (message) to Send message and errors which you are facing \n ex:`/feedback Hey There Is a Something Error @username of chat`!.",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
+                 ]
+                ]
+            ),
+        )
+
+def donate_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "donate_":
+        query.message.edit_text(
+            text="💰 Select your payment method!",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="Razorpay 🧾", url='https://pages.razorpay.com/GODFATHERDONATIONS'),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Paypal 💸", url='https://www.paypal.me/mrakki58'),
+                    InlineKeyboardButton(text="Paytm 💰", url='9608216090.wallet@paytm'),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Wallets 🏦", url='https://pages.razorpay.com/GODFATHERDONATIONS'),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Net Banking 🏦", url='https://pages.razorpay.com/GODFATHERDONATIONS'),
+                 ],
+                 [
+                    InlineKeyboardButton(text="Query ❔", url='t.me/Timesisnotwaiting'),
+                 ],
+                 [
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
+                 ]
+                ]
+            ),
+        )
+
+def advance_about_callback(update, context):
+    query = update.callback_query
+    if query.data == "advance_":
+        query.message.edit_text(
+            text="*Advanced Commands*"
+                 "\n\n👮🏻Available to Admins&Moderators."
+                 "\n🕵🏻Available to Admins."
+                 "\n🛃 Available to Admins&Cleaners"
+                 "\n\n*WARN MANAGEMENT*"
+                 "\n👮🏻 /warn adds a warn to the user"
+                 "\n👮🏻 /unwarn removes a warn to the user"
+                 "\n👮🏻 /warns lets you see and manage user warns"
+                 "\n🕵🏻 /delwarn deletes the message and add a warn to the user"
+                 "\n🛃 /del deletes the selected message"
+                 "\n🛃 /purge deletes from the selected message."
+                 "\n\n◽️/feedback: (message) to Send message and errors which you are facing \n ex:`/feedback Hey There Is a Something Error @username of chat`!.",
+            parse_mode=ParseMode.MARKDOWN,
+            disable_web_page_preview=True,
+            reply_markup=InlineKeyboardMarkup(
+                [
+                 [
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
+                 ]
+                ]
+            ),
+        )
+
+
+
+
+
+
+
 @kigcmd(command='donate')
 def donate(update: Update, context: CallbackContext):
     '''#TODO
@@ -603,8 +767,65 @@ def donate(update: Update, context: CallbackContext):
         context: CallbackContext -
     '''
 
-    update.effective_message.reply_text("u can Donate Via UPI id 👉 itsunknown@kotak and for more Contact in @TGN_DONATION_BOT! >_<")
+    update.effective_message.reply_text("https://pages.razorpay.com/GODFATHERDONATIONS")
 
+
+
+
+
+def paginate(
+    iterable: Iterable, page_size: int
+) -> Generator[List, None, None]:
+    while True:
+        i1, i2 = itertools.tee(iterable)
+        iterable, page = (
+            itertools.islice(i1, page_size, None),
+            list(itertools.islice(i2, page_size)),
+        )
+        if not page:
+            break
+        yield page
+
+
+def gs(chat_id: Union[int, str], string: str) -> str:
+    lang = sql.get_chat_lang(chat_id)
+    return get_string(lang, string)
+
+
+@user_admin
+def set_language(update: Update, _) -> None:
+    chat = update.effective_chat
+    msg = update.effective_message
+
+    msg_text = gs(chat.id, "curr_chat_lang").format(
+        get_language(sql.get_chat_lang(chat.id))[:-3]
+    )
+
+    keyb = [InlineKeyboardButton(
+                text=name,
+                callback_data=f"setLanguage_{code}",
+            ) for code, name in get_languages().items()]
+    keyb = list(paginate(keyb, 2))
+    keyb.append(
+        [
+            InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="start_back"),
+        ]
+    )
+    msg.reply_text(msg_text, reply_markup=InlineKeyboardMarkup(keyb))
+
+
+@user_admin_no_reply
+def lang_buttons(update: Update, _) -> None:
+    query = update.callback_query
+    chat = update.effective_chat
+
+    query.answer()
+    lang = query.data.split("_")[1]
+    sql.set_lang(chat.id, lang)
+
+    query.message.edit_text(
+        gs(chat.id, "set_chat_lang").format(get_language(lang)[:-3])
+    )
 
 @kigmsg((Filters.status_update.migrate))
 def migrate_chats(update: Update, context: CallbackContext):
@@ -631,6 +852,32 @@ def migrate_chats(update: Update, context: CallbackContext):
 
     log.info("Successfully migrated!")
     raise DispatcherHandlerStop
+
+SETLANGUAGE_HANDLER = CallbackQueryHandler(set_language, pattern=r"callbacklang_")
+SETLANGGUAGE_BUTTON_HANDLER = CallbackQueryHandler(lang_buttons, pattern=r"setLanguage_")
+about_callback_handler = CallbackQueryHandler(
+        zaid_about_callback, pattern=r"zaidhelp_", run_async=True
+    )
+basic_callback_handler = CallbackQueryHandler(
+        basic_about_callback, pattern=r"basic_", run_async=True
+    )
+advance_callback_handler = CallbackQueryHandler(
+        advance_about_callback, pattern=r"advance_", run_async=True
+    )
+expert_callback_handler = CallbackQueryHandler(
+        expert_about_callback, pattern=r"expert_", run_async=True
+    )
+donate_callback_handler = CallbackQueryHandler(
+        donate_about_callback, pattern=r"donate_", run_async=True
+    )
+
+dispatcher.add_handler(SETLANGUAGE_HANDLER)
+dispatcher.add_handler(SETLANGGUAGE_BUTTON_HANDLER)
+dispatcher.add_handler(about_callback_handler)
+dispatcher.add_handler(basic_callback_handler)
+dispatcher.add_handler(advance_callback_handler)
+dispatcher.add_handler(expert_callback_handler)
+dispatcher.add_handler(donate_callback_handler)
 
 
 def main():
