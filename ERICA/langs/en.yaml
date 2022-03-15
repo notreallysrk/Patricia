@@ -38,10 +38,35 @@ pm_help_text: |
 add_bot_to_group_btn: "ᴀᴅᴅ ᴍᴇ ᴛᴏ ᴜʀ ᴄʜᴀᴛꜱ ➕"
 support_chat_link_btn: "ꜱᴜᴘᴘᴏʀᴛ 🎉"
 updates_channel_link_btn: "ᴜᴘᴅᴀᴛᴇꜱ 📢"
-devs_btn: "Devlopers "
+chlang_btn: "ʟᴀɴɢᴜᴀɢᴇ 🌏"
 web_btn: "ᴡᴇʙꜱɪᴛᴇ ✅"
 chat_btn: "Donate 💰"
-helper_btn: "ʜᴇʟᴘ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ 🧰"
+helper_btn: "ᴄᴏᴍᴍᴀɴᴅꜱ 🧰"
+
+pm_basic_text: |
+   Base Commands
+ 
+   👮🏻 Available to Admins&Moderators
+   🕵🏻 Available to Admins
+
+   👮🏻 /reload updates the Admins list and their privileges
+
+   🕵🏻 /settings lets you manage all the Bot settings in a group
+
+   👮🏻  /ban lets you ban a user from the group without giving him the possibility to join again using the link of the group
+
+   👮🏻  /mute puts a user in read-only mode. He can read but he can't send any messages
+
+   👮🏻  /kick bans a user from the group, giving him the possibility to join again with the link of the group
+
+   👮🏻  /unban lets you remove a user from group's blacklist, giving them the possibility to join again with the link of the group
+
+   👮🏻  /info gives information about a user
+   👮🏻  /infopvt is the same of /info, but sends infos in private chat
+
+   ◽️ /staff gives the complete List of group Staff
+
+   To see an example of commands uses /help!
 
 admin_help: |
    • `/admins`*:* list of admins in the chat
@@ -583,5 +608,4 @@ raid_help: |
   Default is 6 hours
   • /raidactiontime `(time optional)` : view or set the default duration that the raid mode will tempban
   Default is 1 hour
-
 
