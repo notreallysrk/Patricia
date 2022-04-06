@@ -84,7 +84,7 @@ def get_id(update: Update, context: CallbackContext):
 
         else:
             msg.reply_text(
-                f"This Chat id is <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
+                f"Telegram id <code>{chat.id}</code>.", parse_mode=ParseMode.HTML
             )
 
 @kigcmd(command='gifid')
