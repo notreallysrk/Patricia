@@ -98,7 +98,7 @@ def gifid(update: Update, _):
     else:
         update.effective_message.reply_text("Please reply to a gif to get its ID.")
 
-@kigcmd(command='info', pass_args=True)
+@kigcmd(command='infos', pass_args=True)
 def info(update: Update, context: CallbackContext):  # sourcery no-metrics
     bot = context.bot
     args = context.args
