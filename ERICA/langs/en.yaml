@@ -609,3 +609,7 @@ raid_help: |
   • /raidactiontime `(time optional)` : view or set the default duration that the raid mode will tempban
   Default is 1 hour
 
+bug_help: |
+  This Plugin Specially Designed For You.
+    • /bug: Your Message else Leave blank
+
