@@ -128,5 +128,12 @@ async def close_send_photo(_, CallbackQuery):
         )
     else:
         await CallbackQuery.message.delete()
+
+__mod_name__ = "Bug"
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "bug_help")
         
 
