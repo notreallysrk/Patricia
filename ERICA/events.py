@@ -7,13 +7,8 @@ from pathlib import Path
 from telethon import events
 
 from pymongo import MongoClient
-from ERICA import MONGO_DB_URI
 from ERICA import telethn
 
-client = MongoClient()
-client = MongoClient(MONGO_DB_URI)
-db = client["zaidrobot"]
-gbanned = db.gban
 
 def register(**args):
     """ Registers a new message. """
