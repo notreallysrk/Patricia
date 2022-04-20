@@ -71,8 +71,8 @@ def kang(update: Update, context: CallbackContext):  # sourcery no-metrics
     msg = update.effective_message
     user = update.effective_user
     args = context.args
-    is_animated = True
-    is_video = True
+    is_animated = False
+    is_video = False
     file_id = None
     sticker_emoji = "💖"
     sticker_data = None
@@ -354,7 +354,7 @@ def makepack_internal(
         success = context.bot.create_new_sticker_set(
             user.id,
             packname,
-            f"{name}'s by @Zaid2_Robot's{'animated ' if tgs_sticker else 'video ' if webm_sticker else ''}kang pack{extra_version}",
+            f"{name}s By @Zaid2_Robot {'animated ' if tgs_sticker else 'video ' if webm_sticker else ''}kang pack{extra_version}",
             tgs_sticker=tgs_sticker or None,
             webm_sticker=webm_sticker or None,
             png_sticker=png_sticker or None,
