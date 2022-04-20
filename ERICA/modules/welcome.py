@@ -12,7 +12,7 @@ from ERICA import (
     DEV_USERS as DEMONS,
     DEV_USERS as WOLVES,
     sw,
-    LOGGER,
+    log as LOGGER,
     dispatcher,
 )
 from ERICA.modules.helper_funcs.chat_status import (
