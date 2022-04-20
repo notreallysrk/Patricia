@@ -158,13 +158,7 @@ WORKERS = 32
 sw = KInit.init_sw()
 
 from ERICA.modules.sql import SESSION
-updaters = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
-
-if not KInit.DROP_UPDATES:
-    updater = tg.Updater(token=TOKEN, base_url=BOT_API_URL, base_file_url=BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10}, persistence=PostgresPersistence(session=SESSION))
-    
-else:
-    updater = tg.Updater(token=TOKEN, base_url=BOT_API_URL, base_file_url=BOT_API_FILE_URL, workers=min(32, os.cpu_count() + 4), request_kwargs={"read_timeout": 10, "connect_timeout": 10})
+updaters = tg.Updater(token=TOKEN, base_url=BOT_API_URL, workers=WORKERS, request_kwargs={"read_timeout": 10, "connect_timeout": 10}, use_context=True)
 
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updaters.dispatcher
