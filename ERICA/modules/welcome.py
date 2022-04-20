@@ -1330,6 +1330,7 @@ dispatcher.add_handler(BUTTON_VERIFY_HANDLER)
 dispatcher.add_handler(WELCOME_MUTE_HELP)
 dispatcher.add_handler(CAPTCHA_BUTTON_VERIFY_HANDLER)
 
+__mod_name__ = "Greetings"
 __command_list__ = []
 __handlers__ = [
     NEW_MEM_HANDLER,
@@ -1348,3 +1349,10 @@ __handlers__ = [
     CAPTCHA_BUTTON_VERIFY_HANDLER,
     WELCOME_MUTE_HELP,
 ]
+
+from ERICA.modules.language import gs
+
+
+def get_help(chat):
+    return gs(chat, "greetings_help")
+
