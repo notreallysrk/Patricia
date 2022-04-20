@@ -27,7 +27,7 @@ from ERICA.modules.helper_funcs.string_handling import (
     markdown_parser,
 )
 from ERICA.modules.log_channel import loggable
-from ERICA.modules.sql.antiflood_sql import is_user_gbanned
+from ERICA.modules.sql.antispam_sql import is_user_gbanned
 from telegram import (
     ChatPermissions,
     InlineKeyboardButton,
