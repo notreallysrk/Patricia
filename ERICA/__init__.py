@@ -158,7 +158,8 @@ WORKERS = 32
 sw = KInit.init_sw()
 
 from ERICA.modules.sql import SESSION
-updater = tg.Updater(token=TOKEN, base_url=BOT_API_URL, workers=WORKERS, request_kwargs={"read_timeout": 10, "connect_timeout": 10}, use_context=True)
+defaults = tg.Defaults(run_async=True)
+updater = tg.Updater(TOKEN, workers=WORKERS, use_context=True)
 
 telethn = TelegramClient(MemorySession(), APP_ID, API_HASH)
 dispatcher = updater.dispatcher
