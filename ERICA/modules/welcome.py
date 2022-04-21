@@ -218,7 +218,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome Devs
             elif new_mem.id in DEV_USERS:
                 update.effective_message.reply_text(
-                    "Whoa! A member of the Zaid just joined!",
+                    "Whoa! A member of the Erica just joined!",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -256,7 +256,7 @@ def new_member(update: Update, context: CallbackContext):  # sourcery no-metrics
             # Welcome yourself
             elif new_mem.id == bot.id:
                 update.effective_message.reply_text(
-                    "Thanks for adding me! Join @Superior_Bots for support.",
+                    "Thanks for adding me! Join @Erica_Support for support.",
                     reply_to_message_id=reply,
                 )
                 continue
@@ -1181,7 +1181,7 @@ WELC_HELP_TXT = (
     "Welcome messages also support markdown, so you can make any elements bold/italic/code/links. "
     "Buttons are also supported, so you can make your welcomes look awesome with some nice intro "
     "buttons.\n"
-    f"To create a button linking to your rules, use this: `[Rules](buttonurl://t.me/Zaid2_Robot?start=group_id)`. "
+    f"To create a button linking to your rules, use this: `[Rules](buttonurl://t.me/{dispatcher.bot.username}?start=group_id)`. "
     "Simply replace `group_id` with your group's id, which can be obtained via /id, and you're good to "
     "go. Note that group ids are usually preceded by a `-` sign; this is required, so please don't "
     "remove it.\n"
@@ -1245,45 +1245,45 @@ def get_help(chat):
 
 
 NEW_MEM_HANDLER = MessageHandler(
-    Filters.status_update.new_chat_members, new_member
+    Filters.status_update.new_chat_members, new_member, run_async=True
 )
 LEFT_MEM_HANDLER = MessageHandler(
-    Filters.status_update.left_chat_member, left_member
+    Filters.status_update.left_chat_member, left_member, run_async=True
 )
 WELC_PREF_HANDLER = CommandHandler(
-    "welcome", welcome, filters=Filters.chat_type.groups
+    "welcome", welcome, filters=Filters.chat_type.groups, run_async=True
 )
 GOODBYE_PREF_HANDLER = CommandHandler(
-    "goodbye", goodbye, filters=Filters.chat_type.groups
+    "goodbye", goodbye, filters=Filters.chat_type.groups, run_async=True
 )
 SET_WELCOME = CommandHandler(
-    "setwelcome", set_welcome, filters=Filters.chat_type.groups
+    "setwelcome", set_welcome, filters=Filters.chat_type.groups, run_async=True
 )
 SET_GOODBYE = CommandHandler(
-    "setgoodbye", set_goodbye, filters=Filters.chat_type.groups
+    "setgoodbye", set_goodbye, filters=Filters.chat_type.groups, run_async=True
 )
 RESET_WELCOME = CommandHandler(
-    "resetwelcome", reset_welcome, filters=Filters.chat_type.groups
+    "resetwelcome", reset_welcome, filters=Filters.chat_type.groups, run_async=True
 )
 RESET_GOODBYE = CommandHandler(
-    "resetgoodbye", reset_goodbye, filters=Filters.chat_type.groups
+    "resetgoodbye", reset_goodbye, filters=Filters.chat_type.groups, run_async=True
 )
 WELCOMEMUTE_HANDLER = CommandHandler(
-    "welcomemute", welcomemute, filters=Filters.chat_type.groups
+    "welcomemute", welcomemute, filters=Filters.chat_type.groups, run_async=True
 )
 CLEAN_SERVICE_HANDLER = CommandHandler(
-    "cleanservice", cleanservice, filters=Filters.chat_type.groups
+    "cleanservice", cleanservice, filters=Filters.chat_type.groups, run_async=True
 )
 CLEAN_WELCOME = CommandHandler(
-    "cleanwelcome", clean_welcome, filters=Filters.chat_type.groups
+    "cleanwelcome", clean_welcome, filters=Filters.chat_type.groups, run_async=True
 )
-WELCOME_HELP = CommandHandler("welcomehelp", welcome_help)
-WELCOME_MUTE_HELP = CommandHandler("welcomemutehelp", welcome_mute_help)
+WELCOME_HELP = CommandHandler("welcomehelp", welcome_help, run_async=True)
+WELCOME_MUTE_HELP = CommandHandler("welcomemutehelp", welcome_mute_help, run_async=True)
 BUTTON_VERIFY_HANDLER = CallbackQueryHandler(
-    user_button, pattern=r"user_join_"
+    user_button, pattern=r"user_join_", run_async=True
 )
 CAPTCHA_BUTTON_VERIFY_HANDLER = CallbackQueryHandler(
-    user_captcha_button, pattern=r"user_captchajoin_\([\d\-]+,\d+\)_\(\d{4}\)"
+    user_captcha_button, pattern=r"user_captchajoin_\([\d\-]+,\d+\)_\(\d{4}\)", run_async=True
 )
 
 dispatcher.add_handler(NEW_MEM_HANDLER)
