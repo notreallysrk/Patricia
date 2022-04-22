@@ -72,7 +72,7 @@ class KigyoINIT:
         self.DEL_CMDS: bool = self.parser.getboolean("DEL_CMDS", False)
         self.STRICT_GBAN: bool = self.parser.getboolean("STRICT_GBAN", False)
         self.ALLOW_EXCL: bool = self.parser.getboolean("ALLOW_EXCL", False)
-        self.CUSTOM_CMD: List[str] = ['/', '!', ".", "/", "\"]
+        self.CUSTOM_CMD: List[str] = ['/', '!', "."]
         self.BAN_STICKER: str = self.parser.get("BAN_STICKER", None)
         self.TOKEN: str = self.parser.get("TOKEN")
         self.DB_URI: str = self.parser.get("SQLALCHEMY_DATABASE_URI")
