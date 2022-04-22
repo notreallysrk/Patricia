@@ -7,6 +7,7 @@ from telethon.errors import (
     ImageProcessFailedError,
     PhotoCropSizeSmallError,
 )
+from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
 
 from telethon.tl.functions.channels import EditAdminRequest, EditPhotoRequest
 
@@ -248,13 +249,10 @@ def find_instance(items, class_or_tuple):
 
 
 @register(pattern="^/unbanall$")
+@user_admin(AdminPerms.CAN_BAN_MEMBERS)
 async def _(event):
     if not event.is_group:
         return
-
-    if event.is_group:
-        if not await can_ban_users(message=event):
-            return
 
     # Here laying the sanity check
     chat = await event.get_chat()
