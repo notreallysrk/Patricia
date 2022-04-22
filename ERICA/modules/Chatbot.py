@@ -7,7 +7,6 @@ from ERICA.modules.helper_funcs.chat_status import (
     is_user_admin,
     user_admin,
 )
-import ERICA.modules.sql.kuki_sql as sql
 from ERICA.modules.helper_funcs.filters import CustomFilters
 from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update
 from telegram.ext import (
@@ -21,6 +20,7 @@ BOT_ID = int(TOKEN.split(":")[0])
 AI_API_KEY = 'VVwV177Rz1QOibLD'
 AI_BID = 162157
 
+@run_async
 @user_admin
 def chatbot_toggle(update: Update, context: CallbackContext):
     keyboard = [
@@ -34,44 +34,7 @@ def chatbot_toggle(update: Update, context: CallbackContext):
     update.message.reply_text("Choose an option:", reply_markup=reply_markup)
 
 
-@user_admin
-def add_chat(update: Update, context: CallbackContext):
-    chat = update.effective_chat
-    msg = update.effective_message
-    user = update.effective_user
-    is_kuki = sql.is_kuki(chat.id)
-    if not is_kuki:
-        sql.set_kuki(chat.id)
-        msg.reply_text("Zaid Acobot Ai enabled Successfully Powered By @Superior_Bots!")
-        message = (
-            f"<b>{html.escape(chat.title)}:</b>\n"
-            f"AI_ENABLED\n"
-            f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-        )
-        return message
-    msg.reply_text("Zaid Ai is already enabled for this chat!")
-    return ""
-
-
-@user_admin
-def rem_chat(update: Update, context: CallbackContext):
-    msg = update.effective_message
-    chat = update.effective_chat
-    user = update.effective_user
-    is_kuki = sql.is_kuki(chat.id)
-    if not is_kuki:
-        msg.reply_text("Zaid Ai isn't enabled here in the first place!")
-        return ""
-    sql.rem_kuki(chat.id)
-    msg.reply_text("Zaid Acobot Ai disabled successfully Now Affiliateplus Will Work!")
-    message = (
-        f"<b>{html.escape(chat.title)}:</b>\n"
-        f"AI_DISABLED\n"
-        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
-    )
-    return message
-
-
+@run_async
 def chatbot_handle_callq(update: Update, context: CallbackContext):
     query = update.callback_query
     user = update.effective_user
@@ -166,24 +129,18 @@ Chatbot utilizes the Brainshop's API and allows {dispatcher.bot.first_name} to t
  • `/chatbot`*:* Shows chatbot control panel
 """
 
-ADD_CHAT_HANDLER = CommandHandler("addchat", add_chat)
-REMOVE_CHAT_HANDLER = CommandHandler("rmchat", rem_chat)
 CHATBOT_HANDLER = MessageHandler(Filters.text & (~Filters.regex(r"^#[^\s]+") & ~Filters.regex(r"^!")
                                   & ~Filters.regex(r"^s\/")), chatbot)
-LIST_CB_CHATS_HANDLER = CommandHandler("listaichats", list_chatbot_chats)
+LIST_CB_CHATS_HANDLER = CommandHandler("listaichats", list_chatbot_chats, filters=CustomFilters.dev_filter)
 
 # Filters for ignoring #note messages, !commands and sed.
 
-dispatcher.add_handler(ADD_CHAT_HANDLER)
-dispatcher.add_handler(REMOVE_CHAT_HANDLER)
 dispatcher.add_handler(CHATBOT_HANDLER)
 dispatcher.add_handler(LIST_CB_CHATS_HANDLER)
 
 __mod_name__ = "Chatbot"
 __command_list__ = ["chatbot", "listaichats"]
 __handlers__ = [
-    ADD_CHAT_HANDLER,
-    REMOVE_CHAT_HANDLER,
     CHATBOT_HANDLER,
     LIST_CB_CHATS_HANDLER,
 ]
