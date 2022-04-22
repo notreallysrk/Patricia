@@ -1,29 +1,15 @@
+import html
+import random
 
-import random, html
-
-from ERICA import dispatcher
-from ERICA.modules.disable import (
-    DisableAbleCommandHandler,
-    DisableAbleMessageHandler,
-)
+from telegram import Update, MessageEntity
+from telegram.ext import Filters, CallbackContext
+from telegram.error import BadRequest
 from ERICA.modules.sql import afk_sql as sql
 from ERICA.modules.users import get_user_id
-from telegram import MessageEntity, Update
-from telegram.error import BadRequest
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, ParseMode, Update
-from telegram.ext import (
-    CallbackContext,
-    CallbackQueryHandler,
-    CommandHandler,
-    Filters,
-    MessageHandler,
-    run_async,
-)
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg
 
-AFK_GROUP = 7
-AFK_REPLY_GROUP = 8
-
-
+@kigmsg(Filters.regex("(?i)^brb"), friendly="afk", group=3)
+@kigcmd(command="afk", group=3)
 def afk(update: Update, context: CallbackContext):
     args = update.effective_message.text.split(None, 1)
     user = update.effective_user
@@ -31,7 +17,7 @@ def afk(update: Update, context: CallbackContext):
     if not user:  # ignore channels
         return
 
-    if user.id in [777000, 1087968824]:
+    if user.id in (777000, 1087968824):
         return
 
     notice = ""
@@ -50,7 +36,7 @@ def afk(update: Update, context: CallbackContext):
     except BadRequest:
         pass
 
-
+@kigmsg((Filters.all & Filters.chat_type.groups), friendly='afk', group=1)
 def no_longer_afk(update: Update, context: CallbackContext):
     user = update.effective_user
     message = update.effective_message
@@ -75,11 +61,13 @@ def no_longer_afk(update: Update, context: CallbackContext):
                 "Where is {}?\nIn the chat!",
             ]
             chosen_option = random.choice(options)
-            update.effective_message.reply_text(chosen_option.format(firstname))
+            update.effective_message.reply_text(
+                chosen_option.format(firstname), parse_mode=None
+            )
         except:
             return
 
-
+@kigmsg((Filters.entity(MessageEntity.MENTION) | Filters.entity(MessageEntity.TEXT_MENTION) & Filters.chat_type.groups), friendly='afk', group=8)
 def reply_afk(update: Update, context: CallbackContext):
     bot = context.bot
     message = update.effective_message
@@ -105,7 +93,9 @@ def reply_afk(update: Update, context: CallbackContext):
             if ent.type != MessageEntity.MENTION:
                 return
 
-            user_id = get_user_id(message.text[ent.offset : ent.offset + ent.length])
+            user_id = get_user_id(
+                message.text[ent.offset : ent.offset + ent.length]
+            )
             if not user_id:
                 # Should never happen, since for a user to become AFK they must have spoken. Maybe changed username?
                 return
@@ -117,7 +107,11 @@ def reply_afk(update: Update, context: CallbackContext):
             try:
                 chat = bot.get_chat(user_id)
             except BadRequest:
-                print("Error: Could not fetch userid {} for AFK module".format(user_id))
+                print(
+                    "Error: Could not fetch userid {} for AFK module".format(
+                        user_id
+                    )
+                )
                 return
             fst_name = chat.first_name
 
@@ -130,41 +124,24 @@ def reply_afk(update: Update, context: CallbackContext):
 
 
 def check_afk(update, context, user_id, fst_name, userc_id):
-    if sql.is_afk(user_id):
-        user = sql.check_afk_status(user_id)
-        if int(userc_id) == int(user_id):
-            return
-        if not user.reason:
+    if int(userc_id) == int(user_id):
+        return
+    is_afk, reason = sql.check_afk_status(user_id)
+    if is_afk:
+        if not reason:
             res = "{} is afk".format(fst_name)
-            update.effective_message.reply_text(res)
+            update.effective_message.reply_text(res, parse_mode=None)
         else:
             res = "{} is afk.\nReason: <code>{}</code>".format(
-                html.escape(fst_name), html.escape(user.reason)
+                html.escape(fst_name), html.escape(reason)
             )
             update.effective_message.reply_text(res, parse_mode="html")
 
 
-AFK_HANDLER = DisableAbleCommandHandler("afk", afk)
-AFK_REGEX_HANDLER = DisableAbleMessageHandler(
-    Filters.regex(r"^(?i)brb(.*)$"), afk, friendly="afk", run_async=True
-)
-NO_AFK_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, no_longer_afk)
-AFK_REPLY_HANDLER = MessageHandler(Filters.all & Filters.chat_type.groups, reply_afk)
+def __gdpr__(user_id):
+    sql.rm_afk(user_id)
 
-dispatcher.add_handler(AFK_HANDLER, AFK_GROUP)
-dispatcher.add_handler(AFK_REGEX_HANDLER, AFK_GROUP)
-dispatcher.add_handler(NO_AFK_HANDLER, AFK_GROUP)
-dispatcher.add_handler(AFK_REPLY_HANDLER, AFK_REPLY_GROUP)
-
-__command_list__ = ["afk"]
-__handlers__ = [
-    (AFK_HANDLER, AFK_GROUP),
-    (AFK_REGEX_HANDLER, AFK_GROUP),
-    (NO_AFK_HANDLER, AFK_GROUP),
-    (AFK_REPLY_HANDLER, AFK_REPLY_GROUP),
-]
-
-from ERICA.modules.language import gs
+from tg_bot.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "afk_help")
