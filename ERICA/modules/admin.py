@@ -249,7 +249,7 @@ def find_instance(items, class_or_tuple):
 
 
 @register(pattern="^/unbanall$")
-@user_admin(AdminPerms.CAN_BAN_MEMBERS)
+@user_admin(AdminPerms.CAN_RESTRICT_MEMBERS)
 async def _(event):
     if not event.is_group:
         return
