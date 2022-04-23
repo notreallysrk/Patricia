@@ -1,5 +1,5 @@
-from sqlalchemy import Boolean, Column, Integer, String, UnicodeText
-from ERICA.modules.sql import BASE, SESSION
+from sqlalchemy import Boolean, Column, String, UnicodeText
+from Yuriko.modules.sql import BASE, SESSION
 
 
 class Nightmode(BASE):
