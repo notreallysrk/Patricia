@@ -1,51 +1,68 @@
-from ERICA import pgram as bot
+"""Get info about the replied user
+Syntax: .whois"""
+
+import os
+import time
+from datetime import datetime
 from pyrogram import filters
+from pyrogram.types import Message, User
+from ERICA import pgram as Client
+from pyrogram.errors import UserNotParticipant
+COMMAND_HAND_LER = "/ !"
+from ERICA.helper_functions.extract_user import extract_user
 
+@Client.on_message(filters.command(["info"]))
+async def who_is(client: Client, message: Message):
+    """ extract user information """
+    status_message = await message.reply_text("🤔😳😳🙄")
+    from_user = None
+    from_user_id, _ = extract_user(message)
+    try:
+        from_user = await client.get_chat(from_user_id)
+    except Exception as error:
+        await status_message.edit(str(error))
+        return
+    if from_user is None:
+        await status_message.edit("no valid user_id / message specified")
+        return
 
-OWNER = 1669178360
-sudos = 1450303652
+    first_name = from_user.first_name or ""
+    username = from_user.username or ""
 
-@bot.on_message(filters.command("info"))
-def info(_, message):
-    if message.text == "/info":
-        user = message.from_user.id
-    if message.reply_to_message:
-        user = message.reply_to_message.from_user.id
-    if not message.reply_to_message and message.text != "/info" and user.isnumeric(
-    ):
-        user = message.text.split(" ")[1]
+    message_out_str = (
+        "<b>Name:</b> "
+        f"<a href='tg://user?id={from_user.id}'>{first_name}</a>\n"
+        f"<b>Username:</b> @{username}\n"
+        f"<b>User ID:</b> <code>{from_user.id}</code>\n"
+    )
+    message_out_str += (
+        f"<b>User Link:</b> {from_user.mention}\n"
+        if isinstance(from_user, User) and from_user.username
+        else ""
+    )
 
-    if not message.reply_to_message and message.text != "/info" and not user.isnumeric(
-    ):
-        k = bot.get_users(message.text.split(" ")[1])
-        user = k.id
+    if isinstance(from_user, User) and message.chat.type in ["supergroup", "channel"]:
+        try:
+            chat_member_p = await message.chat.get_member(from_user.id)
+            joined_date = datetime.fromtimestamp(
+                chat_member_p.joined_date or time.time()
+            ).strftime("%Y.%m.%d %H:%M:%S")
+            message_out_str += "<b>Joined on:</b> <code>" f"{joined_date}" "</code>\n"
+        except UserNotParticipant:
+            pass
+    chat_photo = from_user.photo
 
-    if user == OWNER:
-        status = "This Person is my Owner"
-
-    elif user in sudos:
-        status = "This person is one of my Sudo users !"
-
+    if chat_photo:
+        local_user_photo = await client.download_media(message=chat_photo.big_file_id)
+        await message.reply_photo(
+            photo=local_user_photo,
+            quote=True,
+            caption=message_out_str,
+            disable_notification=True,
+        )
+        os.remove(local_user_photo)
     else:
-        status = "member"
-
-    pfp_count = bot.get_profile_photos_count(user)
-
-    if not pfp_count == 0:
-        pfp = bot.get_profile_photos(user, limit=1)
-        pfp_ = pfp[0]['thumbs'][0]['file_id']
-
-    foo = bot.get_users(user)
-    data = f"""**First Name** : {foo.first_name}
-**Last Name**: {foo.last_name}
-**Telegram Id**: {foo.id}
-**PermaLink**: {foo.mention(foo.first_name)}
-**is_bot**: {foo.is_bot}
-**Status**: {status}
-"""
-
-    if pfp_count != 0:
-        message.reply_photo(pfp_, caption=data)
-
-    else:
-        message.reply_text(data)
+        await message.reply_text(
+            text=message_out_str, quote=True, disable_notification=True
+        )
+    await status_message.delete()
