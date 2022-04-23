@@ -33,7 +33,7 @@ def stickerid(update: Update, context: CallbackContext):
         )
 
 
-@kigcmd(command='getsticker')
+@kigcmd(command=['getsticker', "stickers", "getpack"])
 def getsticker(update: Update, context: CallbackContext):
     bot = context.bot
     msg = update.effective_message
@@ -65,7 +65,7 @@ def getsticker(update: Update, context: CallbackContext):
         )
 
 
-@kigcmd(command=["steal", "kang"])
+@kigcmd(command=["steal", "kang", "addsticker"])
 def kang(update: Update, context: CallbackContext):  # sourcery no-metrics
     global ppref
     msg = update.effective_message
