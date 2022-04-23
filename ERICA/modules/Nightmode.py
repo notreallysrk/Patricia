@@ -1,14 +1,17 @@
-from ERICA.modules.sql.night_mode_sql import add_nightmode, rmnightmode, get_all_chat_id, is_nightmode_indb
+import os
+from ERICA.modules.sql.night_mode_sql import (
+    add_nightmode,
+    rmnightmode,
+    get_all_chat_id,
+    is_nightmode_indb,
+)
 from telethon.tl.types import ChatBannedRights
 from apscheduler.schedulers.asyncio import AsyncIOScheduler 
 from telethon import functions
 from ERICA.events import register
 from ERICA import telethn as tbot, OWNER_ID
-
-CMD_HELP = '/'
-import os
-from telethon import *
 from telethon import Button, custom, events
+
 hehes = ChatBannedRights(
     until_date=None,
     send_messages=True,
@@ -22,6 +25,7 @@ hehes = ChatBannedRights(
     pin_messages=True,
     change_info=True,
 )
+
 openhehe = ChatBannedRights(
     until_date=None,
     send_messages=False,
@@ -35,12 +39,14 @@ openhehe = ChatBannedRights(
     pin_messages=True,
     change_info=True,
 )
+
 from telethon.tl.types import (
     ChannelParticipantsAdmins,
     ChatAdminRights,
     MessageEntityMentionName,
     MessageMediaPhoto,
 )
+
 from telethon.tl.functions.channels import (
     EditAdminRequest,
     EditBannedRequest,
@@ -70,7 +76,7 @@ async def can_change_info(message):
         isinstance(p, types.ChannelParticipantAdmin) and p.admin_rights.change_info
     )
 
-@register(pattern="^/(nightmode|Nightmode|NightMode) ?(.*)")
+@register(pattern="^/(nightmode|Nightmode|NightMode|kontolmode|KONTOLMODE) ?(.*)")
 async def profanity(event):
     if event.fwd_from:
         return
@@ -82,37 +88,37 @@ async def profanity(event):
            await event.reply("Only admins can execute this command!")
            return
         else:
-          if not await can_change_info(message=dmod):
+          if not await can_change_info(message=event):
             await event.reply("You are missing the following rights to use this command:CanChangeinfo")
             return
     if not input:
         if is_nightmode_indb(str(event.chat_id)):
                 await event.reply(
-                    "Currently NightMode is Enabled for this Chat"
+                    "Currently NightMode is Enabled for this Chat in {event.chat_id}"
                 )
                 return
         await event.reply(
-            "Currently NightMode is Disabled for this Chat"
+            "Currently NightMode is Disabled for this Chat in {event.chat_id}"
         )
         return
     if "on" in input:
         if event.is_group:
             if is_nightmode_indb(str(event.chat_id)):
                     await event.reply(
-                        "Night Mode is Already Turned ON for this Chat"
+                        "Night Mode is Already Turned ON for this Chat in {event.chat_id}"
                     )
                     return
             add_nightmode(str(event.chat_id))
-            await event.reply("NightMode turned on for this chat.")
+            await event.reply("NightMode turned on for this chat in {event.chat_id}.")
     if "off" in input:
         if event.is_group:
             if not is_nightmode_indb(str(event.chat_id)):
                     await event.reply(
-                        "Night Mode is Already Off for this Chat"
+                        "Night Mode is Already Off for this Chat in {event.chat_id}"
                     )
                     return
         rmnightmode(str(event.chat_id))
-        await event.reply("NightMode Disabled!")
+        await event.reply("NightMode Disabled in {event.chat_id}!")
     if not "off" in input and not "on" in input:
         await event.reply("Please Specify On or Off!")
         return
@@ -125,7 +131,7 @@ async def job_close():
     for pro in chats:
         try:
             await tbot.send_message(
-              int(pro.chat_id), "12:00 Am, Group Is Closing Till 6 Am. Night Mode Started ! \n**Powered By Evlie**"
+              int(pro.chat_id), "12:00 Am, Group Is Closing Till 6 Am. Night Mode Started !\n\n Successfully Enabled {pro.chat_id}"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -136,7 +142,7 @@ async def job_close():
             logger.info(f"Unable To Close Group {chat} - {e}")
 
 #Run everyday at 12am
-scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
+scheduler = AsyncIOScheduler(timezone="Asia/Jakarta")
 scheduler.add_job(job_close, trigger="cron", hour=23, minute=59)
 scheduler.start()
 
@@ -147,7 +153,7 @@ async def job_open():
     for pro in chats:
         try:
             await tbot.send_message(
-              int(pro.chat_id), "06:00 Am, Group Is Opening.\n**Powered By Evlie**"
+              int(pro.chat_id), "06:00 Am, Group Is Opening.\n\n Disabled Successfully {pro.chat_id}**"
             )
             await tbot(
             functions.messages.EditChatDefaultBannedRightsRequest(
@@ -158,20 +164,11 @@ async def job_open():
             logger.info(f"Unable To Open Group {pro.chat_id} - {e}")
 
 # Run everyday at 06
-scheduler = AsyncIOScheduler(timezone="Asia/Kolkata")
+scheduler = AsyncIOScheduler(timezone="Asia/Jakarta")
 scheduler.add_job(job_open, trigger="cron", hour=5, minute=58)
 scheduler.start()
-
-file_help = os.path.basename(__file__)
-file_help = file_help.replace(".py", "")
-file_helpo = file_help.replace("_", " ")
-
-
-
-__mod_name__ = "Night"
 
 from ERICA.modules.language import gs
 
 def get_help(chat):
     return gs(chat, "night_help")
-
