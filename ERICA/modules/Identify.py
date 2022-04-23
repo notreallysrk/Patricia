@@ -4,7 +4,7 @@ from pyrogram.types import Message
 from ERICA import pgram as Client
 
 
-@Client.on_message(filters.command("id"))
+@Client.on_message(filters.command("identify"))
 async def id_(bot: Client, msg: Message):
 	if not msg.chat.type == "private":
 		main = f"This {msg.chat.type}'s ID is `{msg.chat.id}`"
