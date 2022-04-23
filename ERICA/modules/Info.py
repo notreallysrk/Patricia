@@ -11,10 +11,10 @@ from pyrogram.errors import UserNotParticipant
 COMMAND_HAND_LER = "/ !"
 from ERICA.helper_functions.extract_user import extract_user
 
-@Client.on_message(filters.command(["info"]))
+@Client.on_message(filters.command(["info", "whois"]))
 async def who_is(client: Client, message: Message):
     """ extract user information """
-    status_message = await message.reply_text("🤔😳😳🙄")
+    status_message = await message.reply_text("🔄 Processing... Please Wait!")
     from_user = None
     from_user_id, _ = extract_user(message)
     try:
