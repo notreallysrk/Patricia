@@ -128,3 +128,8 @@ async def quotly_func(client, message: Message):
         )
         e = format_exc()
         print(e)
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "quote_help")
