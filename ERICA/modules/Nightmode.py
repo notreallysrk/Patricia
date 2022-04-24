@@ -167,7 +167,7 @@ async def job_open():
 scheduler = AsyncIOScheduler(timezone="Asia/Jakarta")
 scheduler.add_job(job_open, trigger="cron", hour=5, minute=58)
 scheduler.start()
-
+__mod_name__ = "Night"
 from ERICA.modules.language import gs
 
 def get_help(chat):
