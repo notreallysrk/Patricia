@@ -624,7 +624,7 @@ sticker_help: |
     • /stickerid - reply to a sticker to me to tell you its file ID.
     • /getsticker - reply to a sticker to me to upload its raw PNG file.
     • /kang and /steal - reply to a sticker to add it to your pack.
-sticker_help: |
+tag_help: |
    Help Menu For Mention all Tools
     • /tagall : Reply To a Message
 
