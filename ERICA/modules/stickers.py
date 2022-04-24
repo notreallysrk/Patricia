@@ -409,3 +409,11 @@ def makepack_internal(
         )
     else:
         msg.reply_text("Failed to create sticker pack. Possibly due to blek mejik.")
+
+
+__mod_name = "Stickers"
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "sticker_help")
