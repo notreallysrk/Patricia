@@ -1,7 +1,7 @@
 # Language name in their native
 language: "English 🇺🇲"
 # name of people(s) who worked on this translation
-authors: "@dank_as_fuck"
+authors: "@Timesisnotwaiting"
 
 # languages
 curr_chat_lang: "Hey. Your current language is {}, select the one you want from the buttons below :)"
@@ -614,16 +614,16 @@ bug_help: |
     • /bug: Your Message else Leave blank
 
 quote_help: |
-  Make messages to Stickers (Now support Animations Also)
+  Make messages to Stickers
     • /q - To quote a message.
     • /q [INTEGER] - To quote more than 1 messages.
     • /q r - to quote a message with it's reply
 
 sticker_help: |
-   Help Menu For Stickers Tools
-    • /stickerid - reply to a sticker to me to tell you its file ID.
+   Help Menu For Stickers Tools (Now support Animations Also)
+    • /stickerid - reply to a Sticker to me to tell you its file ID.
     • /getsticker - reply to a sticker to me to upload its raw PNG file.
-    • /kang and /steal - reply to a sticker to add it to your pack.
+    • /kang and /steal - reply to a sticker/animation/Video Stickers to add it to your pack.
 tag_help: |
    Help Menu For Mention all Tools
     • /tagall : Reply To a Message
