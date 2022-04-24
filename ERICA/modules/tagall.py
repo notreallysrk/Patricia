@@ -110,3 +110,11 @@ async def cancel_spam(event):
       pass
     return await event.respond("__Stopped Mention.__")
 
+
+__mod_name__ = "Tagall"
+
+from ERICA.modules.language import gs
+
+def get_help(chat):
+    return gs(chat, "tag_help")
+
