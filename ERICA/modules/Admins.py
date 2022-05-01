@@ -426,7 +426,7 @@ def invite(update: Update, context: CallbackContext):
         )
 
 
-@kigcmd(command=["admin", "admins", "adminlist"])
+@kigcmd(command=["admin", "admins", "adminlist", "staff"])
 def adminlist(update, context):
     administrators = update.effective_chat.get_administrators()
     text = "Admins in *{}*:".format(update.effective_chat.title or "this chat")
