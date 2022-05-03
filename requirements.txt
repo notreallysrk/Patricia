@@ -29,7 +29,7 @@ pycryptodome
 base58
 pytimeparse
 Tgcrypto
-pyrogram
+pyrogram==1.4.15
 telethon 
 motor
 odmantic
