@@ -232,11 +232,11 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
-                                url='https://t.me/Superior_Support',
+                                url='https://t.me/TheSupportChat',
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/Superior_Bots",
+                                url="https://t.me/TheUpdatesChannel",
                             ),
                         ],
                         [
@@ -390,21 +390,21 @@ def get_help(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="👩‍🔧ᴍᴜꜱɪᴄ ᴄᴏᴍᴍᴀɴᴅꜱ 🎵", url="https://t.me/SUPERIOR_BOTS/323"),
+                    InlineKeyboardButton(text="👩‍🔧 Wᴇʙꜱɪᴛᴇ", url="https://zaid-robot.github.io/"),
                  ],
                  [
-                    InlineKeyboardButton(text="💁ʙᴀꜱɪᴄ", callback_data="basic_"),
-                    InlineKeyboardButton(text="ᴀᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
+                    InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
+                    InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
                  ],
                  [
-                    InlineKeyboardButton(text="👩‍🎓 ᴇxᴘᴇʀᴛꜱ", callback_data="expert_"),
-                    InlineKeyboardButton(text="ᴅᴏɴᴀᴛɪᴏɴ 🎉", url="https://pages.razorpay.com/GODFATHERDONATIONS"),
+                    InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
+                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://pages.razorpay.com/GODFATHERDONATIONS"),
                  ],
                  [
-                    InlineKeyboardButton(text="ꜰᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
+                    InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
                  ],
                  [
-                    InlineKeyboardButton(text="ᴄʟᴏꜱᴇ", callback_data="start_back"),
+                    InlineKeyboardButton(text="Cʟᴏꜱᴇ", callback_data="start_back"),
                  ]
                 ]
             ),
@@ -510,7 +510,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="ɢᴏ ʙᴀᴄᴋ",
+                                text="Gᴏ Bᴀᴄᴋ",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -619,21 +619,21 @@ def zaid_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="👩‍🔧ᴍᴜꜱɪᴄ ᴄᴏᴍᴍᴀɴᴅꜱ 🎵", url="https://t.me/SUPERIOR_BOTS/323"),
+                    InlineKeyboardButton(text="👩‍🔧 Wᴇʙꜱɪᴛᴇ", url="https://zaid-robot.github.io/"),
                  ],
                  [
-                    InlineKeyboardButton(text="💁 ʙᴀꜱɪᴄ", callback_data="basic_"),
-                    InlineKeyboardButton(text="ᴀᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
+                    InlineKeyboardButton(text="💁 Bᴀꜱɪᴄ", callback_data="basic_"),
+                    InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ 🙋", callback_data="advance_"),
                  ],
                  [
-                    InlineKeyboardButton(text="👩‍🎓 ᴇxᴘᴇʀᴛꜱ", callback_data="expert_"),
-                    InlineKeyboardButton(text="ᴅᴏɴᴀᴛɪᴏɴ 🎉", url="https://pages.razorpay.com/GODFATHERDONATIONS"),
+                    InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
+                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://pages.razorpay.com/GODFATHERDONATIONS"),
                  ],
                  [
-                    InlineKeyboardButton(text="ꜰᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
+                    InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
                  ],
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʜᴏᴍᴇ", callback_data="start_back"),
+                    InlineKeyboardButton(text="Gᴏ ʜᴏᴍᴇ", callback_data="start_back"),
                  ]
                 ]
             ),
