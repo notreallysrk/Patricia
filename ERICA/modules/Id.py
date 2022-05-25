@@ -3,7 +3,7 @@ Syntax: .id"""
 
 from pyrogram import filters
 from ERICA.helper_functions.get_file_id import get_file_id
-from ERICA import pgram as Client
+from main import pgram as Client
 
 @Client.on_message(filters.command(["id"]))
 async def showid(client, message):
