@@ -1,6 +1,6 @@
 from pyrogram import filters
 
-from ERICA import pgram as Client
+from main import pgram as Client
 
 
 @Client.on_message(filters.private & filters.forwarded)
