@@ -6,7 +6,7 @@ import time
 from datetime import datetime
 from pyrogram import filters
 from pyrogram.types import Message, User
-from main import pgram as Client
+from ERICA import pgram as Client
 from pyrogram.errors import UserNotParticipant
 COMMAND_HAND_LER = "/ !"
 from ERICA.helper_functions.extract_user import extract_user
