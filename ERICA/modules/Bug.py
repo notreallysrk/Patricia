@@ -10,7 +10,7 @@ from pyrogram.types import (
     Message,
 )
 
-from main import pgram as Client
+from ERICA import pgram as Client
 from ERICA import (
     OWNER_ID as owner_id,
 )
