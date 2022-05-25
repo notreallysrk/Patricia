@@ -1,7 +1,7 @@
 from pyrogram import filters
 from pyrogram.errors import UsernameInvalid, UsernameNotOccupied
 from pyrogram.types import Message
-from ERICA import pgram as Client
+from main import pgram as Client
 
 
 @Client.on_message(filters.command("identify"))
