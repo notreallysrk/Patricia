@@ -1,7 +1,7 @@
 from pyrogram.types.bots_and_keyboards.inline_keyboard_button import InlineKeyboardButton
 from pyrogram.types.bots_and_keyboards.inline_keyboard_markup import InlineKeyboardMarkup
 from pyrogram import filters
-from ERICA import pgram as bot
+from main import pgram as bot
 from pyrogram.types import Message
 import requests
 
