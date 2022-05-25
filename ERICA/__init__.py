@@ -207,16 +207,13 @@ def spamfilters(text, user_id, chat_id):
 
 
 print("Starting Pyrogram Client")
-pgram.start()
 
 print("Aquiring BOT Client Info")
 
-bottie = pgram.get_me()
 
 BOT_ID = 1901951380
 BOT_USERNAME = 'Zaid2_Robot'
 BOT_NAME = 'Zaid Robot'
-BOT_MENTION = bottie.mention
 
 
 # eor help sessions
