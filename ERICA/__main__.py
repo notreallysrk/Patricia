@@ -116,7 +116,7 @@ def send_help(chat_id, text, keyboard=None):
     )
 
 
-@kigcmd(command='text')
+
 def test(update: Update, context: CallbackContext):
     '''#TODO
 
@@ -130,8 +130,7 @@ def test(update: Update, context: CallbackContext):
     print(update.effective_message)
 
 
-@kigcallback(pattern=r'start_back')
-@kigcmd(command='start', pass_args=True)
+
 def start(update: Update, context: CallbackContext):  # sourcery no-metrics
     '''#TODO
 
@@ -290,7 +289,7 @@ def error_callback(update, context):
         # handle all other telegram related errors
 
 
-@kigcallback(pattern=r'help_')
+
 def help_button(update, context):
     '''#TODO
 
@@ -370,7 +369,7 @@ def help_button(update, context):
         pass
 
 
-@kigcmd(command='help')
+
 def get_help(update, context):
     '''#TODO
 
@@ -479,7 +478,7 @@ def send_settings(chat_id, user_id, user=False):
         )
 
 
-@kigcallback(pattern=r"stngs_")
+
 def settings_button(update: Update, context: CallbackContext):
     '''#TODO
 
@@ -570,7 +569,7 @@ def settings_button(update: Update, context: CallbackContext):
             log.exception('Exception in settings buttons. %s', str(query.data))
 
 
-@kigcmd(command='settings')
+
 def get_settings(update: Update, context: CallbackContext):
     '''#TODO
 
@@ -853,6 +852,13 @@ def migrate_chats(update: Update, context: CallbackContext):
     log.info("Successfully migrated!")
     raise DispatcherHandlerStop
 
+test_handler = CommandHandler("test", test)
+start_handler = CommandHandler("start", start)
+help_handler = CommandHandler("help", get_help)
+START_BACK = CallbackQueryHandler(start, pattern=r"start_back")
+settings = CommandHandler("settings", get_settings)
+SETING_HANDLER = CallbackQueryHandler(settings_button, pattern=r"steng_")
+HELP_HANDLER = CallbackQueryHandler(help_button, pattern=r"help_")
 SETLANGUAGE_HANDLER = CallbackQueryHandler(set_language, pattern=r"callbacklang_")
 SETLANGGUAGE_BUTTON_HANDLER = CallbackQueryHandler(lang_buttons, pattern=r"setLanguage_")
 about_callback_handler = CallbackQueryHandler(
@@ -870,7 +876,13 @@ expert_callback_handler = CallbackQueryHandler(
 donate_callback_handler = CallbackQueryHandler(
         donate_about_callback, pattern=r"donate_", run_async=True
     )
-
+dispatcher.add_handler(test_handler)
+dispatcher.add_handler(start_handler)
+dispatcher.add_handler(help_handler)
+dispatcher.add_handler(START_BACK)
+dispatcher.add_handler(settings)
+dispatcher.add_handler(SETING_HANDLER)
+dispatcher.add_handler(HELP_HANDLER)
 dispatcher.add_handler(SETLANGUAGE_HANDLER)
 dispatcher.add_handler(SETLANGGUAGE_BUTTON_HANDLER)
 dispatcher.add_handler(about_callback_handler)
