@@ -15,7 +15,14 @@ translator = google_translator()
 from ERICA.untils import Zbot, Zinline
 from ERICA.modules.mongodb.lang import get_welcome, save_welcome
 from ERICA import telethn as Zaid
+from typing import Union, List, Dict, Callable, Generator, Any
+import ERICA.modules.sql.language_sql as sql
+from ERICA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from ERICA.langs import get_string, get_languages, get_language
 
+def gs(chat_id: Union[int, str], string: str) -> str:
+    lang = sql.get_chat_lang(chat_id)
+    return get_string(lang, string)
 
 
 JSONDB = None
