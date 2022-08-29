@@ -48,7 +48,7 @@ from ERICA.modules import ALL_MODULES
 from ERICA.modules.helper_funcs.chat_status import is_user_admin
 from ERICA.modules.helper_funcs.misc import paginate_modules
 from ERICA.modules.helper_funcs.decorators import kigcmd, kigcallback, kigmsg
-from ERICA.modules.language import gs
+from ERICA.modules.language import gs, translate
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -156,7 +156,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                     [
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "add_bot_to_group_btn"),
+                                text=translate("Add me to your Chat ➕", chat.id),
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
@@ -164,21 +164,21 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "support_chat_link_btn"),
+                                text=translate("Support 🌎", chat.id),
                                 url='https://t.me/TheSupportChat',
                             ),
                             InlineKeyboardButton(
-                                text=gs(chat.id, "updates_channel_link_btn"),
+                                text=translate("News 📰", chat.id),
                                 url="https://t.me/TheUpdatesChannel",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "helper_btn"),
+                                text=translate("Advanced ⭐", chat.id),
                                 callback_data="zaidhelp_",
                             ),
                             InlineKeyboardButton(
-                                text=gs(chat.id, "chlang_btn"),
+                                text=translate("Commands ⚙️", chat.id),
                                 callback_data="language",
                             ),
                         ],
@@ -222,7 +222,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                     [
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "add_bot_to_group_btn"),
+                                text=translate("Add me to your Chat ➕", chat.id),
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username
                                 ),
@@ -230,21 +230,21 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "support_chat_link_btn"),
+                                text=translate("Support 🌎", chat.id),
                                 url='https://t.me/TheSupportChat',
                             ),
                             InlineKeyboardButton(
-                                text=gs(chat.id, "updates_channel_link_btn"),
+                                text=translate("News 📰", chat.id),
                                 url="https://t.me/TheUpdatesChannel",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text=gs(chat.id, "helper_btn"),
+                                text=translate("Advanced ⭐", chat.id),
                                 callback_data="zaidhelp_",
                             ),
                             InlineKeyboardButton(
-                                text=gs(chat.id, "chlang_btn"),
+                                text=translate("Commands ⚙️", chat.id),
                                 callback_data="language",
                             ),
                         ],
