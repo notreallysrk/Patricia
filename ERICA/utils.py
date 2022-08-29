@@ -1,7 +1,7 @@
 import sys
 import logging
 import importlib
-from ERICA import tbot as Zaid
+from ERICA import telethn as Zaid
 from ERICA import OWNER_ID
 from telethon import events
 
