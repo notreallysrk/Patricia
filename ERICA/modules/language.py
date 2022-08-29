@@ -1,104 +1,27 @@
 import re
+from telethon.tl.types import Message
+from telethon.tl.custom import Button
+from telethon import events
+from telethon.events import NewMessage, CallbackQuery
 import asyncio
-
+from telethon.errors.rpcerrorlist import (
+    FloodWaitError,
+    UserBlockedError,
+    ChatWriteForbiddenError,
+)
 from google_trans_new.constant import LANGUAGES
 from google_trans_new import google_translator
 translator = google_translator()
+from ERICA.untils import Zbot, Zinline
 from ERICA.modules.mongodb.lang import get_welcome, save_welcome
-from ERICA import dispatcher
-
-from ERICA.untils import Zinline
-from typing import Union, List, Dict, Callable, Generator, Any
-import itertools
-from collections.abc import Iterable
-from telegram.ext import CommandHandler, CallbackQueryHandler
-from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
-from cachetools import TTLCache
-from telegram import Chat, ChatMember, ParseMode, Update, TelegramError, User
-from telegram.ext import CallbackContext
-from functools import wraps
-import ERICA.modules.sql.language_sql as sql
-from ERICA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from ERICA.langs import get_string, get_languages, get_language
-
-def gs(chat_id: Union[int, str], string: str) -> str:
-    lang = sql.get_chat_lang(chat_id)
-    return get_string(lang, string)
-
-DEL_CMDS = True
-ADMIN_CACHE = TTLCache(maxsize=512, ttl=60 * 10)
+from ERICA import telethn as Zaid
 
 
-def is_user_admin(update: Update, user_id: int, member: ChatMember = None) -> bool:
-    chat = update.effective_chat
-    msg = update.effective_message
-    if (
-            chat.type == "private"
-            or chat.all_members_are_administrators
-            or (msg.reply_to_message and msg.reply_to_message.sender_chat is not None and
-                msg.reply_to_message.sender_chat.type != "channel")
-    ):
-        return True
 
-    if not member:
-        # try to fetch from cache first.
-        try:
-            return user_id in ADMIN_CACHE[chat.id]
-        except KeyError:
-            # KeyError happened means cache is deleted,
-            # so query bot api again and return user status
-            # while saving it in cache for future usage...
-            chat_admins = dispatcher.bot.getChatAdministrators(chat.id)
-            admin_list = [x.user.id for x in chat_admins]
-            ADMIN_CACHE[chat.id] = admin_list
+JSONDB = None
 
-            if user_id in admin_list:
-                return True
-            return False
-
-def user_admin(func):
-    @wraps(func)
-    def is_admin(update: Update, context: CallbackContext, *args, **kwargs):
-        # bot = context.bot
-        user = update.effective_user
-        # chat = update.effective_chat
-
-        if user and is_user_admin(update, user.id):
-            return func(update, context, *args, **kwargs)
-        elif not user:
-            pass
-        elif DEL_CMDS and " " not in update.effective_message.text:
-            try:
-                update.effective_message.delete()
-            except TelegramError:
-                pass
-        else:
-            update.effective_message.reply_text(
-                "Who dis non-admin telling me what to do?"
-            )
-
-    return is_admin
-
-def user_admin_no_reply(func):
-    @wraps(func)
-    def is_not_admin_no_reply(
-            update: Update, context: CallbackContext, *args, **kwargs
-    ):
-        # bot = context.bot
-        user = update.effective_user
-        # chat = update.effective_chat
-
-        if user and is_user_admin(update, user.id):
-            return func(update, context, *args, **kwargs)
-        elif not user:
-            pass
-        elif DEL_CMDS and " " not in update.effective_message.text:
-            try:
-                update.effective_message.delete()
-            except TelegramError:
-                pass
-
-    return is_not_admin_no_reply
+if not JSONDB:
+    JSONDB = {"users": [], "language": {}}
 
 
 def split_list(lis, index):
@@ -109,7 +32,7 @@ def split_list(lis, index):
     return new_
 
 
-Buttons = [InlineKeyboardButton(text=LANGUAGES[lang].upper(), callback_data=f"st-{lang}") for lang in LANGUAGES]
+Buttons = [Button.inline(LANGUAGES[lang].upper(), f"st-{lang}") for lang in LANGUAGES]
 # 2 Rows
 Buttons = split_list(Buttons, 2)
 # 5 Columns
@@ -131,11 +54,44 @@ def translate(text, sender, to_bing=False):
 
 
 
-@user_admin_no_reply
-def button_next(update: Update, _) -> None:
-    query = update.callback_query
-    chat = update.effective_chat
-    data = query.data.split("-")[1]
+IMG = "https://telegra.ph/file/6f207172c4edb26f5beff.jpg"
+@Zaid.on(events.NewMessage(pattern="^/setlang"))
+async def _(event):
+    if not event.is_private:
+       try:
+           _s = await event.client.get_permissions(event.chat_id, event.sender_id)
+           if not _s.is_admin:
+              return
+       except Exception:
+           pass
+    UMM = [[Button.inline("⚜ Languages ⚜", "language")]]
+    await Zaid.send_file(event.chat_id, IMG, caption="Set Your Custom language", buttons=UMM)
+
+
+@Zinline(pattern=r"language")
+async def setlang(event):
+    if not event.is_private:
+       try:
+           _s = await event.client.get_permissions(event.chat_id, event.sender_id)
+           if not _s.is_admin:
+              return
+       except Exception:
+           pass
+    bts = Buttons[0].copy()
+    bts.append([Button.inline("Next ▶", "btsh"), Button.inline("Cancel ❌", "cncl")])
+    await event.reply("Choose your desired language..", buttons=bts)
+
+
+@Zinline(pattern=r"btsh(.*)")
+async def click_next(event):
+    data = event.data_match.group(1).decode("utf-8")
+    if not event.is_private:
+       try:
+           _s = await event.client.get_permissions(event.chat_id, event.sender_id)
+           if not _s.is_admin:
+              return
+       except Exception:
+           pass
     if not data:
         val = 1
     else:
@@ -151,57 +107,45 @@ def button_next(update: Update, _) -> None:
         val = 0
         bt = Buttons[0].copy()
     if val == 0:
-        bt.append([InlineKeyboardButton(text="Next ▶", callback_data=f"btsh-"), InlineKeyboardButton(text="Cancel ❌", callback_data=f"cncl")])
+        bt.append([Button.inline("Next ▶", "btsh"), Button.inline("Cancel ❌", "cncl")])
     else:
         bt.extend(
             [
                 [
-                    InlineKeyboardButton(text="◀ Prev", callback_data=f"btsh-p{val}"),
-                    InlineKeyboardButton(text="Next ▶", callback_data=f"btsh-n{val}"),
+                    Button.inline("◀ Prev", f"btshp{val}"),
+                    Button.inline("Next ▶", f"btshn{val}"),
                 ],
-                [InlineKeyboardButton(text="Cancel ❌", callback_data=f"cncl")],
+                [Button.inline("Cancel ❌", "cncl")],
             ]
         )
-    query.message.edit_text("Choose your desired language..", reply_markup=InlineKeyboardMarkup(bt))
+    await event.edit(buttons=bt)
 
 
 @Zinline(pattern=r"cncl")
 async def maggie(event):
+    if not event.is_private:
+       try:
+           _s = await event.client.get_permissions(event.chat_id, event.sender_id)
+           if not _s.is_admin:
+              return
+       except Exception:
+           pass
     await event.delete()
 
-@user_admin
-def set_lang(update: Update, _) -> None:
-    chat = update.effective_chat
-    msg = update.effective_message
-    keyb = Buttons[0].copy()
-    keyb.append([InlineKeyboardButton(text="Next ▶", callback_data=f"btsh-"), InlineKeyboardButton(text="Cancel ❌", callback_data=f"cncl")])
-    msg.reply_text("Choose your desired language..", reply_markup=InlineKeyboardMarkup(keyb))
-
-@user_admin_no_reply
-def cl_lang(update: Update, _) -> None:
-    chat = update.effective_chat
-    query = update.callback_query
-    keyb = Buttons[0].copy()
-    keyb.append([InlineKeyboardButton(text="Next ▶", callback_data=f"btsh-"), InlineKeyboardButton(text="Cancel ❌", callback_data=f"cncl")])
-    query.message.edit_text("Choose your desired language..", reply_markup=InlineKeyboardMarkup(keyb))
-
-@user_admin_no_reply
-def lang_button(update: Update, _) -> None:
-    query = update.callback_query
-    chat = update.effective_chat
-
-    query.answer()
-    lang = query.data.split("-")[1]
-    save_welcome(str(chat.id), str(lang))
-
-    query.message.edit_text(f"Language successfully changed to {lang} !")
 
 
-SETLANG_HANDLER = CommandHandler(["set_lang", "setlang", "language", "setlanguage"], set_lang)
-SETLANG_BUTTON_HANDLER = CallbackQueryHandler(lang_button, pattern=r"st-")
-UP_NEXT = CallbackQueryHandler(button_next, pattern=r"btsh-")
-CL_LANG = CallbackQueryHandler(cl_lang, pattern=r"language")
-dispatcher.add_handler(SETLANG_HANDLER)
-dispatcher.add_handler(SETLANG_BUTTON_HANDLER)
-dispatcher.add_handler(UP_NEXT)
-dispatcher.add_handler(CL_LANG)
+@Zinline(pattern=r"st-(.*)")
+async def set_lang(event):
+    match = event.data_match.group(1).decode("utf-8")
+    if not event.is_private:
+       try:
+           _s = await event.client.get_permissions(event.chat_id, event.sender_id)
+           if not _s.is_admin:
+              return
+       except Exception:
+           pass
+    await save_welcome(str(event.chat_id), str(match))
+    code_lang = {code: name for code, name in LANGUAGES.items()}
+    name = code_lang[match]
+    name = name[0].upper() + name[1:]
+    await event.edit(f"Language successfully changed to {name} !")
