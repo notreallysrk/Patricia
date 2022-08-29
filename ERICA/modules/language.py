@@ -17,7 +17,13 @@ from cachetools import TTLCache
 from telegram import Chat, ChatMember, ParseMode, Update, TelegramError, User
 from telegram.ext import CallbackContext
 from functools import wraps
+import ERICA.modules.sql.language_sql as sql
+from ERICA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
+from ERICA.langs import get_string, get_languages, get_language
 
+def gs(chat_id: Union[int, str], string: str) -> str:
+    lang = sql.get_chat_lang(chat_id)
+    return get_string(lang, string)
 
 DEL_CMDS = True
 ADMIN_CACHE = TTLCache(maxsize=512, ttl=60 * 10)
