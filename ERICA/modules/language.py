@@ -1,59 +1,183 @@
+import re
+import asyncio
+
+from google_trans_new.constant import LANGUAGES
+from google_trans_new import google_translator
+translator = google_translator()
+from ERICA.modules.mongodb.lang import get_welcome, save_welcome
+from ERICA import dispatcher
+
+from Zaid.utils import Zinline
 from typing import Union, List, Dict, Callable, Generator, Any
 import itertools
 from collections.abc import Iterable
 from telegram.ext import CommandHandler, CallbackQueryHandler
 from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
-
-from ERICA import dispatcher
-import ERICA.modules.sql.language_sql as sql
-from ERICA.modules.helper_funcs.chat_status import user_admin, user_admin_no_reply
-from ERICA.langs import get_string, get_languages, get_language
-
+from cachetools import TTLCache
+from telegram import Chat, ChatMember, ParseMode, Update, TelegramError, User
+from telegram.ext import CallbackContext
+from functools import wraps
 
 
-def paginate(
-    iterable: Iterable, page_size: int
-) -> Generator[List, None, None]:
-    while True:
-        i1, i2 = itertools.tee(iterable)
-        iterable, page = (
-            itertools.islice(i1, page_size, None),
-            list(itertools.islice(i2, page_size)),
+DEL_CMDS = True
+ADMIN_CACHE = TTLCache(maxsize=512, ttl=60 * 10)
+
+
+def is_user_admin(update: Update, user_id: int, member: ChatMember = None) -> bool:
+    chat = update.effective_chat
+    msg = update.effective_message
+    if (
+            chat.type == "private"
+            or chat.all_members_are_administrators
+            or (msg.reply_to_message and msg.reply_to_message.sender_chat is not None and
+                msg.reply_to_message.sender_chat.type != "channel")
+    ):
+        return True
+
+    if not member:
+        # try to fetch from cache first.
+        try:
+            return user_id in ADMIN_CACHE[chat.id]
+        except KeyError:
+            # KeyError happened means cache is deleted,
+            # so query bot api again and return user status
+            # while saving it in cache for future usage...
+            chat_admins = dispatcher.bot.getChatAdministrators(chat.id)
+            admin_list = [x.user.id for x in chat_admins]
+            ADMIN_CACHE[chat.id] = admin_list
+
+            if user_id in admin_list:
+                return True
+            return False
+
+def user_admin(func):
+    @wraps(func)
+    def is_admin(update: Update, context: CallbackContext, *args, **kwargs):
+        # bot = context.bot
+        user = update.effective_user
+        # chat = update.effective_chat
+
+        if user and is_user_admin(update, user.id):
+            return func(update, context, *args, **kwargs)
+        elif not user:
+            pass
+        elif DEL_CMDS and " " not in update.effective_message.text:
+            try:
+                update.effective_message.delete()
+            except TelegramError:
+                pass
+        else:
+            update.effective_message.reply_text(
+                "Who dis non-admin telling me what to do?"
+            )
+
+    return is_admin
+
+def user_admin_no_reply(func):
+    @wraps(func)
+    def is_not_admin_no_reply(
+            update: Update, context: CallbackContext, *args, **kwargs
+    ):
+        # bot = context.bot
+        user = update.effective_user
+        # chat = update.effective_chat
+
+        if user and is_user_admin(update, user.id):
+            return func(update, context, *args, **kwargs)
+        elif not user:
+            pass
+        elif DEL_CMDS and " " not in update.effective_message.text:
+            try:
+                update.effective_message.delete()
+            except TelegramError:
+                pass
+
+    return is_not_admin_no_reply
+
+
+def split_list(lis, index):
+    new_ = []
+    while lis:
+        new_.append(lis[:index])
+        lis = lis[index:]
+    return new_
+
+
+Buttons = [InlineKeyboardButton(text=LANGUAGES[lang].upper(), callback_data=f"st-{lang}") for lang in LANGUAGES]
+# 2 Rows
+Buttons = split_list(Buttons, 2)
+# 5 Columns
+Buttons = split_list(Buttons, 5)
+
+
+def translate(text, sender, to_bing=False):
+    if to_bing:
+        return translator.translate(text, lang_tgt="en")
+    get_ = get_welcome(str(sender))
+    if get_:
+        try:
+            return translator.translate(text, lang_tgt=get_)
+        except Exception as er:
+            LOG.exception(er)
+    return text
+
+
+
+
+
+@user_admin_no_reply
+def button_next(update: Update, _) -> None:
+    query = update.callback_query
+    chat = update.effective_chat
+    data = query.data.split("-")[1]
+    if not data:
+        val = 1
+    else:
+        prev_or_next = data[0]
+        val = int(data[1:])
+        if prev_or_next == "p":
+            val -= 1
+        else:
+            val += 1
+    try:
+        bt = Buttons[val].copy()
+    except IndexError:
+        val = 0
+        bt = Buttons[0].copy()
+    if val == 0:
+        bt.append([InlineKeyboardButton(text="Next ▶", callback_data=f"btsh-"), InlineKeyboardButton(text="Cancel ❌", callback_data=f"cncl")])
+    else:
+        bt.extend(
+            [
+                [
+                    InlineKeyboardButton(text="◀ Prev", callback_data=f"btsh-p{val}"),
+                    InlineKeyboardButton(text="Next ▶", callback_data=f"btsh-n{val}"),
+                ],
+                [InlineKeyboardButton(text="Cancel ❌", callback_data=f"cncl")],
+            ]
         )
-        if not page:
-            break
-        yield page
+    query.message.edit_text("Choose your desired language..", reply_markup=InlineKeyboardMarkup(bt))
 
 
-def gs(chat_id: Union[int, str], string: str) -> str:
-    lang = sql.get_chat_lang(chat_id)
-    return get_string(lang, string)
-
+@Zinline(pattern=r"cncl")
+async def maggie(event):
+    await event.delete()
 
 @user_admin
 def set_lang(update: Update, _) -> None:
     chat = update.effective_chat
     msg = update.effective_message
+    keyb = Buttons[0].copy()
+    keyb.append([InlineKeyboardButton(text="Next ▶", callback_data=f"btsh-"), InlineKeyboardButton(text="Cancel ❌", callback_data=f"cncl")])
+    msg.reply_text("Choose your desired language..", reply_markup=InlineKeyboardMarkup(keyb))
 
-    msg_text = gs(chat.id, "curr_chat_lang").format(
-        get_language(sql.get_chat_lang(chat.id))[:-3]
-    )
-
-    keyb = [InlineKeyboardButton(
-                text=name,
-                callback_data=f"setLang_{code}",
-            ) for code, name in get_languages().items()]
-    keyb = list(paginate(keyb, 2))
-    keyb.append(
-        [
-            InlineKeyboardButton(
-                text="🆘 Help us in translations",
-                url="https://Github.com/ITZ-ZAID/ZAID",
-            )
-        ]
-    )
-    msg.reply_text(msg_text, reply_markup=InlineKeyboardMarkup(keyb))
-
+@user_admin_no_reply
+def cl_lang(update: Update, _) -> None:
+    chat = update.effective_chat
+    query = update.callback_query
+    keyb = Buttons[0].copy()
+    keyb.append([InlineKeyboardButton(text="Next ▶", callback_data=f"btsh-"), InlineKeyboardButton(text="Cancel ❌", callback_data=f"cncl")])
+    query.message.edit_text("Choose your desired language..", reply_markup=InlineKeyboardMarkup(keyb))
 
 @user_admin_no_reply
 def lang_button(update: Update, _) -> None:
@@ -61,16 +185,17 @@ def lang_button(update: Update, _) -> None:
     chat = update.effective_chat
 
     query.answer()
-    lang = query.data.split("_")[1]
-    sql.set_lang(chat.id, lang)
+    lang = query.data.split("-")[1]
+    save_welcome(str(chat.id), str(lang))
 
-    query.message.edit_text(
-        gs(chat.id, "set_chat_lang").format(get_language(lang)[:-3])
-    )
+    query.message.edit_text(f"Language successfully changed to {lang} !")
 
 
-SETLANG_HANDLER = CommandHandler(["lang", "setlang", "changelang", "language", "changelanguage" ], set_lang)
-SETLANG_BUTTON_HANDLER = CallbackQueryHandler(lang_button, pattern=r"setLang_")
-
+SETLANG_HANDLER = CommandHandler(["set_lang", "setlang", "language", "setlanguage"], set_lang)
+SETLANG_BUTTON_HANDLER = CallbackQueryHandler(lang_button, pattern=r"st-")
+UP_NEXT = CallbackQueryHandler(button_next, pattern=r"btsh-")
+CL_LANG = CallbackQueryHandler(cl_lang, pattern=r"language")
 dispatcher.add_handler(SETLANG_HANDLER)
 dispatcher.add_handler(SETLANG_BUTTON_HANDLER)
+dispatcher.add_handler(UP_NEXT)
+dispatcher.add_handler(CL_LANG)
