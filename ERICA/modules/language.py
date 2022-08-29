@@ -151,7 +151,7 @@ async def set_lang(event):
               return
        except Exception:
            pass
-    await save_welcome(str(event.chat_id), str(match))
+    save_welcome(str(event.chat_id), str(match))
     code_lang = {code: name for code, name in LANGUAGES.items()}
     name = code_lang[match]
     name = name[0].upper() + name[1:]
