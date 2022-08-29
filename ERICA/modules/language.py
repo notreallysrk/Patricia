@@ -61,9 +61,9 @@ def translate(text, sender, to_bing=False):
 
 
 
-IMG = "https://telegra.ph/file/6f207172c4edb26f5beff.jpg"
+
 @Zaid.on(events.NewMessage(pattern="^/setlang"))
-async def _(event):
+async def setlhng(event):
     if not event.is_private:
        try:
            _s = await event.client.get_permissions(event.chat_id, event.sender_id)
@@ -71,8 +71,10 @@ async def _(event):
               return
        except Exception:
            pass
-    UMM = [[Button.inline("⚜ Languages ⚜", "language")]]
-    await Zaid.send_file(event.chat_id, IMG, caption="Set Your Custom language", buttons=UMM)
+    bts = Buttons[0].copy()
+    bts.append([Button.inline("Next ▶", "btsh"), Button.inline("Cancel ❌", "cncl")])
+    await event.reply("Choose your desired language..", buttons=bts)
+
 
 
 @Zinline(pattern=r"language")
