@@ -7,7 +7,7 @@ translator = google_translator()
 from ERICA.modules.mongodb.lang import get_welcome, save_welcome
 from ERICA import dispatcher
 
-from Zaid.utils import Zinline
+from ERICA.utils import Zinline
 from typing import Union, List, Dict, Callable, Generator, Any
 import itertools
 from collections.abc import Iterable
