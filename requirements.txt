@@ -36,3 +36,4 @@ odmantic
 telegraph
 pymongo[srv]
 opencv-python-headless
+git+https://github.com/1danish-00/google_trans_new.git
