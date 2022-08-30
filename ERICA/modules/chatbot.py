@@ -132,38 +132,49 @@ def chatbot_handle_callq(update: Update, context: CallbackContext):
 
 
 
-def check_message(context: CallbackContext, message):
-    reply_msg = message.reply_to_message
-    text = message.text
-    if re.search("[.|\n]{0,}"+dispatcher.bot.first_name+"[.|\n]{0,}", text, flags=re.IGNORECASE):
-        return True
-    if reply_msg and reply_msg.from_user.id == BOT_ID:
-        return True
-    elif message.chat.type == 'private':
-        return True
-    else:
-        return False
+
+CHATBOT_TOGGLE_COMMAND_HANDLER = CommandHandler(
+    "chatbot",
+    chatbot_toggle,
+)
+CHATBOT_TOGGLE_CALLBACK_HANDLER = CallbackQueryHandler(
+    chatbot_handle_callq, pattern=r"chatbot_",
+)
+
+
+dispatcher.add_handler(CHATBOT_TOGGLE_COMMAND_HANDLER)
+dispatcher.add_handler(CHATBOT_TOGGLE_CALLBACK_HANDLER)
+
+from pyrogram import Client, filters
+from pyrogram.types import *
+from pymongo import MongoClient
+import requests
+import random
+import os
+import re
+from re import IGNORECASE, escape, search
+from telegram import TelegramError, Update
+from telegram.error import BadRequest
+from telegram.ext import CallbackContext, CommandHandler, Filters, MessageHandler
+import telegram.ext as tg
+
+MONGO_URL = "mongodb+srv://Nia:Nia@cluster0.w4bqt7l.mongodb.net/?retryWrites=true&w=majority"
+USERS_GROUP = 4
 
 
 
-def chatbot(update: Update, context: CallbackContext):
+
+def log_user(update: Update, context: CallbackContext):
    chat = update.effective_chat
    message = update.effective_message
-   chat_id = chat.id
-   vickdb = MongoClient(DB_URI)    
-   vick = vickdb["VickDb"]["Vick"]
-   is_vick = vick.find_one({"chat_id": chat.id})
-   if is_vick:
-       return
-   try:
-       if (
-           message.text.startswith("!")
-           or message.text.startswith("/")
-           or message.text.startswith("?")
-       ):
+   snip = "/play"
+   regex1 = r'( |^|[^\w])'
+   regex2 = r'( |$|[^\w])'
+   pattern = f"{regex1}{escape(snip)}{regex2}"
+   if message.text:
+       mm = search(pattern, message.text, flags=IGNORECASE)
+       if mm:
            return
-   except Exception as e:
-       pass
    chatdb = MongoClient(MONGO_URL)
    chatai = chatdb["Word"]["WordDb"]
    if not message.reply_to_message:
@@ -183,7 +194,7 @@ def chatbot(update: Update, context: CallbackContext):
        if not Yo == "sticker":
            message.reply_text(f"{hey}")
    if message.reply_to_message:                   
-       if message.reply_to_message.from_user.id == 1901951380:                    
+       if message.reply_to_message.from_user.id == 5338777856:                    
            K = []  
            is_chat = chatai.find({"word": message.text})                 
            for x in is_chat:
@@ -199,64 +210,18 @@ def chatbot(update: Update, context: CallbackContext):
                message.reply_sticker(f"{hey}")
            if not Yo == "sticker":
                message.reply_text(f"{hey}")
-       if not message.reply_to_message.from_user.id == 1901951380:
+       if not message.reply_to_message.from_user.id == 5338777856:          
            if message.sticker:
-               if not message.reply_to_message.from_user.id in CHATBOT_ENABLED_CHATS:
-                   return
                is_chat = chatai.find_one({"word": message.reply_to_message.text, "id": message.sticker.file_unique_id})
                if not is_chat:
-                   chatai.insert_one({"word": message.reply_to_message.text, "text": message.sticker.file_id, "check": "sticker", "id": message.sticker.file_unique_id})          
+                   chatai.insert_one({"word": message.reply_to_message.text, "text": message.sticker.file_id, "check": "sticker", "id": message.sticker.file_unique_id})
            if message.text:                 
                is_chat = chatai.find_one({"word": message.reply_to_message.text, "text": message.text})                 
                if not is_chat:
                    chatai.insert_one({"word": message.reply_to_message.text, "text": message.text, "check": "none"})
 
 
-def inserter(update: Update, context: CallbackContext):
-   chat = update.effective_chat
-   message = update.effective_message
-   chat_id = chat.id
-   CHATBOT_ENABLED_CHATS.append(message.reply_to_message.from_user.id)
-   message.reply_text("I have added {message.reply_to_message.from_user.id} My User")
-
-
-@run_async
-def list_chatbot_chats(update: Update, context: CallbackContext):
-    text = "<b>AI-Enabled Chats</b>\n"
-    for chat in CHATBOT_ENABLED_CHATS:
-        x = context.bot.get_chat(chat)
-        name = x.title or x.first_name
-        text += f"• <code>{name}</code>\n"
-    update.effective_message.reply_text(text, parse_mode="HTML")
-
-
-
-
-CHATBOT_TOGGLE_COMMAND_HANDLER = CommandHandler(
-    "chatbot",
-    chatbot_toggle,
-)
-CHATBOT_TOGGLE_CALLBACK_HANDLER = CallbackQueryHandler(
-    chatbot_handle_callq, pattern=r"chatbot_",
-)
-
 USER_HANDLER = MessageHandler(
-    Filters.all, chatbot, run_async=True
+    Filters.all, log_user, run_async=True
 )
-USERS_GROUP = 1
-# dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
-
-LIST_CB_CHATS_HANDLER = CommandHandler(
-    "listaichats",
-    list_chatbot_chats,
-)
-LIST_CB_CHATS_HAND = CommandHandler(
-    "append",
-    inserter,
-)
-# Filters for ignoring #note messages, !commands and sed.
-
-dispatcher.add_handler(CHATBOT_TOGGLE_COMMAND_HANDLER)
-dispatcher.add_handler(CHATBOT_TOGGLE_CALLBACK_HANDLER)
-dispatcher.add_handler(LIST_CB_CHATS_HANDLER)
-dispatcher.add_handler(LIST_CB_CHATS_HAND)
+dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
