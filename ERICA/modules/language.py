@@ -54,7 +54,7 @@ def translate(text, sender, to_bing=False):
         try:
             return translator.translate(text, lang_tgt=get_)
         except Exception as er:
-            LOG.exception(er)
+            print(er)
     return text
 
 
