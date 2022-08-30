@@ -16,7 +16,7 @@ DEL_CMDS = None
 
 from telegram import Chat, ChatMember, ParseMode, Update
 from telegram.ext import CallbackContext
-from ERICA.modules.mongodb import DB_URI
+from ERICA.modules.mongodb import MONGO_DB_URI as DB_URI
 # stores admemes in memory for 10 min.
 ADMIN_CACHE = TTLCache(maxsize=512, ttl=60 * 10, timer=perf_counter)
 THREAD_LOCK = RLock()
