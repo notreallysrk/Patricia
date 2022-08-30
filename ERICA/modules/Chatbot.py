@@ -36,6 +36,6 @@ async def kukiai(client: Client, message: Message):
                x = requests.get(f"http://api.brainshop.ai/get?bid={AI_BID}&uid={message.from_user.id}&key={AI_API_KEY}&msg={msg}").json()
                x = x["cnt"]
                await asyncio.sleep(0.01)
-               await message.reply_text(translate(f"{x}", message.chat.id))
+               await message.reply_text(x)
            except Exception as e:
                error = str(e)
