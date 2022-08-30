@@ -6,7 +6,7 @@ import os
 import asyncio
 import re
 from ERICA import pgram as bot
-
+from .language import translate
 
 MONGO_URL = "mongodb+srv://Nia:Nia@cluster0.w4bqt7l.mongodb.net/?retryWrites=true&w=majority"
 BOT_ID = int(1901951380)
