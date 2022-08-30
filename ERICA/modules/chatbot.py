@@ -29,7 +29,7 @@ import re
 from re import IGNORECASE, escape, search
 from ERICA import dispatcher
 
-MONGO_URL = "mongodb+srv://Zaid:Zaid@cluster0.1rq83tn.mongodb.net/?retryWrites=true&w=majority"
+MONGO_URL = "mongodb+srv://Nia:Nia@cluster0.w4bqt7l.mongodb.net/?retryWrites=true&w=majority"
 
 CHATBOT_ENABLED_CHATS = []
 
