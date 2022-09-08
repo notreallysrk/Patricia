@@ -22,7 +22,7 @@ def about_me(update: Update, context: CallbackContext):
 
     if info:
         update.effective_message.reply_text(
-            f"*{user.first_name}*:\n{escape_markdown(info)}",
+            f"Jnl",
             parse_mode=ParseMode.MARKDOWN,
         )
     elif message.reply_to_message:
