@@ -7,10 +7,6 @@ import random
 import os
 import re
 
-
-API_ID = os.environ.get("API_ID", None) 
-API_HASH = os.environ.get("API_HASH", None) 
-BOT_TOKEN = os.environ.get("BOT_TOKEN", None) 
 MONGO_URL = "mongodb+srv://Nia:Nia@cluster0.w4bqt7l.mongodb.net/?retryWrites=true&w=majority"
 
 
@@ -105,10 +101,8 @@ async def vickprivatesticker(client: Client, message: Message):
            await message.reply_text(f"{hey}")
        if not Yo == "text":
            await message.reply_sticker(f"{hey}")
-   if message.reply_to_message:            
-       getme = await bot.get_me()
-       bot_id = getme.id       
-       if message.reply_to_message.from_user.id == bot_id:                    
+   if message.reply_to_message:                   
+       if message.reply_to_message.from_user.id == int(1901951380):                    
            await bot.send_chat_action(message.chat.id, "typing")
            K = []  
            is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
