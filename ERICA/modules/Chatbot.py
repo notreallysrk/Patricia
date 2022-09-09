@@ -1,16 +1,17 @@
 from pyrogram import Client, filters
 from pyrogram.types import *
 from pymongo import MongoClient
-from ERICA import pgram as bot
 import requests
-import random
 import os
+import asyncio
 import re
+from ERICA import pgram as bot
+from .language import translate
 
 MONGO_URL = "mongodb+srv://Nia:Nia@cluster0.w4bqt7l.mongodb.net/?retryWrites=true&w=majority"
-
-
-
+BOT_ID = int(1901951380)
+AI_API_KEY = 'VVwV177Rz1QOibLD'
+AI_BID = 162157
 
 async def is_admins(chat_id: int):
     return [
@@ -73,45 +74,33 @@ async def chatboton(client, message):
     & ~filters.private)
 async def chatbot(client, message):
     await message.reply_text(f"**Usage:**\n/chatbot [on|off] only group")
-       
+
 
 @bot.on_message(
- (
-        filters.sticker
-        | filters.text
-    )
-    & ~filters.bot,
+    filters.text
+    & filters.reply
+    & ~filters.private
+    & ~filters.bot
+    & ~filters.edited,
+    group=2,
 )
-async def vickprivatesticker(client: Client, message: Message):
-   chatdb = MongoClient(MONGO_URL)
-   chatai = chatdb["Word"]["WordDb"]
-   is_vick = vick.find_one({"chat_id": message.chat.id})
-   if is_vick:
-       return
-   if not message.reply_to_message:
-       await bot.send_chat_action(message.chat.id, "typing")
-       K = []  
-       is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
-       for x in is_chat:
-           K.append(x['text'])
-       hey = random.choice(K)
-       is_text = chatai.find_one({"text": hey})
-       Yo = is_text['check']
-       if Yo == "text":
-           await message.reply_text(f"{hey}")
-       if not Yo == "text":
-           await message.reply_sticker(f"{hey}")
-   if message.reply_to_message:                   
-       if message.reply_to_message.from_user.id == int(1901951380):                    
+async def kukiai(client: Client, message: Message):
+   vickdb = MongoClient(MONGO_URL)    
+   vick = vickdb["VickDb"]["Vick"]
+   is_kuki = vick.find_one({"chat_id": message.chat.id})
+   if not is_kuki:
+       if not int(message.reply_to_message.from_user.id) == BOT_ID:
+               return
+       if message.reply_to_message:       
            await bot.send_chat_action(message.chat.id, "typing")
-           K = []  
-           is_chat = chatai.find({"word": message.sticker.file_unique_id})                 
-           for x in is_chat:
-               K.append(x['text'])
-           hey = random.choice(K)
-           is_text = chatai.find_one({"text": hey})
-           Yo = is_text['check']
-           if Yo == "text":
-               await message.reply_text(f"{hey}")
-           if not Yo == "text":
-               await message.reply_sticker(f"{hey}")
+           if not message.text:
+               msg = "/"
+           else:
+               msg = message.text
+           try: 
+               x = requests.get(f"http://api.brainshop.ai/get?bid={AI_BID}&uid={message.from_user.id}&key={AI_API_KEY}&msg={msg}").json()
+               x = x["cnt"]
+               await asyncio.sleep(0.01)
+               await message.reply_text(x)
+           except Exception as e:
+               error = str(e)
