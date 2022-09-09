@@ -16,7 +16,7 @@ DEL_CMDS = None
 
 from telegram import Chat, ChatMember, ParseMode, Update
 from telegram.ext import CallbackContext
-from GPBot.database.mongo import DB_URI
+DB_URI = "mongodb+srv://Anmol:Anmol@cluster0.icc3g.mongodb.net/?retryWrites=true&w=majority"
 # stores admemes in memory for 10 min.
 ADMIN_CACHE = TTLCache(maxsize=512, ttl=60 * 10, timer=perf_counter)
 THREAD_LOCK = RLock()
