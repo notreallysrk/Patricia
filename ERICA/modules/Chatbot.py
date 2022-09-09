@@ -13,6 +13,8 @@ from functools import wraps
 from cachetools import TTLCache
 from threading import RLock
 DEL_CMDS = None
+from telegram.ext.filters import Filters
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg
 
 from telegram import Chat, ChatMember, ParseMode, Update
 from telegram.ext import CallbackContext
@@ -153,7 +155,7 @@ def check_message(context: CallbackContext, message):
         return False
 
 
-
+@kigmsg(Filters.chat_type.groups, group=105)
 def chatbot(update: Update, context: CallbackContext):
    chat = update.effective_chat
    message = update.effective_message
@@ -223,11 +225,7 @@ CHATBOT_TOGGLE_CALLBACK_HANDLER = CallbackQueryHandler(
     chatbot_handle_callq, pattern=r"chatbot_",
 )
 
-USER_HANDLER = MessageHandler(
-    Filters.all, chatbot, run_async=True
-)
-USERS_GROUP = 200
-dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
+
 
 # Filters for ignoring #note messages, !commands and sed.
 
