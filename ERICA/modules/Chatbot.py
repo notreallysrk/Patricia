@@ -27,7 +27,7 @@ async def is_admins(chat_id: int):
 
 
 @bot.on_message(
-    filters.command("chatbot off", prefixes=["/", ".", "?", "-"])
+    filters.command("chatbot on", prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatbotofd(client, message):
     vickdb = MongoClient(MONGO_URL)    
@@ -50,7 +50,7 @@ async def chatbotofd(client, message):
     
 
 @bot.on_message(
-    filters.command("chatbot on", prefixes=["/", ".", "?", "-"])
+    filters.command("chatbot off", prefixes=["/", ".", "?", "-"])
     & ~filters.private)
 async def chatboton(client, message):
     vickdb = MongoClient(MONGO_URL)    
@@ -87,9 +87,11 @@ async def chatbot(client, message):
     & ~filters.bot,
 )
 async def vickprivatesticker(client: Client, message: Message):
-
    chatdb = MongoClient(MONGO_URL)
-   chatai = chatdb["Word"]["WordDb"] 
+   chatai = chatdb["Word"]["WordDb"]
+   is_vick = vick.find_one({"chat_id": message.chat.id})
+   if is_vick:
+       return
    if not message.reply_to_message:
        await bot.send_chat_action(message.chat.id, "typing")
        K = []  
