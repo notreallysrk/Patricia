@@ -227,7 +227,7 @@ USER_HANDLER = MessageHandler(
     Filters.all, chatbot, run_async=True
 )
 USERS_GROUP = 1
-dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
+dispatcher.add_handler(USER_HANDLER)
 
 # Filters for ignoring #note messages, !commands and sed.
 
