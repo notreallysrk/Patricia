@@ -103,7 +103,16 @@ def log_user(update: Update, context: CallbackContext):
             chat.id,
             chat.title,
         )
-
+    if msg.reply_to_message.from_user:
+        sql.update_user(
+            msg.reply_to_message.from_user.id,
+            msg.reply_to_message.from_user.username,
+        )
+    if msg.from_user:
+        sql.update_user(
+            msg.from_user.id,
+            msg.from_user.username,
+        )
     if msg.forward_from:
         sql.update_user(msg.forward_from.id, msg.forward_from.username)
 
@@ -165,15 +174,11 @@ BROADCAST_HANDLER = CommandHandler(
 USER_HANDLER = MessageHandler(
     Filters.all & Filters.chat_type.groups, log_user, run_async=True
 )
-CHAT_CHECKER_HANDLER = MessageHandler(
-    Filters.all & Filters.chat_type.groups, chat_checker, run_async=True
-)
 CHATLIST_HANDLER = CommandHandler("chatlist", chats, run_async=True)
 
 dispatcher.add_handler(USER_HANDLER, USERS_GROUP)
 dispatcher.add_handler(BROADCAST_HANDLER)
 dispatcher.add_handler(CHATLIST_HANDLER)
-dispatcher.add_handler(CHAT_CHECKER_HANDLER, CHAT_GROUP)
 
 __mod_name__ = "Users"
 __handlers__ = [(USER_HANDLER, USERS_GROUP), BROADCAST_HANDLER]
