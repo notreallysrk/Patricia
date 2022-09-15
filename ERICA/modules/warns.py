@@ -116,6 +116,8 @@ def warn(
             f"<b>Reason:</b> {reason}\n"
             f"<b>Counts:</b> <code>{num_warns}/{limit}</code>"
         )
+        if message.text.startswith("/d") and message.reply_to_message:
+            message.reply_to_message.delete()
 
     else:
         keyboard = InlineKeyboardMarkup(
@@ -145,6 +147,8 @@ def warn(
             f"<b>Reason:</b> {reason}\n"
             f"<b>Counts:</b> <code>{num_warns}/{limit}</code>"
         )
+        if message.text.startswith("/d") and message.reply_to_message:
+            message.reply_to_message.delete()
 
     try:
         message.reply_text(reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
@@ -202,8 +206,6 @@ def warn_user(update: Update, context: CallbackContext) -> str:
     warner: Optional[User] = update.effective_user
 
     user_id, reason = extract_user_and_text(message, args)
-    if message.text.startswith("/d") and message.reply_to_message:
-        message.reply_to_message.delete()
 
     if user_id:
         if (
