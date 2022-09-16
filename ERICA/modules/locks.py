@@ -1,5 +1,6 @@
 import ast
 import html
+import re
 
 from alphabet_detector import AlphabetDetector
 from telegram import Message, Chat, ParseMode, MessageEntity, Update
