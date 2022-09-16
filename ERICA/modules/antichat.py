@@ -15,6 +15,9 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
     chat = update.effective_chat
     message = update.effective_message
     users = update.effective_user
+    links = re.findall(r'@[^\s]+', message.text)
+    if not links:
+        return
     if is_approved(chat.id, users.id):
         return
     chat_admins = dispatcher.bot.getChatAdministrators(chat.id)
@@ -23,7 +26,6 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
        return
     if chat.get_member(bot.id).can_delete_messages:
        if message.text:
-          links = re.findall(r'@[^\s]+', message.text)
           for link in links:
              try:
                  user = bot.get_chat(link)
