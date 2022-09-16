@@ -1,6 +1,5 @@
 import ast
 import html
-import re
 
 from alphabet_detector import AlphabetDetector
 from telegram import Message, Chat, ParseMode, MessageEntity, Update
@@ -42,8 +41,6 @@ LOCK_TYPES = {
     "rtl": "rtl",
     "button": "button",
     "inline": "inline",
-    "antichat": "antichat",
-    "mention": "mention",
 }
 
 LOCK_CHAT_RESTRICTION = {
@@ -360,7 +357,6 @@ def del_lockables(update, context):  # sourcery no-metrics
                     if "ARABIC" in check:
                         try:
                             message.delete()
-                            message.reply_text(f"{message.from_user.first_name}, your message was hidden, Arabic words not allowed in this group.")
                         except BadRequest as excp:
                             if excp.message != "Message to delete not found":
                                 log.exception("ERROR in lockables")
@@ -370,36 +366,6 @@ def del_lockables(update, context):  # sourcery no-metrics
                     if "ARABIC" in check:
                         try:
                             message.delete()
-                            message.reply_text(f"{message.from_user.first_name}, your message was hidden, Arabic words not allowed in this group.")
-                        except BadRequest as excp:
-                            if excp.message != "Message to delete not found":
-                                log.exception("ERROR in lockables")
-                        break
-            continue
-        if lockable == "antichat":
-            if sql.is_locked(chat.id, lockable) and can_delete(chat, context.bot.id):
-                if message.text:
-                    links = re.findall(r'@[^\s]+', message.text)
-                    for link in links:
-                        try:
-                            user = context.bot.get_chat(link)
-                            if len(str(user.id)) > 12:
-                                message.delete()
-                                message.reply_text(f"{message.from_user.first_name}, your message was hidden, chat links not allowed in this group.")
-                        except BadRequest as excp:
-                            if excp.message != "Message to delete not found":
-                                log.exception("ERROR in lockables")
-                        break
-            continue
-        if lockable == "mention":
-            if sql.is_locked(chat.id, lockable) and can_delete(chat, context.bot.id):
-                if message.text:
-                    links = re.findall(r'@[^\s]+', message.text)
-                    for link in links:
-                        try:
-                            if link:
-                                message.delete()
-                                message.reply_text(f"{message.from_user.first_name}, your message was hidden, mentioning not allowed in this group.")
                         except BadRequest as excp:
                             if excp.message != "Message to delete not found":
                                 log.exception("ERROR in lockables")
@@ -414,7 +380,6 @@ def del_lockables(update, context):  # sourcery no-metrics
             ):
                 try:
                     message.delete()
-                    message.reply_text(f"{message.from_user.first_name}, your message was hidden, buttons messages not allowed in this group.")
                 except BadRequest as excp:
                     if excp.message != "Message to delete not found":
                         log.exception("ERROR in lockables")
@@ -429,7 +394,6 @@ def del_lockables(update, context):  # sourcery no-metrics
             ):
                 try:
                     message.delete()
-                    message.reply_text(f"{message.from_user.first_name}, your message was hidden, inline query not allowed in this group.")
                 except BadRequest as excp:
                     if excp.message != "Message to delete not found":
                         log.exception("ERROR in lockables")
@@ -492,8 +456,6 @@ def build_lock_message(chat_id):
         locklist.append("button = `{}`".format(locks.button))
         locklist.append("egame = `{}`".format(locks.egame))
         locklist.append("inline = `{}`".format(locks.inline))
-        locklist.append("antichat = `{}`".format(locks.antichat))
-        locklist.append("mention = `{}`".format(locks.mention))
     permissions = dispatcher.bot.get_chat(chat_id).permissions
     permslist.append("messages = `{}`".format(permissions.can_send_messages))
     permslist.append("media = `{}`".format(permissions.can_send_media_messages))
