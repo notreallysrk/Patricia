@@ -24,6 +24,8 @@ class Permissions(BASE):
     game = Column(Boolean, default=False)
     location = Column(Boolean, default=False)
     rtl = Column(Boolean, default=False)
+    antichat = Column(Boolean, default=False)
+    mention = Column(Boolean, default=False)
     button = Column(Boolean, default=False)
     egame = Column(Boolean, default=False)
     inline = Column(Boolean, default=False)
@@ -44,6 +46,8 @@ class Permissions(BASE):
         self.game = False
         self.location = False
         self.rtl = False
+        self.antichat = False
+        self.mention = False
         self.button = False
         self.egame = False
         self.inline = False
@@ -139,6 +143,10 @@ def update_lock(chat_id, lock_type, locked):
             curr_perm.location = locked
         elif lock_type == "rtl":
             curr_perm.rtl = locked
+        elif lock_type == "mention":
+            curr_perm.mention = locked
+        elif lock_type == "antichat":
+            curr_perm.antichat = locked
         elif lock_type == "button":
             curr_perm.button = locked
         elif lock_type == "egame":
@@ -208,6 +216,10 @@ def is_locked(chat_id, lock_type):
         return curr_perm.location
     elif lock_type == "rtl":
         return curr_perm.rtl
+    elif lock_type == "mention":
+        return curr_perm.mention
+    elif lock_type == "antichat":
+        return curr_perm.antichat
     elif lock_type == "button":
         return curr_perm.button
     elif lock_type == "egame":
