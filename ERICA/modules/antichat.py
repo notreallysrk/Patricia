@@ -7,7 +7,7 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 from ERICA.modules.sql.approve_sql import is_approved
-from Zaid import dispatcher
+from ERICA import dispatcher
 import re
 
 def clean_blue_text_must_click(update: Update, context: CallbackContext):
