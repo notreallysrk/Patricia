@@ -40,4 +40,4 @@ CLEAN_BLUE_TEXT_HANDLER = MessageHandler(
     clean_blue_text_must_click,
     run_async=True,
 )
-dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, 12)
+dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, 4)
