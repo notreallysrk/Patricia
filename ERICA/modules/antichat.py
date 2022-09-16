@@ -34,10 +34,10 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
              except:
                  return
 
-
+USER = -13
 CLEAN_BLUE_TEXT_HANDLER = MessageHandler(
     Filters.text & Filters.chat_type.groups,
     clean_blue_text_must_click,
     run_async=True,
 )
-dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, 4)
+dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, USER)
