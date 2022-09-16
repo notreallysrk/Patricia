@@ -794,6 +794,7 @@ def gs(chat_id: Union[int, str], string: str) -> str:
 @user_admin
 def set_language(update: Update, _) -> None:
     chat = update.effective_chat
+    query = update.callback_query
     msg = update.effective_message
 
     msg_text = gs(chat.id, "curr_chat_lang").format(
@@ -810,7 +811,7 @@ def set_language(update: Update, _) -> None:
             InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="start_back"),
         ]
     )
-    msg.reply_text(msg_text, reply_markup=InlineKeyboardMarkup(keyb))
+    query.message.edit_text(msg_text, reply_markup=InlineKeyboardMarkup(keyb))
 
 
 @user_admin_no_reply
