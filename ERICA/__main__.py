@@ -179,7 +179,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "chlang_btn"),
-                                callback_data="language",
+                                callback_data="callbacklang_",
                             ),
                         ],
                     ]
@@ -245,7 +245,7 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "chlang_btn"),
-                                callback_data="language",
+                                callback_data="callbacklang_",
                             ),
                         ],
                     ]
