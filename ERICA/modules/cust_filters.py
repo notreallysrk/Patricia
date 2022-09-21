@@ -263,26 +263,7 @@ def stop_filter(update, context):
 def reply_filter(update, context):  # sourcery no-metrics
     chat = update.effective_chat  # type: Optional[Chat]
     message = update.effective_message  # type: Optional[Message]
-"""
-    chat_admins = dispatcher.bot.getChatAdministrators(chat.id)
-    admin_list = [x.user.id for x in chat_admins]
-    links = re.findall(r'@[^\s]+', message.text)
-    if links:
-       if chat.get_member(bot.id).can_delete_messages:
-          if message.text:
-             if users.id in admin_list:
-                return
-             if is_approved(chat.id, users.id):
-                return
-             for link in links:
-                try:
-                    user = bot.get_chat(link)
-                    if len(str(user.id)) > 12:
-                       message.reply_text(f"{users.first_name}, your message was hidden, chat usernames not allowed in this group.")
-                       message.delete()
-                except:
-                    return
-"""
+
     if not update.effective_user or update.effective_user.id == 777000:
         return
     to_match = extract_text(message)
