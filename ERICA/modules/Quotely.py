@@ -12,7 +12,7 @@ from telegram.ext import (
 from telethon.tl.functions.users import GetFullUserRequest
 
 from ERICA.events import register
-from ERICA.helpers.quote import create_quotly
+from ERICA.utils.quote import create_quotly
 
 
 @register(pattern="^/q ?(.*)")
