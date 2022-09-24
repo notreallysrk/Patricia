@@ -182,6 +182,12 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                                 callback_data="callbacklang_",
                             ),
                         ],
+                        [
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "donation_btn"),
+                                callback_data="donate",
+                            ),
+                        ],
                     ]
                 ),
             )
@@ -397,7 +403,7 @@ def get_help(update, context):
                  ],
                  [
                     InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
-                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://pages.razorpay.com/GODFATHERDONATIONS"),
+                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", callback_data="donate"),
                  ],
                  [
                     InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
@@ -694,29 +700,13 @@ def expert_about_callback(update, context):
 
 def donate_about_callback(update, context):
     query = update.callback_query
-    if query.data == "donate_":
+    if query.data == "donate":
         query.message.edit_text(
-            text="💰 Select your payment method!",
+            text=gs(query.message.chat.id, "donation_text"),
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
                 [
-                 [
-                    InlineKeyboardButton(text="Razorpay 🧾", url='https://pages.razorpay.com/GODFATHERDONATIONS'),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Paypal 💸", url='https://www.paypal.me/mrakki58'),
-                    InlineKeyboardButton(text="Paytm 💰", url='9608216090.wallet@paytm'),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Wallets 🏦", url='https://pages.razorpay.com/GODFATHERDONATIONS'),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Net Banking 🏦", url='https://pages.razorpay.com/GODFATHERDONATIONS'),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Query ❔", url='t.me/Timesisnotwaiting'),
-                 ],
                  [
                     InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
                  ]
@@ -875,7 +865,7 @@ expert_callback_handler = CallbackQueryHandler(
         expert_about_callback, pattern=r"expert_", run_async=True
     )
 donate_callback_handler = CallbackQueryHandler(
-        donate_about_callback, pattern=r"donate_", run_async=True
+        donate_about_callback, pattern=r"donate", run_async=True
     )
 dispatcher.add_handler(test_handler)
 dispatcher.add_handler(start_handler)
