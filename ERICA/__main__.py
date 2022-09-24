@@ -254,6 +254,12 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                                 callback_data="callbacklang_",
                             ),
                         ],
+                        [
+                            InlineKeyboardButton(
+                                text=gs(chat.id, "donation_btn"),
+                                callback_data="donate",
+                            ),
+                        ],
                     ]
                 ),
             )
