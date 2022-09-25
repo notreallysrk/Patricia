@@ -1,5 +1,6 @@
 import html
 from typing import Optional
+import random
 
 from telegram import Update, ParseMode
 from telegram.error import BadRequest
@@ -28,7 +29,16 @@ from ERICA.modules.log_channel import loggable, gloggable
 from ERICA.modules.helper_funcs.decorators import kigcmd
 
 from ..modules.helper_funcs.anonymous import user_admin, AdminPerms
-
+BAN_STICKER = [
+CAACAgUAAxkBAAEMJ_NjL-TXPLKm-6sR28Qe1n71vJ0DJQAC_gIAAtRDGVaI7fjgiRJn3ikE,
+CAACAgUAAxkBAAEMJ_ZjL-WIrjNPcfsM9m6WI5vkc1vILgAC5wIAAv2j8FXy7bIFHIeuvCkE,
+CAACAgQAAxkBAAEMJ_tjL-W_pRJCcyB8tUGTZ6ObUtQE9QACHg4AAoFGcFDlFF1Q_FI5rSkE
+]
+UNBAN_STICKER = [
+CAACAgUAAxkBAAEMKAZjL-banOoOgzSu96qnwyukyUG_XgACFgMAAg_x6FVQQl9RgjQDFCkE,
+CAACAgUAAxkBAAEMKANjL-a8rrTRPQPOxNtE_Agpa2H-lAACkwYAAkYzwFeodjOr7zZRGSkE,
+CAACAgUAAxkBAAEMKAtjL-cwyb_Mi24GZxjd1iW9h1s5HAACBQQAAmE7YFSNgRXL9aKwAykE
+]
 
 @kigcmd(command=["ban", "dban", "sban"], pass_args=True)
 @connection_status
@@ -110,7 +120,7 @@ def ban(update: Update, context: CallbackContext) -> Optional[str]:  # sourcery 
 
     try:
         chat.ban_member(user_id)
-        # context.bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        context.bot.send_sticker(chat.id, (random.choice(BAN_STICKER)))  # banhammer marie sticker
         context.bot.sendMessage(
             chat.id,
             "{} was banned by {} in <b>{}</b>\n<b>Reason</b>: <code>{}</code>".format(
@@ -200,7 +210,7 @@ def temp_ban(update: Update, context: CallbackContext) -> str:
 
     try:
         chat.ban_member(user_id, until_date=bantime)
-        # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        bot.send_sticker(chat.id, (random.choice(BAN_STICKER)))  # banhammer marie sticker
         bot.sendMessage(
             chat.id,
             f"Banned! User {mention_html(member.user.id, member.user.first_name)} will be banned for {time_val}.\nReason: {reason}",
@@ -266,7 +276,7 @@ def kick(update: Update, context: CallbackContext) -> str:
 
     res = chat.unban_member(user_id)  # unban on current user = kick
     if res:
-        # bot.send_sticker(chat.id, BAN_STICKER)  # banhammer marie sticker
+        bot.send_sticker(chat.id, "CAACAgQAAxkBAAEMJ_5jL-ZRK1_JGOjPdGGDPOTETmd-EAACog0AAlghcFCsLUviSAytESkE")  # banhammer marie sticker
         bot.sendMessage(
             chat.id,
             f"{mention_html(member.user.id, member.user.first_name)} was kicked by {mention_html(user.id, user.first_name)} in {message.chat.title}\n<b>Reason</b>: <code>{reason}</code>",
@@ -356,6 +366,7 @@ def unban(update: Update, context: CallbackContext) -> Optional[str]:
         return log_message
 
     chat.unban_member(user_id)
+    bot.send_sticker(chat.id, (random.choice(UNBAN_STICKER)))
     bot.sendMessage(
         chat.id,
         "{} was unbanned by {} in <b>{}</b>\n<b>Reason</b>: <code>{}</code>".format(
