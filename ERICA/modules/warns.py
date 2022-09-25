@@ -116,8 +116,6 @@ def warn(
             f"<b>Reason:</b> {reason}\n"
             f"<b>Counts:</b> <code>{num_warns}/{limit}</code>"
         )
-        if message.text.startswith("/d") and message.reply_to_message:
-            message.reply_to_message.delete()
 
     else:
         keyboard = InlineKeyboardMarkup(
@@ -147,8 +145,6 @@ def warn(
             f"<b>Reason:</b> {reason}\n"
             f"<b>Counts:</b> <code>{num_warns}/{limit}</code>"
         )
-        if message.text.startswith("/d") and message.reply_to_message:
-            message.reply_to_message.delete()
 
     try:
         message.reply_text(reply, reply_markup=keyboard, parse_mode=ParseMode.HTML)
@@ -510,7 +506,7 @@ def get_help(chat):
 
 __mod_name__ = "Warnings"
 
-WARN_HANDLER = CommandHandler(["warn", "dwarn", "smute"], warn_user, filters=Filters.chat_type.groups)
+WARN_HANDLER = CommandHandler("warn", warn_user, filters=Filters.chat_type.groups)
 RESET_WARN_HANDLER = CommandHandler(
     ["resetwarn", "resetwarns"], reset_warns, filters=Filters.chat_type.groups
 )
