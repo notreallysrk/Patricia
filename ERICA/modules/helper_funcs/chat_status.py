@@ -279,6 +279,7 @@ def bot_admin(func):
         if is_bot_admin(chat, bot.id):
             return func(update, context, *args, **kwargs)
         else:
+            bot.send_sticker(chat.id, "CAACAgUAAxkBAAEMMCBjMcRxqMDmRt-aI_lOEcUQqxQlRwAC5gUAAnPQgVUmbhcukrh7DSkE")
             update.effective_message.reply_text(not_admin, parse_mode=ParseMode.HTML)
 
     return is_admin
@@ -301,6 +302,7 @@ def bot_can_delete(func):
         if can_delete(chat, bot.id):
             return func(update, context, *args, **kwargs)
         else:
+            bot.send_sticker(chat.id, "CAACAgUAAxkBAAEMMCBjMcRxqMDmRt-aI_lOEcUQqxQlRwAC5gUAAnPQgVUmbhcukrh7DSkE")
             update.effective_message.reply_text(cant_delete, parse_mode=ParseMode.HTML)
 
     return delete_rights
@@ -325,6 +327,7 @@ def can_pin(func):
         if chat.get_member(bot.id).can_pin_messages:
             return func(update, context, *args, **kwargs)
         else:
+            bot.send_sticker(chat.id, "CAACAgUAAxkBAAEMMCBjMcRxqMDmRt-aI_lOEcUQqxQlRwAC5gUAAnPQgVUmbhcukrh7DSkE")
             update.effective_message.reply_text(cant_pin, parse_mode=ParseMode.HTML)
 
     return pin_rights
@@ -349,6 +352,7 @@ def can_promote(func):
         if chat.get_member(bot.id).can_promote_members:
             return func(update, context, *args, **kwargs)
         else:
+            bot.send_sticker(chat.id, "CAACAgUAAxkBAAEMMCBjMcRxqMDmRt-aI_lOEcUQqxQlRwAC5gUAAnPQgVUmbhcukrh7DSkE")
             update.effective_message.reply_text(cant_promote, parse_mode=ParseMode.HTML)
 
     return promote_rights
@@ -371,6 +375,7 @@ def can_restrict(func):
         if chat.get_member(bot.id).can_restrict_members:
             return func(update, context, *args, **kwargs)
         else:
+            bot.send_sticker(chat.id, "CAACAgUAAxkBAAEMMCBjMcRxqMDmRt-aI_lOEcUQqxQlRwAC5gUAAnPQgVUmbhcukrh7DSkE")
             update.effective_message.reply_text(
                 cant_restrict, parse_mode=ParseMode.HTML
             )
