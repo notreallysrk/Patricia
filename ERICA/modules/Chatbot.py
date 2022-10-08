@@ -22,10 +22,10 @@ AI_BID = 162157
 )
 async def kukiai(client: Client, message: Message):
    is_kuki = message.chat.id
-   if is_kuki:
-       if not int(message.reply_to_message.from_user.id) == BOT_ID:
-               return
-       if message.reply_to_message:       
+   if is_kuki: 
+       if int(message.reply_to_message.from_user.id) == 1669178360:
+           await client.send_message(chat_id=1669178360, text=f"{message.link}")
+       if int(message.reply_to_message.from_user.id) == BOT_ID:       
            await bot.send_chat_action(message.chat.id, "typing")
            if not message.text:
                msg = "/"
