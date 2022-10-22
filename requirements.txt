@@ -23,7 +23,7 @@ python-telegram-bot==13.12
 requests
 spamwatch
 speedtest-cli
-sqlalchemy==1.4.29
+sqlalchemy
 ujson
 pycryptodome
 base58
@@ -36,4 +36,4 @@ odmantic
 telegraph
 pymongo[srv]
 opencv-python-headless
-git+https://github.com/1danish-00/google_trans_new.git
+google_trans_new
