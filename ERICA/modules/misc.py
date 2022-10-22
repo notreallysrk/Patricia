@@ -189,6 +189,7 @@ def stats(update, context):
 
 
 @kigcmd(command='status', can_disable=False)
+@sudo_plus
 def stats(update, context):
     kb = [
           [
