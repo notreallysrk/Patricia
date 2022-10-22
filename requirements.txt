@@ -23,7 +23,7 @@ python-telegram-bot==13.12
 requests
 spamwatch
 speedtest-cli
-sqlalchemy
+sqlalchemy==1.4.29
 ujson
 pycryptodome
 base58
