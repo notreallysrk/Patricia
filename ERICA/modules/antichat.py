@@ -13,7 +13,7 @@ from ERICA import dispatcher
 import re
 
 @kigmsg((CustomFilters.has_text & ~Filters.update.edited_message))
-def clean_blue_text_must_click(update: Update, context: CallbackContext):
+def clean_blue_text_must_click(update, context):
     bot = context.bot
     chat = update.effective_chat
     message = update.effective_message
