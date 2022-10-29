@@ -7,9 +7,12 @@ from telegram.ext import (
 )
 from telegram.utils.helpers import mention_html
 from ERICA.modules.sql.approve_sql import is_approved
+from ERICA.modules.helper_funcs.filters import CustomFilters
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg, kigcallback
 from ERICA import dispatcher
 import re
 
+@kigmsg((CustomFilters.has_text & ~Filters.update.edited_message))
 def clean_blue_text_must_click(update: Update, context: CallbackContext):
     bot = context.bot
     chat = update.effective_chat
@@ -35,11 +38,3 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
                     message.delete()
              except:
                  return
-
-USER = 13
-CLEAN_BLUE_TEXT_HANDLER = MessageHandler(
-    Filters.text & Filters.chat_type.groups,
-    clean_blue_text_must_click,
-    run_async=True,
-)
-dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, USER)
