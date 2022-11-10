@@ -341,7 +341,7 @@ def unlock(update: Update, context: CallbackContext) -> str:  # sourcery no-metr
     return ""
 
 
-@kigmsg((Filters.all & Filters.chat_type.groups), group=PERM_GROUP)
+@kigmsg((Filters.all & Filters.chat_type.groups), group=110)
 @user_not_admin
 def del_lockables(update, context):  # sourcery no-metrics
     chat = update.effective_chat  # type: Optional[Chat]
