@@ -8,8 +8,11 @@ from telegram.ext import (
 from telegram.utils.helpers import mention_html
 from ERICA.modules.sql.approve_sql import is_approved
 from ERICA import dispatcher
+from ERICA.modules.helper_funcs.decorators import kigcmd, kigmsg
 import re
 
+
+@kigmsg(Filters.chat_type.groups, group=110)
 def clean_blue_text_must_click(update: Update, context: CallbackContext):
     bot = context.bot
     chat = update.effective_chat
@@ -36,10 +39,3 @@ def clean_blue_text_must_click(update: Update, context: CallbackContext):
              except:
                  return
 
-USER = 3
-CLEAN_BLUE_TEXT_HANDLER = MessageHandler(
-    Filters.text & Filters.chat_type.groups,
-    clean_blue_text_must_click,
-    run_async=True,
-)
-dispatcher.add_handler(CLEAN_BLUE_TEXT_HANDLER, USER)
