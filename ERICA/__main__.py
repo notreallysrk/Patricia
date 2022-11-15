@@ -165,11 +165,11 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
-                                url='https://clk.asia/24aGz0',
+                                url='https://t.me/TeamTrickyYash',
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/TheUpdatesChannel",
+                                url="https://t.me/TrickyYash",
                             ),
                         ],
                         [
