@@ -149,10 +149,10 @@ CF_API_KEY = KInit.CF_API_KEY
 
 BOT_API_FILE_URL = "https://api.telegram.org/file/bot"
 BOT_API_URL = "https://api.telegram.org/bot"
-STRING_SESSION = 'telthon'
+STRING_SESSION = '1BVtsOKEBu5tlhJmU-9PIcE-5vjy_U6EPaoacJBFdElD5JxtqR2T_y5R1QoIG09LeX3z7iC280EZlmx7Z6udeDGgVota2NjbpJSSSwtaSW94m4bcY-RoW7h6t1OElQdXAEaP2pmeirBDOHSlLzD6gCf4wzbGvp2_M49L577EwwGcOfFIC3-LT-WWq4PJY3VlwHRUJGmJn1D4F3Bn2JQfQe5roOWSPbTPCNITftrijVK80YA1W97x-RZcalIcgVdbHPhmFfSKniLxROJWzEdxsFELhw8u6JKQnbxgOt0nkl-hKy5RbdGyeqfTYWKOvdqYgevSfe80k4YIA4SfpfmN2JgtiaIWASaA='
 API_ID = '6435225'
 API_HASH = '4e984ea35f854762dcde906dce426c2d'
-TOKEN = ''
+TOKEN = '5594511258:AAGlj6mLMgKR63UlevkiCqG-Y7KFyHt-qjU'
 WORKERS = 32
 # SpamWatch
 sw = KInit.init_sw()
@@ -178,7 +178,7 @@ except BaseException:
 
 pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 MONGO_DB = "ZaidRobot"
-MONGO_DB_URL = ""
+MONGO_DB_URL = "mongodb+srv://Nia:Nia@cluster0.w4bqt7l.mongodb.net/?retryWrites=true&w=majority"
 mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
 motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
 db = motor[MONGO_DB]
