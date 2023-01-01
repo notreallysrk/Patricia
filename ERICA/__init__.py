@@ -152,7 +152,7 @@ BOT_API_URL = "https://api.telegram.org/bot"
 STRING_SESSION = '1AZWarzcBuyhJ0JOX5RZBWGB0Ur5wh_s1c8G4cX24bdxRiKqqTuSsPSeKdTQMYZJMKx_kFEZu49cHmVUe4MnBmzOYcmWXUcXxxAfcWzAWZJwxnGV0cSzhtXZx4tKnu23krEY4s6ogjjelQfo7Gak05NGCg2df9vG1k_-PYW9744xgcXLoHNoPhURjyAqEndnUZN7Nliv1t8qkMjkwW84qnY_-RGIrOaTZOCRLGqWKrRIUDw1dOKtFhESuzns8hPBe1xgRxjW4tm07ai5ApXNzGvnzmglku9I9FTyzOUsSqn3aEJo1u6a8zx25ZkzdP5sT4QJ_jwPjdD20NLtpVSsATQKvTy6liTc='
 API_ID = '6435225'
 API_HASH = '4e984ea35f854762dcde906dce426c2d'
-TOKEN = '5457975178:AAE0o8sHEFpectM1z1pUKFSnmbONbv8vU04'
+TOKEN = '5607178266:AAGfS3Z5A-_dQo3hNR3JVBFz9iQKzBLKN5k'
 WORKERS = 32
 # SpamWatch
 sw = KInit.init_sw()
@@ -171,13 +171,11 @@ dispatcher = updater.dispatcher
 
 ubot2 = TelegramClient(StringSession(STRING_SESSION), API_ID, API_HASH)
 try:
-    ubot2.start()
 except BaseException:
     print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
-    sys.exit(1)
 
 pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
-MONGO_DB = "ZaidRobot"
+MONGO_DB = "InnexiaBot"
 MONGO_DB_URL = "mongodb+srv://Nia:Nia@cluster0.w4bqt7l.mongodb.net/?retryWrites=true&w=majority"
 mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
 motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
@@ -213,9 +211,9 @@ print("Aquiring BOT Client Info")
 
 bottie = pgram.get_me()
 
-BOT_ID = 1901951380
-BOT_USERNAME = 'Zaid2_Robot'
-BOT_NAME = 'Zaid Robot'
+BOT_ID = bottie.id
+BOT_USERNAME = bottie.username
+BOT_NAME = bottie.first_name
 BOT_MENTION = bottie.mention
 
 
