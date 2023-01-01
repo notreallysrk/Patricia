@@ -4,9 +4,9 @@ from telegram import ParseMode
 from telethon import Button
  
 from ERICA import telethn as tbot
-OWNER_ID = 1669178360
-SUPPORT_CHAT = 'Superior_Support'
-OWNER = "Timesisnotwaiting"
+OWNER_ID = 5937170640
+SUPPORT_CHAT = 'thedeadlybots'
+OWNER = "wtf_blaze"
 
 from ..events import register
 
@@ -18,12 +18,10 @@ async def feedback(e):
     user_name = e.sender.first_name
     mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     HOTTIE = (
+        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",        
         "https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg",
-        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",
-        "https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",
-        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",
     )
-    FEED = ("https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",)
+    FEED = ("https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg",)
     BUTTON = [[Button.url("Go To Support Group", f"https://t.me/{SUPPORT_CHAT}")]]
     TEXT = "Thanks For Your Feedback, I Hope You Happy With Our Support"
     GIVE = "Give Some Text For Feedback âœ¨"
@@ -69,12 +67,10 @@ async def feedback(e):
     user_name = e.sender.first_name
     mention = "[" + user_name + "](tg://user?id=" + str(user_id) + ")"
     HOTTIE = (
+        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",        
         "https://telegra.ph/file/3932bb5dbc221c22eb2d4.jpg",
-        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",
-        "https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",
-        "https://telegra.ph/file/a4d1ff1616655428d657f.jpg",
     )
-    FEED = ("https://telegra.ph/file/0a2abd13876ac59489c8a.jpg",)
+    FEED = ("https://te.legra.ph/file/404503e13fac593ada12d.jpg",)
     BUTTON = [[Button.url("Go To Owner Pm", f"https://t.me/{OWNER}")]]
     TEXT = "Thanks For Your Feedback, I Hope Your Issue will Fix Soon"
     GIVE = "Give Some Text For Send message âœ¨"
