@@ -650,16 +650,16 @@ def basic_about_callback(update, context):
     if query.data == "basic_":
         query.message.edit_text(
             text="Base Commands."
-                 "\n👮🏻Available to Admins&Moderators."
-                 "\n🕵🏻Available to Admins."
+                 "\n\n👮🏻Available to Admins&Moderators."
+                 "\n\n🕵🏻Available to Admins."
                  "\n\n👮🏻/reload updates the Admins list and their privileges."
-                 "\n🕵🏻/settings lets you manage all the Bot settings in a group."
-                 "\n👮🏻/ban lets you ban a user from the group without giving him the possibility to join again using the link of the group."
-                 "\n👮🏻/mute puts a user in read-only mode. He can read but he can't send any messages."
-                 "\n👮🏻 /kick bans a user from the group, giving him the possibility to join again with the link of the group."
-                 "\n👮🏻/unban lets you remove a user from group's blacklist, giving them the possibility to join again with the link of the group."
-                 "\n👮🏻/info gives information about a user."
-                 "\n\n◽️/staff gives the complete List of group Staff!.",
+                 "\n\n🕵🏻/settings lets you manage all the Bot settings in a group."
+                 "\n\n👮🏻/ban lets you ban a user from the group without giving him the possibility to join again using the link of the group."
+                 "\n\n👮🏻/mute puts a user in read-only mode. He can read but he can't send any messages."
+                 "\n\n👮🏻 /kick bans a user from the group, giving him the possibility to join again with the link of the group."
+                 "\n\n👮🏻/unban lets you remove a user from group's blacklist, giving them the possibility to join again with the link of the group."
+                 "\n\n👮🏻/info gives information about a user."
+                 "\n\n\n◽️/staff gives the complete List of group Staff!.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
@@ -677,15 +677,15 @@ def expert_about_callback(update, context):
         query.message.edit_text(
             text="*Expert commands*"
                  "\n\n👥 Available to all users"
-                 "\n👮🏻 Available to Admins&Moderators."
-                 "\n🕵🏻 Available to Admins"
+                 "\n\n👮🏻 Available to Admins&Moderators."
+                 "\n\n🕵🏻 Available to Admins"
                  "\n\n🕵🏻 /unbanall Unbanalll members from your groups"
-                 "\n👮🏻 /unmuteall unmuteall all from Your Group"
+                 "\n\n👮🏻 /unmuteall unmuteall all from Your Group"
                  "\n\n*Pinned Messages*"
                  "\n🕵🏻`/pin [message]` sends the message through the Bot and pins it."
-                 "\n🕵🏻 /pin pins the message in reply"
-                 "\n🕵🏻 /unpin removes the pinned message."
-                 "\n🕵🏻 /adminlist list of all the special roles assigned to users."
+                 "\n\n🕵🏻 /pin pins the message in reply"
+                 "\n\n🕵🏻 /unpin removes the pinned message."
+                 "\n\n🕵🏻 /adminlist list of all the special roles assigned to users."
                  "\n\n◽️/feedback: (message) to Send message and errors which you are facing \n ex:`/feedback Hey There Is a Something Error @username of chat`!.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -708,7 +708,7 @@ def donate_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="innexiahelp_"),
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="start_back"),
                  ]
                 ]
             ),
@@ -720,15 +720,15 @@ def advance_about_callback(update, context):
         query.message.edit_text(
             text="*Advanced Commands*"
                  "\n\n👮🏻Available to Admins&Moderators."
-                 "\n🕵🏻Available to Admins."
-                 "\n🛃 Available to Admins&Cleaners"
+                 "\n\n🕵🏻Available to Admins."
+                 "\n\n🛃 Available to Admins&Cleaners"
                  "\n\n*WARN MANAGEMENT*"
                  "\n👮🏻 /warn adds a warn to the user"
-                 "\n👮🏻 /unwarn removes a warn to the user"
-                 "\n👮🏻 /warns lets you see and manage user warns"
-                 "\n🕵🏻 /delwarn deletes the message and add a warn to the user"
-                 "\n🛃 /del deletes the selected message"
-                 "\n🛃 /purge deletes from the selected message."
+                 "\n\n👮🏻 /unwarn removes a warn to the user"
+                 "\n\n👮🏻 /warns lets you see and manage user warns"
+                 "\n\n🕵🏻 /delwarn deletes the message and add a warn to the user"
+                 "\n\n🛃 /del deletes the selected message"
+                 "\n\n🛃 /purge deletes from the selected message."
                  "\n\n◽️/feedback: (message) to Send message and errors which you are facing \n ex:`/feedback Hey There Is a Something Error @username of chat`!.",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
@@ -756,7 +756,7 @@ def donate(update: Update, context: CallbackContext):
         context: CallbackContext -
     '''
 
-    update.effective_message.reply_text("https://pages.razorpay.com/GODFATHERDONATIONS")
+    update.effective_message.reply_text("https://www.paypal.me/piroxpower")
 
 
 
