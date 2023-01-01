@@ -27,10 +27,10 @@ pm_start_text: |
    يجب ترقيته بأذونات إدارية مناسبة للعمل بشكل صحيح.
    وإلا فلن أتمكن من العمل كما قيل.
    ───────────────────────
-   انقر فوق "تعليمات" لمعرفة المزيد!
+   انقر فوق "تعليمات" لمعرفة الماينكسيا!
 
    
-grp_start_text: "مرحبا زيد يستيقظ"
+grp_start_text: "مرحبا اينكسيا يستيقظ"
 
 pm_help_text: |
    انقر فوق الزر للتحقق من تفاصيل وأوامر هذه الوحدات.
@@ -522,12 +522,12 @@ night_help: |
 
 
 alive_help: |
-       Send Random Images Of Zaid
-         ❂ `/alive`: Check Zaid alive Or not
+       Send Random Images Of innexia
+         ❂ `/alive`: Check innexia alive Or not
 
 
 group_help: |
-       Advanced admin Commands/Tools (Special In Zaid) 
+       Advanced admin Commands/Tools (Special In innexia) 
          ❂ /adminlist : list of admins in the chat
          ❂ /pin <loud(optional)> | /unpin: pins/unpins the message in the chat
          ❂ /permapin: permapin
@@ -558,13 +558,13 @@ feed_help: |
 alert_help: |
        Too many mentions.. Cant you manage them all alone..
          Here is the solution
-         If you are tagged/mentioned in a group where Zaid is present
+         If you are tagged/mentioned in a group where innexia is present
          Rose will notify it to you via private message after enabling tag alerts
        **Commands**
          - /tagalert `on` : Turn tag alerts on
          - /tagalert `off` : Turn tag alert off
        **Example:**
-       If you are mentioned in a group Zaid will tell you who mentioned you, 
+       If you are mentioned in a group innexia will tell you who mentioned you, 
        message that you are tagged in and which group is that.
 
 raid_help: |
