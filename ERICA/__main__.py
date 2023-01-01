@@ -627,22 +627,19 @@ def innexia_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="👩‍🔧 Wᴇʙꜱɪᴛᴇ", url="https://innexia-robot.github.io/"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="💁 Bᴀꜱɪᴄ", callback_data="basic_"),
-                    InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ 🙋", callback_data="advance_"),
+                    InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
+                    InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
                  ],
                  [
                     InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
-                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://pages.razorpay.com/GODFATHERDONATIONS"),
+                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://www.paypal.me/piroxpower"),
                  ],
                  [
                     InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
                  ],
                  [
-                    InlineKeyboardButton(text="Gᴏ ʜᴏᴍᴇ", callback_data="start_back"),
-                 ]
+                    InlineKeyboardButton(text="Cʟᴏꜱᴇ", callback_data="start_back"),
+                 ]                
                 ]
             ),
         )
