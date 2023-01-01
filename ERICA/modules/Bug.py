@@ -16,8 +16,8 @@ from ERICA import (
 )
 from ERICA.utils.errors import capture_err
 
-log = 'Superior_Support'
-owner_usn = 'Timesisnotwaiting'
+log = 'TheDeadlyBots'
+owner_usn = 'WTF_BLAZE'
 
 
 def content(msg: Message) -> [None, str]:
@@ -48,7 +48,7 @@ async def bug(_, msg: Message):
     datetimes_fmt = "%d-%m-%Y"
     datetimes = datetime.utcnow().strftime(datetimes_fmt)
 
-    thumb = "https://telegra.ph/file/bd218d4af1c69c586ebb0.jpg"
+    thumb = "https://te.legra.ph/file/404503e13fac593ada12d.jpg"
     
     bug_report = f"""
 **#BUG : ** **@{owner_usn}**
