@@ -47,8 +47,8 @@ def set_lang(update: Update, _) -> None:
     keyb.append(
         [
             InlineKeyboardButton(
-                text="🆘 Help us in translations",
-                url="https://Github.com/ITZ-ZAID/ZAID",
+                text="🆘 Report Your Error",
+                url="https://t.me/TheDeadlyBots",
             )
         ]
     )
