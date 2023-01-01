@@ -109,7 +109,7 @@ def send_help(chat_id, text, keyboard=None):
 
     if not keyboard:
         kb = paginate_modules(0, HELPABLE, "help")
-        kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='zaidhelp_')])
+        kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='innexiahelp_')])
         keyboard = InlineKeyboardMarkup(kb)
     dispatcher.bot.send_message(
         chat_id=chat_id, text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
@@ -165,17 +165,17 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
-                                url='https://t.me/TeamTrickyYash',
+                                url='https://t.me/TheDeadlyBots',
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/TrickyYash",
+                                url="https://t.me/TheBotUpdates",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "helper_btn"),
-                                callback_data="zaidhelp_",
+                                callback_data="innexiahelp_",
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "chlang_btn"),
@@ -237,17 +237,17 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
-                                url='https://t.me/TeamTrickyYash',
+                                url='https://t.me/TheDeadlyBots',
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/TrickyYash",
+                                url="https://t.me/TheBotUpdates",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "helper_btn"),
-                                callback_data="zaidhelp_",
+                                callback_data="innexiahelp_",
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "chlang_btn"),
@@ -347,7 +347,7 @@ def help_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             kb = paginate_modules(curr_page - 1, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='zaidhelp_')])
+            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='innexiahelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -357,7 +357,7 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             kb = paginate_modules(next_page + 1, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='zaidhelp_')])
+            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='innexiahelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -366,7 +366,7 @@ def help_button(update, context):
 
         elif back_match:
             kb = paginate_modules(0, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='zaidhelp_')])
+            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='innexiahelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -401,7 +401,7 @@ def get_help(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="👩‍🔧 Wᴇʙꜱɪᴛᴇ", url="https://zaid-robot.github.io/"),
+                    InlineKeyboardButton(text="👩‍🔧 Wᴇʙꜱɪᴛᴇ", url="https://innexia-robot.github.io/"),
                  ],
                  [
                     InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
@@ -620,9 +620,9 @@ def get_settings(update: Update, context: CallbackContext):
 
 
 
-def zaid_about_callback(update, context):
+def innexia_about_callback(update, context):
     query = update.callback_query
-    if query.data == "zaidhelp_":
+    if query.data == "innexiahelp_":
         query.message.edit_text(
             text="Welcome to the help menu!",
             parse_mode=ParseMode.MARKDOWN,
@@ -630,7 +630,7 @@ def zaid_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="👩‍🔧 Wᴇʙꜱɪᴛᴇ", url="https://zaid-robot.github.io/"),
+                    InlineKeyboardButton(text="👩‍🔧 Wᴇʙꜱɪᴛᴇ", url="https://innexia-robot.github.io/"),
                  ],
                  [
                     InlineKeyboardButton(text="💁 Bᴀꜱɪᴄ", callback_data="basic_"),
@@ -671,7 +671,7 @@ def basic_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="innexiahelp_"),
                  ]
                 ]
             ),
@@ -698,7 +698,7 @@ def expert_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="innexiahelp_"),
                  ]
                 ]
             ),
@@ -714,7 +714,7 @@ def donate_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="innexiahelp_"),
                  ]
                 ]
             ),
@@ -741,7 +741,7 @@ def advance_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="zaidhelp_"),
+                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="innexiahelp_"),
                  ]
                 ]
             ),
@@ -859,7 +859,7 @@ HELP_HANDLER = CallbackQueryHandler(help_button, pattern=r"help_")
 SETLANGUAGE_HANDLER = CallbackQueryHandler(set_language, pattern=r"callbacklang_")
 SETLANGGUAGE_BUTTON_HANDLER = CallbackQueryHandler(lang_buttons, pattern=r"setLanguage_")
 about_callback_handler = CallbackQueryHandler(
-        zaid_about_callback, pattern=r"zaidhelp_", run_async=True
+        innexia_about_callback, pattern=r"innexiahelp_", run_async=True
     )
 basic_callback_handler = CallbackQueryHandler(
         basic_about_callback, pattern=r"basic_", run_async=True
