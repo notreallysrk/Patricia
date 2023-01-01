@@ -401,15 +401,12 @@ def get_help(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="👩‍🔧 Wᴇʙꜱɪᴛᴇ", url="https://innexia-robot.github.io/"),
-                 ],
-                 [
                     InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
                     InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
                  ],
                  [
                     InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
-                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", callback_data="donate"),
+                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://www.paypal.me/piroxpower"),
                  ],
                  [
                     InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
