@@ -15,15 +15,15 @@ from ERICA import StartTime, dispatcher
 from telethon.tl.types import ChannelParticipantsAdmins
 
 edit_time = 5
-""" =======================ZAID====================== """
+""" =======================Innexia====================== """
 file1 = "https://telegra.ph/file/2a18cc79b097a24092b72.jpg"
 file2 = "https://telegra.ph/file/852531fc7449660a017da.jpg"
 file3 = "https://telegra.ph/file/4b29739e7fd46b2111e55.jpg"
 file4 = "https://telegra.ph/file/86a25345ea3b0dfe6cb45.jpg"
 file5 = "https://telegra.ph/file/d6c65813b5c8bbe1a4ec6.jpg"
-""" =======================ZAID====================== """
+""" =======================Innexia====================== """
 
-BUTTON = [[Button.url("sᴜᴘᴘᴏʀᴛ", "https://t.me/Superior_Support"), Button.url("ᴜᴘᴅᴀᴛᴇs", "https://t.me/Superior_Bots")]]
+BUTTON = [[Button.url("sᴜᴘᴘᴏʀᴛ", "https://t.me/TheDeadlyBots"), Button.url("ᴜᴘᴅᴀᴛᴇs", "https://t.me/TheBotUpdates")]]
 
 
 START_TIME = datetime.utcnow()
@@ -54,11 +54,11 @@ async def hmm(yes):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    pm_caption = "** ♡ I,m Zaid **\n\n"
+    pm_caption = "** ♡ I,m Innexia **\n\n"
     pm_caption += f"**♡ My Uptime :** `{uptime}`\n\n"
     pm_caption += f"**♡ Telethon Version :** `{version.__version__}`\n\n"
-    pm_caption += "**♡ My Team :** [Superior](https://t.me/Superior_Support)\n"
-    BUTTON = [[Button.url("Support", "https://t.me/Superior_Support"), Button.url("Updates", "https://t.me/Superior_Bots")]]
+    pm_caption += "**♡ My Team :** [DeadlyBots](https://t.me/TheDeadlyBots)\n"
+    BUTTON = [[Button.url("Support", "https://t.me/TheDeadlyBots"), Button.url("Updates", "https://t.me/TheBotUpdates")]]
     on = await aasf.send_file(yes.chat_id, file=file1,caption=pm_caption, buttons=BUTTON)
     
 
