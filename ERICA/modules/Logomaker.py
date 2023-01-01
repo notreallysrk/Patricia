@@ -95,7 +95,7 @@ async def logo_maker(client, message):
         try:
             await message.reply_photo(
                 url,
-                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @Zaid2_Robot**",
+                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @InnexiaBot**",
             )
         except:
             return
@@ -132,7 +132,7 @@ async def logo_maker(client, message):
         try:
             await message.reply_photo(
                 url,
-                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @Zaid2_Robot**",
+                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @InnexiaBot**",
             )
         except:
             return
@@ -185,7 +185,7 @@ async def logohq(client, message):
         try:
             await message.reply_photo(
                 url,
-                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @Zaid2_Robot**",
+                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @InnexiaBot**",
             )
         except:
             return
@@ -222,7 +222,7 @@ async def logohq(client, message):
         try:
             await message.reply_photo(
                 url,
-                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @Zaid2_Robot**",
+                caption=f"**Logo Generated Successfully** As {text}\n\nImage Link => {url}\n\n**By @InnexiaBot**",
             )
         except:
             return
