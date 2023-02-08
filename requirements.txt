@@ -30,7 +30,7 @@ base58
 pytimeparse
 Tgcrypto
 pyrogram==1.4.15
-telethon==1.24.0
+telethon==1.26.0
 motor
 odmantic
 telegraph
