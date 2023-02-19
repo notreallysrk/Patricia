@@ -395,22 +395,14 @@ def get_help(update, context):
     if chat.type != chat.PRIVATE:
 
         update.effective_message.reply_text(
-            "Welcome to the help menu!",
+            "Click The Button Below To Get Help Menu In Your Dm!",
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
+                    InlineKeyboardButton(text="Click me for help!", url="t.me/{}?start=help".format(context.bot.username)),
                  ],
                  [
-                    InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
-                    InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
-                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://www.paypal.me/piroxpower"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Cʟᴏꜱᴇ", callback_data="start_back"),
+                    InlineKeyboardButton(text="Update", url="https://t.me/SrkBots"),
                  ]
                 ]
             ),
@@ -625,18 +617,18 @@ def innexia_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Fᴜʟʟ👩‍🔧", callback_data="help_back"),
+                    InlineKeyboardButton(text="Help & Commands", callback_data="help_back"),
                  ],
                  [
-                    InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
-                    InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
+                    InlineKeyboardButton(text="Basic", callback_data="basic_"),
+                    InlineKeyboardButton(text="Advance", callback_data="advance_"),
                  ],
                  [
-                    InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
-                    InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://www.paypal.me/piroxpower"),
+                    InlineKeyboardButton(text="Experts", callback_data="expert_"),
+                    InlineKeyboardButton(text="Creator", url="https://t.me/notreallysrk"),
                  ],
                  [
-                    InlineKeyboardButton(text="Cʟᴏꜱᴇ", callback_data="start_back"),
+                    InlineKeyboardButton(text="Back", callback_data="start_back"),
                  ]                
                 ]
             ),
