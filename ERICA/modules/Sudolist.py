@@ -382,16 +382,16 @@ def removesardegna(update: Update, context: CallbackContext) -> str:
         return ""
 
 # I added extra new lines
-nations = """ Kigyō has bot access levels we call as *"Nation Levels"*
-\n*Eagle Union* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Nations
+nations = """ Patricia has bot access levels we call as *"Nation Levels"*
+\n*SrkBots* - Devs who can access the bots server and can execute, edit, modify bot code. Can also manage other Nations
 \n*God* - Only one exists, bot owner.
-Owner has complete bot access, including bot adminship in chats Kigyō is at.
+Owner has complete bot access, including bot adminship in chats Patricia is at.
 \n*Royals* - Have super user access, can gban, manage Nations lower than them and are admins in Kigyō.
-\n*Sakuras* - Have access go globally ban users across Kigyō.
+\n*Sakuras* - Have access go globally ban users across Patricia.
 \n*Sardegnas* - Same as Neptunians but can unban themselves if banned.
 \n*Neptunians* - Cannot be banned, muted flood kicked but can be manually banned by admins.
 \n*Disclaimer*: The Nation levels in Kigyō are there for troubleshooting, support, banning potential scammers.
-Report abuse or ask us more on these at [Eagle Union](https://t.me/YorktownEagleUnion).
+Report abuse or ask us more on these at [SRK](https://t.me/SrkBots).
 """
 
 
@@ -463,7 +463,7 @@ def sudolist(update: Update, context: CallbackContext):
 def devlist(update: Update, context: CallbackContext):
     bot = context.bot
     true_dev = list(set(DEV_USERS) - {OWNER_ID})
-    reply = "<b>Eagle Union Members :</b>\n"
+    reply = "<b>SrkBots Members :</b>\n"
     for each_user in true_dev:
         user_id = int(each_user)
         try:
