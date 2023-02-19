@@ -150,9 +150,9 @@ CF_API_KEY = KInit.CF_API_KEY
 BOT_API_FILE_URL = "https://api.telegram.org/file/bot"
 BOT_API_URL = "https://api.telegram.org/bot"
 STRING_SESSION = '1AZWarzcBuyhJ0JOX5RZBWGB0Ur5wh_s1c8G4cX24bdxRiKqqTuSsPSeKdTQMYZJMKx_kFEZu49cHmVUe4MnBmzOYcmWXUcXxxAfcWzAWZJwxnGV0cSzhtXZx4tKnu23krEY4s6ogjjelQfo7Gak05NGCg2df9vG1k_-PYW9744xgcXLoHNoPhURjyAqEndnUZN7Nliv1t8qkMjkwW84qnY_-RGIrOaTZOCRLGqWKrRIUDw1dOKtFhESuzns8hPBe1xgRxjW4tm07ai5ApXNzGvnzmglku9I9FTyzOUsSqn3aEJo1u6a8zx25ZkzdP5sT4QJ_jwPjdD20NLtpVSsATQKvTy6liTc='
-API_ID = '6435225'
-API_HASH = '4e984ea35f854762dcde906dce426c2d'
-TOKEN = '1607821276:AAHiIIPTIVraQNjpcCdHfCUYfNz-arIJsHQ'
+API_ID = '1714588'
+API_HASH = '78c27bf90c81f15a8af4aa0aeeadfc42'
+TOKEN = '6026914511:AAEBFKhrJ-jzHYZtrRun1XqWlENvZSnttxM'
 WORKERS = 24
 # SpamWatch
 sw = KInit.init_sw()
@@ -174,7 +174,7 @@ print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
 
 pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 MONGO_DB = "InnexiaBot"
-MONGO_DB_URL = "mongodb+srv://Nia:Nia@cluster0.w4bqt7l.mongodb.net/?retryWrites=true&w=majority"
+MONGO_DB_URL = "mongodb+srv://samy:sammyprom69@cluster0.qanltlk.mongodb.net/?retryWrites=true&w=majority"
 mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
 motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
 db = motor[MONGO_DB]
