@@ -24,14 +24,14 @@ grp_start_text: "ʜᴇʟʟᴏ, ɪɴɴᴇxɪᴀ ɪꜱ ᴀʟɪᴠᴇ"
 
 pm_help_text: |
    ᴄʟɪᴄᴋ ᴏɴ ᴛʜᴇ ʙᴜᴛᴛᴏɴꜱ ᴛᴏ ᴄʜᴇᴄᴋ ᴅᴀᴛᴀɪʟꜱ ᴀɴᴅ ᴄᴏᴍᴍᴀɴᴅꜱ ᴏꜰ ᴛʜᴇ ᴍᴏᴅᴜʟᴇꜱ.
-add_bot_to_group_btn: "ᴀᴅᴅ ᴍᴇ ᴛᴏ ᴜʀ ᴄʜᴀᴛꜱ ᯽"
-support_chat_link_btn: "ꜱᴜᴘᴘᴏʀᴛ ⍟"
-updates_channel_link_btn: "ᴜᴘᴅᴀᴛᴇꜱ ☢"
-chlang_btn: "ʟᴀɴɢᴜᴀɢᴇ ♻"
+add_bot_to_group_btn: "➕ Add me to a Group ➕"
+support_chat_link_btn: "👥 Group"
+updates_channel_link_btn: "Channel 📢"
+chlang_btn: "Language 🇬🇧"
 web_btn: "ᴡᴇʙꜱɪᴛᴇ ✅"
 chat_btn: "Donate 💰"
-helper_btn: "ᴄᴏᴍᴍᴀɴᴅꜱ ⌨"
-donation_btn: "Dᴏɴᴀᴛɪᴏɴ ₹"
+helper_btn: "💬 Information"
+donation_btn: "🥤 Buy Me A Coffee 🥤"
 
 donation_text: |
    *Are you interested in helping my creator with his efforts to keep me in active development? If yes, You're in the right place.* 
