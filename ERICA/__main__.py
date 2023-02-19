@@ -109,7 +109,7 @@ def send_help(chat_id, text, keyboard=None):
 
     if not keyboard:
         kb = paginate_modules(0, HELPABLE, "help")
-        kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='innexiahelp_')])
+        kb.append([InlineKeyboardButton(text='Back', callback_data='innexiahelp_')])
         keyboard = InlineKeyboardMarkup(kb)
     dispatcher.bot.send_message(
         chat_id=chat_id, text=text, parse_mode=ParseMode.MARKDOWN, reply_markup=keyboard
@@ -165,11 +165,11 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
-                                url='https://t.me/TheDeadlyBots',
+                                url='https://t.me/srkbotchat',
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/TheBotUpdates",
+                                url="https://t.me/SrkBots",
                             ),
                         ],
                         [
@@ -237,11 +237,11 @@ def start(update: Update, context: CallbackContext):  # sourcery no-metrics
                         [
                             InlineKeyboardButton(
                                 text=gs(chat.id, "support_chat_link_btn"),
-                                url='https://t.me/TheDeadlyBots',
+                                url='https://t.me/srkbotchat',
                             ),
                             InlineKeyboardButton(
                                 text=gs(chat.id, "updates_channel_link_btn"),
-                                url="https://t.me/TheBotUpdates",
+                                url="https://t.me/SrkBots",
                             ),
                         ],
                         [
@@ -335,9 +335,7 @@ def help_button(update, context):
                     + help_text
             )
             help_buttons.append(
-                [InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="help_back"),
-                 InlineKeyboardButton(text='ʜᴏᴍᴇ', callback_data='start_back')]
-            )
+                [InlineKeyboardButton(text="Back", callback_data="help_back")])
             query.message.edit_text(
                 text=text,
                 parse_mode=ParseMode.MARKDOWN,
@@ -347,7 +345,7 @@ def help_button(update, context):
         elif prev_match:
             curr_page = int(prev_match.group(1))
             kb = paginate_modules(curr_page - 1, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='innexiahelp_')])
+            kb.append([InlineKeyboardButton(text='Back', callback_data='innexiahelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -357,7 +355,7 @@ def help_button(update, context):
         elif next_match:
             next_page = int(next_match.group(1))
             kb = paginate_modules(next_page + 1, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='innexiahelp_')])
+            kb.append([InlineKeyboardButton(text='Back', callback_data='innexiahelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -366,7 +364,7 @@ def help_button(update, context):
 
         elif back_match:
             kb = paginate_modules(0, HELPABLE, "help")
-            kb.append([InlineKeyboardButton(text='ɢᴏ ʙᴀᴄᴋ', callback_data='innexiahelp_')])
+            kb.append([InlineKeyboardButton(text='Back', callback_data='innexiahelp_')])
             query.message.edit_text(
                 text=gs(chat.id, "pm_help_text"),
                 parse_mode=ParseMode.MARKDOWN,
@@ -401,15 +399,15 @@ def get_help(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
+                    InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
+                 ],
+                 [
                     InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
                     InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
                  ],
                  [
                     InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
                     InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://www.paypal.me/piroxpower"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
                  ],
                  [
                     InlineKeyboardButton(text="Cʟᴏꜱᴇ", callback_data="start_back"),
@@ -431,7 +429,7 @@ def get_help(update, context):
             chat.id,
             text,
             InlineKeyboardMarkup(
-                [[InlineKeyboardButton(text="ʙᴀᴄᴋ", callback_data="help_back")]]
+                [[InlineKeyboardButton(text="Back", callback_data="help_back")]]
             ),
         )
 
@@ -518,7 +516,7 @@ def settings_button(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="Gᴏ Bᴀᴄᴋ",
+                                text="Back",
                                 callback_data="stngs_back({})".format(chat_id),
                             )
                         ]
@@ -627,15 +625,15 @@ def innexia_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
+                    InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
+                 ],
+                 [
                     InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
                     InlineKeyboardButton(text="Aᴅᴠᴀɴᴄᴇᴅ🙋", callback_data="advance_"),
                  ],
                  [
                     InlineKeyboardButton(text="👩‍🎓 Exᴘᴇʀᴛꜱ", callback_data="expert_"),
                     InlineKeyboardButton(text="Dᴏɴᴀᴛɪᴏɴ 🎉", url="https://www.paypal.me/piroxpower"),
-                 ],
-                 [
-                    InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
                  ],
                  [
                     InlineKeyboardButton(text="Cʟᴏꜱᴇ", callback_data="start_back"),
@@ -665,7 +663,7 @@ def basic_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="innexiahelp_"),
+                    InlineKeyboardButton(text="Back", callback_data="innexiahelp_"),
                  ]
                 ]
             ),
@@ -692,7 +690,7 @@ def expert_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="innexiahelp_"),
+                    InlineKeyboardButton(text="Back", callback_data="innexiahelp_"),
                  ]
                 ]
             ),
@@ -708,7 +706,7 @@ def donate_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="start_back"),
+                    InlineKeyboardButton(text="Back", callback_data="start_back"),
                  ]
                 ]
             ),
@@ -735,7 +733,7 @@ def advance_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="innexiahelp_"),
+                    InlineKeyboardButton(text="Back", callback_data="innexiahelp_"),
                  ]
                 ]
             ),
@@ -798,7 +796,7 @@ def set_language(update: Update, _) -> None:
     keyb = list(paginate(keyb, 2))
     keyb.append(
         [
-            InlineKeyboardButton(text="ɢᴏ ʙᴀᴄᴋ", callback_data="start_back"),
+            InlineKeyboardButton(text="Back", callback_data="start_back"),
         ]
     )
     query.message.edit_text(msg_text, reply_markup=InlineKeyboardMarkup(keyb))
