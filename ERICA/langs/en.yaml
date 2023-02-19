@@ -2,7 +2,7 @@
 # Language name in their native
 language: "English (🇺🇲)"
 # name of people(s) who worked on this translation
-authors: "@Elric-xD"
+authors: "@notreallysrk"
 
 # languages
 curr_chat_lang: "Hey. Your current language is {}, select the one you want from the buttons below :)"
@@ -10,25 +10,15 @@ set_chat_lang: "Great, {} it is from now on!"
 
 
 pm_start_text: |
-   ʜɪɪ {},
-   ───────────────────────
-   ɪ ᴀᴍ ᴀɴ ɢʀᴏᴜᴘ ᴍᴀɴᴀɢᴇᴍᴇɴᴛ ʙᴏᴛ ᴡɪᴛʜ ꜱᴏᴍᴇ ꜰᴜɴ ᴇxᴛʀᴀꜱ ;)
+   👋🏻 Hi {}!
+   [Patricia](t.me/SrkBots) is *the most complete* Bot to help you *manage* your groups easily and *safely*!
    
-   ɪ ᴄᴀɴ ᴅᴏ ᴀ ᴠᴀʀɪᴇᴛʏ ᴏꜰ ᴛʜɪɴɢꜱ, ᴍᴏꜱᴛ ᴄᴏᴍᴍᴏɴ ᴏꜰ ᴇᴍ ᴀʀᴇ:
-   - ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ ᴡɪᴛʜ *ʙᴀɴ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ*.
-   - ɢʀᴇᴇᴛ ᴜꜱᴇʀꜱ ᴡɪᴛʜ ᴍᴇᴅɪᴀ + ᴛᴇxᴛ ᴀɴᴅ ʙᴜᴛᴛᴏɴꜱ, ᴡɪᴛʜ ᴘʀᴏᴘᴇʀ ꜰᴏʀᴍᴀᴛᴛɪɴɢ.
-   - ʀᴇꜱᴛʀɪᴄᴛ ᴜꜱᴇʀꜱ ᴡʜᴏ ꜰʟᴏᴏᴅ ʏᴏᴜʀ ᴄʜᴀᴛ ᴜꜱɪɴɢ ᴍʏ *ᴀɴᴛɪ-ꜰʟᴏᴏᴅ* ᴍᴏᴅᴜʟᴇ.
-   - *ᴡᴀʀɴ* ᴜꜱᴇʀꜱ ᴀᴄᴄᴏʀᴅɪɴɢ ᴛᴏ ᴛʜᴇ ᴏᴘᴛɪᴏɴꜱ ꜱᴇᴛ ᴀɴᴅ ʀᴇꜱᴛʀɪᴄᴛ ᴇᴍ ᴀᴄᴄᴏʀᴅɪɴɢʟʏ.
-   - ꜱᴀᴠᴇ ɴᴏᴛᴇꜱ ᴀɴᴅ ꜰɪʟᴛᴇʀꜱ ᴡɪᴛʜ ᴘʀᴏᴘᴇʀ ꜰᴏʀᴍᴀᴛᴛɪɴɢ ᴀɴᴅ ʀᴇᴘʟʏ ᴍᴀʀᴋᴜᴘ.
-   - ɪ ᴄᴀɴ ᴘʟᴀʏ ᴍᴜꜱɪᴄ ᴛᴏᴏ ɪɴ ᴜʀ ɢʀᴏᴜᴘꜱ
-   - ɪ ʜᴀᴠᴇ ᴍᴀɴʏ ꜰᴇᴀᴛᴜʀᴇꜱ ᴡʜɪᴄʜ ᴜ ʟɪᴋᴇ ᴛʜᴀᴛꜱ
-   - ᴛʀʏ /setlang ᴛᴏ ᴄʜᴀɴɢᴇ ᴛʜᴇ ʙᴏᴛ ʟᴀɴɢᴜᴀɢᴇ (ɴᴏᴛᴇ ᴄᴜʀʀᴇɴᴛʟʏ ɪꜱ ᴇɴɢʟɪꜱʜ ꜱᴜᴘᴘᴏʀᴛᴇᴅ)
+   👉🏻 *Add me in a Supergroup* and promote me as *Admin* to let me get in action!
    
-   ᴛʜᴇʀᴇꜱ ᴇᴠᴇɴ ᴍᴏʀᴇ! ᴛʜɪꜱ ɪꜱ ᴊᴜꜱᴛ ᴛʜᴇ ᴛɪᴘ ᴏꜰ ᴛʜᴇ ɪᴄᴇʙᴇʀɢ. ᴅᴏ ɴᴏᴛᴇ ɪ ɴᴇᴇᴅ
-   ᴛᴏ ʙᴇ ᴘʀᴏᴍᴏᴛᴇᴅ ᴡɪᴛʜ ᴘʀᴏᴘᴇʀ ᴀᴅᴍɪɴ ᴘᴇʀᴍɪꜱꜱɪᴏɴꜱ ᴛᴏ ꜰᴜɴᴄᴛɪᴏɴ ᴘʀᴏᴘᴇʀʟʏ. 
-   ᴇʟꜱᴇ ɪ ᴡᴏɴ'ᴛ ʙᴇ ᴀʙʟᴇ ᴛᴏ ꜰᴜɴᴄᴛɪᴏɴ ᴀꜱ ꜱᴀɪᴅ.
-   ───────────────────────
-   ᴄʟɪᴄᴋ ᴏɴ ʜᴇʟᴘ ᴛᴏ ʟᴇᴀʀɴ ᴍᴏʀᴇ!
+   *❓ WHICH ARE THE COMMANDS? ❓*
+
+   Press /help to see *all the commands* and how they work!
+   📃 Privacy policy
    
 grp_start_text: "ʜᴇʟʟᴏ, ɪɴɴᴇxɪᴀ ɪꜱ ᴀʟɪᴠᴇ"
 
