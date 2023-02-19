@@ -611,7 +611,7 @@ def innexia_about_callback(update, context):
     query = update.callback_query
     if query.data == "innexiahelp_":
         query.message.edit_text(
-            text="Welcome to the help menu!",
+            text="Hello, I'm Patricia, An amazing Telegram bot with amazing tools like logo Maker, songs, videos, group management tools, and more. Thank you. Need any help then join @SrkBots",
             parse_mode=ParseMode.MARKDOWN,
             disable_web_page_preview=True,
             reply_markup=InlineKeyboardMarkup(
