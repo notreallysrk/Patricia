@@ -34,16 +34,14 @@ helper_btn: "💬 Information"
 donation_btn: "🥤 Buy Me A Coffee 🥤"
 
 donation_text: |
-   *Are you interested in helping my creator with his efforts to keep me in active development? If yes, You're in the right place.* 
-   We emphasise the importance of needing funds to keep innexia under active development. Your donations in any amount of money to innexia's servers and other utilities will allow us to sustain the lifespan in the long term. We will use all of the donations to cover future expenses and upgrades of the servers costs. If you've got spare money to help us in this effort, Kindly do so and your donations can also motivate us keep bring on new features.
-   *You can help the development with donations via Paypal or Cryptocurrencies on following details*,
+   Since the maintenance costs for *Servers* must be paid monthly, this bot might stop functioning once *payments* are due. If you want to keep utilising the service, you can donate as little as you think you can. Every little bit counts. 😅
    
-   *PayPal*:
-   [Click](https://www.paypal.me/piroxpower)
-   *Razorpay*:
-   [Click](http://pages.razorpay.com/GODFATHERDONATIONS)
-   *Coinbase Send any Crypto*:
-   `anmoltiwary32@gmail.com`
+   Please select a *donation* choice from the list below.
+   [Paytm](http://m.p-y.tm/requestPayment?recipient=9973950227)
+   [PayPal](https://www.paypal.me/piroxpower)
+   UPI: `notreallysameer.famc@idfcbank`
+   
+   *You can also join @SrkBots and help in generating server fees* 😅
 pm_basic_text: |
    Base Commands
  
