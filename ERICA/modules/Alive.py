@@ -23,7 +23,7 @@ file4 = "https://telegra.ph/file/86a25345ea3b0dfe6cb45.jpg"
 file5 = "https://telegra.ph/file/d6c65813b5c8bbe1a4ec6.jpg"
 """ =======================Innexia====================== """
 
-BUTTON = [[Button.url("sᴜᴘᴘᴏʀᴛ", "https://t.me/TheDeadlyBots"), Button.url("ᴜᴘᴅᴀᴛᴇs", "https://t.me/TheBotUpdates")]]
+BUTTON = [[Button.url("Support", "https://t.me/srkbotchat"), Button.url("Updates", "https://t.me/SrkBots")]]
 
 
 START_TIME = datetime.utcnow()
@@ -54,11 +54,11 @@ async def hmm(yes):
     current_time = datetime.utcnow()
     uptime_sec = (current_time - START_TIME).total_seconds()
     uptime = await _human_time_duration(int(uptime_sec))
-    pm_caption = "** ♡ I,m Innexia **\n\n"
+    pm_caption = "** ♡ I,m Patricia **\n\n"
     pm_caption += f"**♡ My Uptime :** `{uptime}`\n\n"
     pm_caption += f"**♡ Telethon Version :** `{version.__version__}`\n\n"
-    pm_caption += "**♡ My Team :** [DeadlyBots](https://t.me/TheDeadlyBots)\n"
-    BUTTON = [[Button.url("Support", "https://t.me/TheDeadlyBots"), Button.url("Updates", "https://t.me/TheBotUpdates")]]
+    pm_caption += "**♡ My Team :** [TeamSrk](https://t.me/SrkBots)\n"
+    BUTTON = [[Button.url("Support", "https://t.me/srkbotchat"), Button.url("Updates", "https://t.me/SrkBots")]]
     on = await aasf.send_file(yes.chat_id, file=file1,caption=pm_caption, buttons=BUTTON)
     
 
