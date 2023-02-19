@@ -329,7 +329,7 @@ def help_button(update, context):
                 help_text = help_list
                 help_buttons = []
             text = (
-                    "ʜᴇʀᴇ ɪꜱ ᴛʜᴇ ɪɴꜰᴏ ᴀʙᴏᴜᴛ *{}* ᴍᴏᴅᴜʟᴇ:\n".format(
+                    "Here is the info about *{}* Module:\n".format(
                         HELPABLE[module].__mod_name__
                     )
                     + help_text
@@ -625,7 +625,7 @@ def innexia_about_callback(update, context):
             reply_markup=InlineKeyboardMarkup(
                 [
                  [
-                    InlineKeyboardButton(text="Fᴜʟʟ ᴄᴏᴍᴍᴀɴᴅꜱ👩‍🔧", callback_data="help_back"),
+                    InlineKeyboardButton(text="Fᴜʟʟ👩‍🔧", callback_data="help_back"),
                  ],
                  [
                     InlineKeyboardButton(text="💁Bᴀꜱɪᴄ", callback_data="basic_"),
