@@ -91,8 +91,6 @@ async def hmm(yes):
 
 
 
-__mod_name__ = "Alive"
-
 from ERICA.modules.language import gs
 
 def get_help(chat):
