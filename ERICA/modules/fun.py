@@ -173,8 +173,8 @@ def table(update: Update, context: CallbackContext):
 from ERICA.modules.language import gs
 
 
-def get_help(chat):
-    return gs(chat, "fun_help")
+#def get_help(chat):
+#    return gs(chat, "fun_help")
 
 
-__mod_name__ = "Fun"
+#__mod_name__ = "Fun"
