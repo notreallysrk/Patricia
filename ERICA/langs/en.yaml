@@ -458,9 +458,9 @@ night_help: |
        Note: Night Mode chats get Automatically closed at 12pm(IST)
          and Automatically openned at 6am(INDIAN STANDARD TIME ZONE) To Prevent Night Spams.
          ❂ `/nightmode`: on/off
-alive_help: |
-       Send Random Images Of innexia
-         ❂ `/alive`: Check innexia alive Or not
+# alive_help: |
+#       Send Random Images Of innexia
+#       ❂ `/alive`: Check innexia alive Or not
 group_help: |
        Advanced admin Commands/Tools (Special In innexia) 
          ❂ /adminlist : list of admins in the chat
