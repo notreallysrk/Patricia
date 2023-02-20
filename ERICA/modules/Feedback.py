@@ -115,7 +115,7 @@ async def feedback(e):
 
 from ERICA.modules.language import gs
 
-def get_help(chat):
-    return gs(chat, "feed_help")
+#def get_help(chat):
+ #   return gs(chat, "feed_help")
 
-__mod_name__ = "Feedback"
+#__mod_name__ = "Feedback"
