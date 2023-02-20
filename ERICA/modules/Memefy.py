@@ -142,8 +142,8 @@ async def drawText(image_path, text):
 
 from ERICA.modules.language import gs
 
-def get_help(chat):
-    return gs(chat, "memefy_help")
+#def get_help(chat):
+#    return gs(chat, "memefy_help")
 
 
-__mod_name__ = "Memefy"
+#__mod_name__ = "Memefy"
