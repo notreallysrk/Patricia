@@ -43,8 +43,8 @@ async def webss(client, message):
 
 from ERICA.modules.language import gs
 
-def get_help(chat):
-    return gs(chat, "meme_help")
+#def get_help(chat):
+ #   return gs(chat, "meme_help")
 
 
-__mod_name__ = "Memes"
+#__mod_name__ = "Memes"
