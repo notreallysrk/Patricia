@@ -6,11 +6,11 @@ from pyrogram import filters
 
 from ERICA.modules.language import gs
 
-def get_help(chat):
-    return gs(chat, "logo_help")
+#def get_help(chat):
+#    return gs(chat, "logo_help")
 
 
-__mod_name__ = "Logos"
+#__mod_name__ = "Logos"
 
 
 
