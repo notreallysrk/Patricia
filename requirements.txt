@@ -37,3 +37,4 @@ telegraph
 pymongo[srv]
 opencv-python-headless
 google_trans_new
+pydantic==1.*
