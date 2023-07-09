@@ -174,7 +174,7 @@ print("Userbot Error ! Have you added a STRING_SESSION in deploying??")
 
 pgram = Client("ZPyro", api_id=API_ID, api_hash=API_HASH, bot_token=TOKEN)
 MONGO_DB = "InnexiaBot"
-MONGO_DB_URL = "mongodb+srv://samy:sammyprom69@cluster0.qanltlk.mongodb.net/?retryWrites=true&w=majority"
+MONGO_DB_URL = "mongodb+srv://akboy:akboy@cluster0.xpvwt.mongodb.net/cluster0?retryWrites=true&w=majority"
 mongodb = MongoClient(MONGO_DB_URL, 27017)[MONGO_DB]
 motor = motor_asyncio.AsyncIOMotorClient(MONGO_DB_URL)
 db = motor[MONGO_DB]
