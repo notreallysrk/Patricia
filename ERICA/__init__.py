@@ -150,9 +150,9 @@ CF_API_KEY = KInit.CF_API_KEY
 BOT_API_FILE_URL = "https://api.telegram.org/file/bot"
 BOT_API_URL = "https://api.telegram.org/bot"
 STRING_SESSION = '1AZWarzcBuyhJ0JOX5RZBWGB0Ur5wh_s1c8G4cX24bdxRiKqqTuSsPSeKdTQMYZJMKx_kFEZu49cHmVUe4MnBmzOYcmWXUcXxxAfcWzAWZJwxnGV0cSzhtXZx4tKnu23krEY4s6ogjjelQfo7Gak05NGCg2df9vG1k_-PYW9744xgcXLoHNoPhURjyAqEndnUZN7Nliv1t8qkMjkwW84qnY_-RGIrOaTZOCRLGqWKrRIUDw1dOKtFhESuzns8hPBe1xgRxjW4tm07ai5ApXNzGvnzmglku9I9FTyzOUsSqn3aEJo1u6a8zx25ZkzdP5sT4QJ_jwPjdD20NLtpVSsATQKvTy6liTc='
-API_ID = '1714588'
-API_HASH = '78c27bf90c81f15a8af4aa0aeeadfc42'
-TOKEN = '1728730929:AAG_EynlteE7EcWTMaRkNkCrQ93eeFv3neI'
+API_ID = '27900685'
+API_HASH = 'b8a45fd76e16ccd4d764ab21c18f1413'
+TOKEN = '6378430420:AAHmtiaoQrjHhVJLsNmsn1Kk_3PxaOOA4Yw'
 WORKERS = 24
 # SpamWatch
 sw = KInit.init_sw()
